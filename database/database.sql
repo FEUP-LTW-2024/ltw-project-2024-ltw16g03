@@ -54,8 +54,8 @@ CREATE TABLE Transact
     BuyerID INTEGER NOT NULL,
     ItemID INTEGER NOT NULL,
     TransactionDate DATE,
-    CONSTRAINT PK_Transaction PRIMARY KEY (TransactionId),
     IsComplete INTEGER NOT NULL CHECK (IsComplete IN (0, 1)),
+    CONSTRAINT PK_Transaction PRIMARY KEY (TransactionId),
     FOREIGN KEY (SellerId) REFERENCES User (UserId)
         ON DELETE NO ACTION ON UPDATE NO ACTION,
     FOREIGN KEY (BuyerId) REFERENCES User (UserId)
@@ -159,7 +159,7 @@ INSERT INTO Item (ItemID, UserID, CategoryID, Brand, Model, Size, Condition, Des
 INSERT INTO Item (ItemID, UserID, CategoryID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (3, 3, 3, "Nike", "Air Force", "40.5", "New with tags", "Nike Air Force White, 40.5, New with tags", 100, "", 0);
 
 INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (1, 1, 3, 2, "2024-03-02", 0);
-INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (1, 2, 3, 1, "2024-03-02", 1);
+INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (2, 2, 3, 1, "2024-03-02", 1);
 
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (1, 3, 2, "Hi! Can I get a refund?", "2024-03-02 08:00:00");
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (2, 3, 1, "Hi! Can you send me more photos?", "2024-03-02 08:09:01");
