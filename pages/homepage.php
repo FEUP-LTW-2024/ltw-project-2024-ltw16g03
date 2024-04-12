@@ -17,22 +17,23 @@
             <form action="../actions/action_login.php" method="post" class="login">
                 <input type="email" name="email" placeholder="email">
                 <input type="password" name="password" placeholder="password">
+                <a href="../pages/register.php">Register</a>
                 <button type="submit">Login</button>
-            </form>                           
-        </header>
-        <main>
+            </form>  
             <nav class="buttons">
                 <a href="wishlist.php">
-                    <img src="../assets/wishlist.svg" alt="wishlist" height="100"/>
+                    <img src="../assets/wishlist.svg" alt="wishlist" height="50"/>
                 </a>
                 <a href="profile.php">
-                    <img src="../assets/profile.svg" alt="profile" height="100"/>
+                    <img src="../assets/profile.svg" alt="profile" height="50"/>
                 </a>
                 <a href="shopping_cart.php">
-                    <img src="../assets/cart.svg" alt="shopping cart" height="100"/>
+                    <img src="../assets/cart.svg" alt="shopping cart" height="50"/>
                 </a>
                 <a href="sell.php">Sell</a>
-            </nav>
+            </nav>                         
+        </header>
+        <main>
             <form class="search">
                 <input type="text" placeholder="Search here..."/>
                 <select>
@@ -45,39 +46,39 @@
             <section id="items">
                 <article>
                     <img src="https://picsum.photos/200?1">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
                     <img src="https://picsum.photos/200?2">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
                     <img src="https://picsum.photos/200?3">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
                     <img src="https://picsum.photos/200?4">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
                     <img src="https://picsum.photos/200?5">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
                     <img src="https://picsum.photos/200?6">
-                    <a href="../pages/itm?id=1">[ITEM NAME]</a>
-                    <p>Price: [ITEM PRICE]</p>
-                    <p>Size: [ITEM SIZE]</p>
+                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
+                    <h2>Price: [ITEM PRICE]</h2>
+                    <h2>Size: [ITEM SIZE]</h2>
                 </article>
             </section>
         </main>
