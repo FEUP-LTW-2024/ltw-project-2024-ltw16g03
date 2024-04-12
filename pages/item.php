@@ -9,7 +9,7 @@
     <body>
         <header>
             <a href="homepage.php"> 
-                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo" height="100"/>           
+                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
             <form action="../actions/action_login.php" method="post" class="login">
                 <input type="email" name="email" placeholder="email">

@@ -1,0 +1,100 @@
+body {
+    width: 60em;
+    margin: 1em auto;
+  
+    --background-color: #ffe8d6;
+    --main-color: #0a9396;
+}
+
+body > header {
+    display: grid;
+
+    grid-template-areas: "logo login"
+                       "nav nav";
+
+    padding: 1em;
+
+    background-color: var(--background-color);
+}
+
+body > header form {
+    display: grid;
+    grid-area: login;
+    grid-template-columns: auto auto;
+    gap: 1em;
+}
+
+body > header form input {
+    grid-column-end: span 2;
+}
+
+img.logo {
+    max-height: 100px;
+}
+
+nav.buttons {
+    grid-area: nav;
+
+    display: flex;
+    justify-content: space-around;
+
+    padding: 1em;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+main {
+    background-color: var(--background-color);
+  
+    margin: 1em 0;
+    padding: 1em;
+}
+
+main a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.search {
+    display: flex;
+    padding-bottom: 1em;
+    gap: 1em;
+}
+
+.search input {
+    width: 75%;
+    box-sizing: border-box;
+}
+
+.search select {
+    width: 25%;
+    box-sizing: border-box;
+}
+
+#items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+#items article a {
+    display: block;
+
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px #333;
+
+    font-size: 1.5em;
+
+    text-align: center;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer {
+    background-color: black;
+    padding: 1em;
+    color: white;
+}

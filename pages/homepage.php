@@ -12,7 +12,7 @@
     <body>
         <header>
             <a href="homepage.php"> 
-                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo" height="100"/>           
+                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
             <form action="../actions/action_login.php" method="post" class="login">
                 <input type="email" name="email" placeholder="email">
@@ -45,37 +45,37 @@
             </form>
             <section id="items">
                 <article>
-                    <img src="https://picsum.photos/200?1">
+                    <img src="https://picsum.photos/250?1">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
-                    <img src="https://picsum.photos/200?2">
+                    <img src="https://picsum.photos/250?2">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
-                    <img src="https://picsum.photos/200?3">
+                    <img src="https://picsum.photos/250?3">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
-                    <img src="https://picsum.photos/200?4">
+                    <img src="https://picsum.photos/250?4">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
-                    <img src="https://picsum.photos/200?5">
+                    <img src="https://picsum.photos/250?5">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
                 <article>
-                    <img src="https://picsum.photos/200?6">
+                    <img src="https://picsum.photos/250?6">
                     <a href="../pages/item.php?id=1">[ITEM NAME]</a>
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
