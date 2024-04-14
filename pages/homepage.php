@@ -14,13 +14,23 @@
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
-            <form action="../actions/action_login.php" method="post" class="login">
+            <div class="search-bar">
+                <div class="search">
+                    <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                    <input type="text" placeholder="Search here..."/>
+                    <button id="search-button"><img src="../assets/search.png" alt="search"></button>
+                </div>
+            </div> 
+            <!--<form action="../actions/action_login.php" method="post" class="login">
                 <input type="email" name="email" placeholder="email">
                 <input type="password" name="password" placeholder="password">
                 <a href="../pages/register.php">Register</a>
                 <button type="submit">Login</button>
-            </form>  
+            </form>-->
             <nav class="buttons">
+                <a href="homepage.php">Home</a>
+                <a href="sell.php">Sell</a>
+                <a> | </a>
                 <a href="wishlist.php">
                     <img src="../assets/wishlist.svg" alt="wishlist" height="50"/>
                 </a>
@@ -30,11 +40,10 @@
                 <a href="shopping_cart.php">
                     <img src="../assets/cart.svg" alt="shopping cart" height="50"/>
                 </a>
-                <a href="sell.php">Sell</a>
             </nav>                         
         </header>
         <main>
-            <form class="search">
+            <!--<form class="search">
                 <input type="text" placeholder="Search here..."/>
                 <select>
                     <option All Categories>All Categories</option>
@@ -42,7 +51,8 @@
                     <option value="Women">Women</option>
                     <option value="Men">Men</option>
                 </select>    
-            </form>
+            </form>-->
+            <!--
             <section id="items">
                 <article>
                     <img src="https://picsum.photos/250?1">
@@ -80,10 +90,10 @@
                     <h2>Price: [ITEM PRICE]</h2>
                     <h2>Size: [ITEM SIZE]</h2>
                 </article>
-            </section>
+            </section>-->
         </main>
         <footer>
-            Retro Club &copy; 2024
+            Copyright &copy; 2024 Retro Club. All rights reserved.
         </footer>    
     </body>
 </html>
