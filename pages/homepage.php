@@ -32,13 +32,13 @@
                 <a href="sell.php">Sell</a>
                 <a> | </a>
                 <a href="wishlist.php">
-                    <img src="../assets/wishlist.svg" alt="wishlist" height="50"/>
+                    <img src="../assets/wishlist.svg" alt="wishlist"/>
                 </a>
                 <a href="profile.php">
-                    <img src="../assets/profile.svg" alt="profile" height="50"/>
+                    <img src="../assets/profile.svg" alt="profile"/>
                 </a>
                 <a href="shopping_cart.php">
-                    <img src="../assets/cart.svg" alt="shopping cart" height="50"/>
+                    <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
             </nav>                         
         </header>
@@ -51,7 +51,38 @@
                     <li><a href="#">Home</a></li>
                 </ul>
             </nav>
-            <!--<form class="search">
+            <div class="big-image">
+                <img src="../assets/homepage_big.jpg" alt="homepage big">
+                <a class="slogan">READY TO UP-LIFT YOUR OUTFIT?</a>
+            </div>
+            <div class="categories-squares">
+                <a>SHOP NOW!</a>
+                <a>SHOP NOW!</a>
+                <a>SHOP NOW!</a>
+            </div>
+            <div class="items-homepage">
+                <div class="row">
+                    <a href="#" class="category-link">
+                        <img src="../assets/women.png" alt="women-geral">
+                        <span class="category-text">WOMEN</span>
+                    </a>
+                    <a href="#" class="category-link">
+                        <img src="../assets/men.png" alt="men-geral">
+                        <span class="category-text">MEN</span>
+                    </a>
+                </div>
+                <div class="row">
+                    <a href="#" class="category-link">
+                        <img src="../assets/kids.png" alt="kids-geral">
+                        <span class="category-text">KIDS</span>
+                    </a>
+                    <a href="#" class="category-link">
+                        <img src="../assets/home.png" alt="home-geral">
+                        <span class="category-text">HOME</span>
+                    </a>
+                </div>
+            </div>
+                <!--<form class="search">
                 <input type="text" placeholder="Search here..."/>
                 <select>
                     <option All Categories>All Categories</option>
