@@ -43,6 +43,14 @@
             </nav>                         
         </header>
         <main>
+            <nav class="categories">
+                <ul>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Kids</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </nav>
             <!--<form class="search">
                 <input type="text" placeholder="Search here..."/>
                 <select>

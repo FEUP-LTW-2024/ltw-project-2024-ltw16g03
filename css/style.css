@@ -5,6 +5,8 @@ body {
     font-family: 'Red Hat Mono';
     font-weight: 400;
     font-size: 20px; 
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -62,10 +64,14 @@ header {
 .buttons a:first-child {
     margin-right: 35px; 
     margin-left: 40px;
+    color: #000000;
+    text-decoration: none;
 }
 
 .buttons a:nth-child(2) {
     margin-right: 30px; 
+    color: #000000;
+    text-decoration: none;
 }
 
 .buttons a:nth-child(3) {
@@ -84,6 +90,40 @@ header {
     height: 20px;
 }
 
+.categories {
+    width: 100%;
+    background-color: #D7D0A5;
+    position: sticky;
+    z-index: 1000; 
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    transition: top 0.3s; 
+    text-align: left;
+}
+
+.categories ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories li {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.categories a {
+    text-decoration: none;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    margin-left: 45px;
+}
+
+.categories.hidden {
+    top: -50px;
+}
 
 /*
 body > header {
