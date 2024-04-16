@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Retro Club</title>
         <link rel="stylesheet" href="../css/style.css">
+        <script src="script.js" defer></script>
     </head>
-    <body>
+    <body onload="onload()">
         <header>
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
