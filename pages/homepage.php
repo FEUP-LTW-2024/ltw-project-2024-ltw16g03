@@ -46,7 +46,7 @@
                     <li><a href="#">Women</a></li>
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Kids</a></li>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#">House</a></li>
                 </ul>
             </nav>
 
@@ -56,9 +56,7 @@
             </section>
 
             <div class="categories-squares">
-                <a>SHOP NOW!</a>
-                <a>SHOP NOW!</a>
-                <a>SHOP NOW!</a>
+                <a class="moving-text">SHOP NOW! SHOP NOW! SHOP NOW! SHOP NOW!</a>
             </div>
 
             <div class="items-homepage">
@@ -79,7 +77,7 @@
                     </a>
                     <a href="#" class="category-link">
                         <img src="../assets/home.png" alt="home-geral">
-                        <span class="category-text">HOME</span>
+                        <span class="category-text">HOUSE</span>
                     </a>
                 </div>
             </div>

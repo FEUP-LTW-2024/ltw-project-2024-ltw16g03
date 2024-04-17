@@ -46,7 +46,7 @@
                     <input type="radio" name="CATEGORIES" value="Women">Women
                     <input type="radio" name="CATEGORIES" value="Men">Men
                     <input type="radio" name="CATEGORIES" value="Kids">Kids
-                    <input type="radio" name="CATEGORIES" value="Home">Home
+                    <input type="radio" name="CATEGORIES" value="House">House
                 </label>
 
                 <label for="SIZE">SIZE 
@@ -83,7 +83,7 @@
                     </a>
                     <a href="#" class="category-link">
                         <img src="../assets/home.png" alt="home-geral">
-                        <span class="category-text">HOME</span>
+                        <span class="category-text">HOUSE</span>
                     </a>
                 </div>
             </section> 
