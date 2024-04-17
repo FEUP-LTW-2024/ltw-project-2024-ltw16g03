@@ -237,13 +237,13 @@ button {
 /* Profile Page */
 
 .selling article {
-    overflow-x: 1fr;
+    overflow-x: auto;
     display: flex;
     gap: 2em;
 }
 
 .previous-orders article {
-    overflow-x: 1fr;
+    overflow-x: auto;
     display: flex;
     gap: 2em;
 }
@@ -251,7 +251,7 @@ button {
 .my-account {
     width: 10em;
     margin: auto;
-    & .my_account {
+    & .my-account {
         display: grid;
         grid-template-columns: [start] 1fr [middle] 1fr [end];
         grid-template-rows: [start] 1fr [end];
