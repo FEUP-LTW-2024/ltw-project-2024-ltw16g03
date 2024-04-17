@@ -12,13 +12,13 @@
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
-            <div class="search-bar">
-                <div class="search">
-                    <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
-                    <input type="text" placeholder="Search here..."/>
-                    <button id="search-button"><img src="../assets/search.png" alt="search"></button>
-                </div>
-            </div> 
+
+            <section class="search-bar">
+                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                <input type="text" placeholder="Search here..."/>
+                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
+            </section> 
+
             <nav class="buttons">
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
@@ -32,7 +32,7 @@
                 <a href="shopping_cart.php">
                     <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
-            </nav>                         
+            </nav>                          
         </header>
         <main class="categories">
             <div class="categories-squares">

@@ -12,24 +12,27 @@
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
-            <form action="../actions/action_login.php" method="post" class="login">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <a href="../pages/register.php">Register</a>
-                <button type="submit">Login</button>
-            </form>  
+
+            <section class="search-bar">
+                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                <input type="text" placeholder="Search here..."/>
+                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
+            </section> 
+
             <nav class="buttons">
+                <a href="homepage.php">Home</a>
+                <a href="sell.php">Sell</a>
+                <a> | </a>
                 <a href="wishlist.php">
-                    <img src="../assets/wishlist.svg" alt="wishlist" height="50"/>
+                    <img src="../assets/wishlist.svg" alt="wishlist"/>
                 </a>
                 <a href="profile.php">
-                    <img src="../assets/profile.svg" alt="profile" height="50"/>
+                    <img src="../assets/profile.svg" alt="profile"/>
                 </a>
                 <a href="shopping_cart.php">
-                    <img src="../assets/cart.svg" alt="shopping cart" height="50"/>
+                    <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
-                <a href="sell.php">Sell</a>
-            </nav>                         
+            </nav>                          
         </header>
         <main>
             <article>

@@ -17,19 +17,13 @@
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
-            <div class="search-bar">
-                <div class="search">
-                    <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
-                    <input type="text" placeholder="Search here..."/>
-                    <button id="search-button"><img src="../assets/search.png" alt="search"></button>
-                </div>
-            </div> 
-            <!--<form action="../actions/action_login.php" method="post" class="login">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <a href="../pages/register.php">Register</a>
-                <button type="submit">Login</button>
-            </form>-->
+
+            <section class="search-bar">
+                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                <input type="text" placeholder="Search here..."/>
+                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
+            </section> 
+
             <nav class="buttons">
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
@@ -48,21 +42,25 @@
         <main>
             <nav class="categories">
                 <ul>
+                    <li><a href="categories.php">All Categories</a></li>
                     <li><a href="#">Women</a></li>
                     <li><a href="#">Men</a></li>
                     <li><a href="#">Kids</a></li>
                     <li><a href="#">Home</a></li>
                 </ul>
             </nav>
-            <div class="big-image">
+
+            <section class="big-image">
                 <img src="../assets/homepage_big.jpg" alt="homepage big">
                 <a class="slogan">READY TO UP-LIFT YOUR OUTFIT?</a>
-            </div>
+            </section>
+
             <div class="categories-squares">
                 <a>SHOP NOW!</a>
                 <a>SHOP NOW!</a>
                 <a>SHOP NOW!</a>
             </div>
+
             <div class="items-homepage">
                 <div class="row">
                     <a href="#" class="category-link">
@@ -85,54 +83,7 @@
                     </a>
                 </div>
             </div>
-                <!--<form class="search">
-                <input type="text" placeholder="Search here..."/>
-                <select>
-                    <option All Categories>All Categories</option>
-                    <option value="Children">Children</option>
-                    <option value="Women">Women</option>
-                    <option value="Men">Men</option>
-                </select>    
-            </form>-->
-            <!--
-            <section id="items">
-                <article>
-                    <img src="https://picsum.photos/250?1">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-                <article>
-                    <img src="https://picsum.photos/250?2">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-                <article>
-                    <img src="https://picsum.photos/250?3">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-                <article>
-                    <img src="https://picsum.photos/250?4">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-                <article>
-                    <img src="https://picsum.photos/250?5">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-                <article>
-                    <img src="https://picsum.photos/250?6">
-                    <a href="../pages/item.php?id=1">[ITEM NAME]</a>
-                    <h2>Price: [ITEM PRICE]</h2>
-                    <h2>Size: [ITEM SIZE]</h2>
-                </article>
-            </section>-->
+
         </main>
         <footer>
             Copyright &copy; 2024 Retro Club. All rights reserved.
