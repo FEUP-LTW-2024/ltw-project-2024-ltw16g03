@@ -10,9 +10,9 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="script.js" defer></script>
     </head>
-    <body onload="onload()">
+    <body onload="detectOSdarkmode()">
         <header>
-            <button class="container_btn" onclick="darkmode()">DARK MODE</button>
+            <button class="container_btn" onclick="changedarkmode()">DARK MODE</button>
 
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           

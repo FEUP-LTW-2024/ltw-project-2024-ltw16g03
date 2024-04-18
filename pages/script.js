@@ -1,12 +1,12 @@
+
 localStorage.setItem('darkmode', window.matchMedia("(prefers-color-scheme: dark)").matches);
 const element = document.body;
 element.classList.toggle('dark-mode', window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-function darkmode() {
+function changedarkmode() {
     const wasDarkmode = localStorage.getItem('darkmode') === 'true';
     localStorage.setItem('darkmode', !wasDarkmode);
-    const element = document.body;
-    element.classList.toggle('dark-mode', !wasDarkmode);
+    document.body.classList.toggle('dark-mode', !wasDarkmode); 
 }
 
 function onload() {
