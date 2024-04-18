@@ -74,26 +74,22 @@
                 <input type="range" name="price_range" min="0" max="100" step="1">
 
             </aside>
-            <section class="items-homepage">
-                <div class="row">
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/men.png" alt="men-geral">
-                        <span class="category-text">MEN</span>
-                    </a>
-                </div>
-                <div class="row">
-                    <a href="#" class="category-link">
-                        <img src="../assets/kids.png" alt="kids-geral">
-                        <span class="category-text">KIDS</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/home.png" alt="home-geral">
-                        <span class="category-text">HOUSE</span>
-                    </a>
+            <section class="items-display">
+                <div class="item">
+                    <div class="item-info">
+                        <a href="item.php">
+                            <img src="../assets/women.png" alt="item image">
+                        </a>
+                        <p class="price">10.99 $</p>
+                        <p class="brand">H&M</p>
+                        <p class="size">M</p>
+                    </div>
+                    <div class="item-actions">
+                        <a href="wishlist.php">
+                            <img src="../assets/wishlist.svg" alt="wishlist"/>
+                        </a>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </div>
                 </div>
             </section> 
         </main>

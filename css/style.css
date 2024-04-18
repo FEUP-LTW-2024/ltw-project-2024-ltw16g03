@@ -465,6 +465,20 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer; 
 }
 
+.item {
+    border: 1px solid black;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+.item-info a {
+    margin-bottom: 10px; 
+}
+
+
+
 /* Wishlist */
 
 .main-wishlist {
