@@ -39,6 +39,7 @@
             </div>
         <main class="categories_page">
             <aside class="filters">
+                
                 <h2>FILTERS</h2>
 
                 <h3>CATEGORIES</h3>
@@ -69,9 +70,9 @@
                     <label for="white" class="color-button"><input type="radio" id="white" name="color" value="white" hidden><span class="color-swatch white"></span></label>
                 </form>
 
-                <label for="PRICE">PRICE
-                    <p name="PRICE">20</p>
-                </label>
+                <h3>PRICE</h3>
+                <input type="range" name="price_range" min="0" max="100" step="1">
+
             </aside>
             <section class="items-homepage">
                 <div class="row">

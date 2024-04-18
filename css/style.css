@@ -332,6 +332,7 @@ footer {
 .categories_page {
     display: flex;
     justify-content: space-between;
+    background-color: var(--primary-color);
 }
 
 .filters {
@@ -349,8 +350,8 @@ footer {
 }
 
 .filters label {
-    display: block; /* Display each label on a new line */
-    margin-bottom: 5px; /* Add some space between each label */
+    display: block; 
+    margin-bottom: 5px; 
 }
 
 form {
@@ -408,7 +409,7 @@ form {
 }
 
 .brown {
-    background-color: brown;
+    background-color: rgb(132, 61, 39);
 }
 
 .gray {
@@ -421,4 +422,33 @@ form {
 
 .white {
     background-color: white;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 10px; 
+    background-color: white;
+    border-radius: 5px; 
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; 
+    height: 20px; 
+    background-color: #68C7C1; 
+    border-radius: 50%; 
+    cursor: pointer; 
+}
+
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px; 
+    height: 20px; 
+    background-color: #68C7C1; 
+    border: none; 
+    border-radius: 50%; 
+    cursor: pointer; 
 }
