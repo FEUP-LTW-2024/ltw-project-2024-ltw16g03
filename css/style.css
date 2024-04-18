@@ -193,12 +193,14 @@ footer {
     justify-content: space-around;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .categories-squares a {
-    display: absolute;
     white-space: nowrap;
     animation: moveRight 10s linear infinite;
+    display: absolute;
+    display: inline-block;
 }
 
 .moving-text {
@@ -324,4 +326,100 @@ footer {
     .description {
         grid-row: 4 / 8;
     }
+}
+
+/* Categories */
+
+.categories_page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters {
+    width: 200px; 
+    padding: 1em;
+}
+
+.filters h2 {
+    font-size: 30px;
+}
+
+.filters h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.filters label {
+    display: block; /* Display each label on a new line */
+    margin-bottom: 5px; /* Add some space between each label */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-button {
+    margin-bottom: 10px;
+    padding-left: 0.2em;
+}
+
+.color-button input[type="radio"] {
+    display: none;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.color-button input[type="radio"]:checked + .color-swatch {
+    border-width: 2px;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.brown {
+    background-color: brown;
+}
+
+.gray {
+    background-color: gray;
+}
+
+.black {
+    background-color: black;
+}
+
+.white {
+    background-color: white;
 }

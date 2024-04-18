@@ -34,32 +34,40 @@
                 </a>
             </nav>                          
         </header>
-        <main class="categories">
-            <div class="categories-squares">
-                <a>SHOP NOW!</a>
-                <a>SHOP NOW!</a>
-                <a>SHOP NOW!</a>
+        <div class="categories-squares">
+                <a class="moving-text">SHOP NOW! SHOP NOW! SHOP NOW! SHOP NOW!</a>
             </div>
+        <main class="categories_page">
             <aside class="filters">
                 <h2>FILTERS</h2>
-                <label for="CATEGORIES">CATEGORIES
-                    <input type="radio" name="CATEGORIES" value="Women">Women
-                    <input type="radio" name="CATEGORIES" value="Men">Men
-                    <input type="radio" name="CATEGORIES" value="Kids">Kids
-                    <input type="radio" name="CATEGORIES" value="House">House
-                </label>
 
-                <label for="SIZE">SIZE 
-                    <input type="radio" name="SIZE" value="XL">XL
-                    <input type="radio" name="SIZE" value="L">L
-                    <input type="radio" name="SIZE" value="M">M
-                    <input type="radio" name="SIZE" value="S">S
-                    <input type="radio" name="SIZE" value="XS">XS
-                </label>
+                <h3>CATEGORIES</h3>
+                <label for="women"><input type="radio" name="CATEGORIES" value="Women">Women</label>
+                <label for="men"><input type="radio" name="CATEGORIES" value="Men">Men</label>
+                <label for="kids"><input type="radio" name="CATEGORIES" value="Kids">Kids</label>
+                <label for="house"><input type="radio" name="CATEGORIES" value="House">House</label>
 
-                <label for="COLOUR">COLOUR
-                    <input type="radio" name="COLOUR" value="None">None
-                </label>
+                <h3>SIZE</h3>
+                <label for="xl"><input type="radio" name="SIZE" value="XL">XL</label>
+                <label for="l"><input type="radio" name="SIZE" value="L">L</label>
+                <label for="m"><input type="radio" name="SIZE" value="M">M</label>
+                <label for="s"><input type="radio" name="SIZE" value="S">S</label>
+                <label for="xs"><input type="radio" name="SIZE" value="XS">XS</label>
+
+                <h3>COLOUR</h3>
+                <form>
+                    <label for="red" class="color-button"><input type="radio" id="red" name="color" value="red" hidden><span class="color-swatch red"></span></label>
+                    <label for="yellow" class="color-button"><input type="radio" id="yellow" name="color" value="yellow" hidden><span class="color-swatch yellow"></span></label>
+                    <label for="blue" class="color-button"><input type="radio" id="blue" name="color" value="blue" hidden><span class="color-swatch blue"></span></label>
+                    <label for="green" class="color-button"><input type="radio" id="green" name="color" value="green" hidden><span class="color-swatch green"></span></label>
+                    <label for="orange" class="color-button"><input type="radio" id="orange" name="color" value="orange" hidden><span class="color-swatch orange"></span></label>
+                    <label for="purple" class="color-button"><input type="radio" id="purple" name="color" value="purple" hidden><span class="color-swatch purple"></span></label>
+                    <label for="pink" class="color-button"><input type="radio" id="pink" name="color" value="pink" hidden><span class="color-swatch pink"></span></label>
+                    <label for="brown" class="color-button"><input type="radio" id="brown" name="color" value="brown" hidden><span class="color-swatch brown"></span></label>
+                    <label for="gray" class="color-button"><input type="radio" id="gray" name="color" value="gray" hidden><span class="color-swatch gray"></span></label>
+                    <label for="black" class="color-button"><input type="radio" id="black" name="color" value="black" hidden><span class="color-swatch black"></span></label>
+                    <label for="white" class="color-button"><input type="radio" id="white" name="color" value="white" hidden><span class="color-swatch white"></span></label>
+                </form>
 
                 <label for="PRICE">PRICE
                     <p name="PRICE">20</p>
