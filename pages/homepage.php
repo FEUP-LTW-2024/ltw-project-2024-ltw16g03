@@ -1,5 +1,4 @@
-<?php // ATENÇÃO, EU DEFINI O TAMANHO DAS IMAGENS DIRETAMENTE NO HTML, 
-      // EU N SEI SE ISTO N SERIA UMA QUESTÃO DE DESIGN E PORTANTO PROVAVELMENTE É PARA DEFINIR NO CSS ?>
+<?php?>
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -10,10 +9,8 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="script.js" defer></script>
     </head>
-    <body onload="detectOSdarkmode()">
+    <body>
         <header>
-            <button class="container_btn" onclick="changedarkmode()">DARK MODE</button>
-
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>

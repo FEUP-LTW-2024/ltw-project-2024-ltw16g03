@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="script.js" defer></script>
     </head>
-    <body onload="onload()">
+    <body>
         <header>
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
