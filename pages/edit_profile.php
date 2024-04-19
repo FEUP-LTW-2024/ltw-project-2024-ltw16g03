@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="script.js" defer></script>
     </head>
-    <body onload="onload()">
+    <body>
     <header>
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
@@ -43,8 +43,8 @@
                 <input type="password" name="password" placeholder="password">
                 <input type="password" name="password" placeholder="confirm password">
             <form>
-            <button formaction="register.php" formmethod="post" type="submit">
-                SIGN UP 
+            <button formaction="profile.php" formmethod="post" type="submit">
+                SAVE 
             </button>
             </form>
             </section> 
