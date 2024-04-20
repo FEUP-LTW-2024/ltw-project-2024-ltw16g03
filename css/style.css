@@ -212,6 +212,7 @@ footer {
     padding: 1.5em 3.5em;
     gap: 3em;
     & a {
+        justify-self: center;
         display: grid;
         align-items: center;
         justify-items: center;
@@ -237,7 +238,7 @@ footer {
     font-style: italic;
 }
 
-.category-link img:hover {
+.category-link:hover img {
     border: 2px solid black; 
 }
 
