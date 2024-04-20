@@ -13,9 +13,10 @@ html:not(.dark-mode) {
     --tertiary-color: #D2A24C;
   }
 
-/* codigo generalizado */
+/* Codigo Generalizado */
 
 body {
+    background-color: var(--primary-color);
     font-family: 'Red Hat Mono';
     font-weight: 400;
     font-size: 20px; 
@@ -23,8 +24,24 @@ body {
     padding: 0;
 }
 
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+button {
+    background-color: #68C7C1;
+    border-color: black;
+    box-shadow: 1px 1px 2px black;
+}
+
+button.add-to-cart {
+    background-color: var(--tertiary-color);
+    border-color: black;
+    box-shadow: 1px 1px 2px black;
+}
+
 body > header {
-    background-color: var(--primary-color);
     display: grid;
     grid-template-areas: "logo search buttons"
                          "categories categories categories";
@@ -41,18 +58,6 @@ header.classic {
         margin: 0 0 0.5em 0;
         font-weight: normal;
     }
-}
-
-button {
-    background-color: #68C7C1;
-    border-color: black;
-    box-shadow: 1px 1px 2px black;
-}
-
-button.add-to-cart {
-    background-color: var(--tertiary-color);
-    border-color: black;
-    box-shadow: 1px 1px 2px black;
 }
 
 footer {
@@ -138,9 +143,6 @@ footer {
     background-color: var(--secondary-color);
     border-top: 2px solid #000000;
     border-bottom: 2px solid #000000;
-    /* position: sticky;
-    z-index: 1000;
-    transition: top 0.3s; */
 }
 
 .categories ul {
@@ -152,58 +154,48 @@ footer {
 .categories li {
     display: inline-block;
     padding: 5px 25px 5px 45px;
-}
-
-.categories a {
-    text-decoration: none;
-    font-weight: 400;
-    color: #000000;
-    font-size: 16px;
+    & a {
+        font-size: 16px;
+    }
 }
 
 /* Home Page */
+
+/* Banner */
 
 .big-image {
     display: flex;
     background-color: #000000;
     justify-content: flex-start;
     align-items: center;
-    justify-content: left;
 }
 
 .slogan {
+    color: #ECE6C2; 
+    padding: 0 1.5em 0em 2em;
     font-style: italic;
     font-weight: 500;
     font-size: 4.5em; 
     line-height: 1.3;
-    color: #ECE6C2; 
-    text-decoration: none; 
-    padding: 0 1.5em 0em 2em;
     width: 10em;
 }
 
+/* Scrolling Text */
+
 .categories-squares {
-    background-color: var(--primary-color);
     border-top: 2px solid #000000;
     border-bottom: 2px solid #000000;
-    font-size: 70px;
-    font-weight: 400;
-    color: #68C7C1;
-    display: flex;
-    position: relative;
     overflow: hidden;
-    z-index: 1;
 }
 
 .categories-squares a {
+    display: inline-block;
+    font-size: 70px;
+    font-weight: 400;
+    width: 100%;
+    color: #68C7C1;
     white-space: nowrap;
     animation: moveRight 10s linear infinite;
-    display: absolute;
-    display: inline-block;
-}
-
-.moving-text {
-    display: inline-block;
 }
 
 @keyframes moveRight {
@@ -211,51 +203,42 @@ footer {
     100% { transform: translateX(-100%); }
 }
 
+/* Category Boxes */
+
 .items-homepage {
-    display: flex; 
-    flex-direction: column; 
-    background-color: var(--primary-color);
-}
-
-.row {
-    display: flex; 
-    margin: 30px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.row a {
-    flex-basis: calc(50% - 10px); 
-    text-align: center; 
-}
-
-.row a img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
-}
-
-.category-link {
-    position: relative;
-    display: inline-block;
-    transition: border-color 0.3s ease;
-}
-
-.category-link:hover img {
-    border: 2px solid black; 
+    display: grid; 
+    grid-template-areas: "Women Men"
+                         "Children Home";
+    padding: 1.5em 3.5em;
+    gap: 3em;
+    & a {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        & * {
+            grid-column-start: 1;
+            grid-row-start: 1;
+        }
+        & img {
+            box-sizing: border-box;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+        }
+    }
 }
 
 .category-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 5px 10px;
     font-weight: 400;
     color:#68C7C1;
     font-size: 30px;
     font-style: italic;
+}
+
+.category-link img:hover {
+    border: 2px solid black; 
 }
 
 /* Profile Page */
