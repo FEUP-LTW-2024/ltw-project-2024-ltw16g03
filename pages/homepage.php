@@ -1,5 +1,3 @@
-<?php?>
-
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
@@ -24,7 +22,6 @@
             <nav class="buttons">
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
-                <a> | </a>
                 <a href="wishlist.php">
                     <img src="../assets/wishlist.svg" alt="wishlist"/>
                 </a>
@@ -34,9 +31,8 @@
                 <a href="shopping_cart.php">
                     <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
-            </nav>                         
-        </header>
-        <main>
+            </nav>
+            
             <nav class="categories">
                 <ul>
                     <li><a href="categories.php">All Categories</a></li>
@@ -46,7 +42,8 @@
                     <li><a href="#">House</a></li>
                 </ul>
             </nav>
-
+        </header>
+        <main>
             <section class="big-image">
                 <img src="../assets/homepage_big.jpg" alt="homepage big">
                 <a class="slogan">READY TO UP-LIFT YOUR OUTFIT?</a>

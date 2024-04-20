@@ -22,7 +22,6 @@
             <nav class="buttons">
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
-                <a> | </a>
                 <a href="wishlist.php">
                     <img src="../assets/wishlist.svg" alt="wishlist"/>
                 </a>
@@ -32,7 +31,17 @@
                 <a href="shopping_cart.php">
                     <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
-            </nav>                          
+            </nav>
+            
+            <nav class="categories">
+                <ul>
+                    <li><a href="categories.php">All Categories</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Kids</a></li>
+                    <li><a href="#">House</a></li>
+                </ul>
+            </nav>
         </header>
         <main>
             <section class="register-inputs">
