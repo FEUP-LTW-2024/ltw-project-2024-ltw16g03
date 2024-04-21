@@ -44,96 +44,139 @@
             </nav>
         </header>
         <div class="categories-squares">
-                <a class="moving-text">SHOP NOW! SHOP NOW! SHOP NOW! SHOP NOW!</a>
-            </div>
-        <main class="categories_page">
+            <a class="moving-text">SHOP NOW! SHOP NOW! SHOP NOW! SHOP NOW!</a>
+        </div>
+        <main id="categories_page">
             <aside class="filters">
-                
-                <h2>FILTERS</h2>
-
-                <h3>CATEGORIES</h3>
-                <label for="women"><input type="radio" name="CATEGORIES" value="Women">Women</label>
-                <label for="men"><input type="radio" name="CATEGORIES" value="Men">Men</label>
-                <label for="kids"><input type="radio" name="CATEGORIES" value="Kids">Kids</label>
-                <label for="house"><input type="radio" name="CATEGORIES" value="House">House</label>
-
-                <h3>SIZE</h3>
-                <label for="xl"><input type="radio" name="SIZE" value="XL">XL</label>
-                <label for="l"><input type="radio" name="SIZE" value="L">L</label>
-                <label for="m"><input type="radio" name="SIZE" value="M">M</label>
-                <label for="s"><input type="radio" name="SIZE" value="S">S</label>
-                <label for="xs"><input type="radio" name="SIZE" value="XS">XS</label>
-
-                <h3>COLOUR</h3>
                 <form>
-                    <label for="red" class="color-button"><input type="radio" id="red" name="color" value="red" hidden><span class="color-swatch red"></span></label>
-                    <label for="yellow" class="color-button"><input type="radio" id="yellow" name="color" value="yellow" hidden><span class="color-swatch yellow"></span></label>
-                    <label for="blue" class="color-button"><input type="radio" id="blue" name="color" value="blue" hidden><span class="color-swatch blue"></span></label>
-                    <label for="green" class="color-button"><input type="radio" id="green" name="color" value="green" hidden><span class="color-swatch green"></span></label>
-                    <label for="orange" class="color-button"><input type="radio" id="orange" name="color" value="orange" hidden><span class="color-swatch orange"></span></label>
-                    <label for="purple" class="color-button"><input type="radio" id="purple" name="color" value="purple" hidden><span class="color-swatch purple"></span></label>
-                    <label for="pink" class="color-button"><input type="radio" id="pink" name="color" value="pink" hidden><span class="color-swatch pink"></span></label>
-                    <label for="brown" class="color-button"><input type="radio" id="brown" name="color" value="brown" hidden><span class="color-swatch brown"></span></label>
-                    <label for="gray" class="color-button"><input type="radio" id="gray" name="color" value="gray" hidden><span class="color-swatch gray"></span></label>
-                    <label for="black" class="color-button"><input type="radio" id="black" name="color" value="black" hidden><span class="color-swatch black"></span></label>
-                    <label for="white" class="color-button"><input type="radio" id="white" name="color" value="white" hidden><span class="color-swatch white"></span></label>
+                    <h1>FILTERS</h1>
+
+                    <h2>CATEGORIES</h2>
+                    <label><input type="checkbox" name="CATEGORIES" value="Women">Women</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="Men">Men</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="Kids">Kids</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="House">House</label>
+
+                    <h2>SIZE</h2>
+                    <label><input type="checkbox" name="SIZE" value="XL">XL</label>
+                    <label><input type="checkbox" name="SIZE" value="L">L</label>
+                    <label><input type="checkbox" name="SIZE" value="M">M</label>
+                    <label><input type="checkbox" name="SIZE" value="S">S</label>
+                    <label><input type="checkbox" name="SIZE" value="XS">XS</label>
+
+                    <h2>COLOUR</h2>
+                    <input type="checkbox" id="red" name="color" value="red" hidden>
+                    <label class="color-swatch red" for="red"></label>
+                    <input type="checkbox" id="yellow" name="color" value="yellow" hidden>
+                    <label class="color-swatch yellow" for="yellow"></label>
+                    <input type="checkbox" id="blue" name="color" value="blue" hidden>
+                    <label class="color-swatch blue" for="blue"></label>
+                    <input type="checkbox" id="green" name="color" value="green" hidden>
+                    <label class="color-swatch green" for="green"></label>
+                    <input type="checkbox" id="orange" name="color" value="orange" hidden>
+                    <label class="color-swatch orange" for="orange"></label>
+                    <input type="checkbox" id="purple" name="color" value="purple" hidden>
+                    <label class="color-swatch purple" for="purple"></label>
+                    <input type="checkbox" id="pink" name="color" value="pink" hidden>
+                    <label class="color-swatch pink" for="pink"></label>
+                    <input type="checkbox" id="brown" name="color" value="brown" hidden>
+                    <label class="color-swatch brown" for="brown"></label>
+                    <input type="checkbox" id="gray" name="color" value="gray" hidden>
+                    <label class="color-swatch gray" for="gray"></label>
+                    <input type="checkbox" id="black" name="color" value="black" hidden>
+                    <label class="color-swatch black" for="black"></label>
+                    <input type="checkbox" id="white" name="color" value="white" hidden>
+                    <label class="color-swatch white" for="white"></label>
+
+                    <h2>PRICE</h2>
+                    <input type="range" name="price_range" min="0" max="100" step="1">
                 </form>
-
-                <h3>PRICE</h3>
-                <input type="range" name="price_range" min="0" max="100" step="1">
-
             </aside>
             <section class="main-items">
-                <div class = "item">
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/500" alt="" height = "200"/></a>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                </div>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
+                        <p>10.00 $</p>
+                        <p>H&M</p>
+                        <p>XS</p>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
             </section>
         </main>
         <footer>
