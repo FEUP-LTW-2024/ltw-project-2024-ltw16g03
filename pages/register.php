@@ -44,20 +44,20 @@
             </nav>
         </header>
         <main>
-            <section class="register-inputs">
-                <img src="https://picsum.photos/500" alt="template" height = "100"/>
-                <input type="text" name="text" placeholder="name">
-                <input type="email" name="email" placeholder="email">
-                <input type="text" name="text" placeholder="username">
-                <input type="password" name="password" placeholder="password">
-                <input type="password" name="password" placeholder="confirm password">
-            <form>
-            <button formaction="register.php" formmethod="post" type="submit">
-                SAVE CHANGES 
-            </button>
-            </form>
-            </section> 
-            </main>
+            <form class="register_inputs">  
+                <img class="profile_picture" src="" alt="" height = "100"/>
+                <section class="input_fields">
+                    <input class="input_info" type="text" name="text" placeholder="name">
+                    <input class="input_info" type="email" name="email" placeholder="email">
+                    <input class="input_info" type="text" name="text" placeholder="username">
+                    <input class="input_info" type="password" name="password" placeholder="password">
+                    <input class="input_info" type="password" name="password" placeholder="confirm password">
+                </section>
+                <button formaction="register.php" formmethod="post" type="submit">
+                    SAVE CHANGES 
+                </button>
+            </form>    
+        </main>
         <footer>
             Copyright &copy; 2024 Retro Club. All rights reserved.
         </footer>    
