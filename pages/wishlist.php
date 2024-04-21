@@ -14,59 +14,93 @@
             </a>
             <h1>WISHLIST</h1>                       
         </header>
-        <main class="main-wishlist">
+        <main id="main-wishlist">
             <h2>6 item(s)</h2>
             <section class="main-items">
-                <div class = "item">
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/500" alt="" height = "200"/></a>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                    <article>
-                        <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
                         <p>10.00 $</p>
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
                         <p>H&M</p>
-                        <button class="add-to-cart">ADD TO CART</button>
                         <p>XS</p>
-                    </article>
-                </div>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
+                <article class="display_item">
+                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
+                    <section class="item_info">
+                        <p>10.00 $</p>
+                        <p>H&M</p>
+                        <p>XS</p>
+                    </section>
+                    <section class="item_buttons">
+                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                        <button class="add-to-cart">ADD TO CART</button>
+                    </section>
+                </article>
             </section>
         </main>
         <footer>
