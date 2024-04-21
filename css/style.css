@@ -551,13 +551,14 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-/* Wishlist Empty */
+/* Wishlist/Cart Empty */
 
 .empty {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-bottom: 5em;
+    gap: 1em;
     & img {
         width: 20em;
         height: auto;
@@ -567,6 +568,27 @@ input[type="range"]::-moz-range-thumb {
         font-weight: bold;
     }
     & .description {
-        font-size: 0.75em;;
+        font-size: 0.75em;
+        text-align: center;
+        width: 25%;
+    }
+    & button {
+        margin: 0;
+    }
+}
+
+/* Shopping Cart Empty */
+
+.cart {
+    & a:first-of-type button {
+        background-color: #CC6849;
+    }
+    & .empty_buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        & button {
+            width: 100%;
+        }
     }
 }

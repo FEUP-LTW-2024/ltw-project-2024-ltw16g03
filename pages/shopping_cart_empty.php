@@ -12,13 +12,16 @@
             <a href="homepage.php"> 
                 <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
             </a>
-            <h1>WISHLIST</h1>                       
+            <h1>CART</h1>                       
         </header>
-        <main class="empty">
+        <main class="empty cart">
             <img src="../assets/sad_disco_ball.png" alt="disco ball"/>           
-            <p>YOUR WISHLIST IS EMPTY</p>
+            <p>YOUR CART IS EMPTY</p>
             <p class="description">See if you have any products in your cart or take a look at our new-in items.</p>
-            <a href="categories.php"><button>SHOP NOW!</button></a>
+            <section class="empty_buttons">
+                <a href="categories.php"><button>WISHLIST</button></a>
+                <a href="categories.php"><button>SHOP NOW!</button></a>
+            </section>
         </main>
         <footer>
             Copyright &copy; 2024 Retro Club. All rights reserved.

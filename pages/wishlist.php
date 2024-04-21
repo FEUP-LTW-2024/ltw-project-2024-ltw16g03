@@ -89,18 +89,6 @@
                         <button class="add-to-cart">ADD TO CART</button>
                     </section>
                 </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
             </section>
         </main>
         <footer>
