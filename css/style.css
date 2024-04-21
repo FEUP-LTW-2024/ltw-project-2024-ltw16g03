@@ -342,9 +342,9 @@ footer {
     }
 }
 
-/* Register Page */
+/* Register/Edit Page */
 
-.register_inputs {
+.register_inputs, .edit_profile_inputs {
     display: flex;
     align-items: center;
     gap: 1em;

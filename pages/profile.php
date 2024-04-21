@@ -47,7 +47,7 @@
             <section class="my-account">
                 <h1>MY ACCOUNT</h1>
                 <section class="secondary_info">
-                    <img class="profile_picture" src="https://picsum.photos/500" alt="A image representative of the profile" height = "150"/>
+                    <img class="profile_picture" src="https://picsum.photos/500" alt="A image representative of the profile"/>
                     <a href="edit_profile.php">Edit Profile</a>
                     <a href="">My Sellings</a>
                 </section>

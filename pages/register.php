@@ -45,7 +45,7 @@
         </header>
         <main>
             <form class="register_inputs">  
-                <img class="profile_picture" src="" alt="" height = "100"/>
+                <img class="profile_picture" src="" alt=""/>
                 <section class="input_fields">
                     <input class="input_info" type="text" name="text" placeholder="name">
                     <input class="input_info" type="email" name="email" placeholder="email">
@@ -54,7 +54,7 @@
                     <input class="input_info" type="password" name="password" placeholder="confirm password">
                 </section>
                 <button formaction="register.php" formmethod="post" type="submit">
-                    SAVE CHANGES 
+                    SIGN UP
                 </button>
             </form>    
         </main>
