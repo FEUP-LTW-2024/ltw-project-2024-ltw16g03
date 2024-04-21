@@ -33,6 +33,11 @@ input {
     cursor: pointer;
 }
 
+mark {
+    background-color: transparent;
+    color: #CC6849;
+}
+
 button {
     background-color: #68C7C1;
     border-color: black;
@@ -344,7 +349,7 @@ footer {
 
 /* Register/Edit Page */
 
-.register_inputs, .edit_profile_inputs {
+.register_inputs, .edit_profile_inputs, .login_inputs{
     display: flex;
     align-items: center;
     gap: 1em;
@@ -591,4 +596,10 @@ input[type="range"]::-moz-range-thumb {
             width: 100%;
         }
     }
+}
+
+/* Login */
+
+.login_inputs img {
+    width: 16em;
 }
