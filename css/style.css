@@ -557,25 +557,16 @@ input[type="range"]::-moz-range-thumb {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.empty img {
-    width: 400px;
-    height: auto;
-}
-
-.wishlist {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.description {
-    font-size: 15px;
-}
-
-.shop-now {
-    padding: 1em;
-    font-size: 20px;
-    margin-top: 3em;
-    margin-bottom: 5em;
+    padding-bottom: 5em;
+    & img {
+        width: 20em;
+        height: auto;
+    }
+    & p:first-of-type {
+        font-size: 1.25em;
+        font-weight: bold;
+    }
+    & .description {
+        font-size: 0.75em;;
+    }
 }
