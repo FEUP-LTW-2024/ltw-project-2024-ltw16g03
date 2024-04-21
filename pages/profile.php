@@ -43,75 +43,66 @@
                 </ul>
             </nav>
         </header>
-        <main class="profile_main">
+        <main id="profile_main">
             <section class="my-account">
                 <h1>MY ACCOUNT</h1>
-                <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "150"/>
+                <section class="secondary_info">
+                    <img class = "profile_picture" src="https://picsum.photos/500" alt="A image representative of the profile" height = "150"/>
+                    <a href="edit_profile.php">Edit Profile</a>
+                    <a href="">My Sellings</a>
+                </section>
                 <ul>
-                    <li>name</li>
-                    <li>email</li>
-                    <li>username</li>
+                    <li class="display_info">name</li>
+                    <li class="display_info">email</li>
+                    <li class="display_info">username</li>
                 </ul>
-                <a href="edit_profile.php">Edit profile</a>
             </section>
 
-            <section class="selling">
+            <section class="selling image_display">
                 <h1>SELLING</h1>
-                <article>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                </article>
-            </section>
-
-            <section class="previous-orders">
-                <h1>PREVIOUS ORDERS</h1>
-                <article>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a>
-                    <a href="#" class="category-link">
-                        <img src="../assets/women.png" alt="women-geral">
-                        <span class="category-text">WOMEN</span>
-                    </a> 
-                </article>
-            </section>
-
-            <form>
-                <button formaction="register.php" formmethod="post" type="submit">
-                    LOGOUT
+                <button class="left_arrow">
+                    <img src="../assets/left_arrow.png" alt="Button Image">
                 </button>
-            </form>
+                <section class="images">
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                </section>
+                <button class="right_arrow">
+                    <img src="../assets/right_arrow.png" alt="Button Image">
+                </button>
+            </section>
+
+            <section class="previous-orders image_display">
+                <h1>PREVIOUS ORDERS</h1>
+                <button class="left_arrow">
+                    <img src="../assets/left_arrow.png" alt="Button Image">
+                </button>
+                <section class="images">
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                    <a href="#" class="item_image">
+                        <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "400"/>
+                    </a>
+                </section>
+                <button class="right_arrow">
+                    <img src="../assets/right_arrow.png" alt="Button Image">
+                </button>
+            </section>
+
+            <button>
+                LOGOUT
+            </button>
             
             </main>
         <footer>
