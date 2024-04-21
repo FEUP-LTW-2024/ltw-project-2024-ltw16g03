@@ -48,7 +48,7 @@
         </div>
         <main id="categories_page">
             <aside class="filters">
-                <form>
+                <form class="filters_container">
                     <h1>FILTERS</h1>
 
                     <h2>CATEGORIES</h2>

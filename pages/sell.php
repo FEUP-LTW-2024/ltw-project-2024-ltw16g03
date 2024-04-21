@@ -43,45 +43,62 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <section class="sell-information">
-                <h1>SELL</h1>
-                <div class="sell-images">
-                    <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                </div> 
-                <label class="description">DESCRIPTION
-                <textarea name="description" r ows="5" cols="60">
-                </textarea>
-                </label>
+        <main id="sell_information">
+            <h1 class="sub_title">SELL</h1>
+            <form class="sell_form">
+                <section class="description">
+                    <img class = "item_img" src="" alt=""/>
+                    <h2>Description</h2>
+                    <textarea name="description" rows="4" cols="40"></textarea>
+                </section>
+                <aside class="filters_container">
+                    <h2>CATEGORIES</h2>
+                    <label><input type="radio" name="CATEGORIES" value="Women">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="Men">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="Kids">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="House">House</label>
 
-                <label>CATEGORIES
-                <input type="radio" name="CATEGORIES" value="Women">Women
-                <input type="radio" name="CATEGORIES" value="Men">Men
-                <input type="radio" name="CATEGORIES" value="Kids">Kids
-                <input type="radio" name="CATEGORIES" value="Home">Home
-                </label>
+                    <h2>SIZE</h2>
+                    <label><input type="radio" name="SIZE" value="XL">XL</label>
+                    <label><input type="radio" name="SIZE" value="L">L</label>
+                    <label><input type="radio" name="SIZE" value="M">M</label>
+                    <label><input type="radio" name="SIZE" value="S">S</label>
+                    <label><input type="radio" name="SIZE" value="XS">XS</label>
 
-                <label>SIZE
-                <input type="radio" name="SIZE" value="XL">XL
-                <input type="radio" name="SIZE" value="L">L
-                <input type="radio" name="SIZE" value="M">M
-                <input type="radio" name="SIZE" value="S">S
-                <input type="radio" name="SIZE" value="XS">XS
-                </label>
-
-                <label>COLOUR
-                <input type="radio" name="COLOUR" value="None">None
-                </label>
-
-                <label>PRICE
-                    <h6>20</h2>
-                </label>
-
-                <label>BRAND
-                    <h6>jura que tem brand?</h2>
-                </label>
-
-            </section>
+                    <h2>COLOUR</h2>
+                    <input type="radio" id="red" name="color" value="red" hidden>
+                    <label class="color-swatch red" for="red"></label>
+                    <input type="radio" id="yellow" name="color" value="yellow" hidden>
+                    <label class="color-swatch yellow" for="yellow"></label>
+                    <input type="radio" id="blue" name="color" value="blue" hidden>
+                    <label class="color-swatch blue" for="blue"></label>
+                    <input type="radio" id="green" name="color" value="green" hidden>
+                    <label class="color-swatch green" for="green"></label>
+                    <input type="radio" id="orange" name="color" value="orange" hidden>
+                    <label class="color-swatch orange" for="orange"></label>
+                    <input type="radio" id="purple" name="color" value="purple" hidden>
+                    <label class="color-swatch purple" for="purple"></label>
+                    <input type="radio" id="pink" name="color" value="pink" hidden>
+                    <label class="color-swatch pink" for="pink"></label>
+                    <input type="radio" id="brown" name="color" value="brown" hidden>
+                    <label class="color-swatch brown" for="brown"></label>
+                    <input type="radio" id="gray" name="color" value="gray" hidden>
+                    <label class="color-swatch gray" for="gray"></label>
+                    <input type="radio" id="black" name="color" value="black" hidden>
+                    <label class="color-swatch black" for="black"></label>
+                    <input type="radio" id="white" name="color" value="white" hidden>
+                    <label class="color-swatch white" for="white"></label>
+                    <section>
+                        <label>PRICE
+                            <input class="input_underlined" type="text" name="price">
+                        </label>
+                        <label>BRAND
+                            <input class="input_underlined" type="text" name="brand">
+                        </label>
+                    </section>
+                </aside>
+                <button>SAVE</button>
+            </form>
         </main>
         <footer>
             Copyright &copy; 2024 Retro Club. All rights reserved.
