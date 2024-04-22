@@ -204,7 +204,6 @@ footer {
 /* Scrolling Text */
 
 .categories-squares {
-    border-top: 2px solid #000000;
     border-bottom: 2px solid #000000;
     overflow: hidden;
 }
@@ -352,6 +351,7 @@ footer {
 .register_inputs, .edit_profile_inputs, .login_inputs{
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 1em;
     margin: 1.5em;
     & .input_fields {
