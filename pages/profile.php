@@ -49,7 +49,7 @@
                 <section class="secondary_info">
                     <img class="profile_picture" src="https://picsum.photos/500" alt="A image representative of the profile"/>
                     <a href="edit_profile.php">Edit Profile</a>
-                    <a href="">My Sellings</a>
+                    <a href="my_selling.php">My Sellings</a>
                 </section>
                 <ul>
                     <li class="display_info">name</li>

@@ -42,9 +42,10 @@ button {
     background-color: #68C7C1;
     border-color: black;
     box-shadow: 1px 1px 2px black;
-    padding: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
     margin: 1.5em;
     font-size: 1.5em;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -368,7 +369,8 @@ footer {
     margin: 0 0 1em 0;
     padding: 0.5em 0;
     text-align: center;
-    border-bottom: 1px solid black;
+    font-weight: 600;
+    border-bottom: 2px solid black;
 }
 
 .input_underlined {
@@ -640,4 +642,78 @@ input[type="range"]::-moz-range-thumb {
 
 .login_inputs img {
     width: 16em;
+}
+
+/* My Sellings */
+
+.selling_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selling_items article {
+    width: 50%;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.selling_items article img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+}
+
+.selling_items article .info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.selling_items article .info p {
+    margin: 0;
+    text-align: left;
+    padding: 0 1em 1.4em 2.6em;
+    font-size: 22px;
+}
+
+.selling_items article .info .details {
+    display: flex;
+    align-items: center;
+}
+
+.price, .name {
+    font-weight: 700;
+}
+
+.color-square, .size-square {
+    width: 45px; /* Adjust the width of the square */
+    height: 45px; /* Adjust the height of the square */
+    border: 1px solid #000;
+    margin-left: 1em;
+    text-align: center;
+}
+
+.color-square {
+    margin-left: 3em;
+}
+
+.size-square {
+    font-size: 30px;
+}
+
+.details button {
+    margin-left: 1.5em;
+    font-size: 20px;
+}
+
+.sub_title2 {
+    margin: 0 0 1em 0;
+    padding: 0.5em 0;
+    text-align: center;
+    font-weight: 600;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
 }

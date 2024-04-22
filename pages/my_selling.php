@@ -44,48 +44,64 @@
             </nav>
         </header>
         <main>
-            <h1>SELLING</h1>
+            <h1 class="sub_title">SELLING</h1>
             <section class="selling_items">
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <label>PRICE<p>20</p></label>
-                    <label>Nome do artigo<p>Gelado</p></label>
-                    <p class="color"></p>
-                    <p class="size">XL</p>
-                    <form>
-                        <button formaction="sell.php" formmethod="post" type="submit">
-                            EDIT 
-                        </button>
-                    </form>
+                    <div class="info">
+                        <p class="price">20.00 $</p>
+                        <p class="name">Gelado</p>
+                        <div class="details">
+                            <div class="color-square" style="background-color: yellow;"></div>
+                            <div class="size-square" style="background-color: grey;">XS</div>
+                            <form>
+                            <button formaction="sell.php" formmethod="post" type="submit">
+                                EDIT 
+                            </button>
+                        </form>
+                        </div>
+                    </div>
                 </article>
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <label>PRICE<p>20</p></label>
-                    <label>Nome do artigo<p>Gelado</p></label>
-                    <p class="color"></p>
-                    <p class="size">XL</p>
-                    <form>
-                        <button formaction="sell.php" formmethod="post" type="submit">
-                            EDIT 
-                        </button>
-                    </form>
+                    <div class="info">
+                        <p class="price">20.00 $</p>
+                        <p class="name">Gelado</p>
+                        <div class="details">
+                            <div class="color-square" style="background-color: yellow;"></div>
+                            <div class="size-square" style="background-color: grey;">XS</div>
+                            <form>
+                            <button formaction="sell.php" formmethod="post" type="submit">
+                                EDIT 
+                            </button>
+                        </form>
+                        </div>
+                    </div>
                 </article>
             </section>
-            <h1>SOLD</h1>
-            <section class="sold_items">
+            <h1 class="sub_title2">SOLD</h1>
+            <section class="selling_items">
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <label>PRICE<p>20</p></label>
-                    <label>Nome do artigo<p>Gelado</p></label>
-                    <p class="color"></p>
-                    <p class="size">XL</p>
+                    <div class="info">
+                        <p class="price">20.00 $</p>
+                        <p class="name">Gelado</p>
+                        <div class="details">
+                            <div class="color-square" style="background-color: yellow;"></div>
+                            <div class="size-square" style="background-color: grey;">XS</div>
+                        </div>
+                    </div>
                 </article>
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <label>PRICE<p>20</p></label>
-                    <label>Nome do artigo<p>Gelado</p></label>
-                    <p class="color"></p>
-                    <p class="size">XL</p>
+                    <div class="info">
+                        <p class="price">20.00 $</p>
+                        <p class="name">Gelado</p>
+                        <div class="details">
+                            <div class="color-square" style="background-color: yellow;"></div>
+                            <div class="size-square" style="background-color: grey;">XS</div>
+                        </div>
+                    </div>
                 </article>
             </section>
         </main>

@@ -45,7 +45,7 @@
         </header>
         <main>
             <form class="login_inputs">  
-                <img src="../assets/sad_disco_ball.png" alt="disco ball"/>
+                <img src="../assets/disco ball.png" alt="disco ball"/>
                 <section class="input_fields">
                     <input class="input_info" type="text" name="text" placeholder="username">
                     <input class="input_info" type="password" name="password" placeholder="password">
