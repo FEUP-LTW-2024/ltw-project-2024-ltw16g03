@@ -44,21 +44,28 @@
             </nav>
         </header>
         <main>
-            <article>
-                <img class = "item_img" src="https://picsum.photos/500" alt="A image representative of the item being sold" height = "500"/>
-                <h1>[ITEM NAME]</h1>
-                <h2> [ITEM CATEGORY]</h2>
-                <h2>[ITEM SIZE]</h2>
-                <h2>[ITEM CONDITION]</h2>
-                <p>[LONG DESCRIPTION]</p>
-            </article>
-            <section class="seller_info">
-                <h3>[SELLER NAME]</h3>
-                <h3>[SELLER EMAIL]</h3>
-                <h3>[SELLER PHONE]</h3>
+            <section class="item">
+                <article>
+                    <img class="big-image-item" src="https://picsum.photos/500" alt="template" height = "500" width = "500"/>
+                    <div class="info">
+                        <p class="price-big">20.00 $</p>
+                        <p class="name-big">Gelado</p>
+                        <div class="details">
+                            <div class="color-square" style="background-color: yellow;"></div>
+                            <div class="size-square" style="background-color: grey;">XS</div>
+                        </div>
+                        <div class="description">
+                            <p>Good condition!</p>
+                            <p>Like new!</p>
+                            <p>Price Negotiable.</p>
+                        </div>
+                        <section class="item_buttons2">
+                            <button class="add-to-cart2">ADD TO CART</button>
+                            <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
+                        </section>
+                    </div>
+                </article>
             </section>
-            <button>wishlist</button>
-            <button>add to cart</button>
         </main>
         <footer>
             Retro Club &copy; 2024

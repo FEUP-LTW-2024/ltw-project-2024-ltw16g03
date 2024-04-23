@@ -55,10 +55,10 @@
                             <div class="color-square" style="background-color: yellow;"></div>
                             <div class="size-square" style="background-color: grey;">XS</div>
                             <form>
-                            <button formaction="sell.php" formmethod="post" type="submit">
-                                EDIT 
-                            </button>
-                        </form>
+                                <button formaction="sell.php" formmethod="post" type="submit">
+                                    EDIT 
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </article>
