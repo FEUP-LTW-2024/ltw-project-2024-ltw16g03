@@ -48,60 +48,56 @@
             <section class="selling_items">
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <div class="info">
+                    <section class="info">
                         <p class="price">20.00 $</p>
                         <p class="name">Gelado</p>
-                        <div class="details">
-                            <div class="color-square" style="background-color: yellow;"></div>
-                            <div class="size-square" style="background-color: grey;">XS</div>
-                            <form>
-                                <button formaction="sell.php" formmethod="post" type="submit">
-                                    EDIT 
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                        <section class="tags">
+                            <span class="color-square yellow"></span>
+                            <span class="size-square gray">XS</span>
+                            <a href="">   
+                                <button>EDIT</button>
+                            </a>    
+                        </section>
+                    </section>
                 </article>
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <div class="info">
+                    <section class="info">
                         <p class="price">20.00 $</p>
                         <p class="name">Gelado</p>
-                        <div class="details">
-                            <div class="color-square" style="background-color: yellow;"></div>
-                            <div class="size-square" style="background-color: grey;">XS</div>
-                            <form>
-                            <button formaction="sell.php" formmethod="post" type="submit">
-                                EDIT 
-                            </button>
-                        </form>
-                        </div>
-                    </div>
+                        <section class="tags">
+                            <span class="color-square yellow"></span>
+                            <span class="size-square gray">XS</span>
+                            <a href="">   
+                                <button>EDIT</button>
+                            </a>    
+                        </section>
+                    </section>
                 </article>
             </section>
-            <h1 class="sub_title2">SOLD</h1>
+            <h1 class="sub_title top_border">SOLD</h1>
             <section class="selling_items">
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <div class="info">
+                    <section class="info">
                         <p class="price">20.00 $</p>
                         <p class="name">Gelado</p>
-                        <div class="details">
-                            <div class="color-square" style="background-color: yellow;"></div>
-                            <div class="size-square" style="background-color: grey;">XS</div>
-                        </div>
-                    </div>
+                        <section class="tags">
+                            <span class="color-square yellow"></span>
+                            <span class="size-square gray">XS</span> 
+                        </section>
+                    </section>
                 </article>
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
-                    <div class="info">
+                    <section class="info">
                         <p class="price">20.00 $</p>
                         <p class="name">Gelado</p>
-                        <div class="details">
-                            <div class="color-square" style="background-color: yellow;"></div>
-                            <div class="size-square" style="background-color: grey;">XS</div>
-                        </div>
-                    </div>
+                        <section class="tags">
+                            <span class="color-square yellow"></span>
+                            <span class="size-square gray">XS</span>  
+                        </section>
+                    </section>
                 </article>
             </section>
         </main>

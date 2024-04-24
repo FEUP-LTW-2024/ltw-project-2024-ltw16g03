@@ -43,29 +43,27 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <section class="item">
-                <article>
-                    <img class="big-image-item" src="https://picsum.photos/500" alt="template" height = "500" width = "500"/>
-                    <div class="info">
-                        <p class="price-big">20.00 $</p>
-                        <p class="name-big">Gelado</p>
-                        <div class="details">
-                            <div class="color-square" style="background-color: yellow;"></div>
-                            <div class="size-square" style="background-color: grey;">XS</div>
-                        </div>
-                        <div class="description">
-                            <p>Good condition!</p>
-                            <p>Like new!</p>
-                            <p>Price Negotiable.</p>
-                        </div>
-                        <section class="item_buttons2">
-                            <button class="add-to-cart2">ADD TO CART</button>
-                            <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
-                        </section>
+        <main id="item_page">
+            <article class="item">
+                <img class="big-image-item" src="https://picsum.photos/500" alt="template" height = "500" width = "500"/>
+                <section class="info">
+                    <p class="price big">20.00 $</p>
+                    <p class="name big">Gelado</p>
+                    <section class="tags">
+                        <span class="color-square yellow"></span>
+                        <span class="size-square gray">XS</span>
+                    </section>
+                    <div>
+                        <p>Good condition!</p>
+                        <p>Like new!</p>
+                        <p>Price Negotiable.</p>
                     </div>
-                </article>
-            </section>
+                    <section class="buttons">
+                        <button>ADD TO CART</button>
+                        <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
+                    </section>
+                </section>
+            </article>
         </main>
         <footer>
             Retro Club &copy; 2024
