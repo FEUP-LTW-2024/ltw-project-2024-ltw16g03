@@ -15,6 +15,24 @@
             <h1>THANK YOU!</h1>                       
         </header>
         <main>
+            <section class="process-order">
+                <article class="shipping-left2">
+                    <h1 class="shipping-titles2">SHIPPING</h1>
+                    <div class="shipping-container"> 
+                        First Name Last Name
+                        Address
+                        State, Postal Code
+                        City
+                    </div>
+                </article>
+                <article class="shipping-right2">
+                    <h1 class="shipping-titles">PAYMENT</h1>
+                    <div class="payment-option">
+                        <label for="debit-card">Debit or Credit Card</label>
+                        <img src="../assets/mastercard.png" alt="Debit Card" height = "50" width = "80">
+                    </div>
+                </article>
+            </section>
             <h1 class="shipping-titles">ORDER</h1>
             <section class="item">
                 <article class="item-background">
