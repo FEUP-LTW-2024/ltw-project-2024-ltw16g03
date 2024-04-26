@@ -28,7 +28,7 @@
                 <a href="profile.php">
                     <img src="../assets/profile.svg" alt="profile"/>
                 </a>
-                <a href="shopping_cart.php">
+                <a href="my_selling_empty.php">
                     <img src="../assets/cart.svg" alt="shopping cart"/>
                 </a>
             </nav>
