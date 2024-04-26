@@ -1,18 +1,20 @@
-<?php
-  declare(strict_types = 1);
-
-  require_once(__DIR__ . '/../templates/common.tpl.php');
-  require_once(__DIR__ . '/../utils/session.php');
-  $session = new Session();
-
-  drawClassicHeader(); ?>
-    
-    
-
-  <?=drawFooter();?>
-
-
-        
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Retro Club</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="classic">
+            <a href="homepage.php"> 
+                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
+            </a>
+            <h1>WISHLIST</h1>                       
+        </header>
+        <main id="main-wishlist">
             <h2>6 item(s)</h2>
             <section class="main-items">
                 <article class="display_item">
