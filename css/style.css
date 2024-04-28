@@ -400,6 +400,7 @@ footer {
     flex-direction: column;
     & .item_img, & textarea {
         border: 2px solid black;
+        
     }
     & .item_img {
         background-color: gray;

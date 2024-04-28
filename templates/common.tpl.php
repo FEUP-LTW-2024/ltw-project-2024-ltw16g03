@@ -53,7 +53,7 @@
         </header>
 <?php } ?>
 
-<?php function drawClassicHeader() { ?>
+<?php function drawClassicHeader($string) { ?>
     <!DOCTYPE html>
         <html lang="en-US">
         <head>
@@ -68,7 +68,7 @@
                 <a href="homepage.php"> 
                     <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
                 </a>
-                <h1>WISHLIST</h1>                       
+                <h1><?=$string?></h1>                       
             </header>
 <?php } ?>
 

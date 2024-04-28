@@ -5,7 +5,8 @@
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();?>
 
-  <?=drawHeader($session);?>
+    <?=drawHeader($session);?>
+    
     <main>
     <section class="big-image">
         <img src="../assets/homepage_big.jpg" alt="Two well dressed people sitting with drinks">
@@ -33,4 +34,5 @@
     </a>
     </section>
     </main>
-  <?=drawFooter();?>
+
+    <?=drawFooter();?>

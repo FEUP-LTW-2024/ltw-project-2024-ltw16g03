@@ -16,7 +16,7 @@ CREATE TABLE User
 (
     UserID INTEGER NOT NULL,
     Username NVARCHAR(60) NOT NULL,
-    Password NVARCHAR(60) NOT NULL,
+    Passcode NVARCHAR(60) NOT NULL,
     Email NVARCHAR(60) NOT NULL,
     IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1)),
     CONSTRAINT PK_User PRIMARY KEY (UserId)
@@ -30,9 +30,9 @@ CREATE TABLE Item
     TypeID INTEGER NOT NULL,
     Brand NVARCHAR(60) NOT NULL,
     Model NVARCHAR(60) NOT NULL,
-    Size NVARCHAR(60) NOT NULL,
+    Dimension NVARCHAR(60) NOT NULL,
     Condition NVARCHAR(60) NOT NULL,
-    Description NVARCHAR(60) NOT NULL,
+    Detail NVARCHAR(60) NOT NULL,
     Price REAL NOT NULL,
     ImageURL NVARCHAR(255),
     IsSold INTEGER NOT NULL CHECK (IsSold IN (0, 1)),
@@ -156,16 +156,16 @@ CREATE INDEX IFK_AdmUserID ON Adm (UserID);
    Populate Tables
 ********************************************************************************/
 
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (1, 'filipageraldes', 'abcde1', 'fg@gmail.com', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (2, 'cherif_09', 'ab1233', 'cherifff@gmail.com', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (3, 'beepboop', '12999999', 'beeep@gmail.com', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (4, 'adminuser', 'adminpass', 'admin@gmail.com', 1);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (5, 'CristianoRonaldo07', 'siu', 'cr7@gmail.com', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (6, 'NeymarJunior', 'bailedefavela', 'neymarjunior@gmail.com', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (7, 'gyokeres123', 'sportingcampeao', 'hannibal@fe.up.pt', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (8, 'paqueta_', 'jogadinha', 'paqueta@sapo.pt', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (9, 'vinivici', 'vini', 'vini02@sapo.pt', 0);
-INSERT INTO User (UserID, Username, Password, Email, IsAdmin) VALUES (10, 'pintoDaCosta', 'villasboas', 'pintocosta@sad.porto.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (1, 'a', '123', 'fg@gmail.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (2, 'cherif_09', 'ab1233', 'cherifff@gmail.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (3, 'beepboop', '12999999', 'beeep@gmail.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (4, 'adminuser', 'adminpass', 'admin@gmail.com', 1);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (5, 'CristianoRonaldo07', 'siu', 'cr7@gmail.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (6, 'NeymarJunior', 'bailedefavela', 'neymarjunior@gmail.com', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (7, 'gyokeres123', 'sportingcampeao', 'hannibal@fe.up.pt', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (8, 'paqueta_', 'jogadinha', 'paqueta@sapo.pt', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (9, 'vinivici', 'vini', 'vini02@sapo.pt', 0);
+INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (10, 'pintoDaCosta', 'villasboas', 'pintocosta@sad.porto.com', 0);
 
 INSERT INTO Category (CategoryID, CategoryName) VALUES (1, 'Women');
 INSERT INTO Category (CategoryID, CategoryName) VALUES (2, 'Men');
@@ -187,20 +187,20 @@ INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Home accessories');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Tableware');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Celebrations');
 
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (1, 1, 1, 1, 'Zara', 'Summer Dress', 'M', 'New', 'Beautiful summer dress in floral pattern.', 30.00, 'https://m.media-amazon.com/images/I/81gNqmBYuCL._AC_SX569_.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (2, 2, 2, 2, 'Nike', 'Air Max', 'US 10', 'Used', 'Classic Nike Air Max shoes in black and white.', 80.00, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/wzitsrb4oucx9jukxsmc/air-max-90-mens-shoes-6n3vKB.png', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (3, 3, 1, 3, 'Coach', 'Leather Tote', NULL, 'Like New', 'Elegant leather tote bag with spacious compartments.', 150.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN6oGzmeKJiu1n6-SaxavaVp_0c6OLIxqd4q3YtU-hhw&s', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (4, 4, 2, 4, 'Ray-Ban', 'Aviator Sunglasses', NULL, 'New with Tags', 'Classic aviator sunglasses with polarized lenses.', 120.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEypjRH4jLX4e2szxP-vRHHFUx4N-43PKsgcQUQLGkg&s', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (5, 5, 3, 5, 'LOréal', 'True Match Foundation', NULL, 'New', 'LOréal True Match foundation in shade N3.', 12.99, 'https://static.beautytocare.com/cdn-cgi/image/width=1600,height=1600,f=auto/media/catalog/product//l/-/l-oreal-paris-true-match-foundation-3-d-3-w-golden-beige-30ml.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (6, 6, 4, 6, 'Gillette', 'Fusion5 ProGlide Razor', NULL, 'New in Box', 'Gillette Fusion5 ProGlide razor with FlexBall technology.', 19.99, 'https://cdn11.bigcommerce.com/s-79bvd/images/stencil/2048x2048/products/12439/23764/s-l1600__62569.1500877243.jpg?c=2', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (7, 7, 1, 7, 'LEGO', 'Harry Potter Hogwarts Castle', NULL, 'New', 'LEGO Harry Potter Hogwarts Castle set with minifigures.', 199.99, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Fb7sNSareJuK0r2sRPxlc4LCqN4PLfE5ztN4jd_X7A&s', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (8, 8, 2, 8, 'Pampers', 'Swaddlers Diapers', 'Newborn', 'New', 'Pampers Swaddlers diapers for newborns, pack of 72.', 24.99, 'https://i5.walmartimages.com/seo/Pampers-Swaddlers-Diapers-Size-6-72-Count_768f66a7-cf53-417f-aa21-a03ecac9250f.c5a4f688582f70b98ef76bcfba3b8a2d.jpeg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (9, 9, 3, 9, 'Graco', 'Modes Click Connect Stroller', NULL, 'Like New', 'Graco Modes Click Connect stroller with multiple riding options.', 149.99, 'https://m.media-amazon.com/images/I/81U9XN+AgSL.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (10, 10, 4, 10, 'Crayola', 'Colored Pencils', NULL, 'New', 'Crayola colored pencils pack of 24.', 4.99, 'https://m.media-amazon.com/images/I/71I5BZfd3YL.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (11, 1, 1, 11, 'IKEA', 'VINTER 2023 Throw', NULL, 'New', 'IKEA VINTER 2023 throw blanket in festive design.', 19.99, 'https://www.ikea.com/kr/en/images/products/vinterfint-throw-red__1249177_ph194559_s5.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (12, 2, 2, 12, 'AmazonBasics', 'Microfiber Sheet Set', 'Queen', 'New', 'AmazonBasics microfiber sheet set for queen-sized bed.', 24.99, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLxJxQQE5ROH1vZaT68edJwHx2LiB1kDuR9jFqHzQHhA&s', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (13, 3, 3, 13, 'Corelle', 'Winter Frost White Dinnerware Set', '16-Piece', 'New', 'Corelle Winter Frost White dinnerware set, 16-piece.', 39.99, 'https://images.thdstatic.com/productImages/6bfe53a3-0d2b-41f8-81f4-c679b5405f5a/svn/white-corelle-dinnerware-sets-1148417-64_600.jpg', 0);
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Size, Condition, Description, Price, ImageURL, IsSold) VALUES (14, 4, 4, 14, 'Party City', 'Birthday Party Decorations Kit', NULL, 'New', 'Party City birthday party decorations kit.', 29.99, 'https://cdn.media.amplience.net/i/partycity/898725?$large$&fmt=auto&qlt=default', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (1, 1, 1, 1, 'Zara', 'Summer Dress', 'M', 'New', 'Beautiful summer dress in floral pattern.', 30.00, 'https://picsum.photos/400', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (2, 2, 2, 2, 'Nike', 'Air Max', 'US 10', 'Used', 'Classic Nike Air Max shoes in black and white.', 80.00, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/wzitsrb4oucx9jukxsmc/air-max-90-mens-shoes-6n3vKB.png', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (3, 3, 1, 3, 'Coach', 'Leather Tote', 'M', 'Like New', 'Elegant leather tote bag with spacious compartments.', 150.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN6oGzmeKJiu1n6-SaxavaVp_0c6OLIxqd4q3YtU-hhw&s', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (4, 4, 2, 4, 'Ray-Ban', 'Aviator Sunglasses', 'M', 'New with Tags', 'Classic aviator sunglasses with polarized lenses.', 120.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEypjRH4jLX4e2szxP-vRHHFUx4N-43PKsgcQUQLGkg&s', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (5, 5, 3, 5, 'LOréal', 'True Match Foundation', 'M', 'New', 'LOréal True Match foundation in shade N3.', 12.99, 'https://static.beautytocare.com/cdn-cgi/image/width=1600,height=1600,f=auto/media/catalog/product//l/-/l-oreal-paris-true-match-foundation-3-d-3-w-golden-beige-30ml.jpg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (6, 6, 4, 6, 'Gillette', 'Fusion5 ProGlide Razor', 'M', 'New in Box', 'Gillette Fusion5 ProGlide razor with FlexBall technology.', 19.99, 'https://cdn11.bigcommerce.com/s-79bvd/images/stencil/2048x2048/products/12439/23764/s-l1600__62569.1500877243.jpg?c=2', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (7, 7, 1, 7, 'LEGO', 'Harry Potter Hogwarts Castle', 'M', 'New', 'LEGO Harry Potter Hogwarts Castle set with minifigures.', 199.99, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Fb7sNSareJuK0r2sRPxlc4LCqN4PLfE5ztN4jd_X7A&s', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (8, 8, 2, 8, 'Pampers', 'Swaddlers Diapers', 'Newborn', 'New', 'Pampers Swaddlers diapers for newborns, pack of 72.', 24.99, 'https://i5.walmartimages.com/seo/Pampers-Swaddlers-Diapers-Dimension-6-72-Count_768f66a7-cf53-417f-aa21-a03ecac9250f.c5a4f688582f70b98ef76bcfba3b8a2d.jpeg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (9, 9, 3, 9, 'Graco', 'Modes Click Connect Stroller', 'M', 'Like New', 'Graco Modes Click Connect stroller with multiple riding options.', 149.99, 'https://m.media-amazon.com/images/I/81U9XN+AgSL.jpg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (10, 10, 4, 10, 'Crayola', 'Colored Pencils', 'M', 'New', 'Crayola colored pencils pack of 24.', 4.99, 'https://m.media-amazon.com/images/I/71I5BZfd3YL.jpg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (11, 1, 1, 11, 'IKEA', 'VINTER 2023 Throw', 'M', 'New', 'IKEA VINTER 2023 throw blanket in festive design.', 19.99, 'https://www.ikea.com/kr/en/images/products/vinterfint-throw-red__1249177_ph194559_s5.jpg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (12, 2, 2, 12, 'AmazonBasics', 'Microfiber Sheet Set', 'Queen', 'New', 'AmazonBasics microfiber sheet set for queen-Dimensiond bed.', 24.99, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLxJxQQE5ROH1vZaT68edJwHx2LiB1kDuR9jFqHzQHhA&s', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (13, 3, 3, 13, 'Corelle', 'Winter Frost White Dinnerware Set', '16-Piece', 'New', 'Corelle Winter Frost White dinnerware set, 16-piece.', 39.99, 'https://images.thdstatic.com/productImages/6bfe53a3-0d2b-41f8-81f4-c679b5405f5a/svn/white-corelle-dinnerware-sets-1148417-64_600.jpg', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (14, 4, 4, 14, 'Party City', 'Birthday Party Decorations Kit', 'M', 'New', 'Party City birthday party decorations kit.', 29.99, 'https://cdn.media.amplience.net/i/partycity/898725?$large$&fmt=auto&qlt=default', 0);
 
 INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (3, 1, 2, 5, '2024-03-05', 0);
 INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (4, 1, 2, 11, '2024-03-10', 1);

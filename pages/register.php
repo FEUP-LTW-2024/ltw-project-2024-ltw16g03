@@ -44,7 +44,7 @@
             </nav>
         </header>
         <main>
-            <form class="register_inputs">  
+            <form class="register_inputs" action="../actions/action_register.php" method="post">  
                 <img class="profile_picture" src="" alt=""/>
                 <section class="input_fields">
                     <input class="input_info" type="text" name="text" placeholder="name">
@@ -53,7 +53,7 @@
                     <input class="input_info" type="password" name="password" placeholder="password">
                     <input class="input_info" type="password" name="password" placeholder="confirm password">
                 </section>
-                <button formaction="register.php" formmethod="post" type="submit">
+                <button formaction="../actions/action_register.php" formmethod="post" type="submit">
                     SIGN UP
                 </button>
             </form>    

@@ -1,52 +1,21 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Retro Club</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <header>
-            <a href="homepage.php"> 
-                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
-            </a>
+<?php
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+  require_once(__DIR__ . '/../utils/session.php');
+  $session = new Session();
+  require_once(__DIR__ . '/../database/connection.db.php');
+  $db = getDatabaseConnection();
 
-            <section class="search-bar">
-                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
-                <input type="text" placeholder="Search here..."/>
-                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
-            </section> 
+  $stmt = $db->prepare('SELECT ImageURL, Price, Brand, Dimension from Item');
 
-            <nav class="buttons">
-                <a href="homepage.php">Home</a>
-                <a href="sell.php">Sell</a>
-                <a href="wishlist.php">
-                    <img src="../assets/wishlist.svg" alt="wishlist"/>
-                </a>
-                <a href="profile.php">
-                    <img src="../assets/profile.svg" alt="profile"/>
-                </a>
-                <a href="shopping_cart.php">
-                    <img src="../assets/cart.svg" alt="shopping cart"/>
-                </a>
-            </nav>
-            
-            <nav class="categories">
-                <ul>
-                    <li><a href="categories.php">All Categories</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="categories-squares">
-            <a class="moving-text">SHOP NOW! SHOP NOW! SHOP NOW! SHOP NOW!</a>
-        </div>
-        <main id="categories_page">
+  $stmt->execute();
+  $items = $stmt->fetchAll();
+?>
+
+    <?=drawHeader($session);?>
+
+    <?=drawSHOPNOW();?>
+
+<main id="categories_page">
             <aside class="filters">
                 <form class="filters_container">
                     <h1>FILTERS</h1>
@@ -93,94 +62,21 @@
                 </form>
             </aside>
             <section class="main-items">
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
-                <article class="display_item">
-                    <a href="#"><img class = "item_img" src="https://picsum.photos/400" alt="" height = "200"/></a>
-                    <section class="item_info">
-                        <p>10.00 $</p>
-                        <p>H&M</p>
-                        <p>XS</p>
-                    </section>
-                    <section class="item_buttons">
-                        <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                        <button class="add-to-cart">ADD TO CART</button>
-                    </section>
-                </article>
+                <?php foreach ($items as $item) { ?>
+                    <article class="display_item">
+                        <a href="#"><img class = "item_img" src="<?=$item['ImageURL']?>" alt="" height = "200"/></a>
+                        <section class="item_info">
+                            <p><?=$item['Price']?> €</p>
+                            <p><?=$item['Brand']?></p>
+                            <p><?=$item['Dimension']?></p>
+                        </section>
+                        <section class="item_buttons">
+                            <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                            <button class="add-to-cart">ADD TO CART</button>
+                        </section>
+                    </article>
+                <?php } ?>
             </section>
         </main>
-        <footer>
-            Copyright &copy; 2024 Retro Club. All rights reserved.
-        </footer>    
-    </body>
-</html>
+
+    <?=drawFooter();?>
