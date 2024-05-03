@@ -923,6 +923,18 @@ input[type="range"]::-moz-range-thumb {
     padding-left: 6em;
 }
 
+.shipping-right2 .shipping-titles {
+    margin-left: 0.5em;
+}
+
+.shipping-right2 .payment-option {
+    width: 67%;
+}
+
+.shipping-right2 {
+    padding-right: 2em;
+}
+
 /* Process Order */
 
 .process-order {
