@@ -50,8 +50,8 @@
                     <p class="price big">20.00 $</p>
                     <p class="name big">Gelado</p>
                     <section class="tags">
-                        <span class="color-square yellow"></span>
-                        <span class="size-square gray">XS</span>
+                        <div class="color-square3"></div>
+                        <div class="size-square3">XS</span>
                     </section>
                     <div>
                         <p>Good condition!</p>
@@ -60,9 +60,26 @@
                     </div>
                     <section class="buttons">
                         <button>ADD TO CART</button>
-                        <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
+                        <img class="add-to-wishlist2" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
                     </section>
                 </section>
+            </article>
+            <article class="seller-details">
+                <div class="seller-info">
+                    <img class="seller-picture" src="https://picsum.photos/500" alt="profile picture">
+                    <div class="seller-info2">
+                        <p class="seller-username">CristianoRonaldo07</p>
+                        <section class="seller-rating">
+                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
+                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
+                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
+                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
+                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
+                        </section>
+                        <button class="make-offer">MAKE AN OFFER</button>
+                        <button class="ask-seller">ASK SELLER</button>
+                    </div>
+                </div>
             </article>
         </main>
         <footer>
