@@ -1043,3 +1043,40 @@ input[type="range"]::-moz-range-thumb {
     margin-right: 5px;
 }
 
+/* Messages */
+
+.messages-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.one-message {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.profile-img {
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 200px; 
+    height: 200px;
+    margin-right: 10px; 
+    margin-left: 3em;
+}
+
+.message-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-username {
+    font-weight: bold;
+    margin: 0;
+}
+
+.time {
+    margin-top: 5px; 
+    align-self: flex-end; 
+    margin-left: auto;
+}
