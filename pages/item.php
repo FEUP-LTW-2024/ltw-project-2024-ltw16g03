@@ -49,7 +49,7 @@
                 <section class="info">
                     <p class="price big">20.00 $</p>
                     <p class="name big">Gelado</p>
-                    <section class="tags">
+                    <section class="tags2">
                         <div class="color-square3"></div>
                         <div class="size-square3">XS</span>
                     </section>

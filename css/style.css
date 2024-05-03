@@ -704,9 +704,9 @@ input[type="range"]::-moz-range-thumb {
     font-size: 30px;
 }
 
-.details button {
-    margin-left: 1.5em;
-    font-size: 20px;
+.edit-button {
+    margin-top: 0em;
+    font-size: 22px;
 }
 
 .sub_title2 {
@@ -717,6 +717,13 @@ input[type="range"]::-moz-range-thumb {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
 }
+
+.tags  {
+    display: flex;
+    margin-top: 1.6em;
+    margin-bottom: 2em;
+}
+
 
 /* Item */
 
@@ -757,7 +764,7 @@ input[type="range"]::-moz-range-thumb {
     font-size: 50px;
 }
 
-.tags  {
+.tags2  {
     margin-left: 2.2em;
     display: flex;
     margin-bottom: 2em;
@@ -861,6 +868,8 @@ input[type="range"]::-moz-range-thumb {
     position: relative;
     background-color: #D7D0A5;
     border: 2px solid #000;
+    max-width: 73%;
+    margin: 0 auto;
 }
 
 .add-to-wishlist {
@@ -881,22 +890,43 @@ input[type="range"]::-moz-range-thumb {
     right: 1em;
 }
 
-.item article .info2 {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+.item-checkout {
+    margin-bottom: 2.5em;
 }
 
-.item article .info2 p {
+.item-checkout article {
+    display: flex;
+    align-items: flex-start;
+}
+
+.item-checkout article .info2 {
+    flex-grow: 1;
+    margin-top: 1.2em;
+
+}
+
+.item-checkout article .name2 {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Adjust spacing as needed */
+    margin-top: 0; /* Remove top margin */
+}
+
+.item-checkout article .info2 p {
     margin: 0;
     text-align: left;
     padding: 0.4em 0 1em 2em;
     font-size: 22px;
 }
 
-.item article .info2 .details {
+.item-checkout article .info2 .details {
     display: flex;
     align-items: center;
+}
+
+.item-checkout article .big-image-item {
+    margin: 0 5px 0 0; 
+    border: none;
+    border-right: 2px solid #000;
 }
 
 .total {
@@ -960,6 +990,15 @@ input[type="range"]::-moz-range-thumb {
     padding-left: 6em;
 }
 
+.shipping-right2 {
+    width: 30%;
+    padding-right: 3.7em;
+}
+
+.shipping-titles3 {
+    font-weight: 400;
+    margin-left: 7em;
+}
 /* Process Order */
 
 .process-order {

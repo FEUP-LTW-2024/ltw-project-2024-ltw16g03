@@ -47,7 +47,7 @@
             <h1 class="sub_title">SELL</h1>
             <form class="sell_form">
                 <section class="description">
-                    <img class = "item_img" src="" alt=""/>
+                    <img class = "item_img" src="https://picsum.photos/500" alt="upload photo"/>
                     <h2>Description</h2>
                     <textarea name="description" rows="4" cols="40"></textarea>
                 </section>

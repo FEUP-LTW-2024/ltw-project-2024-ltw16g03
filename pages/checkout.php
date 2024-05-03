@@ -26,7 +26,7 @@
                     </div>
                 </article>
                 <article class="shipping-right2">
-                    <h1 class="shipping-titles">PAYMENT</h1>
+                    <h1 class="shipping-titles3">PAYMENT</h1>
                     <div class="payment-option">
                         <label for="debit-card">Debit or Credit Card</label>
                         <img src="../assets/mastercard.png" alt="Debit Card" height = "50" width = "80">
@@ -34,7 +34,7 @@
                 </article>
             </section>
             <h1 class="shipping-titles">ORDER</h1>
-            <section class="item">
+            <section class="item-checkout">
                 <article class="item-background">
                     <img class="big-image-item" src="https://picsum.photos/500" alt="template" height = "250" width = "250"/>
                     <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
@@ -49,7 +49,7 @@
                     </div>
                 </article>
             </section>    
-            <section class="item">
+            <section class="item-checkout">
                 <article class="item-background">
                     <img class="big-image-item" src="https://picsum.photos/500" alt="template" height = "250" width = "250"/>
                     <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>

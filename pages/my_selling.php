@@ -54,9 +54,7 @@
                         <section class="tags">
                             <span class="color-square yellow"></span>
                             <span class="size-square gray">XS</span>
-                            <a href="">   
-                                <button>EDIT</button>
-                            </a>    
+                            <div class="edit-button"><button class="edit-button">EDIT</button></div>
                         </section>
                     </section>
                 </article>
@@ -68,14 +66,12 @@
                         <section class="tags">
                             <span class="color-square yellow"></span>
                             <span class="size-square gray">XS</span>
-                            <a href="">   
-                                <button>EDIT</button>
-                            </a>    
+                            <div class="edit-button"><button class="edit-button">EDIT</button></div>
                         </section>
                     </section>
                 </article>
             </section>
-            <h1 class="sub_title top_border">SOLD</h1>
+            <h1 class="sub_title2">SOLD</h1>
             <section class="selling_items">
                 <article>
                     <img src="https://picsum.photos/500" alt="template" height = "200" width = "200"/>
