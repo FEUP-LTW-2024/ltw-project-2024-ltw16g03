@@ -1048,26 +1048,42 @@ input[type="range"]::-moz-range-thumb {
 .messages-container {
     display: flex;
     align-items: flex-start;
+    border-bottom: 2px solid #000;
 }
 
 .one-message {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-grow: 1;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.one-message1 { /* nao consegui fazer o first child sem margin top */
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin-bottom: 2em;
+}
+
+.messages-container:last-child {
+    border-bottom: none;
 }
 
 .profile-img {
     border: 2px solid black;
     border-radius: 50%;
-    width: 200px; 
-    height: 200px;
-    margin-right: 10px; 
+    width: 150px; 
+    height: 150px;
+    margin-right: 3em; 
     margin-left: 3em;
 }
 
 .message-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    margin-right: 3em;
 }
 
 .message-username {
@@ -1076,7 +1092,5 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .time {
-    margin-top: 5px; 
     align-self: flex-end; 
-    margin-left: auto;
 }

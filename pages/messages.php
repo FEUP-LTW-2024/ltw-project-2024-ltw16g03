@@ -46,6 +46,46 @@
         <main>
             <h1 class="sub_title">MESSAGES</h1>
             <article class="messages-container">
+                <section class="one-message1">
+                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
+                    <div class="message-info">
+                        <p class="message-username">CristianoRonaldo07</p>
+                        <p class="message">Queria conhecer-te melhor.</p>
+                        <p class="time">1 hour ago</p>
+                    </div>
+                </section>
+            </article>
+            <article class="messages-container">
+                <section class="one-message">
+                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
+                    <div class="message-info">
+                        <p class="message-username">CristianoRonaldo07</p>
+                        <p class="message">Queria conhecer-te melhor.</p>
+                        <p class="time">1 hour ago</p>
+                    </div>
+                </section>
+            </article>
+            <article class="messages-container">
+                <section class="one-message">
+                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
+                    <div class="message-info">
+                        <p class="message-username">CristianoRonaldo07</p>
+                        <p class="message">Queria conhecer-te melhor.</p>
+                        <p class="time">1 hour ago</p>
+                    </div>
+                </section>
+            </article>
+            <article class="messages-container">
+                <section class="one-message">
+                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
+                    <div class="message-info">
+                        <p class="message-username">CristianoRonaldo07</p>
+                        <p class="message">Queria conhecer-te melhor.</p>
+                        <p class="time">1 hour ago</p>
+                    </div>
+                </section>
+            </article>
+            <article class="messages-container">
                 <section class="one-message">
                     <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
                     <div class="message-info">
