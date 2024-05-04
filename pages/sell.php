@@ -52,6 +52,9 @@
                     <textarea name="description" rows="4" cols="40"></textarea>
                 </section>
                 <aside class="filters_container">
+                    <label>NAME
+                        <input class="input_underlined" type="text" name="name">
+                    </label>
                     <h2>CATEGORIES</h2>
                     <label><input type="radio" name="CATEGORIES" value="Women">Women</label>
                     <label><input type="radio" name="CATEGORIES" value="Men">Men</label>
@@ -65,6 +68,22 @@
                     <label><input type="radio" name="SIZE" value="S">S</label>
                     <label><input type="radio" name="SIZE" value="XS">XS</label>
 
+                    <h2>TYPE</h2>
+                    <label><input type="radio" name="TYPE" value="Clothing">Clothing</label>
+                    <label><input type="radio" name="TYPE" value="Shoes">Shoes</label>
+                    <label><input type="radio" name="TYPE" value="Bags">Bags</label>
+                    <label><input type="radio" name="TYPE" value="Accessories">Accessories</label>
+                    <label><input type="radio" name="TYPE" value="Beauty">Beauty</label>
+                    <label><input type="radio" name="TYPE" value="Grooming">Grooming</label>
+                    <label><input type="radio" name="TYPE" value="Toys / Games">Toys / Games</label>
+                    <label><input type="radio" name="TYPE" value="Baby Care">Baby Care</label>
+                    <label><input type="radio" name="TYPE" value="Buggies">Buggies</label>
+                    <label><input type="radio" name="TYPE" value="School supplies">School Supplies</label>
+                    <label><input type="radio" name="TYPE" value="Textiles">Textiles</label>
+                    <label><input type="radio" name="TYPE" value="Home accessories">Home accesories</label>
+                    <label><input type="radio" name="TYPE" value="Tableware">Tableware</label>
+                    <label><input type="radio" name="TYPE" value="Celebrations">Celebrations</label>
+                    
                     <h2>COLOUR</h2>
                     <input type="radio" id="red" name="color" value="red" hidden>
                     <label class="color-swatch red" for="red"></label>
