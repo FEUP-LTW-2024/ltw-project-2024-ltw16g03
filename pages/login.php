@@ -14,8 +14,7 @@
                 <input class="input_info" type="text" name="username" placeholder="username">
                 <input class="input_info" type="password" name="password" placeholder="password">
             </section>
-            <input type="submit" name="submit" value="submit">
-
+            <button type="submit">Sign In</button>
             <p>Don't have an account yet? <a href="register.php"><mark>Sign Up.</mark></a></p>
         </form>
     </main>

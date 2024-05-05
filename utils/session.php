@@ -1,7 +1,12 @@
 <?php
   class Session {
+    private array $messages;
+
     public function __construct() {
       session_start();
+
+      $this->messages = isset($_SESSION['messages']) ? $_SESSION['messages'] : array();
+      unset($_SESSION['messages']);
     }
 
     public function isLoggedIn() : bool {
@@ -26,6 +31,14 @@
 
     public function setName(string $name) {
       $_SESSION['name'] = $name;
+    }
+
+    public function addMessage(string $type, string $text) {
+      $_SESSION['messages'][] = array('type' => $type, 'text' => $text);
+    }
+
+    public function getMessages() {
+      return $this->messages;
     }
   }
 ?>

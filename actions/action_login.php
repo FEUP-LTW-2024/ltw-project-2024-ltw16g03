@@ -4,18 +4,19 @@
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
 
-  if (isset($_POST['submit']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-    require_once(__DIR__ . '/../database/connection.db.php');
-    require_once(__DIR__ . '/../database/user.class.php');
+  require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/user.class.php');
 
-    $db = getDatabaseConnection();
+  $db = getDatabaseConnection();
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+  $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
 
-    $session->setId(1);
-    $session->setName("AFF que chatice esse user.class.php, alguem me ajuda D;");
-
+  if ($user) {
+    $session->setId($user->UserID);
+    $session->setName($user->Username);
+    $session->addMessage('success', 'Login successful!');
+  } else {
+    $session->addMessage('error', 'Wrong password!');
   }
 
   die(header('Location: ../pages/login.php'));

@@ -48,14 +48,12 @@
                 <img class="profile_picture" src="" alt=""/>
                 <section class="input_fields">
                     <input class="input_info" type="text" name="text" placeholder="name">
-                    <input class="input_info" type="email" name="email" placeholder="email">
-                    <input class="input_info" type="text" name="text" placeholder="username">
-                    <input class="input_info" type="password" name="password" placeholder="password">
-                    <input class="input_info" type="password" name="password" placeholder="confirm password">
+                    <input class="input_info" type="email" name="Email" placeholder="email">
+                    <input class="input_info" type="text" name="Username" placeholder="username">
+                    <input class="input_info" type="password" name="Password" placeholder="password">
+                    <input class="input_info" type="password" name="confirm password" placeholder="confirm password">
                 </section>
-                <button formaction="../actions/action_register.php" formmethod="post" type="submit">
-                    SIGN UP
-                </button>
+                <button type="submit">Sign Up</button>
             </form>    
         </main>
         <footer>

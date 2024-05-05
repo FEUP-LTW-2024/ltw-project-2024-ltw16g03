@@ -14,12 +14,11 @@ DROP TABLE IF EXISTS Adm;
 
 CREATE TABLE User 
 (
-    UserID INTEGER NOT NULL,
+    UserID INTEGER PRIMARY KEY AUTOINCREMENT,
     Username NVARCHAR(60) NOT NULL,
-    Passcode NVARCHAR(60) NOT NULL,
+    Password NVARCHAR(60),
     Email NVARCHAR(60) NOT NULL,
-    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1)),
-    CONSTRAINT PK_User PRIMARY KEY (UserId)
+    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1))
 );
 
 CREATE TABLE Item
@@ -157,17 +156,6 @@ CREATE INDEX IFK_AdmUserID ON Adm (UserID);
    Populate Tables
 ********************************************************************************/
 
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (1, 'a', '123', 'fg@gmail.com', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (2, 'cherif_09', 'ab1233', 'cherifff@gmail.com', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (3, 'beepboop', '12999999', 'beeep@gmail.com', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (4, 'adminuser', 'adminpass', 'admin@gmail.com', 1);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (5, 'CristianoRonaldo07', 'siu', 'cr7@gmail.com', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (6, 'NeymarJunior', 'bailedefavela', 'neymarjunior@gmail.com', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (7, 'gyokeres123', 'sportingcampeao', 'hannibal@fe.up.pt', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (8, 'paqueta_', 'jogadinha', 'paqueta@sapo.pt', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (9, 'vinivici', 'vini', 'vini02@sapo.pt', 0);
-INSERT INTO User (UserID, Username, Passcode, Email, IsAdmin) VALUES (10, 'pintoDaCosta', 'villasboas', 'pintocosta@sad.porto.com', 0);
-
 INSERT INTO Category (CategoryID, CategoryName) VALUES (1, 'Women');
 INSERT INTO Category (CategoryID, CategoryName) VALUES (2, 'Men');
 INSERT INTO Category (CategoryID, CategoryName) VALUES (3, 'Kids');
@@ -249,4 +237,8 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); 
 
-INSERT INTO Adm (AdminID, UserID) VALUES (1, 4);
+
+INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
+                ('11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0');
+INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
+                ('12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0');
