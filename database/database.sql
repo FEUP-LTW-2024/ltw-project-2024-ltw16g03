@@ -15,6 +15,7 @@ DROP TABLE IF EXISTS Adm;
 CREATE TABLE User 
 (
     UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+    RealName NVARCHAR(60) NOT NULL,
     Username NVARCHAR(60) NOT NULL,
     Password NVARCHAR(60) NOT NULL,
     Email NVARCHAR(60) NOT NULL,
@@ -238,7 +239,9 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); 
 
 
-INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
+/* INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
                 ('11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0');
 INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
-                ('12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0');
+                ('12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0'); */
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0');

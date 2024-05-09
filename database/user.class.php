@@ -3,13 +3,15 @@
 
   class User {
     public int $UserID;
+    public string $RealName;
     public string $Username;
     public string $Email;
     public int $IsAdmin;
 
-    public function __construct(int $UserID, string $Username, string $Email, int $IsAdmin)
+    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin)
     {
       $this->UserID = $UserID;
+      $this->RealName = $RealName;
       $this->Username = $Username;
       $this->Email = $Email;
       $this->IsAdmin = $IsAdmin;
@@ -28,11 +30,31 @@
       if ($user && password_verify($password, $user['Password'])) {
         return new User(
           $user['UserID'],
+          $user['RealName'],
           $user['Username'],
           $user['Email'],
           $user['IsAdmin'],
         );
       } else return null;
+    }
+
+    static function getUser(PDO $db, int $id) : User {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM User 
+        WHERE UserID = ?
+      ');
+
+      $stmt->execute(array($id));
+      $user = $stmt->fetch();
+      
+      return new User(
+        $user['UserID'],
+        $user['RealName'],
+        $user['Username'],
+        $user['Email'],
+        $user['IsAdmin'],
+      );
     }
   }
 ?>
