@@ -19,7 +19,8 @@ CREATE TABLE User
     Username NVARCHAR(60) NOT NULL,
     Password NVARCHAR(60) NOT NULL,
     Email NVARCHAR(60) NOT NULL,
-    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1))
+    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1)),
+    ImageURL NVARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Item
@@ -177,7 +178,7 @@ INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Home accessories');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Tableware');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Celebrations');
 
-INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (1, 1, 1, 1, 'Zara Summer Dress', 'Zara', 'Summer Dress', 'M', 'New', 'Beautiful summer dress in floral pattern.', 30.00, 'https://picsum.photos/400', 0);
+INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (1, 1, 1, 1, 'Zara Summer Dress', 'Zara', 'Summer Dress', 'M', 'New', 'Beautiful summer dress in floral pattern.', 30.00, 'https://m.media-amazon.com/images/I/71I5BZfd3YL.jpg', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (2, 2, 2, 2, 'Air Max Nike', 'Nike', 'Air Max', 'US 10', 'Used', 'Classic Nike Air Max shoes in black and white.', 80.00, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/wzitsrb4oucx9jukxsmc/air-max-90-mens-shoes-6n3vKB.png', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (3, 3, 1, 3, 'Leather Tote', 'Coach', 'Leather Tote', 'M', 'Like New', 'Elegant leather tote bag with spacious compartments.', 150.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN6oGzmeKJiu1n6-SaxavaVp_0c6OLIxqd4q3YtU-hhw&s', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Price, ImageURL, IsSold) VALUES (4, 4, 2, 4, 'Sunglasses Ray-Ban', 'Ray-Ban', 'Aviator Sunglasses', 'M', 'New with Tags', 'Classic aviator sunglasses with polarized lenses.', 120.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEypjRH4jLX4e2szxP-vRHHFUx4N-43PKsgcQUQLGkg&s', 0);
@@ -243,5 +244,5 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1);
                 ('11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0');
 INSERT INTO User (Username, Password, Email, IsAdmin) VALUES
                 ('12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0'); */
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
-                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
+                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');

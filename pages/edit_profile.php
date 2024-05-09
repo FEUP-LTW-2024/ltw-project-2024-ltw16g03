@@ -19,7 +19,7 @@
 
   <main>
     <form class="edit_profile_inputs">  
-      <img class="profile_picture" src="https://picsum.photos/500" alt="A image representative of the profile"/>
+      <img class="profile_picture" src="<?=$user->ImageURL?>" alt="A image representative of the profile"/>
           <section class="input_fields">
               <input class="input_info" type="text" name="text" placeholder="<?=$user->RealName?>">
               <input class="input_info" type="email" name="email" placeholder="<?=$user->Email?>">

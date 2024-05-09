@@ -7,14 +7,16 @@
     public string $Username;
     public string $Email;
     public int $IsAdmin;
+    public string $ImageURL;
 
-    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin)
+    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin, string $ImageURL)
     {
       $this->UserID = $UserID;
       $this->RealName = $RealName;
       $this->Username = $Username;
       $this->Email = $Email;
       $this->IsAdmin = $IsAdmin;
+      $this->ImageURL = $ImageURL;
     }
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
@@ -34,6 +36,7 @@
           $user['Username'],
           $user['Email'],
           $user['IsAdmin'],
+          $user['ImageURL']
         );
       } else return null;
     }
@@ -54,6 +57,7 @@
         $user['Username'],
         $user['Email'],
         $user['IsAdmin'],
+        $user['ImageURL']
       );
     }
   }
