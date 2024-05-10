@@ -22,6 +22,22 @@
 
             <section class="search-bar">
                 <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                <div class="dropdown" id="filter-dropdown">
+                    <a href="#">Clothing</a>
+                    <a href="#">Shoes</a>
+                    <a href="#">Bags</a>
+                    <a href="#">Accessories</a>
+                    <a href="#">Beauty</a>
+                    <a href="#">Grooming</a>
+                    <a href="#">Toys / Games</a>
+                    <a href="#">Baby Care</a>
+                    <a href="#">Buggies</a>
+                    <a href="#">School Supplies</a>
+                    <a href="#">Textiles</a>
+                    <a href="#">Home accessories</a>
+                    <a href="#">Tableware</a>
+                    <a href="#">Celebrations</a>
+                </div>
                 <input type="text" placeholder="Search here..."/>
                 <button id="search-button"><img src="../assets/search.png" alt="search"></button>
             </section> 
@@ -50,6 +66,30 @@
                 </ul>
             </nav>
         </header>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var filterButton = document.getElementById("filter-button");
+                var dropdown = document.getElementById("filter-dropdown");
+
+                // Toggle dropdown when filter button is clicked
+                filterButton.addEventListener("click", function(event) {
+                    event.stopPropagation(); // Prevent click event from propagating to document
+                    if (dropdown.style.display === "none") {
+                        dropdown.style.display = "block";
+                    } else {
+                        dropdown.style.display = "none";
+                    }
+                });
+
+                // Hide dropdown when clicking outside of it
+                document.body.addEventListener("click", function(event) {
+                    if (!dropdown.contains(event.target) && event.target !== filterButton) {
+                        dropdown.style.display = "none";
+                    }
+                });
+            });
+        </script>
 <?php } ?>
 
 <?php function drawClassicHeader($string) { ?>
@@ -97,4 +137,4 @@
             <a href="categories.php"><button>SHOP NOW!</button></a>
             <?php endif; ?>
     </main>
-<?php } ?>
+<?php } ?> 
