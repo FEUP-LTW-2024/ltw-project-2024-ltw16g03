@@ -47,7 +47,7 @@
             <form class="register_inputs" action="../actions/action_register.php" method="post">  
                 <img class="profile_picture" src="" alt=""/>
                 <section class="input_fields">
-                    <input class="input_info" type="text" name="text" placeholder="name">
+                    <input class="input_info" type="text" name="RealName" placeholder="name">
                     <input class="input_info" type="email" name="Email" placeholder="email">
                     <input class="input_info" type="text" name="Username" placeholder="username">
                     <input class="input_info" type="password" name="Password" placeholder="password">

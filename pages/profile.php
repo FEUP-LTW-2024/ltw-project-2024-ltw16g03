@@ -26,6 +26,7 @@
                 <img class="profile_picture" src="<?=$user->ImageURL?>" alt="A image representative of the profile"/>
                 <a href="edit_profile.php">Edit Profile</a>
                 <a href="my_selling.php">My Sellings</a>
+                <a href="#" id="account_delete" >Delete Account</a>
             </section>
             <ul>
                 <li class="display_info"><?=$user->RealName?></li>
@@ -46,6 +47,14 @@
 
         <form action="../actions/action_logout.php" method="post" class="logout">
             <button type="submit" formaction="../actions/action_logout.php">Logout</button>
+        </form>
+
+        <form class="delete_pop_up" hidden>
+            <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
+            <p>Are you sure you want to delete your account?</p>
+            <p>If you are write DELETE in the following field: </p>
+            <input class="input_info" type="text" name="confirm" placeholder="DELETE">
+            <button formaction="../actions/action_delete.php" formmethod="post" type="submit">CONFIRM</button>
         </form>
     </main>
 

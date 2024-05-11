@@ -5,7 +5,7 @@
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
 ?>
-  <?=drawClassicHeader();?>
+  <?=drawClassicHeader("CART");?>
     
     <?=drawEmpty("YOUR CART IS EMPTY", "See if you have any products in your cart 
   or take a look at our new-in items.", true, true);?>

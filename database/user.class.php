@@ -60,5 +60,13 @@
         $user['ImageURL']
       );
     }
+
+    static function deleteUser(PDO $db, int $id) {
+      $stmt = $db->prepare('
+        DELETE FROM User 
+        WHERE UserID = ?
+      ');
+      $stmt->execute(array($id));
+    }
   }
 ?>

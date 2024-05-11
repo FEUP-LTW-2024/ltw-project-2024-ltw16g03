@@ -31,7 +31,7 @@
                     <article class="item-background">
                         <img class="big-image-item" src="<?=$item['ImageURL']?>" alt="template" height = "250" width = "250"/>
                         <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
-                        <img class="eliminate-item" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
+                        <img class="cross eliminate-item" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
                         <p class="price2"><?=$item['Price']?> €</p>
                         <div class="info2">
                             <p class="name2"><?=$item['Detail']?></p>

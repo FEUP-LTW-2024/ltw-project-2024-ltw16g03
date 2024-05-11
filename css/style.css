@@ -909,6 +909,10 @@ input[type="range"]::-moz-range-thumb {
     right: 3em;
 }
 
+.cross {
+    cursor: pointer;
+}
+
 .eliminate-item {
     position: absolute;
     top: 0.8em;
@@ -1162,5 +1166,27 @@ input[type="range"]::-moz-range-thumb {
                              "Home";
         gap: 1em;
         padding: 1em;
+    }
+}
+
+/* Pop Up */
+.delete_pop_up {
+    /* Center in the middle of the screen */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--tertiary-color);
+    padding: 1em;
+    border: 2px solid black;
+    display: none;
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+    & img {
+        align-self: end;
+    }
+    & p, button {
+        margin: 0;
     }
 }
