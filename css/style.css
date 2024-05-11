@@ -1125,3 +1125,42 @@ input[type="range"]::-moz-range-thumb {
 .time {
     align-self: flex-end; 
 }
+
+/* Smaller Screens */
+
+/* Homepage */
+
+@media screen and (max-width: 768px) {
+    body > header {
+        grid-template-areas: "logo buttons"
+                             "search-bar search-bar"
+                             "categories categories";
+        grid-template-columns: auto auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .search-bar {
+        grid-area: search-bar;
+        margin: 0 30px 30px 30px;
+    }
+
+    .big-image img {
+        display: none;
+    }
+
+    .slogan {
+        text-align: center; 
+        padding: 10px;
+        
+    }
+
+    .items-homepage {
+        grid-template-areas: "Women"
+                             "Men"
+                             "Children"
+                             "Home";
+        gap: 1em;
+        padding: 1em;
+    }
+}
