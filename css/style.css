@@ -813,10 +813,6 @@ input[type="range"]::-moz-range-thumb {
     display: inline-block;
 }
 
-.color-square3 {
-    background-color: yellow;
-}
-
 .size-square3 {
     background-color: grey;
     margin-left: 1em;
@@ -843,6 +839,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .seller-picture {
+    object-fit: cover;
     border-radius: 50%;
     border: 2px solid black;
     margin-bottom: 20px;

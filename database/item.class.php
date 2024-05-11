@@ -12,13 +12,14 @@
     public string $Dimension;
     public string $Condition;
     public string $Detail;
+    public string $Color;
     public float $Price;
     public string $ImageURL;
     public bool $IsSold;
 
     public function __construct(int $ItemID, int $OwnerID, int $CategoryID, int $TypeID, string $ItemName, string $Brand,
-                                string $Model, string $Dimension, string $Condition, string $Detail, float $Price,
-                                string $ImageURL, bool $IsSold)
+                                string $Model, string $Dimension, string $Condition, string $Detail, string $Color,
+                                float $Price, string $ImageURL, bool $IsSold)
     {
         $this->ItemID = $ItemID;
         $this->OwnerID = $OwnerID;
@@ -30,6 +31,7 @@
         $this->Dimension = $Dimension;
         $this->Condition = $Condition;
         $this->Detail = $Detail;
+        $this->Color = $Color;
         $this->Price = $Price;
         $this->ImageURL = $ImageURL;
         $this->IsSold = $IsSold;
@@ -57,6 +59,7 @@
           $item['Dimension'],
           $item['Condition'],
           $item['Detail'],
+          $item['Color'],
           $item['Price'],
           $item['ImageURL'],
           (bool) $item['IsSold']
@@ -88,6 +91,7 @@
             $item['Dimension'],
             $item['Condition'],
             $item['Detail'],
+            $item['Color'],
             $item['Price'],
             $item['ImageURL'],
             (bool) $item['IsSold']
@@ -104,12 +108,40 @@
         WHERE ItemID = ?
       ');
       $stmt->execute(array($id));
-  
+
       $item = $stmt->fetch();
-  
+      
       return new Item(
-        $item['ItemId'],
-          $item['UserId'],
+        $item['ItemID'],
+        $item['UserID'],
+        $item['CategoryID'],
+        $item['TypeID'],
+        $item['ItemName'],
+        $item['Brand'],
+        $item['Model'],
+        $item['Dimension'],
+        $item['Condition'],
+        $item['Detail'],
+        $item['Color'],
+        $item['Price'],
+        $item['ImageURL'],
+        (bool) $item['IsSold']
+      );
+    }
+    
+    static function getAllSellingItems(PDO $db) : array {
+      $stmt = $db->prepare('
+      SELECT * 
+      FROM Item
+      WHERE IsSold = 0');
+
+      $stmt->execute();
+      $items = array();
+    
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
           $item['CategoryID'],
           $item['TypeID'],
           $item['ItemName'],
@@ -118,11 +150,14 @@
           $item['Dimension'],
           $item['Condition'],
           $item['Detail'],
+          $item['Color'],
           $item['Price'],
           $item['ImageURL'],
-          $item['IsSold']
-      );
+          (bool) $item['IsSold']
+        );
+      }
+
+      return $items;
     }
-  
   }
 ?>

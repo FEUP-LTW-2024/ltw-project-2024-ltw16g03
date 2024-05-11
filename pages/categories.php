@@ -1,21 +1,21 @@
 <?php
-  require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
+
   require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/item.class.php'); 
+  
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+
   $db = getDatabaseConnection();
-
-  $stmt = $db->prepare('SELECT ImageURL, Price, Brand, Dimension from Item');
-
-  $stmt->execute();
-  $items = $stmt->fetchAll();
+  $items = Item::getAllSellingItems($db);
 ?>
 
-    <?=drawHeader($session);?>
+<?=drawHeader($session);?>
 
-    <?=drawSHOPNOW();?>
+<?=drawSHOPNOW();?>
 
-<main id="categories_page">
+        <main id="categories_page">
             <aside class="filters">
                 <form class="filters_container">
                     <h1>FILTERS</h1>
@@ -64,11 +64,11 @@
             <section class="main-items">
                 <?php foreach ($items as $item) { ?>
                     <article class="display_item">
-                        <a href="#"><img class = "item_img" src="<?=$item['ImageURL']?>" alt="" height = "200"/></a>
+                        <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt="" height = "200"/></a>
                         <section class="item_info">
-                            <p><?=$item['Price']?> €</p>
-                            <p><?=$item['Brand']?></p>
-                            <p><?=$item['Dimension']?></p>
+                            <p><?=$item->Price?> €</p>
+                            <p><?=$item->Brand?></p>
+                            <p><?=$item->Dimension?></p>
                         </section>
                         <section class="item_buttons">
                             <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
@@ -79,4 +79,4 @@
             </section>
         </main>
 
-    <?=drawFooter();?>
+<?=drawFooter();?>
