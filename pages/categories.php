@@ -64,7 +64,7 @@
             <section class="main-items">
                 <?php foreach ($items as $item) { ?>
                     <article class="display_item">
-                        <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt="" height = "200"/></a>
+                        <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
                         <section class="item_info">
                             <p><?=$item->Price?> €</p>
                             <p><?=$item->Brand?></p>

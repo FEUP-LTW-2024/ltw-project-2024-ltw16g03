@@ -20,13 +20,12 @@
   if (empty($wishItems)) die(header('Location: ../pages/wishlist_empty.php'));
 ?>
     <?=drawClassicHeader("WISHLIST");?>
-
-    <?php foreach ($wishItems as $item) { ?>
             <main id="main-wishlist">
                     <h2><?=count($wishItems)?> item(s)</h2>
                     <section class="main-items">
+                        <?php foreach ($wishItems as $item) { ?>
                         <article class="display_item">
-                            <a href="#"><img class = "item_img" src="<?=$item['ImageURL']?>" alt="" height = "200"/></a>
+                            <a href="#"><img class = "item_img" src="<?=$item['ImageURL']?>" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item['Price']?> €</p>
                                 <p><?=$item['Brand']?></p>
@@ -37,8 +36,8 @@
                                 <button class="add-to-cart">ADD TO CART</button>
                             </section>
                         </article>
+                        <?php } ?>
                     </section>
                 </main>
-        <?php } ?>
 
     <?=drawFooter();?>
