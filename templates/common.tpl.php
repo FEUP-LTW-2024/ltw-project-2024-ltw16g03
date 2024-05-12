@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/delete_account.js" defer></script>
+        <script src="../javascript/cart.js" defer></script>
     </head>
     <body>
         <header>
@@ -102,6 +103,7 @@
         <title>Retro Club</title>
         <link rel="stylesheet" href="../css/style.css">
         <script src="../javascript/script.js" defer></script>
+        <script src="../javascript/cart.js" defer></script>
     </head>
     <body>
         <header class="classic">

@@ -61,12 +61,46 @@
       );
     }
 
-    static function deleteUser(PDO $db, int $id) {
+    static function deleteUser(PDO $db, int $id) : void {
       $stmt = $db->prepare('
         DELETE FROM User 
         WHERE UserID = ?
       ');
       $stmt->execute(array($id));
+    }
+
+    static function getCart(PDO $db, int $id) : array{
+      $stmt = $db->prepare('
+        SELECT ItemID
+        FROM Cart 
+        WHERE UserID = ?
+      ');
+
+      $itemsID = array();
+      $stmt->execute(array($id));
+      while ($item = $stmt->fetch()) {
+        $itemsID[] = (int) $item['ItemID'];
+      }
+
+      return $itemsID;
+    }
+
+    static function addToCart(PDO $db, int $userID, int $itemID) {
+      $stmt = $db->prepare('
+        INSERT INTO Cart (UserID, ItemID, Quantity) 
+        VALUES (?, ?, 1)
+      ');
+
+      $stmt->execute(array($userID, $itemID));
+    }
+
+    static function removeFromCart(PDO $db, int $userID, int $itemID) {
+       $stmt = $db->prepare('
+        DELETE FROM Cart 
+        WHERE UserID = ? AND ItemID = ?
+      ');
+
+      $stmt->execute(array($userID, $itemID));
     }
   }
 ?>

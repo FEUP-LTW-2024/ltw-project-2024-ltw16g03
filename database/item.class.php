@@ -159,5 +159,36 @@
 
       return $items;
     }
+
+    static function getNonUserSellingItems(PDO $db, int $id) : array {
+      $stmt = $db->prepare('
+      SELECT * 
+      FROM Item
+      WHERE IsSold = 0 AND UserID <> ?');
+
+      $stmt->execute(array($id));
+      $items = array();
+    
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+
+      return $items;
+    }
   }
 ?>

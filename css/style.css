@@ -901,6 +901,7 @@ input[type="range"]::-moz-range-thumb {
     border: 2px solid #000;
     max-width: 73%;
     margin: 0 auto;
+    margin-bottom: 2.5em;
 }
 
 .add-to-wishlist {
@@ -923,10 +924,6 @@ input[type="range"]::-moz-range-thumb {
     position: absolute;
     bottom: 0em;
     right: 1em;
-}
-
-.item-checkout {
-    margin-bottom: 2.5em;
 }
 
 .item-checkout article {

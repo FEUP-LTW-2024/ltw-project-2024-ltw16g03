@@ -16,7 +16,6 @@
 
   drawHeader($session);
 ?>
-
   <main>
     <form class="edit_profile_inputs">  
       <img class="profile_picture" src="<?=$user->ImageURL?>" alt="A image representative of the profile"/>

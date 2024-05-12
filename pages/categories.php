@@ -8,13 +8,13 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $db = getDatabaseConnection();
-  $items = Item::getAllSellingItems($db);
+  if (!$session->isLoggedIn()) $items = Item::getAllSellingItems($db);
+  else $items = Item::getNonUserSellingItems($db, $session->getId());
 ?>
 
 <?=drawHeader($session);?>
 
 <?=drawSHOPNOW();?>
-
         <main id="categories_page">
             <aside class="filters">
                 <form class="filters_container">
@@ -72,7 +72,11 @@
                         </section>
                         <section class="item_buttons">
                             <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                            <button class="add-to-cart">ADD TO CART</button>
+                            <?php if (!$session->isInCart($item->ItemID)) {?>
+                            <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                            <?php } else { ?>
+                            <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
+                            <?php } ?>
                         </section>
                     </article>
                 <?php } ?>

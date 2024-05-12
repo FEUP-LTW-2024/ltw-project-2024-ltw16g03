@@ -1,4 +1,5 @@
 <?php
+  require_once(__DIR__ . '/../database/item.class.php'); 
   class Session {
     private array $messages;
 
@@ -25,12 +26,30 @@
       return isset($_SESSION['name']) ? $_SESSION['name'] : null;
     }
 
+    public function getItemsInCart() : ?array {
+      return isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+    }
+
     public function setId(int $id) {
       $_SESSION['id'] = $id;
     }
 
     public function setName(string $name) {
       $_SESSION['name'] = $name;
+    }
+
+    public function isInCart(int $itemID) : bool {
+      return isset($_SESSION['cart'][$itemID]);
+    }
+
+    public function addItemToCart(Item $item) : bool {
+      if (Session::isInCart($item->ItemID)) return false;
+      $_SESSION['cart'][$item->ItemID] = $item;
+      return true;
+    }
+
+    public function removeItemFromCart(int $ItemID) {
+      unset($_SESSION['cart'][$ItemID]);
     }
 
     public function addMessage(string $type, string $text) {

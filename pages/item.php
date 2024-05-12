@@ -29,7 +29,11 @@
                         <p><?=$item->Detail?></p>
                     </div>
                     <section class="buttons">
-                        <button>ADD TO CART</button>
+                        <?php if (!$session->isInCart($item->ItemID)) {?>
+                        <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                        <?php } else { ?>
+                        <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
+                        <?php } ?>
                         <img class="add-to-wishlist2" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
                     </section>
                 </section>
