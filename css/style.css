@@ -1129,9 +1129,8 @@ input[type="range"]::-moz-range-thumb {
 
 /* Smaller Screens */
 
-/* Homepage */
-
 @media screen and (max-width: 1048px) {
+    /*Header*/
     body > header {
         grid-template-areas: "logo logo"
                              "buttons buttons"
@@ -1167,6 +1166,12 @@ input[type="range"]::-moz-range-thumb {
                              "Home";
         gap: 1em;
         padding: 1em;
+    }
+
+    /*Wish List*/
+    .input_info {
+        min-width: 250px;
+        align-self: center;
     }
 }
 
