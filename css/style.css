@@ -1131,14 +1131,17 @@ input[type="range"]::-moz-range-thumb {
 
 /* Homepage */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1048px) {
     body > header {
-        grid-template-areas: "logo buttons"
+        grid-template-areas: "logo logo"
+                             "buttons buttons"
                              "search-bar search-bar"
                              "categories categories";
-        grid-template-columns: auto auto;
-        align-items: center;
-        justify-content: space-between;
+    }
+    .buttons {
+        grid-area: buttons;
+        justify-content: center;
+        padding-bottom: 1em;
     }
 
     .search-bar {
@@ -1151,9 +1154,10 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .slogan {
-        text-align: center; 
+        margin: auto;
+        text-align: center;
         padding: 10px;
-        
+        font-size: 3em;
     }
 
     .items-homepage {
