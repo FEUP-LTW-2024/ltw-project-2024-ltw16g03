@@ -7,16 +7,14 @@
     public string $Username;
     public string $Email;
     public int $IsAdmin;
-    public string $ImageURL;
 
-    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin, string $ImageURL)
+    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin)
     {
       $this->UserID = $UserID;
       $this->RealName = $RealName;
       $this->Username = $Username;
       $this->Email = $Email;
       $this->IsAdmin = $IsAdmin;
-      $this->ImageURL = $ImageURL;
     }
 
     static function getUserWithPassword(PDO $db, string $username, string $password) : ?User {
@@ -36,7 +34,6 @@
           $user['Username'],
           $user['Email'],
           $user['IsAdmin'],
-          $user['ImageURL']
         );
       } else return null;
     }
@@ -57,8 +54,29 @@
         $user['Username'],
         $user['Email'],
         $user['IsAdmin'],
-        $user['ImageURL']
       );
+    }
+
+    static function isUsernameTaken(PDO $db, string $username) : bool {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM User 
+        WHERE lower(username) = ?
+      ');
+    
+      $stmt->execute(array(strtolower($username)));
+      return (bool) $stmt->fetch();
+    }
+
+    static function isEmailTaken(PDO $db, string $email) : bool {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM User 
+        WHERE lower(email) = ?
+      ');
+
+      $stmt->execute(array(strtolower($email)));
+      return (bool) $stmt->fetch();
     }
 
     static function deleteUser(PDO $db, int $id) : void {

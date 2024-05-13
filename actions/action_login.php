@@ -32,7 +32,7 @@
     }
     $session->addMessage('success', 'Login successful!');
   } else {
-    $session->addMessage('error', 'Wrong password!');
+    $session->addMessage('error', 'Wrong username or password!');
   }
 
   die(header('Location: ../pages/login.php'));

@@ -21,8 +21,7 @@ CREATE TABLE User
     Username NVARCHAR(60) NOT NULL,
     Password NVARCHAR(60) NOT NULL,
     Email NVARCHAR(60) NOT NULL,
-    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1)),
-    ImageURL NVARCHAR(255) NOT NULL
+    IsAdmin INTEGER NOT NULL CHECK (IsAdmin IN (0, 1))
 );
 
 CREATE TABLE Category 
@@ -184,12 +183,12 @@ INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Home accessories');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Tableware');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Celebrations');
 
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('Teste1', '11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('Teste1', '11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0');
 
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Color, Price, ImageURL, IsSold) VALUES (1, 1, 1, 1, 'Zara Summer Dress', 'Zara', 'Summer Dress', 'M', 'New', 'Beautiful summer dress in floral pattern.', 'brown', 30.00, 'https://m.media-amazon.com/images/I/71I5BZfd3YL.jpg', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Model, Dimension, Condition, Detail, Color, Price, ImageURL, IsSold) VALUES (2, 2, 2, 2, 'Air Max Nike', 'Nike', 'Air Max', '42', 'Used', 'Classic Nike Air Max shoes in black and white.', 'red', 80.00, 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/wzitsrb4oucx9jukxsmc/air-max-90-mens-shoes-6n3vKB.png', 0);
@@ -252,6 +251,4 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
 INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('a', 'a', '$2y$10$UpdShnGAHTnO4TGz2g9WFuJJVYJT1nmPH/5SUNmJ9LnmOTlc9QcZi', 'a@gmail.com', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('a', 'a', '$2y$10$1aYvPnEbvnVOtbwkHH4CLe.YqLNiuY6tF3pReJIWnanw9N0AG5kUy', 'a@gmail.com', '0', 'https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg');
+                ('5050', '5050', '$2y$10$2jCcgZges46eaKeQGDkloejXQGqE23n/xYCfjdzshZ.cigmKxUxAq', '5050@gmail.com', '0');
