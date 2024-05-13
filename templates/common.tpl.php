@@ -15,6 +15,7 @@
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/delete_account.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
+        <script src="../javascript/filters.js" defer></script>
     </head>
     <body>
         <header>
