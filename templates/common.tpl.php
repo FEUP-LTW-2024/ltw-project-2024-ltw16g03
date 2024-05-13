@@ -26,20 +26,20 @@
             <section class="search-bar">
                 <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
                 <div class="dropdown" id="filter-dropdown">
-                    <a href="#">Clothing</a>
-                    <a href="#">Shoes</a>
-                    <a href="#">Bags</a>
-                    <a href="#">Accessories</a>
-                    <a href="#">Beauty</a>
-                    <a href="#">Grooming</a>
-                    <a href="#">Toys / Games</a>
-                    <a href="#">Baby Care</a>
-                    <a href="#">Buggies</a>
-                    <a href="#">School Supplies</a>
-                    <a href="#">Textiles</a>
-                    <a href="#">Home accessories</a>
-                    <a href="#">Tableware</a>
-                    <a href="#">Celebrations</a>
+                    <a href="categories.php?type=Clothing">Clothing</a>
+                    <a href="categories.php?type=Shoes">Shoes</a>
+                    <a href="categories.php?type=Bags">Bags</a>
+                    <a href="categories.php?type=Accessories">Accessories</a>
+                    <a href="categories.php?type=Beauty">Beauty</a>
+                    <a href="categories.php?type=Grooming">Grooming</a>
+                    <a href="categories.php?type=Toys%20/%20Games">Toys / Games</a>
+                    <a href="categories.php?type=Baby%20Care">Baby Care</a>
+                    <a href="categories.php?type=Buggies">Buggies</a>
+                    <a href="categories.php?type=School%20Supplies">School Supplies</a>
+                    <a href="categories.php?type=Textiles">Textiles</a>
+                    <a href="categories.php?type=Home%20accessories">Home Accessories</a>
+                    <a href="categories.php?type=Tableware">Tableware</a>
+                    <a href="categories.php?type=Celebrations">Celebrations</a>
                 </div>
                 <input type="text" placeholder="Search here..."/>
                 <button id="search-button"><img src="../assets/search.png" alt="search"></button>
@@ -62,37 +62,13 @@
             <nav class="categories">
                 <ul>
                     <li><a href="categories.php">All Categories</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">House</a></li>
+                    <li><a href="categories.php?category=Women">Women</a></li>
+                    <li><a href="categories.php?category=Men">Men</a></li>
+                    <li><a href="categories.php?category=Kids">Kids</a></li>
+                    <li><a href="categories.php?category=House">House</a></li>
                 </ul>
             </nav>
         </header>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var filterButton = document.getElementById("filter-button");
-                var dropdown = document.getElementById("filter-dropdown");
-
-                // Toggle dropdown when filter button is clicked
-                filterButton.addEventListener("click", function(event) {
-                    event.stopPropagation(); // Prevent click event from propagating to document
-                    if (dropdown.style.display === "none") {
-                        dropdown.style.display = "block";
-                    } else {
-                        dropdown.style.display = "none";
-                    }
-                });
-
-                // Hide dropdown when clicking outside of it
-                document.body.addEventListener("click", function(event) {
-                    if (!dropdown.contains(event.target) && event.target !== filterButton) {
-                        dropdown.style.display = "none";
-                    }
-                });
-            });
-        </script>
 <?php } ?>
 
 <?php function drawClassicHeader($string) { ?>

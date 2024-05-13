@@ -1,6 +1,48 @@
+document.addEventListener("DOMContentLoaded", function() {
+    var filterButton = document.getElementById("filter-button");
+    var dropdown = document.getElementById("filter-dropdown");
+    dropdown.style.display = "none";
+    filterButton.addEventListener("click", function(event) {
+        event.stopPropagation();
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    });
+
+    document.body.addEventListener("click", function(event) {
+        if (!dropdown.contains(event.target) && event.target !== filterButton) {
+            dropdown.style.display = "none";
+        }
+    });
+});
+
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 checkboxes.forEach(checkbox => {
     checkbox.addEventListener('change', filterItems);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    filterItems();
+
+    const priceInputs = document.querySelectorAll('input[type="number"]');
+    priceInputs.forEach(input => {
+        input.addEventListener('input', filterItems);
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const categoryMap = {'Women': '1', 'Men': '2', 'Kids': '3', 'House': '4'};
+    if (categoryParam && categoryMap.hasOwnProperty(categoryParam)) {
+        const categoryValue = categoryMap[categoryParam];
+        const categoryCheckbox = document.querySelector(`input[name="CATEGORIES"][value="${categoryValue}"]`);
+        if (categoryCheckbox) {
+            categoryCheckbox.checked = true;
+            filterItems();
+            toggleSizes(categoryCheckbox);
+        }
+    }
 });
 
     function toggleSizes(checkbox) {
