@@ -21,7 +21,7 @@
             foreach ($cartItems as $item) { 
                 $total += $item->Price;?>
                 <article class="item-background">
-                    <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template" height = "250" width = "250"/>
+                    <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template"/>
                     <img class="add-to-wishlist" src="../assets/wishlist.svg" alt="wishlist" height = "35" width = "35"/>
                     <img class="cross eliminate-item" data-itemId="<?=$item->ItemID?>" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
                     <p class="price2"><?=$item->Price?> €</p>
