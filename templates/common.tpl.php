@@ -136,10 +136,10 @@
         <p> <?=$string?> </p>
         <p class="description"> <?=$subtitle?> </p>
         <?php if ($wishlist): ?>
-            <a href="categories.php"><button>WISHLIST</button></a>
+            <a href="categories.php"><button style="background-color: #c74d3dde; width: 250px;" >WISHLIST</button></a>
             <?php endif; ?>
         <?php if ($shop): ?>
-            <a href="categories.php"><button>SHOP NOW!</button></a>
+            <a href="categories.php"><button style="width: 250px;">SHOP NOW!</button></a>
             <?php endif; ?>
     </main>
 <?php } ?> 
