@@ -3,13 +3,20 @@
   $session = new Session();
 
   require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php'); 
   
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $db = getDatabaseConnection();
-  if (!$session->isLoggedIn()) $items = Item::getAllSellingItems($db);
-  else $items = Item::getNonUserSellingItems($db, $session->getId());
+  if (!$session->isLoggedIn()) {
+    $items = Item::getAllSellingItems($db);
+    $wishlist = array();
+  }
+  else {
+    $items = Item::getNonUserSellingItems($db, $session->getId());
+    $wishlist = User::getWishlist($db, $session->getId());
+  }
 ?>
 
 <?=drawHeader($session);?>
@@ -88,7 +95,11 @@
                             <p><?=$item->Dimension?></p>
                         </section>
                         <section class="item_buttons">
-                            <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                            <?php if (in_array($item->ItemID, $wishlist)) {?>
+                            <img class="remove_from_wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "20"/>
+                            <?php } else { ?>
+                            <img class="wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                            <?php } ?>
                             <?php if (!$session->isInCart($item->ItemID)) {?>
                             <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
                             <?php } else { ?>

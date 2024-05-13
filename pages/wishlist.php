@@ -1,21 +1,16 @@
 <?php
-  require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
-  require_once(__DIR__ . '/../database/connection.db.php');
-  $db = getDatabaseConnection();
 
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
-  $stmt = $db->prepare('SELECT Item.ImageURL, Item.Price, Item.Brand, Item.Dimension 
-                        FROM Item
-                        INNER JOIN Wishlist ON Item.ItemID = Wishlist.ItemID
-                        WHERE Wishlist.UserID = :userID
-                        ');
-  $stmt->bindParam(':userID', $session->getId());
+  require_once(__DIR__ . '/../database/connection.db.php');
+  $db = getDatabaseConnection();
 
-  $stmt->execute();
-  $wishItems = $stmt->fetchAll();
+  require_once(__DIR__ . '/../database/item.class.php'); 
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+
+  $wishItems = Item::getUserWishlist($db, $session->getId());
 
   if (empty($wishItems)) die(header('Location: ../pages/wishlist_empty.php'));
 ?>
@@ -25,19 +20,24 @@
                     <section class="main-items">
                         <?php foreach ($wishItems as $item) { ?>
                         <article class="display_item">
-                            <a href="#"><img class = "item_img" src="<?=$item['ImageURL']?>" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
                             <section class="item_info">
-                                <p><?=$item['Price']?> €</p>
-                                <p><?=$item['Brand']?></p>
-                                <p><?=$item['Dimension']?></p>
+                                <p><?=$item->Price?> €</p>
+                                <p><?=$item->Brand?></p>
+                                <p><?=$item->Dimension?></p>
                             </section>
                             <section class="item_buttons">
-                                <img src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                                <button class="add-to-cart">ADD TO CART</button>
+                                <img class="wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlist" height = "20"/>
+                                <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
                             </section>
                         </article>
                         <?php } ?>
                     </section>
+                    <section class="confirm pop_up">
+                        <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
+                        <p>Adding the item to the cart will remove it from the wishlist. Do you want to proceed?</p>
+                        <button>CONTINUE</button>
+                    </form>
                 </main>
 
     <?=drawFooter();?>

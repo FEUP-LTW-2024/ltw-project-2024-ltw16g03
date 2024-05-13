@@ -15,6 +15,7 @@
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/delete_account.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
+        <script src="../javascript/wishlisting.js" defer></script>
         <script src="../javascript/filters.js" defer></script>
     </head>
     <body>
@@ -82,6 +83,7 @@
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/delete_account.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
+        <script src="../javascript/wishlisting.js" defer></script>
     </head>
     <body>
         <header class="classic">
@@ -112,10 +114,10 @@
         <p> <?=$string?> </p>
         <p class="description"> <?=$subtitle?> </p>
         <?php if ($wishlist): ?>
-            <a href="categories.php"><button style="background-color: #c74d3dde; width: 250px;" >WISHLIST</button></a>
-            <?php endif; ?>
+            <a href="wishlist.php"><button class="red" style="width: 250px">WISHLIST</button></a>
+        <?php endif; ?>
         <?php if ($shop): ?>
             <a href="categories.php"><button style="width: 250px;">SHOP NOW!</button></a>
-            <?php endif; ?>
+        <?php endif; ?>
     </main>
 <?php } ?> 

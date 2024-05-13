@@ -11,6 +11,13 @@
   $db = getDatabaseConnection();
   $item = Item::getItem($db, $_GET['id']);
   $user = User::getUser($db, $item->OwnerID);
+
+  if (!$session->isLoggedIn()) {
+    $wishlist = array();
+  }
+  else {
+    $wishlist = User::getWishlist($db, $session->getId());
+  }
 ?>
 
 <?=drawHeader($session);?>
@@ -34,7 +41,11 @@
                         <?php } else { ?>
                         <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
                         <?php } ?>
-                        <img class="add-to-wishlist2" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
+                        <?php if (in_array($item->ItemID, $wishlist)) {?>
+                        <img class="remove-from-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "40" width = "40"/>
+                        <?php } else { ?>
+                        <img class="add-to-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
+                        <?php } ?>    
                     </section>
                 </section>
             </article>

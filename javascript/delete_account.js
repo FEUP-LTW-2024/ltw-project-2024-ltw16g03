@@ -1,11 +1,11 @@
-const deleteButton = document.getElementById('account_delete')
-const popUp = document.querySelector('.delete_pop_up');
+const deleteButton = document.getElementById('account_delete');
+const deletePopUp = document.querySelector('#profile_main .pop_up');
 if (deleteButton) {
     deleteButton.addEventListener("click", function(e) {
         // Avoid a tag from refreshing the page
         e.preventDefault();
         // Show pop up
-        popUp.style.display = 'flex';
+        deletePopUp.style.display = 'flex';
         // Blurr background
         const header = document.querySelector('header');
         const footer = document.querySelector('footer');
@@ -14,19 +14,19 @@ if (deleteButton) {
         footer.style.filter = "blur(8px)";
         for (node of mainNodes) {
             console.log(node);
-            if (!node.classList.contains("delete_pop_up")) node.style.filter = "blur(8px)";
+            if (!node.classList.contains("pop_up")) node.style.filter = "blur(8px)";
         }
     });
 }
 
-if (popUp) {
-    const closeButton = popUp.querySelector('img');
+if (deletePopUp) {
+    const closeButton = deletePopUp.querySelector('img');
     closeButton.addEventListener("click", function(e) {
         // Clear inpuy field
-        const inputField = popUp.querySelector('input');
+        const inputField = deletePopUp.querySelector('input');
         inputField.value = '';
         // Hide pop up
-        popUp.style.display = 'none';
+        deletePopUp.style.display = 'none';
         // Un-blurr background
         const header = document.querySelector('header');
         const footer = document.querySelector('footer');
@@ -35,7 +35,7 @@ if (popUp) {
         footer.style.filter = "blur(0px)";
         for (node of mainNodes) {
             console.log(node);
-            if (!node.classList.contains("delete_pop_up")) node.style.filter = "blur(0px)";
+            if (!node.classList.contains("pop_up")) node.style.filter = "blur(0px)";
         }
     });
 }

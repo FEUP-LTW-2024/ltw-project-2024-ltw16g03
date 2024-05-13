@@ -763,7 +763,7 @@ input[name="color"]:checked + label {
     margin-bottom: 20px;
 }
 
-.add-to-wishlist2 {
+.add-to-wishlist2, .remove-from-wishlist2 {
     margin-top: 3.8em;
 }
 
@@ -1186,7 +1186,7 @@ g
 }
 
 /* Pop Up */
-.delete_pop_up {
+.pop_up {
     /* Center in the middle of the screen */
     position: fixed;
     left: 50%;

@@ -97,7 +97,7 @@ CREATE TABLE Messages
 
 CREATE TABLE Wishlist
 (
-    WishlistID INTEGER NOT NULL,
+    WishlistID INTEGER,
     UserID INTEGER NOT NULL,
     ItemID INTEGER NOT NULL,
     CONSTRAINT PK_Wishlist PRIMARY KEY (WishlistId),
