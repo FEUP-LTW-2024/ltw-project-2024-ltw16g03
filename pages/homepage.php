@@ -16,19 +16,19 @@
     <?=drawSHOPNOW();?>
 
     <section class="items-homepage">
-    <a href="#" class="category-link">
+    <a href="categories.php?category=Women" class="category-link">
         <img src="../assets/women.png" alt="women-geral">
         <span class="category-text">WOMEN</span>
     </a>
-    <a href="#" class="category-link">
+    <a href="categories.php?category=Men" class="category-link">
         <img src="../assets/men.png" alt="men-geral">
         <span class="category-text">MEN</span>
     </a>
-    <a href="#" class="category-link">
+    <a href="categories.php?category=Kids" class="category-link">
         <img src="../assets/kids.png" alt="kids-geral">
         <span class="category-text">KIDS</span>
     </a>
-    <a href="#" class="category-link">
+    <a href="categories.php?category=House" class="category-link">
         <img src="../assets/home.png" alt="home-geral">
         <span class="category-text">HOUSE</span>
     </a>
