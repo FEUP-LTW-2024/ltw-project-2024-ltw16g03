@@ -21,10 +21,10 @@
                     <h1>FILTERS</h1>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="checkbox" name="CATEGORIES" value="Women">Women</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="Men">Men</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="Kids">Kids</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="House">House</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="1">Women</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="2">Men</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="3">Kids</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="4">House</label>
 
                     <h2>SIZE</h2>
                     <label><input type="checkbox" name="SIZE" value="XL">XL</label>
@@ -63,7 +63,7 @@
             </aside>
             <section class="main-items">
                 <?php foreach ($items as $item) { ?>
-                    <article class="display_item">
+                    <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>">
                         <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
                         <section class="item_info">
                             <p><?=$item->Price?> €</p>
@@ -82,5 +82,37 @@
                 <?php } ?>
             </section>
         </main>
+
+<script>
+    // JavaScript for filtering items based on selected checkboxes
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterItems);
+    });
+
+    function filterItems() {
+        const selectedCategories = Array.from(document.querySelectorAll('input[name="CATEGORIES"]:checked')).map(checkbox => checkbox.value);
+        const selectedSizes = Array.from(document.querySelectorAll('input[name="SIZE"]:checked')).map(checkbox => checkbox.value);
+        const selectedColors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(checkbox => checkbox.value);
+
+        const items = document.querySelectorAll('.display_item');
+
+        items.forEach(item => {
+            const category = item.dataset.category;
+            const size = item.dataset.size;
+            const color = item.dataset.color;
+
+            if (
+                (selectedCategories.length === 0 || selectedCategories.includes(category)) &&
+                (selectedSizes.length === 0 || selectedSizes.includes(size)) &&
+                (selectedColors.length === 0 || selectedColors.includes(color))
+            ) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 <?=drawFooter();?>

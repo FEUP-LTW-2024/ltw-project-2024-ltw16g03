@@ -12,9 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Retro Club</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../javascript/script.js" defer></script>
-        <script src="../javascript/delete_account.js" defer></script>
-        <script src="../javascript/cart.js" defer></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header>
@@ -102,8 +100,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Retro Club</title>
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../javascript/script.js" defer></script>
-        <script src="../javascript/cart.js" defer></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <header class="classic">
