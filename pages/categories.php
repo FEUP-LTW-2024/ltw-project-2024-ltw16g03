@@ -26,6 +26,22 @@
                     <label><input type="checkbox" name="CATEGORIES" value="3">Kids</label>
                     <label><input type="checkbox" name="CATEGORIES" value="4">House</label>
 
+                    <h2>TYPE</h2>
+                    <label><input type="checkbox" name="CATEGORIES" value="1">Clothing</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="2">Shoes</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="3">Bags</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="4">Accessories</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="5">Beauty</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="6">Grooming</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="7">Toys / Games</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="8">Baby care</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="9">Buggies</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="10">School supplies</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="11">Textiles</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="12">Home accessories</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="13">Tableware</label>
+                    <label><input type="checkbox" name="CATEGORIES" value="14">Celebrations</label>
+
                     <h2>SIZE</h2>
                     <label><input type="checkbox" name="SIZE" value="XL">XL</label>
                     <label><input type="checkbox" name="SIZE" value="L">L</label>
@@ -84,29 +100,21 @@
         </main>
 
 <script>
-    // JavaScript for filtering items based on selected checkboxes
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', filterItems);
     });
 
     function filterItems() {
-        const selectedCategories = Array.from(document.querySelectorAll('input[name="CATEGORIES"]:checked')).map(checkbox => checkbox.value);
-        const selectedSizes = Array.from(document.querySelectorAll('input[name="SIZE"]:checked')).map(checkbox => checkbox.value);
-        const selectedColors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(checkbox => checkbox.value);
-
+        const categories = Array.from(document.querySelectorAll('input[name="CATEGORIES"]:checked')).map(checkbox => checkbox.value);
+        const sizes = Array.from(document.querySelectorAll('input[name="SIZE"]:checked')).map(checkbox => checkbox.value);
+        const colors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(checkbox => checkbox.value);
         const items = document.querySelectorAll('.display_item');
-
         items.forEach(item => {
             const category = item.dataset.category;
             const size = item.dataset.size;
             const color = item.dataset.color;
-
-            if (
-                (selectedCategories.length === 0 || selectedCategories.includes(category)) &&
-                (selectedSizes.length === 0 || selectedSizes.includes(size)) &&
-                (selectedColors.length === 0 || selectedColors.includes(color))
-            ) {
+            if ((categories.length === 0 || categories.includes(category)) && (sizes.length === 0 || sizes.includes(size)) && (colors.length === 0 || colors.includes(color))) {
                 item.style.display = '';
             } else {
                 item.style.display = 'none';
