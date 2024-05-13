@@ -776,7 +776,7 @@ input[type="range"]::-moz-range-thumb {
     margin-bottom: 20px;
 }
 
-.add-to-wishlist2 {
+.add-to-wishlist2, .remove-from-wishlist2 {
     margin-top: 3.8em;
 }
 
@@ -1178,7 +1178,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Pop Up */
-.delete_pop_up {
+.pop_up {
     /* Center in the middle of the screen */
     position: fixed;
     left: 50%;

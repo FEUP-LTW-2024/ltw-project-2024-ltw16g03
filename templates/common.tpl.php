@@ -15,6 +15,7 @@
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/delete_account.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
+        <script src="../javascript/wishlisting.js" defer></script>
     </head>
     <body>
         <header>
@@ -104,6 +105,7 @@
         <link rel="stylesheet" href="../css/style.css">
         <script src="../javascript/script.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
+        <script src="../javascript/wishlisting.js" defer></script>
     </head>
     <body>
         <header class="classic">
@@ -134,7 +136,7 @@
         <p> <?=$string?> </p>
         <p class="description"> <?=$subtitle?> </p>
         <?php if ($wishlist): ?>
-            <a href="categories.php"><button>WISHLIST</button></a>
+            <a href="wishlist.php"><button>WISHLIST</button></a>
             <?php endif; ?>
         <?php if ($shop): ?>
             <a href="categories.php"><button>SHOP NOW!</button></a>

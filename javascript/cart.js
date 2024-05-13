@@ -50,7 +50,7 @@ function removeFromCartEvent(e) {
 
 function addToCartEvent(e) {
     // Call API to add item to cart (properly encode json string)
-    const response = fetch('../api/api_add_to_cart.php?item=' + encodeURIComponent(this.getAttribute('data-item')));
+    const response = fetch('../api/add_to_cart.php?item=' + encodeURIComponent(this.getAttribute('data-item')));
     
     // Change button to Remove from Cart
     this.classList.remove('add-to-cart');
@@ -60,22 +60,76 @@ function addToCartEvent(e) {
     // Change event handler to removeFromCartEvent
     this.removeEventListener('click', addToCartEvent);
     this.addEventListener('click', removeFromCartEvent);
+
+    // If item is in wishlist remove it and change button
+    const wishlistButton = this.closest('section').querySelector('img');
+    if (wishlistButton.src = "../assets/wishlist.svg") {
+        removeEvent.call(wishlistButton);
+    }
 }
 
-// Add "Add to Cart" events to buttons
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
+async function addToCartWishlistPageEvent(e) {
+    console.log(this)
+    // Call API to add item to cart (properly encode json string)
+    const response = fetch('../api/add_to_cart.php?item=' + encodeURIComponent(this.getAttribute('data-item')));
+
+    // Remove item
+    const wishlistButton = this.closest('section').querySelector('img');
+    removeAndDeleteEvent.call(wishlistButton);
+
+    // Close Pop-Up
+    popUp.style.display = 'none';
+}
+
+// Add "Add to Cart" events to buttons on Categories pages
+const addToCartButtons = document.querySelectorAll('#categories_page .add-to-cart');
 for (const button of addToCartButtons) {
     button.addEventListener("click", addToCartEvent);
 }
 
-// Add "Remove from Cart" event to cross on Cart page
-const removeButtons = document.querySelectorAll('.eliminate-item');
+// Add "Remove from Cart" event to buttons on Categories pages
+const removeButtons = document.querySelectorAll('#categories_page .remove_from_cart');
 for (const button of removeButtons) {
+    button.addEventListener("click", removeFromCartEvent);
+}
+
+// Add "Add to Cart" event to buttons on Wishlist page
+const addToCartWishlist = document.querySelectorAll('#main-wishlist .add-to-cart');
+for (const button of addToCartWishlist) {
+    button.addEventListener("click", showPopUp);
+}
+
+// Add "Remove from Cart" event to cross on Cart page
+const removeButtons2 = document.querySelectorAll('.eliminate-item');
+for (const button of removeButtons2) {
     removeFromCartPageEvent(button);
 }
 
-// Add "Remove from Cart" event to buttons
-const removeButtons2 = document.querySelectorAll('.remove_from_cart');
-for (const button of removeButtons2) {
-    button.addEventListener("click", removeFromCartEvent);
+// Handling popUp
+const popUp = document.querySelector('#main-wishlist .pop_up');
+function showPopUp() {
+    // Show Pop Up
+    popUp.style.display = 'flex';
+    const addToCart = this;
+
+    // Create new button add correct event listeners and replace it
+    const continueButton = popUp.querySelector('button');
+    // Clone the element
+    const clone = continueButton.cloneNode(true);
+    
+    // Add Correct event listener
+    clone.addEventListener("click", function(e) {
+        addToCartWishlistPageEvent.call(addToCart);
+    });
+
+    // Replace the original element with the clone
+    continueButton.parentNode.replaceChild(clone, continueButton);
+}
+
+if (popUp) {
+    const closeButton = popUp.querySelector('img');
+    closeButton.addEventListener("click", function(e) {
+        // Hide pop up
+        popUp.style.display = 'none';
+    });
 }

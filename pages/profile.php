@@ -48,7 +48,7 @@
             <button type="submit" formaction="../actions/action_logout.php">Logout</button>
         </form>
 
-        <form class="delete_pop_up" hidden>
+        <form class="delete pop_up" hidden>
             <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
             <p>Are you sure you want to delete your account?</p>
             <p>If you are write DELETE in the following field: </p>

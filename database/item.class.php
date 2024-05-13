@@ -190,5 +190,39 @@
 
       return $items;
     }
+
+    static function getUserWishlist(PDO $db, int $id) : array {
+      $stmt = $db->prepare('
+      SELECT Item.ItemID, Item.UserID, Item.CategoryID, 
+             Item.TypeID, Item.ItemName, Item.Brand, 
+             Item.Model, Item.Dimension, Item.Condition, 
+             Item.Detail, Item.IsSold, Item.Color, Item.Price, 
+             Item.ImageURL 
+      FROM Item INNER JOIN Wishlist ON Item.ItemID = Wishlist.ItemID WHERE Wishlist.UserID = ?;');
+
+      $stmt->execute(array($id));
+      $items = array();
+    
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+
+      return $items;
+    }
   }
 ?>

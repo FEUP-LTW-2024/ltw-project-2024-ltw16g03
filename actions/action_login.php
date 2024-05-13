@@ -18,9 +18,14 @@
     // Update database with cart info
     $sessionCart = $session->getItemsInCart();
     $databaseCart = User::getCart($db, $user->UserID);
+    $userSelling = User::getUserSellingItemsID($db, $user->UserID);
+    // Delete from session cart User owned items
+    foreach ($userSelling as $selling) {
+      $session->removeItemFromCart($selling);
+    }
     foreach ($sessionCart as $item) {
-      // If item not in database
-      if (!in_array($item->ItemID, $databaseCart)) {
+      // If item not in database then 
+      if (!in_array($item->ItemID, $databaseCart) && !in_array($item->ItemID, $userSelling)) {
         User::addToCart($db, $user->UserID, $item->ItemID);
       }
     }
