@@ -1177,7 +1177,12 @@ g
         margin: 0;
         padding-bottom: 2em;
     }
-    
+    .process-order {
+        margin-top: 20px;
+    }
+    .items-total {
+        padding-left: 1em;
+    }
 }
 
 /* Pop Up */
