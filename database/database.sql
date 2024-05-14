@@ -250,5 +250,5 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (6, 3, 11, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
                 ('5050', '5050', '$2y$10$2jCcgZges46eaKeQGDkloejXQGqE23n/xYCfjdzshZ.cigmKxUxAq', '5050@gmail.com', '0');
