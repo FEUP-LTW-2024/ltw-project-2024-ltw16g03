@@ -108,7 +108,7 @@
     </div>
 <?php } ?>
 
-<?php function drawEmpty(string $string, string $subtitle, bool $wishlist, bool $shop) { ?>
+<?php function drawEmpty(string $string, string $subtitle, bool $wishlist, bool $shop, bool $sell) { ?>
     <main class="empty">
         <img src="../assets/sad_disco_ball.png" alt="disco ball"/>           
         <p> <?=$string?> </p>
@@ -118,6 +118,9 @@
         <?php endif; ?>
         <?php if ($shop): ?>
             <a href="categories.php"><button style="width: 250px;">SHOP NOW!</button></a>
+        <?php endif; ?>
+        <?php if ($sell): ?>
+            <a href="sell.php"><button style="width: 250px;">SELL NOW!</button></a>
         <?php endif; ?>
     </main>
 <?php } ?> 

@@ -21,42 +21,48 @@
             <h1 class="sub_title">SELLING</h1>
             <section class="selling_items">
                 <?php if (empty($sellingItems)) { ?>
-                    <?=drawEmpty("YOUR SELLING LIST IS EMPTY", "Sell some items here!", false, true)?>
-                <?php } ?>
-                <?php foreach ($sellingItems as $item) { ?>
-                <article>
-                    <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
-                    <section class="info">
-                    <p class="price"><?=$item->Price?> $</p>
-                        <p class="name"><?=$item->ItemName?></p>
-                        <section class="tags">
-                            <span class="color-square <?=$item->Color?>"></span>
-                            <span class="size-square gray"><?=$item->Dimension?></span>
-                            <div class="edit-button"><button class="edit-button">EDIT</button></div>
+                    <?=drawEmpty("YOUR SELLING LIST IS EMPTY", "Sell some items here!", false, false, true)?>
+                <?php } else { ?>
+                    <?php for ($i = 0; $i < min(5, count($sellingItems)); $i++) { 
+                     $item = $sellingItems[$i] ?>
+                    <article>
+                        <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
+                        <section class="info">
+                        <p class="price"><?=$item->Price?> $</p>
+                            <p class="name"><?=$item->ItemName?></p>
+                            <section class="tags">
+                                <span class="color-square <?=$item->Color?>"></span>
+                                <span class="size-square gray"><?=$item->Dimension?></span>
+                                <div class="edit-button"><button class="edit-button">EDIT</button></div>
+                            </section>
                         </section>
-                    </section>
-                </article>    
+                    </article>    
+                    <?php } ?>
+                    <?php if (count($sellingItems) > 5) { ?> <a href="#" id="selling_see_more" class="option_link">Show More</a> <?php } ?>
                 <?php } ?>
             </section>
             <h1 class="sub_title2">SOLD</h1>
             <section class="selling_items">
                 <?php if (empty($soldItems)) { ?>
-                    <?=drawEmpty("YOUR SELLING LIST IS EMPTY", "", false, false)?>
-                <?php } ?>
-                <?php foreach ($soldItems as $item) { ?>
-                <article>
-                    <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
-                    <section class="info">
-                    <p class="price"><?=$item->Price?> $</p>
-                        <p class="name"><?=$item->ItemName?></p>
-                        <section class="tags">
-                            <span class="color-square <?=$item->Color?>"></span>
-                            <span class="size-square gray"><?=$item->Dimension?></span>
-                            <div class="edit-button"><button class="edit-button">EDIT</button></div>
+                    <?=drawEmpty("YOUR HAVEN'T SOLD ANYTHING YET", "", false, false, false)?>
+                <?php } else { ?>
+                    <?php for ($i = 0; $i < min(5, count($soldItems)); $i++) { 
+                     $item = $soldItems[$i] ?>
+                    <article>
+                        <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
+                        <section class="info">
+                        <p class="price"><?=$item->Price?> $</p>
+                            <p class="name"><?=$item->ItemName?></p>
+                            <section class="tags">
+                                <span class="color-square <?=$item->Color?>"></span>
+                                <span class="size-square gray"><?=$item->Dimension?></span>
+                                <div class="edit-button"><button class="edit-button">EDIT</button></div>
+                            </section>
                         </section>
-                    </section>
-                </article>    
-                <?php } ?>
+                    </article>    
+                    <?php } ?>
+                    <?php if (count($soldItems) > 5) { ?> <a href="#" id="sold_see_more" class="option_link">Show More</a> <?php } ?>
+                <?php } ?> 
             </section>
         </main>
 <?php drawFooter(); ?>

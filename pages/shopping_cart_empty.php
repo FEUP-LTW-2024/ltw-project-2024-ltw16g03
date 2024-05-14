@@ -8,6 +8,6 @@
   <?=drawClassicHeader("CART");?>
     
     <?=drawEmpty("YOUR CART IS EMPTY", "See if you have any products in your cart 
-  or take a look at our new-in items.", true, true);?>
+  or take a look at our new-in items.", true, true, false);?>
 
   <?=drawFooter();?>
