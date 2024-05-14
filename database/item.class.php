@@ -224,5 +224,36 @@
 
       return $items;
     }
+    
+    public static function searchItemsByName(PDO $db, $search) {
+      $stmt = $db->prepare('
+      SELECT * 
+      FROM Item
+      WHERE ItemName LIKE :search');
+      $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+      $stmt->execute();
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $items = [];
+      foreach ($results as $result) {
+        $item = new Item(
+          $result['ItemID'],
+          $result['UserID'], 
+          $result['CategoryID'],
+          $result['TypeID'],
+          $result['ItemName'],
+          $result['Brand'],
+          $result['Model'], 
+          $result['Dimension'],
+          $result['Condition'], 
+          $result['Detail'], 
+          $result['Color'],
+          $result['Price'],
+          $result['ImageURL'],
+          (bool)$result['IsSold']
+        );
+        $items[] = $item;
+      }
+      return $items;
+    }
   }
 ?>

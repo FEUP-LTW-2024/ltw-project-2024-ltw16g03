@@ -132,6 +132,7 @@ footer {
 }
 
 .search-bar input[type="text"] {
+    flex: 1;
     min-width: 10em;
     width: 100%;
     border: none;
@@ -167,6 +168,11 @@ footer {
 
 .dropdown a:hover {
     background-color: var(--tertiary-color);
+}
+
+#search-form {
+    display: flex; 
+    width: 100%;
 }
 
 /* Buttons do Header Default */
@@ -670,8 +676,8 @@ input[name="color"]:checked + label {
 
 .selling_items {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .selling_items article {
@@ -695,7 +701,7 @@ input[name="color"]:checked + label {
 
 .selling_items article .info p {
     margin: 0;
-    text-align: left;
+    text-align: justify;
     padding: 0 1em 1.4em 2.6em;
     font-size: 22px;
 }

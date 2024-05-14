@@ -42,8 +42,10 @@
                     <a href="categories.php?type=Tableware">Tableware</a>
                     <a href="categories.php?type=Celebrations">Celebrations</a>
                 </div>
-                <input type="text" placeholder="Search here..."/>
-                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
+                <form action="../pages/categories.php" method="GET" id="search-form">
+                    <input name="search" type="text" placeholder="Search here..."/>
+                    <button type="submit" id="search-button"><img src="../assets/search.png" alt="search"></button>
+                </form>
             </section> 
 
             <nav class="buttons">
