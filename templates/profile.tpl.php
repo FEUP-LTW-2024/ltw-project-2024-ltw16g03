@@ -3,7 +3,7 @@
 ?>
 
 <?php function output_item_display(array $items) { ?>
-    <button class="left_arrow" hidden>
+    <button class="left_arrow" data-number="0" hidden>
         <img src="../assets/left_arrow.png" alt="Button Image">
     </button>
     <section class="images">
@@ -15,7 +15,7 @@
         <?php } ?>
     </section>
     <?php if (count($items) > 3) { ?>
-    <button class="right_arrow">
+    <button class="right_arrow" data-number="3" data-max-number="<?=count($items)?>">
         <img src="../assets/right_arrow.png" alt="Button Image">
     </button>
     <?php } ?>

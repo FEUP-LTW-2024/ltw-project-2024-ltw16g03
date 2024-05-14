@@ -193,6 +193,39 @@
       return $items;
     }
 
+    static function getThreeSellingItem(PDO $db, int $currItem, int $id) {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Item 
+        WHERE UserID = ? AND IsSold = 0
+        LIMIT 3 OFFSET ?
+      ');
+      $stmt->execute(array($id, $currItem));
+  
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+  
+      return $items;
+    }
+
     static function getSomeSoldItem(PDO $db, int $numberOfItems, int $id) {
       $stmt = $db->prepare('
         SELECT *
@@ -225,6 +258,40 @@
   
       return $items;
     }
+
+    static function getThreeSoldItem(PDO $db, int $currItem, int $id) {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Item 
+        WHERE UserID = ? AND IsSold = 1
+        LIMIT 3 OFFSET ?
+      ');
+      $stmt->execute(array($id, $currItem));
+  
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+  
+      return $items;
+    }
+
 
     static function getNonUserSellingItems(PDO $db, int $id) : array {
       $stmt = $db->prepare('
