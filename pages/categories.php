@@ -9,6 +9,7 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $db = getDatabaseConnection();
+
   if (!$session->isLoggedIn()) {
     $items = Item::getAllSellingItems($db);
     $wishlist = array();
@@ -17,6 +18,12 @@
     $items = Item::getNonUserSellingItems($db, $session->getId());
     $wishlist = User::getWishlist($db, $session->getId());
   }
+
+  $search = isset($_GET['search']) ? $_GET['search'] : '';
+  if (!empty($search)) {
+    $items = Item::searchItemsByName($db, $search);
+  }
+
 ?>
 
 <?=drawHeader($session);?>
@@ -86,27 +93,31 @@
                 </form>
             </aside>
             <section class="main-items">
-                <?php foreach ($items as $item) { ?>
-                    <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
-                        <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
-                        <section class="item_info">
-                            <p><?=$item->Price?> €</p>
-                            <p><?=$item->Brand?></p>
-                            <p><?=$item->Dimension?></p>
-                        </section>
-                        <section class="item_buttons">
-                            <?php if (in_array($item->ItemID, $wishlist)) {?>
-                            <img class="remove_from_wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "20"/>
-                            <?php } else { ?>
-                            <img class="wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
-                            <?php } ?>
-                            <?php if (!$session->isInCart($item->ItemID)) {?>
-                            <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
-                            <?php } else { ?>
-                            <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
-                            <?php } ?>
-                        </section>
-                    </article>
+                <?php if (empty($items)) { ?>
+                    <p>No items found for the search term "<?= htmlspecialchars($search) ?>".</p>
+                <?php } else { ?>
+                    <?php foreach ($items as $item) { ?>
+                        <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
+                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
+                            <section class="item_info">
+                                <p><?=$item->Price?> €</p>
+                                <p><?=$item->Brand?></p>
+                                <p><?=$item->Dimension?></p>
+                            </section>
+                            <section class="item_buttons">
+                                <?php if (in_array($item->ItemID, $wishlist)) {?>
+                                <img class="remove_from_wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "20"/>
+                                <?php } else { ?>
+                                <img class="wishlist" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "20"/>
+                                <?php } ?>
+                                <?php if (!$session->isInCart($item->ItemID)) {?>
+                                <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                                <?php } else { ?>
+                                <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
+                                <?php } ?>
+                            </section>
+                        </article>
+                    <?php } ?>
                 <?php } ?>
             </section>
         </main>

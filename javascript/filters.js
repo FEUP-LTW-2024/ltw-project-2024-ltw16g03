@@ -136,15 +136,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', filterItems);
-        });
+        if (document.body.classList.contains('categories-page')) {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', filterItems);
+            });
 
-        const priceInputs = document.querySelectorAll('input[type="number"]');
-        priceInputs.forEach(input => {
-            input.addEventListener('input', filterItems);
-        });
+            const priceInputs = document.querySelectorAll('input[type="number"]');
+            priceInputs.forEach(input => {
+                input.addEventListener('input', filterItems);
+            });
+        }
     });
 
     function filterItems() {
