@@ -1,18 +1,37 @@
-const sellingSeeMore = document.querySelector('#selling_see_more');
-if (sellingSeeMore) {
-    sellingSeeMore.addEventListener("click", async function(e) {
-        seeMore.call(this, '../api/get_selling.php?number=');
+const leftSelling = document.querySelector('.selling .left_arrow');
+const rightSelling = document.querySelector('.selling .right_arrow');
+const leftSold = document.querySelector('.previous-orders .left_arrow');
+const rightSold = document.querySelector('.previous-orders .right_arrow');
+
+// Add event listener to left arrow on selling section
+if (leftSelling) {
+    leftSelling.addEventListener("click", async function(e) {
+        arrow.call(this, '../api/get_range_selling.php', true);
     });
 }
 
-const soldSeeMore = document.querySelector('#sold_see_more');
-if (soldSeeMore) {
-    soldSeeMore.addEventListener("click", async function(e) {
-        seeMore.call(this, '../api/get_sold.php?number=');
+// Add event listener to left arrow on sold section
+if (leftSold) {
+    leftSold.addEventListener("click", async function(e) {
+        arrow.call(this, '../api/get_range_sold.php', true);
     });
 }
 
-async function seeMore(path) {
+// Add event listener to right arrow on selling section
+if (rightSelling) {
+    rightSelling.addEventListener("click", async function(e) {
+        arrow.call(this, '../api/get_range_selling.php', false);
+    });
+}
+
+// Add event listener to right arrow on sold section
+if (rightSold) {
+    rightSold.addEventListener("click", async function(e) {
+        arrow.call(this, '../api/get_range_sold.php', false);
+    });
+}
+
+async function arrow(path, left) {
     const newItemsNumber = 5;
     const currNum = parseInt(this.getAttribute('data-number'));
     const newNumber = currNum + newItemsNumber;
