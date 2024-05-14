@@ -8,5 +8,5 @@
   <?=drawClassicHeader();?>
     
   <h1 class="sub_title">MESSAGES</h1>
-  <?=drawEmpty("YOU DON'T HAVE ANY MESSAGES YET", "", false, false)?>
+  <?=drawEmpty("YOU DON'T HAVE ANY MESSAGES YET", "", false, false, false)?>
   <?=drawFooter();?>

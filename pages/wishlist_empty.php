@@ -8,6 +8,6 @@
   drawClassicHeader("WISH LIST"); ?>
     
     <?=drawEmpty("YOUR WISHLIST IS EMPTY", "See if you have any products in your cart 
-  or take a look at our new-in items.", false, true);?>
+  or take a look at our new-in items.", false, true, false);?>
 
   <?=drawFooter();?>

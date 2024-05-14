@@ -323,11 +323,12 @@ footer {
     background-color: var(--secondary-color);
 }
 
+.option_link {
+    text-decoration: underline;
+}
+
 .my-account {
     justify-content: center;
-    & a {
-        text-decoration: underline;
-    }
     display: grid;
     grid-template-areas: "title void"
                          "info labels";
@@ -678,10 +679,10 @@ input[name="color"]:checked + label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 2em;
 }
 
 .selling_items article {
-    width: 50%;
     display: flex;
     margin: 10px;
     padding: 10px;
