@@ -325,6 +325,7 @@ footer {
 
 .option_link {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .my-account {

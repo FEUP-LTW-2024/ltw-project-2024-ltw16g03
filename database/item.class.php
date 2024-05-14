@@ -70,36 +70,36 @@
     }
 
     static function getUserSoldItems(PDO $db, int $id) : array {
-        $stmt = $db->prepare('
-          SELECT *
-          FROM Item 
-          WHERE UserID = ? AND IsSold = 1
-        ');
-        $stmt->execute(array($id));
-    
-        $items = array();
-    
-        while ($item = $stmt->fetch()) {
-          $items[] = new Item(
-            $item['ItemID'],
-            $item['UserID'],
-            $item['CategoryID'],
-            $item['TypeID'],
-            $item['ItemName'],
-            $item['Brand'],
-            $item['Model'],
-            $item['Dimension'],
-            $item['Condition'],
-            $item['Detail'],
-            $item['Color'],
-            $item['Price'],
-            $item['ImageURL'],
-            (bool) $item['IsSold']
-          );
-        }
-    
-        return $items;
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Item 
+        WHERE UserID = ? AND IsSold = 1
+      ');
+      $stmt->execute(array($id));
+  
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
       }
+  
+      return $items;
+    }
 
     static function getItem(PDO $db, int $id) : Item {
       $stmt = $db->prepare('
@@ -157,6 +157,72 @@
         );
       }
 
+      return $items;
+    }
+
+    static function getSomeSellingItem(PDO $db, int $numberOfItems, int $id) {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Item 
+        WHERE UserID = ? AND IsSold = 0
+        LIMIT ?
+      ');
+      $stmt->execute(array($id, $numberOfItems));
+  
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+  
+      return $items;
+    }
+
+    static function getSomeSoldItem(PDO $db, int $numberOfItems, int $id) {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Item 
+        WHERE UserID = ? AND IsSold = 1
+        LIMIT ?
+      ');
+      $stmt->execute(array($id, $numberOfItems));
+  
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Model'],
+          $item['Dimension'],
+          $item['Condition'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          $item['ImageURL'],
+          (bool) $item['IsSold']
+        );
+      }
+  
       return $items;
     }
 
