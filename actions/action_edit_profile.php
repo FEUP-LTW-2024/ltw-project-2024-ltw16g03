@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || 
             empty($_POST['current_password'])) {
-            $session->addMessage('error', 'All fields are required!');
+            $session->addMessage('error', 'Current password is required!');
             die(header('Location: ../pages/edit_profile.php'));
         }
 
