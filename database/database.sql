@@ -261,3 +261,9 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
 INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
                 ('5050', '5050', '$2y$10$2jCcgZges46eaKeQGDkloejXQGqE23n/xYCfjdzshZ.cigmKxUxAq', '5050@gmail.com', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('asd123', 'asd123', '$2y$10$ahR5Jz4H6DI9QC8/sgR/7ulIYii5kN/7XF8gVnVZ3beUNVKRBmtYS', 'asd123@gmail.com', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('123asd', '123asd', '$2y$10$If4wYH4Xv6pa7288ysIsU.ziqLJdgho5EVaYxw.IgNi1gT2hbppj6', '123asd@gmail.com', '0');
+INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
+                ('asdf123', 'asdf123', '$2y$10$lm3fVkV5Cek4zELN7M6ytOwm77u64KTwDXiDB1HwFFuPbeymwI/Ee', 'asdf123@gmail.com', '0');

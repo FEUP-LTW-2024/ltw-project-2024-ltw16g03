@@ -57,25 +57,31 @@
       );
     }
 
-    static function isUsernameTaken(PDO $db, string $username) : bool {
-      $stmt = $db->prepare('
-        SELECT *
-        FROM User 
-        WHERE lower(username) = ?
-      ');
+    static function isUsernameTaken(PDO $db, string $username, ?int $userID = null) : bool {
+      $sql = "SELECT 1 FROM User WHERE lower(Username) = ?";
+    $params = [strtolower($username)];
     
-      $stmt->execute(array(strtolower($username)));
-      return (bool) $stmt->fetch();
+    if ($userID !== null) {
+        $sql .= " AND UserID != ?";
+        $params[] = $userID;
     }
 
-    static function isEmailTaken(PDO $db, string $email) : bool {
-      $stmt = $db->prepare('
-        SELECT *
-        FROM User 
-        WHERE lower(email) = ?
-      ');
+    $stmt = $db->prepare($sql);
+    $stmt->execute($params);
+    return (bool) $stmt->fetch();
+    }
 
-      $stmt->execute(array(strtolower($email)));
+    static function isEmailTaken(PDO $db, string $email, ?int $userID = null) : bool {
+      $sql = "SELECT 1 FROM User WHERE lower(Email) = ?";
+      $params = [strtolower($email)];
+      
+      if ($userID !== null) {
+          $sql .= " AND UserID != ?";
+          $params[] = $userID;
+      }
+  
+      $stmt = $db->prepare($sql);
+      $stmt->execute($params);
       return (bool) $stmt->fetch();
     }
 

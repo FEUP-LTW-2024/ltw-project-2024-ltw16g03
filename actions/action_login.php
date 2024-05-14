@@ -8,6 +8,11 @@
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php');
 
+  if ($_SESSION['login_attempts'] >= 5) {
+    $session->addMessage('error', 'Too many attempts, please try again later!');
+    die(header('Location: ../pages/login.php'));
+  }
+
   $db = getDatabaseConnection();
 
   $user = User::getUserWithPassword($db, $_POST['username'], $_POST['password']);
@@ -36,7 +41,12 @@
       $session->addItemToCart($item);
     }
     $session->addMessage('success', 'Login successful!');
+    $_SESSION['login_attempts'] = 0;
   } else {
+    if (!isset($_SESSION['login_attempts'])) {
+      $_SESSION['login_attempts'] = 0;
+    }
+    $_SESSION['login_attempts']++;
     $session->addMessage('error', 'Wrong username or password!');
   }
 

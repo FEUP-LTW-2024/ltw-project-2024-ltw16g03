@@ -12,22 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['Password'], $_POST['confirm_password'])) {
         $db = getDatabaseConnection();
 
-        if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            //magia
-            $tempFileName = $_FILES['image']['tmp_name'];
-            
-            //cria os diretórios
-            if (!is_dir('../assets')) mkdir('../assets');
-            if (!is_dir('../assets/uploads_profile')) mkdir('../assets/uploads_profile');
-            
-            //converte as imagens
-            $image = @imagecreatefromjpeg($tempFileName);
-            if (!$image) $image = @imagecreatefrompng($tempFileName);
-            if (!$image) $image = @imagecreatefromgif($tempFileName);
-            
-            if (!$image) die(header('Location: ../pages/register.php'));
-        }
-
         if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['confirm_password'])) {
             $session->addMessage('error', 'All fields are required!');
             die(header('Location: ../pages/register.php'));
@@ -76,19 +60,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             if ($stmt->execute()) {
-                $database = __DIR__ . '/../database/database.sql';
-                $sql = "INSERT INTO User (RealName, Username, Password, Email, IsAdmin, ImageURL) VALUES
-                ('{$RealName}', '{$Username}', '{$Password}', '{$Email}', '{$IsAdmin}');";
-                file_put_contents($database, $sql . PHP_EOL, FILE_APPEND);
-
-                //coloca nos uploads
-                $id = $db->lastInsertId();
-                $imagePath = "../assets/uploads_profile/$id.jpg";
-
-                imagejpeg($image, $imagePath);
-
                 $session->addMessage('success', 'Registration successful!');
                 die(header('Location: ../pages/login.php'));
+
+                if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+                    $tempFileName = $_FILES['image']['tmp_name'];
+                    
+                    if (!is_dir('../assets')) mkdir('../assets');
+                    if (!is_dir('../assets/uploads_profile')) mkdir('../assets/uploads_profile');
+                    
+                    $image = @imagecreatefromjpeg($tempFileName);
+                    if (!$image) $image = @imagecreatefrompng($tempFileName);
+                    if (!$image) $image = @imagecreatefromgif($tempFileName);
+                    
+                    if (!$image) die(header('Location: ../pages/register.php'));
+
+                    $id = $db->lastInsertId();
+                    $imagePath = "../assets/uploads_profile/$id.jpg";
+
+                    imagejpeg($image, $imagePath);
+                }
             } else {
                 $session->addMessage('error', 'Failed to register user!');
             }
