@@ -38,7 +38,7 @@
                         </section>
                     </article>    
                     <?php } ?>
-                    <?php if (count($sellingItems) > 5) { ?> <a href="#" id="selling_see_more" class="option_link">Show More</a> <?php } ?>
+                    <?php if (count($sellingItems) > 5) { ?> <a href="#" id="selling_see_more" class="option_link" data-number="5" data-max-number="<?=count($sellingItems)?>" data-id="<?=$session->getId()?>">Show More</a> <?php } ?>
                 <?php } ?>
             </section>
             <h1 class="sub_title2">SOLD</h1>
@@ -61,7 +61,7 @@
                         </section>
                     </article>    
                     <?php } ?>
-                    <?php if (count($soldItems) > 5) { ?> <a href="#" id="sold_see_more" class="option_link">Show More</a> <?php } ?>
+                    <?php if (count($soldItems) > 5) { ?> <a href="#" id="sold_see_more" class="option_link" data-number="5">Show More</a> <?php } ?>
                 <?php } ?> 
             </section>
         </main>
