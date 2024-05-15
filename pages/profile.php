@@ -14,8 +14,7 @@
   $db = getDatabaseConnection();
   $user = User::getUser($db, $session->getId());
   $sellingItems = Item::getUserSellingItems($db, $session->getID());
-  $soldItems = Item::getUserSoldItems($db, $session->getID());
-
+  $previousOrder = Item::getUserPreviousOrders($db, $session->getID());
   drawHeader($session);
 ?>
     <main id="profile_main">
@@ -41,7 +40,7 @@
 
         <section class="previous-orders image_display">
             <h1>PREVIOUS ORDERS</h1>
-            <?php output_item_display($soldItems); ?>
+            <?php output_item_display($previousOrder); ?>
         </section>
 
         <form action="../actions/action_logout.php" method="post" class="logout">

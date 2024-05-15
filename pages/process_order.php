@@ -44,7 +44,14 @@
             'PaymentMethod' => $paymentMethod
         );
     }
-    
+
+    foreach ($cartItems as $item) {
+        var_dump($item);
+        $sellerId = $item->OwnerID;
+        $buyerId = $session->getId();
+        Item::createTransaction($db, $sellerId, $buyerId, $item->ItemID);
+    }
+
     header('Location: checkout.php');
     exit;
     }

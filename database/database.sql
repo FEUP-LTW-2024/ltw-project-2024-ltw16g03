@@ -67,8 +67,7 @@ CREATE TABLE Transact
     SellerID INTEGER NOT NULL, 
     BuyerID INTEGER NOT NULL,
     ItemID INTEGER NOT NULL,
-    TransactionDate DATE,
-    IsComplete INTEGER NOT NULL CHECK (IsComplete IN (0, 1)),
+    TransactionDate TIMESTAMP,
     CONSTRAINT PK_Transaction PRIMARY KEY (TransactionId),
     FOREIGN KEY (SellerId) REFERENCES User (UserID)
         ON DELETE CASCADE ON UPDATE NO ACTION,
