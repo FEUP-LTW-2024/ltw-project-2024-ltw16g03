@@ -11,33 +11,35 @@
 
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
-  $chats = Message::getChats($db, $session->getId());
-
-  if (empty($chats)) die(header('Location: ../pages/empty_messages.php'));
+  $messages = Message::getMessages($db, $session->getId(), $_GET['id']);
+  $mainUser = User::getUser($db, $session->getId());;
+  $otherUser = "";
 
   drawHeader($session);
 ?>
-        <main>
-            <?php foreach($chats as $chat) { ?>
-            <article class="messages-container">
-                <section class="one-message">
-                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
-                    <div class="message-info">
-                        <p class="message-username">
-                            <?php if ($chat->SenderID === $session->getId()) {
-                                $user = User::getUser($db, $chat->ReceiverID);
-                                echo $user->Username;
-                            } else { 
-                                $user = User::getUser($db, $chat->SenderID);
-                                echo $user->Username;
-                            } ?>
-                        </p>
-                        <p class="message"><?=$chat->Content?></p>
-                        <p class="time"><?=$chat->Timestamp->format('Y-m-d H:i:s');?></p>
-                    </div>
-                </section>
-            </article>
+        <main id="main_messages">
+            <?php 
+                if ($messages[0]->SenderID == $session->getId()) {
+                    $otherUser = User::getUser($db, $messages[0]->ReceiverID);
+                } else {
+                    $otherUser = User::getUser($db, $messages[0]->SenderID);
+                }
+            ?>
+            <?php foreach($messages as $message) {
+                if ($message->SenderID == $session->getId()) { ?>
+                <article class="message user">
+                    <p class="username"><?=$mainUser->Username?></p>
+                <?php } else { ?>
+                <article class="message other">
+                    <p class="username"><?=$otherUser->Username?></p>
+                <?php } ?>
+                    <p class="content"><?=$message->Content?></p>
+                </article> 
             <?php } ?>
+            <form id="message_input">
+                <input class="input_info" data-receiver="<?=$otherUser->UserID?>" data-userName="<?=$mainUser->Username?>" name="message" type="text" placeholder="Message"/>
+                <button class="plain-button"><img src="../assets/send.png" alt="search"></button>
+            </form>
         </main>
 
 <?php drawFooter(); ?>

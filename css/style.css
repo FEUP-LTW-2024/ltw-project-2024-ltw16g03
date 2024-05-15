@@ -137,7 +137,7 @@ footer {
     }
 }
 
-.search-bar button {
+.plain-button {
     display: flex;
     align-items: center;
     border: none;
@@ -1115,7 +1115,7 @@ input[name="color"]:checked + label {
     margin-left: 1em;
 }
 
-/* Messages */
+/* Chats */
 
 .messages-container {
     display: flex;
@@ -1129,13 +1129,6 @@ input[name="color"]:checked + label {
     flex-grow: 1;
     margin-bottom: 2em;
     margin-top: 2em;
-}
-
-.one-message1 { /* nao consegui fazer o first child sem margin top */
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    margin-bottom: 2em;
 }
 
 .messages-container:last-child {
@@ -1166,6 +1159,43 @@ input[name="color"]:checked + label {
 .time {
     align-self: flex-end; 
 }
+
+/* Messages */
+
+#main_messages {
+    display: grid;
+    & .message {
+        padding: 1em 3em;
+    }
+    & .user {
+        & .username {
+            color: var(--tertiary-color);
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    & .other {
+        & .username {
+            color: #68C7C1;
+        }
+    }
+    & button {
+        background-color: var(--secondary-color);
+        border: 2px solid black;
+    }
+    & form {
+        display: flex;
+        width: 80%;
+        gap: 1em;
+        justify-self: center;
+        & .input_info {
+            flex-grow: 1;
+        }
+        padding: 1em;
+    }
+}
+
 
 /* Smaller Screens */
 
