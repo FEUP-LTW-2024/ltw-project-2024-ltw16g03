@@ -53,9 +53,14 @@
             <nav class="buttons">
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
+                <?php if ($session->isLoggedIn()) { ?>
+                <a href="messages.php">
+                    <img src="../assets/messages.png" alt="messages"/>
+                </a>
                 <a href="wishlist.php">
                     <img src="../assets/wishlist.svg" alt="wishlist"/>
                 </a>
+                <?php } ?>
                 <a href="profile.php">
                     <img src="../assets/profile.svg" alt="profile"/>
                 </a>

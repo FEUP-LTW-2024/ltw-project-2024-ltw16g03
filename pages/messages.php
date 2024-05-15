@@ -1,103 +1,43 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Retro Club</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <header>
-            <a href="homepage.php"> 
-                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
-            </a>
+<?php
+  require_once(__DIR__ . '/../utils/session.php');
+  $session = new Session();
 
-            <section class="search-bar">
-                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
-                <input type="text" placeholder="Search here..."/>
-                <button id="search-button"><img src="../assets/search.png" alt="search"></button>
-            </section> 
+  if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
-            <nav class="buttons">
-                <a href="homepage.php">Home</a>
-                <a href="sell.php">Sell</a>
-                <a href="wishlist.php">
-                    <img src="../assets/wishlist.svg" alt="wishlist"/>
-                </a>
-                <a href="profile.php">
-                    <img src="../assets/profile.svg" alt="profile"/>
-                </a>
-                <a href="shopping_cart.php">
-                    <img src="../assets/cart.svg" alt="shopping cart"/>
-                </a>
-            </nav>
-            
-            <nav class="categories">
-                <ul>
-                    <li><a href="categories.php">All Categories</a></li>
-                    <li><a href="#">Women</a></li>
-                    <li><a href="#">Men</a></li>
-                    <li><a href="#">Kids</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-            </nav>
-        </header>
+  require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/user.class.php');
+  require_once(__DIR__ . '/../database/message.class.php');
+  $db = getDatabaseConnection();
+
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+
+  $chats = Message::getChats($db, $session->getId());
+
+  if (empty($chats)) die(header('Location: ../pages/empty_messages.php'));
+
+  drawHeader($session);
+?>
         <main>
-            <h1 class="sub_title">MESSAGES</h1>
-            <article class="messages-container">
-                <section class="one-message1">
-                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
-                    <div class="message-info">
-                        <p class="message-username">CristianoRonaldo07</p>
-                        <p class="message">Queria conhecer-te melhor.</p>
-                        <p class="time">1 hour ago</p>
-                    </div>
-                </section>
-            </article>
+            <?php foreach($chats as $chat) { ?>
             <article class="messages-container">
                 <section class="one-message">
                     <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
                     <div class="message-info">
-                        <p class="message-username">CristianoRonaldo07</p>
-                        <p class="message">Queria conhecer-te melhor.</p>
-                        <p class="time">1 hour ago</p>
+                        <p class="message-username">
+                            <?php if ($chat->SenderID === $session->getId()) {
+                                $user = User::getUser($db, $chat->ReceiverID);
+                                echo $user->Username;
+                            } else { 
+                                $user = User::getUser($db, $chat->SenderID);
+                                echo $user->Username;
+                            } ?>
+                        </p>
+                        <p class="message"><?=$chat->Content?></p>
+                        <p class="time"><?=$chat->Timestamp->format('Y-m-d H:i:s');?></p>
                     </div>
                 </section>
             </article>
-            <article class="messages-container">
-                <section class="one-message">
-                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
-                    <div class="message-info">
-                        <p class="message-username">CristianoRonaldo07</p>
-                        <p class="message">Queria conhecer-te melhor.</p>
-                        <p class="time">1 hour ago</p>
-                    </div>
-                </section>
-            </article>
-            <article class="messages-container">
-                <section class="one-message">
-                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
-                    <div class="message-info">
-                        <p class="message-username">CristianoRonaldo07</p>
-                        <p class="message">Queria conhecer-te melhor.</p>
-                        <p class="time">1 hour ago</p>
-                    </div>
-                </section>
-            </article>
-            <article class="messages-container">
-                <section class="one-message">
-                    <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
-                    <div class="message-info">
-                        <p class="message-username">CristianoRonaldo07</p>
-                        <p class="message">Queria conhecer-te melhor.</p>
-                        <p class="time">1 hour ago</p>
-                    </div>
-                </section>
-            </article>
+            <?php } ?>
         </main>
-        <footer>
-            Copyright &copy; 2024 Retro Club. All rights reserved.
-        </footer>    
-    </body>
-</html>
+
+<?php drawFooter(); ?>

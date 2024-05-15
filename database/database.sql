@@ -246,7 +246,7 @@ INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUE
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (4, 2, 1, 'Yes, that would be helpful. Could you send them over?', '2024-03-07 13:20:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (5, 1, 2, 'Thanks for the purchase! I ll ship the item tomorrow.', '2024-03-11 10:00:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (6, 2, 1, 'Great, looking forward to it!', '2024-03-12 09:30:00');
-INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (11, 2, 3, 'Hi, I see you re interested in my item. Let me know if you have any questions!', '2024-03-26 12:20:00');
+INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (11, 1, 3, 'Hi, I see you re interested in my item. Let me know if you have any questions!', '2024-03-26 12:20:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (12, 3, 2, 'Hello! Yes, Im interested. Can you provide more details about the item?', '2024-03-27 10:15:00');
 /*INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (7, 4, 5, 'Hi, I noticed you re interested in my item. Are you still considering it?', '2024-03-14 16:45:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (8, 5, 4, 'Yes, Im still interested. Could you provide more details about it?', '2024-03-15 08:00:00');
