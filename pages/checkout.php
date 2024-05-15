@@ -10,7 +10,7 @@
 
   $cartItems = $session->getItemsInCart();
   $shippingInfo = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : array();
-  
+  $paymentInfo = isset($_SESSION['payment']) ? $_SESSION['payment'] : array();
 ?>
 
 <?=drawClassicHeader("THANK YOU");?>
@@ -19,16 +19,39 @@
                 <article class="shipping-left2">
                     <h1 class="shipping-titles2">SHIPPING</h1>
                     <div class="shipping-container"> 
-                    <?php foreach ($shippingInfo as $value) : ?>
-                        <p><?= $value ?></p>
-                    <?php endforeach; ?>
+                    <?php if (isset($_SESSION['shipping'])) : ?>
+                        <p><?= $_SESSION['shipping']['Name'] . ' ' . $_SESSION['shipping']['LastName'] ?></p>
+                        <p><?= $_SESSION['shipping']['Tax'] ?></p>
+                        <p><?= $_SESSION['shipping']['Country'] ?></p>
+                        <p><?= $_SESSION['shipping']['Address'] ?></p>
+                        <p><?= $_SESSION['shipping']['CityState'] ?></p>
+                        <p><?= $_SESSION['shipping']['PostalCode'] ?></p>
+                        <p><?= $_SESSION['shipping']['Phone'] ?></p>
+                    <?php endif; ?>
                     </div>
                 </article>
                 <article class="shipping-right2">
                     <h1 class="shipping-titles3">PAYMENT</h1>
-                    <div class="payment-option">
-                    
-                    </div>
+                    <?php if ($paymentInfo['PaymentMethod'] === 'debit-card') : ?>
+                        <div class="payment-option">
+                            <label for="debit-card">Debit or Credit Card</label>
+                            <img src="../assets/mastercard.png" alt="Debit Card" height="50" width="80">
+                        </div>
+                        <div class="payment-details">
+                            <p>Card information:</p>
+                            <p><?= $paymentInfo['CardHolder'] ?></p>
+                            <p><?= $paymentInfo['CardNumber'] ?></p>
+                            <p><?= $paymentInfo['ExpiryDate'] ?></p>
+                        </div>
+                    <?php else : ?>
+                        <div class="payment-option">
+                            <label for="paypal">Paypal</label>
+                            <img src="../assets/paypal.png" alt="Paypal" height="50" width="120">
+                        </div>
+                        <div class="payment-details">
+                            <p>You will complete your payment via PayPal.</p>
+                        </div>
+                    <?php endif; ?>
                 </article>
             </section>
             <section class="item-checkout">
@@ -61,6 +84,7 @@
             </section>
             <div class="final-button">
                 <button>SHOP AGAIN</button>
+                <button id="print_external">PRINT RECEIPT</button>
             </div>
         </main>
 

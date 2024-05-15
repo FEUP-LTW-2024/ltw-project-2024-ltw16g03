@@ -349,5 +349,34 @@
       }
       return $items;
     }
+
+    public static function searchNonUserItemsByName(PDO $db, $search, $id) {
+      $stmt = $db->prepare('
+      SELECT * 
+      FROM Item
+      WHERE ItemName LIKE :search AND UserID <> :id');
+      $stmt->bindValue(':search', '%' . $search . '%', PDO::PARAM_STR);
+      $stmt->bindValue(':id', $id);
+      $stmt->execute();
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $items = [];
+      foreach ($results as $result) {
+        $item = new Item(
+          $result['ItemID'],
+          $result['UserID'], 
+          $result['CategoryID'],
+          $result['TypeID'],
+          $result['ItemName'],
+          $result['Brand'],
+          $result['Dimension'],
+          $result['Detail'], 
+          $result['Color'],
+          $result['Price'],
+          (bool)$result['IsSold']
+        );
+        $items[] = $item;
+      }
+      return $items;
+    }    
   }
 ?>

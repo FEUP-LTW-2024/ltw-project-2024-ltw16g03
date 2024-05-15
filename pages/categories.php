@@ -10,18 +10,21 @@
 
   $db = getDatabaseConnection();
 
+  $search = isset($_GET['search']) ? $_GET['search'] : '';
+
   if (!$session->isLoggedIn()) {
     $items = Item::getAllSellingItems($db);
     $wishlist = array();
+    if ($search != '') {
+        $items = Item::searchItemsByName($db, $search); 
+    }
   }
   else {
     $items = Item::getNonUserSellingItems($db, $session->getId());
     $wishlist = User::getWishlist($db, $session->getId());
-  }
-
-  $search = isset($_GET['search']) ? $_GET['search'] : '';
-  if (!empty($search)) {
-    $items = Item::searchItemsByName($db, $search);
+    if ($search != '') {
+        $items = Item::searchNonUserItemsByName($db, $search, $session->getId());    
+    }
   }
 
 ?>
