@@ -60,8 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             if ($stmt->execute()) {
-                $session->addMessage('success', 'Registration successful!');
-
                 if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                     $tempFileName = $_FILES['image']['tmp_name'];
                     
@@ -79,6 +77,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     imagejpeg($image, $imagePath);
                 }
+                $session->addMessage('success', 'Registration successful!');
+                header('Location: ../pages/login.php');
+                exit();
             } else {
                 $session->addMessage('error', 'Failed to register user!');
             }
