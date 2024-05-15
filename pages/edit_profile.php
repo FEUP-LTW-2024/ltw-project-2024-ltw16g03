@@ -17,19 +17,23 @@
   drawHeader($session);
 ?>
   <main>
-    <form class="edit_profile_inputs">  
-      <img class="profile_picture" src="<?=$user->ImageURL?>" alt="A image representative of the profile"/>
+    <form class="edit_profile_inputs" action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data">
+      <img class="profile_picture" src="../assets/uploads_profile/<?=$session->getId()?>.jpg" alt="A image representative of the profile"/>
           <section class="input_fields">
-              <input class="input_info" type="text" name="text" placeholder="<?=$user->RealName?>">
-              <input class="input_info" type="email" name="email" placeholder="<?=$user->Email?>">
-              <input class="input_info" type="text" name="text" placeholder="<?=$user->Username?>">
+              <input type="file" name="image">
+              <input class="input_info" type="text" name="RealName" placeholder="<?=$user->RealName?>" value="<?=$user->RealName?>">
+              <input class="input_info" type="email" name="Email" placeholder="<?=$user->Email?>" value="<?=$user->Email?>">
+              <input class="input_info" type="text" name="Username" placeholder="<?=$user->Username?>" value="<?=$user->Username?>">
               <input class="input_info" type="password" name="current_password" placeholder="current password">
               <input class="input_info" type="password" name="new_password" placeholder="new password">
               <input class="input_info" type="password" name="password" placeholder="confirm password">
           </section>
-          <button formaction="edit_profile.php" formmethod="post" type="submit">
-              SAVE
-          </button>
+          <?php foreach ($session->getMessages() as $messsage) { ?>
+                <article class="<?=$messsage['type']?>">
+                <?=$messsage['text']?>
+                </article>
+                <?php } ?>
+              <button type="submit">SAVE</button>
       </form>    
   </main>
 

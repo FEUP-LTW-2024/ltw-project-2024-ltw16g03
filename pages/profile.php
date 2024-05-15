@@ -25,7 +25,7 @@
                 <img class="profile_picture" src="../assets/uploads_profile/<?=$session->getId()?>.jpg" alt="A image representative of the profile"/>
                 <a href="edit_profile.php" class="option_link">Edit Profile</a>
                 <a href="my_selling.php" class="option_link">My Sellings</a>
-                <a href="#" id="account_delete" class="option_link">Delete Account</a>
+                <a id="account_delete" class="option_link">Delete Account</a>
             </section>
             <ul>
                 <li class="display_info"><?=$user->RealName?></li>
