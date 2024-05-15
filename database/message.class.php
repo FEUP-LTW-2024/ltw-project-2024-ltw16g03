@@ -55,7 +55,8 @@
 
     static function getMessages(PDO $db, int $user, int $other) : array {
       // Prepare the SQL query
-      $stmt = $db->prepare('SELECT * 
+      $stmt = $db->prepare('
+      SELECT * 
       FROM Messages 
       WHERE (SenderID = :user1 AND ReceiverID = :user2) 
         OR (SenderID = :user2 AND ReceiverID = :user1)
@@ -83,6 +84,16 @@
       }
 
       return $messages;
+    }
+
+    static function sendMessage(PDO $db, int $senderID, int $receiverID, string $content) {
+      // Prepare the SQL query
+      $stmt = $db->prepare('
+      INSERT INTO Messages (SenderID, ReceiverID, Content, Timestamp) 
+      VALUES (?, ?, ?, CURRENT_TIMESTAMP)');
+
+      // Execute the query
+      $stmt->execute(array($senderID, $receiverID, $content));
     }
   }
 ?>

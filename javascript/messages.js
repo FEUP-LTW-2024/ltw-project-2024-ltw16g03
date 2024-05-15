@@ -13,6 +13,18 @@ form.addEventListener('submit', function(event) {
     // Build Message element
     const messageElement = buildMessage.call(inputField);
     
+    // Create a data object with the values to be sent to the PHP file
+    var data = {
+        receiverID: inputField.getAttribute('data-receiver'),
+        content: inputField.value
+    };
+
+    // Send an AJAX request to the PHP file
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../api/send_message.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+
     // Clear the input field if needed
     inputField.value = '';
 });

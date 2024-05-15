@@ -37,7 +37,7 @@
                 </article> 
             <?php } ?>
             <form id="message_input">
-                <input class="input_info" data-sender="<?=$session->getId()?>" data-receiver="<?=$otherUser->UserID?>" data-userName="<?=$mainUser->Username?>" name="message" type="text" placeholder="Message"/>
+                <input class="input_info" data-receiver="<?=$otherUser->UserID?>" data-userName="<?=$mainUser->Username?>" name="message" type="text" placeholder="Message"/>
                 <button class="plain-button"><img src="../assets/send.png" alt="search"></button>
             </form>
         </main>
