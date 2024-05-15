@@ -52,5 +52,37 @@
 
       return $messages;
     }
+
+    static function getMessages(PDO $db, int $user, int $other) : array {
+      // Prepare the SQL query
+      $stmt = $db->prepare('SELECT * 
+      FROM Messages 
+      WHERE (SenderID = :user1 AND ReceiverID = :user2) 
+        OR (SenderID = :user2 AND ReceiverID = :user1)
+      ORDER BY Timestamp ASC');
+
+      // Bind the user IDs to the placeholders
+      $stmt->bindParam(':user1', $user);
+      $stmt->bindParam(':user2', $other);
+
+      // Execute the query
+      $stmt->execute();
+
+      // Fetch the results
+      $results = $stmt->fetchAll();
+
+      foreach ($results as $result) {
+        $message = new Message(
+          $result['MessageID'],
+          $result['SenderID'], 
+          $result['ReceiverID'],
+          $result['Content'],
+          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp'])
+        );
+        $messages[] = $message;
+      }
+
+      return $messages;
+    }
   }
 ?>

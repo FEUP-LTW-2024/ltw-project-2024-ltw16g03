@@ -27,7 +27,7 @@
             </a>
 
             <section class="search-bar">
-                <button id="filter-button"><img src="../assets/filter.png" alt="filter"></button>
+                <button id="filter-button" class="plain-button"><img src="../assets/filter.png" alt="filter"></button>
                 <div class="dropdown" id="filter-dropdown">
                     <a href="categories.php?type=Clothing">Clothing</a>
                     <a href="categories.php?type=Shoes">Shoes</a>
@@ -46,7 +46,7 @@
                 </div>
                 <form action="../pages/categories.php" method="GET" id="search-form">
                     <input name="search" type="text" placeholder="Search here..."/>
-                    <button type="submit" id="search-button"><img src="../assets/search.png" alt="search"></button>
+                    <button class="plain-button" type="submit" id="search-button"><img src="../assets/search.png" alt="search"></button>
                 </form>
             </section> 
 
@@ -54,7 +54,7 @@
                 <a href="homepage.php">Home</a>
                 <a href="sell.php">Sell</a>
                 <?php if ($session->isLoggedIn()) { ?>
-                <a href="messages.php">
+                <a href="chats.php">
                     <img src="../assets/messages.png" alt="messages"/>
                 </a>
                 <a href="wishlist.php">

@@ -5,6 +5,8 @@
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
 ?>
-  <?=drawClassicHeader('MESSAGES');?>
-  <?=drawEmpty("YOU DON'T HAVE ANY MESSAGES YET", "", false, false, false)?>
+  <?=drawHeader($session);?>
+    <h1 class="sub_title">MESSAGES</h1>
+    <?=drawEmpty("YOU DON’T HAVE ANY MESSAGES YET", "", false, false, false);?>
+
   <?=drawFooter();?>
