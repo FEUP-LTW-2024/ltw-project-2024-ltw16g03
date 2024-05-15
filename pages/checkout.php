@@ -59,6 +59,7 @@
                 <?php 
                     $total = 0;
                     foreach ($cartItems as $item) { 
+                        Item::update_sold_cart($db, $item->ItemID);
                         $total += $item->Price;?>
                         <article class="item-background">
                             <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template"/>
@@ -87,5 +88,7 @@
                 <button id="print_external">PRINT RECEIPT</button>
             </div>
         </main>
+
+<?php $session->clearCart();?>
 
 <?=drawFooter()?>

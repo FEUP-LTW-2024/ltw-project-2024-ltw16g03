@@ -1191,7 +1191,7 @@ input[name="color"]:checked + label {
         min-width: 250px;
         align-self: center;
     }
-g
+    
     /*Wish List and shopping cart empty*/
     .empty {
         .description {
@@ -1248,6 +1248,7 @@ g
         }
 
     }
+}
 
 /* Pop Up */
 .pop_up {

@@ -147,6 +147,18 @@ CREATE TABLE Order_
         ON DELETE CASCADE ON UPDATE NO ACTION
 );
 /*******************************************************************************
+   Create Trigger
+********************************************************************************/
+
+CREATE TRIGGER remove_item_from_cart
+AFTER UPDATE OF isSold ON Item
+WHEN NEW.isSold = 1
+BEGIN
+    DELETE FROM Cart WHERE ItemID = NEW.ItemID;
+    DELETE FROM Wishlist WHERE ItemID = NEW.ItemID;
+END;
+
+/*******************************************************************************
    Create Foreign Keys
 ********************************************************************************/
 
@@ -253,8 +265,8 @@ INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUE
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (9, 4, 5, 'Congratulations on your purchase! I ll have it shipped to you shortly.', '2024-03-21 11:10:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (10, 5, 4, 'Thank you! Looking forward to receiving it.', '2024-03-22 09:45:00');*/
 
-/*INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (1, 1, 12);
-INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (2, 1, 2);
+INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (1, 1, 12);
+/*INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (2, 1, 2);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (3, 2, 3);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (4, 2, 13);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (5, 3, 1);
@@ -274,3 +286,4 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (6, 3, 11, 1);*/
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
+

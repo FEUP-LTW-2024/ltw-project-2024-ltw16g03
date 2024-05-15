@@ -12,6 +12,7 @@
   if (empty($cartItems)) die(header('Location: ../pages/shopping_cart_empty.php'));
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $_SESSION['shipping'] = array(
         'Name' => $_POST['name'],
         'LastName' => $_POST['last-name'],
@@ -46,7 +47,7 @@
     
     header('Location: checkout.php');
     exit;
-}
+    }
 ?>
 
 <?=drawClassicHeader("PROCESS ORDER");?>
@@ -114,9 +115,9 @@
                 <p><?=count($cartItems)?> items</p>
                 <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
             </div>
-            <div class="final-button">
+            <form class="final-button" action="../actions/action_authorise_payment.php" method="post">
                 <button type="submit">AUTHORISE PAYMENT</button>
-            </div>
+            </form>
         </article>
     </section>
     </form>
