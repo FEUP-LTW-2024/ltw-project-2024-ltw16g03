@@ -263,6 +263,16 @@
       return $items;
     }
 
+    static function update_sold_cart($db, int $itemId): void {
+      $stmt = $db->prepare('
+          UPDATE Item
+          SET IsSold = 1
+          WHERE ItemID = ?
+      ');
+  
+      $stmt->execute(array($itemId));
+    }
+
 
     static function getNonUserSellingItems(PDO $db, int $id) : array {
       $stmt = $db->prepare('
