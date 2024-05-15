@@ -570,7 +570,7 @@ input[name="color"]:checked + label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    align-items: self-start;
     gap: 1em;
 }
 

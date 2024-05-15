@@ -368,13 +368,10 @@
           $result['TypeID'],
           $result['ItemName'],
           $result['Brand'],
-          $result['Model'], 
           $result['Dimension'],
-          $result['Condition'], 
           $result['Detail'], 
           $result['Color'],
           $result['Price'],
-          $result['ImageURL'],
           (bool)$result['IsSold']
         );
         $items[] = $item;
