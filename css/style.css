@@ -38,6 +38,28 @@ mark {
     color: #CC6849;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.upload_label {
+    display: inline-block;
+    text-transform: uppercase;
+    color: black;
+    background-color: #68C7C1;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 1.5em;
+    cursor: pointer;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px black;
+    max-width: 10em;
+    align-self: center;
+}
+
 button {
     background-color: #68C7C1;
     border-color: black;
@@ -1244,6 +1266,10 @@ input[name="color"]:checked + label {
             grid-area: button;
         }
         & aside {
+            align-items: center;
+            & h2 {
+                font-weight: bold;
+            }
             grid-area: section2;
         }
 
