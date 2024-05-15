@@ -22,6 +22,28 @@
         'PostalCode' => $_POST['postal-code'],
         'Phone' => $_POST['phone']
     );
+
+    $paymentMethod = $_POST['payment'];
+    if ($paymentMethod === 'debit-card') {
+        $cardNumber = $_POST['card-number'];
+        if (strlen($cardNumber) > 4) {
+            $maskedCardNumber = str_repeat('*', strlen($cardNumber) - 4) . substr($cardNumber, -4);
+        } else {
+            $maskedCardNumber = $cardNumber; // If card number is too short, don't mask
+        }
+        $_SESSION['payment'] = array(
+            'PaymentMethod' => $paymentMethod,
+            'CardHolder' => $_POST['card-holder'],
+            'CardNumber' => $maskedCardNumber,
+            'CVV2' => $_POST['cvv2'],
+            'ExpiryDate' => $_POST['expiry-date']
+        );
+    } else {
+        $_SESSION['payment'] = array(
+            'PaymentMethod' => $paymentMethod
+        );
+    }
+    
     header('Location: checkout.php');
     exit;
 }
@@ -47,12 +69,12 @@
         <article class="shipping-right">
             <h1 class="shipping-titles2">PAYMENT</h1>
             <div class="payment-option">
-                <input type="radio" name="payment" id="debit-card">
+                <input type="radio" name="payment" id="debit-card" value="debit-card">
                 <label for="debit-card">Debit or Credit Card</label>
                 <img src="../assets/mastercard.png" alt="Debit Card" height = "50" width = "80">
             </div>
             <div class="payment-option">
-                <input type="radio" name="payment" id="paypal">
+                <input type="radio" name="payment" id="paypal" value="paypal">
                 <label for="paypal">Paypal</label>
                 <img src="../assets/paypal.png" alt="Paypal" height = "50" width = "120">
             </div>

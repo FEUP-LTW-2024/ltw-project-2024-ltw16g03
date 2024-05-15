@@ -93,6 +93,8 @@
         <script src="../javascript/delete_account.js" defer></script>
         <script src="../javascript/cart.js" defer></script>
         <script src="../javascript/wishlisting.js" defer></script>
+        <script src="../javascript/order.js" defer></script>
+        <link rel="stylesheet" href="../css/style.css" media="print">
     </head>
     <body>
         <header class="classic">
