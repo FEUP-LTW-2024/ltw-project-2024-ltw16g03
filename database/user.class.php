@@ -33,7 +33,7 @@
           $user['RealName'],
           $user['Username'],
           $user['Email'],
-          $user['IsAdmin'],
+          $user['IsAdmin']
         );
       } else return null;
     }
@@ -53,7 +53,7 @@
         $user['RealName'],
         $user['Username'],
         $user['Email'],
-        $user['IsAdmin'],
+        $user['IsAdmin']
       );
     }
 

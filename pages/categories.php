@@ -94,11 +94,12 @@
             </aside>
             <section class="main-items">
                 <?php if (empty($items)) { ?>
+
                     <p>No items found for the search term "<?= htmlspecialchars($search) ?>".</p>
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
                         <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
-                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageURL?>" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="../assets/uploads_profile/4.jpg" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item->Price?> €</p>
                                 <p><?=$item->Brand?></p>

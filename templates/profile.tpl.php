@@ -9,7 +9,7 @@
     <section class="images">
         <?php foreach($items as $item) { ?>
         <a href="../pages/item.php?id=<?=$item->ItemID?>" class="item_image">
-            <img class = "item_img" src="<?=$item->ImageURL?>" alt="A image representative of the item being sold" height = "400"/>
+            <img class = "item_img" src="../assets/uploads_profile/<?=$item->ItemID?>.jpg" alt="A image representative of the item being sold" height = "400"/>
         </a>
         <?php } ?>
     </section>
