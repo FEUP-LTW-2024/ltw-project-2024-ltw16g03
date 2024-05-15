@@ -80,7 +80,7 @@ CREATE TABLE Transact
 
 CREATE TABLE Messages 
 (
-    MessageID INTEGER NOT NULL,
+    MessageID INTEGER,
     SenderID INTEGER NOT NULL,
     ReceiverID INTEGER NOT NULL,
     Content TEXT,
@@ -265,8 +265,8 @@ INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUE
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (9, 4, 5, 'Congratulations on your purchase! I ll have it shipped to you shortly.', '2024-03-21 11:10:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (10, 5, 4, 'Thank you! Looking forward to receiving it.', '2024-03-22 09:45:00');*/
 
-INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (1, 1, 12);
-/*INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (2, 1, 2);
+/*INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (1, 1, 12);
+INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (2, 1, 2);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (3, 2, 3);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (4, 2, 13);
 INSERT INTO Wishlist (WishlistID, UserID, ItemID) VALUES (5, 3, 1);
