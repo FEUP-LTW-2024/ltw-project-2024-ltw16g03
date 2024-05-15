@@ -10,7 +10,7 @@
 
   $cartItems = $session->getItemsInCart();
   $shippingInfo = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : array();
-  unset($_SESSION['shipping']);
+  
 ?>
 
 <?=drawClassicHeader("THANK YOU");?>
