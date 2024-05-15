@@ -9,8 +9,8 @@ require_once(__DIR__ . '/../database/item.class.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
-            $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'])) {
+    if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
+            $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             
             //house categorie doesn't have size
             if ($_POST['CATEGORIES'] === "4") {
@@ -52,7 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 //Image
-                if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                 $tempFileName = $_FILES['image']['tmp_name'];
                 
                 if (!is_dir('../assets')) mkdir('../assets');
@@ -68,14 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $imagePath = "../assets/uploads_item/$id.jpg";
     
                 imagejpeg($image, $imagePath);
-                }
+
                 $session->addMessage('success', 'Sell successful!');
             } else {
                 $session->addMessage('error', 'Failed to sell item!');
             }
         }
     } else {
-        $session->addMessage('error', 'All fields are required!');
+        $session->addMessage('error', 'All fields and image are required!');
         die(header('Location: ../pages/sell.php'));
     }
     header('Location: ../pages/sell.php');
