@@ -9,9 +9,15 @@
 
         <main id="sell_information">
             <h1 class="sub_title">SELL</h1>
-            <form class="sell_form">
+            <?php foreach ($session->getMessages() as $messsage) { ?>
+                    <article class="<?=$messsage['type']?>">
+                    <?=$messsage['text']?>
+                    </article>
+                    <?php } ?>
+            <form class="sell_form" enctype="multipart/form-data" action="../actions/action_sell.php" method="post">
                 <section class="description">
                     <img class = "item_img" src="https://picsum.photos/500" alt="upload photo"/>
+                    <input type="file" name="image">
                     <h2>Description</h2>
                     <textarea name="description" rows="4" cols="40"></textarea>
                 </section>
@@ -19,34 +25,30 @@
                     <label>NAME
                         <input class="input_underlined" type="text" name="name">
                     </label>
-                    <h2>CATEGORIES</h2>
-                    <label><input type="radio" name="CATEGORIES" value="Women">Women</label>
-                    <label><input type="radio" name="CATEGORIES" value="Men">Men</label>
-                    <label><input type="radio" name="CATEGORIES" value="Kids">Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="House">House</label>
 
-                    <h2>SIZE</h2>
-                    <label><input type="radio" name="SIZE" value="XL">XL</label>
-                    <label><input type="radio" name="SIZE" value="L">L</label>
-                    <label><input type="radio" name="SIZE" value="M">M</label>
-                    <label><input type="radio" name="SIZE" value="S">S</label>
-                    <label><input type="radio" name="SIZE" value="XS">XS</label>
+                    <h2>CATEGORIES</h2>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">House</label>
+
+                    <div id="sizeOptions" class="size-options"></div>
 
                     <h2>TYPE</h2>
-                    <label><input type="radio" name="TYPE" value="Clothing">Clothing</label>
-                    <label><input type="radio" name="TYPE" value="Shoes">Shoes</label>
-                    <label><input type="radio" name="TYPE" value="Bags">Bags</label>
-                    <label><input type="radio" name="TYPE" value="Accessories">Accessories</label>
-                    <label><input type="radio" name="TYPE" value="Beauty">Beauty</label>
-                    <label><input type="radio" name="TYPE" value="Grooming">Grooming</label>
-                    <label><input type="radio" name="TYPE" value="Toys / Games">Toys / Games</label>
-                    <label><input type="radio" name="TYPE" value="Baby Care">Baby Care</label>
-                    <label><input type="radio" name="TYPE" value="Buggies">Buggies</label>
-                    <label><input type="radio" name="TYPE" value="School supplies">School Supplies</label>
-                    <label><input type="radio" name="TYPE" value="Textiles">Textiles</label>
-                    <label><input type="radio" name="TYPE" value="Home accessories">Home accesories</label>
-                    <label><input type="radio" name="TYPE" value="Tableware">Tableware</label>
-                    <label><input type="radio" name="TYPE" value="Celebrations">Celebrations</label>
+                    <label><input type="radio" name="TYPE" value="1">Clothing</label>
+                    <label><input type="radio" name="TYPE" value="2">Shoes</label>
+                    <label><input type="radio" name="TYPE" value="3">Bags</label>
+                    <label><input type="radio" name="TYPE" value="4">Accessories</label>
+                    <label><input type="radio" name="TYPE" value="5">Beauty</label>
+                    <label><input type="radio" name="TYPE" value="6">Grooming</label>
+                    <label><input type="radio" name="TYPE" value="7">Toys / Games</label>
+                    <label><input type="radio" name="TYPE" value="8">Baby Care</label>
+                    <label><input type="radio" name="TYPE" value="9">Buggies</label>
+                    <label><input type="radio" name="TYPE" value="10">School Supplies</label>
+                    <label><input type="radio" name="TYPE" value="11">Textiles</label>
+                    <label><input type="radio" name="TYPE" value="12">Home accesories</label>
+                    <label><input type="radio" name="TYPE" value="13">Tableware</label>
+                    <label><input type="radio" name="TYPE" value="14">Celebrations</label>
                     
                     <h2>COLOUR</h2>
                     <input type="radio" id="red" name="color" value="red" hidden>
@@ -71,6 +73,8 @@
                     <label class="color-swatch black" for="black"></label>
                     <input type="radio" id="white" name="color" value="white" hidden>
                     <label class="color-swatch white" for="white"></label>
+                    <input type="checkbox" id="rainbow" name="color" value="rainbow" hidden>
+                    <label class="color-swatch rainbow" for="rainbow"></label>
                     <section>
                         <label>PRICE
                             <input class="input_underlined" type="text" name="price">
@@ -80,7 +84,7 @@
                         </label>
                     </section>
                 </aside>
-                <button>SAVE</button>
+                <button type="submit">Sign Up</button>
             </form>
         </main>
         

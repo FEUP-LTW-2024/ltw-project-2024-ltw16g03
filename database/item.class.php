@@ -8,18 +8,14 @@
     public int $TypeID;
     public string $ItemName;
     public string $Brand;
-    public string $Model;
     public string $Dimension;
-    public string $Condition;
     public string $Detail;
     public string $Color;
     public float $Price;
-    public string $ImageURL;
     public bool $IsSold;
 
     public function __construct(int $ItemID, int $OwnerID, int $CategoryID, int $TypeID, string $ItemName, string $Brand,
-                                string $Model, string $Dimension, string $Condition, string $Detail, string $Color,
-                                float $Price, string $ImageURL, bool $IsSold)
+                               ?string $Dimension, string $Detail, string $Color, float $Price, bool $IsSold)
     {
         $this->ItemID = $ItemID;
         $this->OwnerID = $OwnerID;
@@ -27,13 +23,11 @@
         $this->TypeID = $TypeID;
         $this->ItemName = $ItemName;
         $this->Brand = $Brand;
-        $this->Model = $Model;
-        $this->Dimension = $Dimension;
-        $this->Condition = $Condition;
+        if($Dimension == null) $this->Dimension = "";
+        else $this->Dimension = $Dimension;
         $this->Detail = $Detail;
         $this->Color = $Color;
         $this->Price = $Price;
-        $this->ImageURL = $ImageURL;
         $this->IsSold = $IsSold;
     }
 
@@ -55,13 +49,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -87,19 +78,17 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
   
       return $items;
     }
+  
 
     static function getItem(PDO $db, int $id) : Item {
       $stmt = $db->prepare('
@@ -118,13 +107,10 @@
         $item['TypeID'],
         $item['ItemName'],
         $item['Brand'],
-        $item['Model'],
         $item['Dimension'],
-        $item['Condition'],
         $item['Detail'],
         $item['Color'],
         $item['Price'],
-        $item['ImageURL'],
         (bool) $item['IsSold']
       );
     }
@@ -146,13 +132,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -179,13 +162,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -212,13 +192,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -245,13 +222,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -278,13 +252,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -310,13 +281,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -328,9 +296,8 @@
       $stmt = $db->prepare('
       SELECT Item.ItemID, Item.UserID, Item.CategoryID, 
              Item.TypeID, Item.ItemName, Item.Brand, 
-             Item.Model, Item.Dimension, Item.Condition, 
-             Item.Detail, Item.IsSold, Item.Color, Item.Price, 
-             Item.ImageURL 
+            Item.Dimension,
+             Item.Detail, Item.IsSold, Item.Color, Item.Price
       FROM Item INNER JOIN Wishlist ON Item.ItemID = Wishlist.ItemID WHERE Wishlist.UserID = ?;');
 
       $stmt->execute(array($id));
@@ -344,13 +311,10 @@
           $item['TypeID'],
           $item['ItemName'],
           $item['Brand'],
-          $item['Model'],
           $item['Dimension'],
-          $item['Condition'],
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -375,13 +339,10 @@
           $result['TypeID'],
           $result['ItemName'],
           $result['Brand'],
-          $result['Model'], 
           $result['Dimension'],
-          $result['Condition'], 
           $result['Detail'], 
           $result['Color'],
           $result['Price'],
-          $result['ImageURL'],
           (bool)$result['IsSold']
         );
         $items[] = $item;

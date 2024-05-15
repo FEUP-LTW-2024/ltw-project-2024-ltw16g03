@@ -41,7 +41,7 @@
                         <p><?=count($cartItems)?> items</p>
                         <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
                     </div>
-                    <button class="process-order">PROCESS ORDER</button>
+                    <button class="process-order" onclick="window.location.href = 'process_order.php'">PROCESS ORDER</button>
                 </article>
             </section>
         </main>

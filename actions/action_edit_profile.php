@@ -104,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $session->addMessage('error', 'Wrong password');
         }
     }
-    die(header('Location: ../pages/edit_profile.php'));
+    header('Location: ../pages/register.php');
+    exit();
 }
 ?>

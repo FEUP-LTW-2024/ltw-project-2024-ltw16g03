@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 $session->addMessage('success', 'Registration successful!');
-                die(header('Location: ../pages/login.php'));
 
                 if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
                     $tempFileName = $_FILES['image']['tmp_name'];

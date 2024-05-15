@@ -1,71 +1,103 @@
-<!DOCTYPE html>
-<html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Retro Club</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <header class="classic">
-            <a href="homepage.php"> 
-                <img class = "logo" src="../assets/Retro Club Logotipo.png" alt="logo"/>           
-            </a>
-            <h1>PROCESS ORDER</h1>                       
-        </header>
-        <main>   
-            <section class="process-order">
-                <article class="shipping-left">
-                    <h1 class="shipping-titles2">SHIPPING</h1>
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Last name">
-                    <input type="text" placeholder="Tax ID number">
-                    <input type="text" placeholder="Country">
-                    <input type="text" placeholder="Address">
-                    <input type="text" placeholder="City">
-                    <input type="text" placeholder="State">
-                    <input type="text" placeholder="Postal code">
-                    <input type="text" placeholder="Date of birth">
-                    <input type="text" placeholder="Phone">
-                </article>
-                <article class="shipping-right">
-                    <h1 class="shipping-titles2">PAYMENT</h1>
-                    <div class="payment-option">
-                        <input type="radio" name="payment" id="debit-card">
-                        <label for="debit-card">Debit or Credit Card</label>
-                        <img src="../assets/mastercard.png" alt="Debit Card" height = "50" width = "80">
+<?php
+  require_once(__DIR__ . '/../utils/session.php');
+  $session = new Session();
+
+  require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/item.class.php'); 
+
+  require_once(__DIR__ . '/../templates/common.tpl.php');
+  $db = getDatabaseConnection();
+
+  $cartItems = $session->getItemsInCart();
+  if (empty($cartItems)) die(header('Location: ../pages/shopping_cart_empty.php'));
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['shipping'] = array(
+        'Name' => $_POST['name'],
+        'LastName' => $_POST['last-name'],
+        'Tax' => $_POST['tax-id'],
+        'Country' => $_POST['country'],
+        'Address' => $_POST['address'],
+        'CityState' => $_POST['city'] . ', ' . $_POST['state'],
+        'PostalCode' => $_POST['postal-code'],
+        'Phone' => $_POST['phone']
+    );
+    header('Location: checkout.php');
+    exit;
+}
+?>
+
+<?=drawClassicHeader("PROCESS ORDER");?>
+
+<main>   
+    <form method="POST" action="process_order.php">
+    <section class="process-order">
+        <article class="shipping-left">
+            <h1 class="shipping-titles2">SHIPPING</h1>
+                <input type="text" name="name" placeholder="Name">
+                <input type="text" name="last-name" placeholder="Last name">
+                <input type="text" name="tax-id" placeholder="Tax ID number">
+                <input type="text" name="country" placeholder="Country">
+                <input type="text" name="address" placeholder="Address">
+                <input type="text" name="city" placeholder="City">
+                <input type="text" name="state" placeholder="State">
+                <input type="text" name="postal-code" placeholder="Postal code">
+                <input type="text" name="phone" placeholder="Phone">
+        </article>
+        <article class="shipping-right">
+            <h1 class="shipping-titles2">PAYMENT</h1>
+            <div class="payment-option">
+                <input type="radio" name="payment" id="debit-card">
+                <label for="debit-card">Debit or Credit Card</label>
+                <img src="../assets/mastercard.png" alt="Debit Card" height = "50" width = "80">
+            </div>
+            <div class="payment-option">
+                <input type="radio" name="payment" id="paypal">
+                <label for="paypal">Paypal</label>
+                <img src="../assets/paypal.png" alt="Paypal" height = "50" width = "120">
+            </div>
+            <div class="debit-card-details">
+                <input type="text" name="card-holder" placeholder="Card holder">
+                <input type="text" name="card-number" placeholder="Card number">
+                <input type="text" name="cvv2" placeholder="CVV2 security code">
+                <input type="text" name="expiry-date" placeholder="Expiry date">
+            </div>
+            <div class="paypal-details">
+                <p>You will complete your payment via PayPal.</p>
+            </div>
+        </article>
+    </section>
+    <section class="item-checkout">
+        <h1 class="shipping-titles">ITEMS</h1>
+        <?php 
+            $total = 0;
+            foreach ($cartItems as $item) { 
+                $total += $item->Price;?>
+                <article class="item-background">
+                    <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template"/>
+                    <p class="price2"><?=$item->Price?> €</p>
+                    <div class="info2">
+                        <p class="name2"><?=$item->Detail?></p>
+                        <section class="details">
+                            <span class="color-square2 <?=$item->Color?>"></span>
+                            <span class="size-square2" style="background-color: grey;"><?=$item->Dimension?></span>
+                        </section>
                     </div>
-                    <div class="payment-option">
-                        <input type="radio" name="payment" id="paypal">
-                        <label for="paypal">Paypal</label>
-                        <img src="../assets/paypal.png" alt="Paypal" height = "50" width = "120">
-                    </div>
-                    <div class="debit-card-details">
-                        <input type="text" placeholder="Card holder">
-                        <input type="text" placeholder="Card number">
-                        <input type="text" placeholder="CVV2 security code">
-                        <input type="text" placeholder="Expiry date">
-                    </div>
-                    <div class="paypal-details">
-                        <p>You will complete your payment via PayPal.</p>
-                    </div>
-                </article>
-            </section>
-            <section class="total">
-                <article>
-                    <div class="items-total">
-                        <p>2 items</p>
-                        <p class="big-total"><span class="bold-text">TOTAL</span> 20.00 $</p>
-                    </div>
-                    <div class="final-button">
-                        <button>AUTHORISE PAYMENT</button>
-                    </div>
-                </article>
-            </section>
-        </main>
-        <footer>
-            Copyright &copy; 2024 Retro Club. All rights reserved.
-        </footer>    
-    </body>
-</html>
+                </article>  
+        <?php } ?>
+    </section>
+    <section class="total">
+        <article>
+            <div class="items-total">
+                <p><?=count($cartItems)?> items</p>
+                <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
+            </div>
+            <div class="final-button">
+                <button type="submit">AUTHORISE PAYMENT</button>
+            </div>
+        </article>
+    </section>
+    </form>
+</main>
+
+<?=drawFooter()?>
