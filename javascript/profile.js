@@ -48,7 +48,6 @@ async function arrow(path, left) {
         this.setAttribute('data-number', newNumber);
         if (max < newNumber) this.style.display = "none";
         const leftArrow = this.parentNode.querySelector('.left_arrow');
-        console.log(leftArrow);
         const currLeftArrow = parseInt(leftArrow.getAttribute('data-number'));
         leftArrow.setAttribute('data-number', currLeftArrow + newItemsNumber);
         leftArrow.style.display = "block";
@@ -66,7 +65,6 @@ async function arrow(path, left) {
         this.setAttribute('data-number', newNumber);
         if (newNumber <= 0) this.style.display = "none";
         const rightArrow = this.parentNode.querySelector('.right_arrow');
-        console.log(this);
         const currRightArrow = parseInt(rightArrow.getAttribute('data-number'));
         rightArrow.setAttribute('data-number', currRightArrow - newItemsNumber);
         rightArrow.style.display = "block";
@@ -86,7 +84,7 @@ function displayItems(items) {
         link.classList.add('item_image');
         const image = document.createElement('img');
         image.classList.add('item_img');
-        image.src = item.ImageURL;
+        image.src = "../assets/uploads_item/" + item.ItemID + '.jpg';
         image.alt = "A image representative of the item being sold"
         image.height = 400;
         link.appendChild(image);

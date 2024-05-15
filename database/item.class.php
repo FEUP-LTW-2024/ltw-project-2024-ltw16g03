@@ -166,7 +166,6 @@
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -197,7 +196,6 @@
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -228,7 +226,6 @@
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
@@ -259,7 +256,6 @@
           $item['Detail'],
           $item['Color'],
           $item['Price'],
-          $item['ImageURL'],
           (bool) $item['IsSold']
         );
       }
