@@ -20,7 +20,8 @@
     <form class="edit_profile_inputs" action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data">
       <img class="profile_picture" src="../assets/uploads_profile/<?=$session->getId()?>.jpg" alt="A image representative of the profile"/>
           <section class="input_fields">
-              <input type="file" name="image">
+              <input type="file" id="fileInput">
+              <label for="fileInput" class="upload_label"></i> Upload Image</label>
               <input class="input_info" type="text" name="RealName" placeholder="<?=$user->RealName?>" value="<?=$user->RealName?>">
               <input class="input_info" type="email" name="Email" placeholder="<?=$user->Email?>" value="<?=$user->Email?>">
               <input class="input_info" type="text" name="Username" placeholder="<?=$user->Username?>" value="<?=$user->Username?>">

@@ -10,7 +10,8 @@
             <form class="register_inputs" action="../actions/action_register.php" method="post" enctype="multipart/form-data">  
                 <img class="profile_picture" src="" alt=""/>
                 <section class="input_fields">
-                    <input type="file" name="image">
+                    <input type="file" id="fileInput">
+                    <label for="fileInput" class="upload_label"></i> Upload Image</label>
                     <input class="input_info" type="text" name="RealName" placeholder="name">
                     <input class="input_info" type="email" name="Email" placeholder="email">
                     <input class="input_info" type="text" name="Username" placeholder="username">
