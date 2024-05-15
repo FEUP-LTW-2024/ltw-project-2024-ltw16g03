@@ -24,9 +24,9 @@
               <input class="input_info" type="text" name="RealName" placeholder="<?=$user->RealName?>" value="<?=$user->RealName?>">
               <input class="input_info" type="email" name="Email" placeholder="<?=$user->Email?>" value="<?=$user->Email?>">
               <input class="input_info" type="text" name="Username" placeholder="<?=$user->Username?>" value="<?=$user->Username?>">
-              <input class="input_info" type="password" name="current_password" placeholder="current password">
-              <input class="input_info" type="password" name="new_password" placeholder="new password">
-              <input class="input_info" type="password" name="password" placeholder="confirm password">
+              <input class="input_info" id="important" type="password" name="current_password" placeholder="current password">
+              <input class="input_info" type="password" name="new_password" placeholder="new password (optional)">
+              <input class="input_info" type="password" name="password" placeholder="confirm password (optional)">
           </section>
           <?php foreach ($session->getMessages() as $messsage) { ?>
                 <article class="<?=$messsage['type']?>">

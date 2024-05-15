@@ -8,6 +8,7 @@
     require_once(__DIR__ . '/../database/item.class.php'); 
 
     require_once(__DIR__ . '/../templates/common.tpl.php');
+    require_once(__DIR__ . '/../templates/my_selling.tpl.php');
 
     $db = getDatabaseConnection();
 
@@ -23,21 +24,7 @@
                 <?php if (empty($sellingItems)) { ?>
                     <?=drawEmpty("YOUR SELLING LIST IS EMPTY", "Sell some items here!", false, false, true)?>
                 <?php } else { ?>
-                    <?php for ($i = 0; $i < min(5, count($sellingItems)); $i++) { 
-                     $item = $sellingItems[$i] ?>
-                    <article>
-                        <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
-                        <section class="info">
-                        <p class="price"><?=$item->Price?> €</p>
-                            <p class="name"><?=$item->ItemName?></p>
-                            <section class="tags">
-                                <span class="color-square <?=$item->Color?>"></span>
-                                <span class="size-square gray"><?=$item->Dimension?></span>
-                                <div class="edit-button"><button class="edit-button">EDIT</button></div>
-                            </section>
-                        </section>
-                    </article>    
-                    <?php } ?>
+                    <?php output_item_display($sellingItems); ?>
                     <?php if (count($sellingItems) > 5) { ?> <a id="selling_see_more" class="option_link" data-number="5" data-max-number="<?=count($sellingItems)?>">Show More</a> <?php } ?>
                 <?php } ?>
             </section>
@@ -46,21 +33,7 @@
                 <?php if (empty($soldItems)) { ?>
                     <?=drawEmpty("YOUR HAVEN'T SOLD ANYTHING YET", "", false, false, false)?>
                 <?php } else { ?>
-                    <?php for ($i = 0; $i < min(5, count($soldItems)); $i++) { 
-                     $item = $soldItems[$i] ?>
-                    <article>
-                        <img src="<?=$item->ImageURL?>" alt="template" height = "200" width = "200"/>
-                        <section class="info">
-                        <p class="price"><?=$item->Price?> €</p>
-                            <p class="name"><?=$item->ItemName?></p>
-                            <section class="tags">
-                                <span class="color-square <?=$item->Color?>"></span>
-                                <span class="size-square gray"><?=$item->Dimension?></span>
-                                <div class="edit-button"><button class="edit-button">EDIT</button></div>
-                            </section>
-                        </section>
-                    </article>    
-                    <?php } ?>
+                    <?php output_item_display($soldItems); ?>
                     <?php if (count($soldItems) > 5) { ?> <a id="sold_see_more" class="option_link" data-number="5">Show More</a> <?php } ?>
                 <?php } ?> 
             </section>
