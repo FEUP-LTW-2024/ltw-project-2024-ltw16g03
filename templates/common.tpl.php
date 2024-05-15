@@ -17,6 +17,8 @@
         <script src="../javascript/cart.js" defer></script>
         <script src="../javascript/wishlisting.js" defer></script>
         <script src="../javascript/filters.js" defer></script>
+        <script src="../javascript/seeMore.js" defer></script>
+        <script src="../javascript/profile.js" defer></script>
     </head>
     <body>
         <header>

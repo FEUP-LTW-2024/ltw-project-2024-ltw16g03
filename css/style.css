@@ -325,6 +325,7 @@ footer {
 
 .option_link {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .my-account {
@@ -364,14 +365,17 @@ footer {
     display: grid;
     grid-template-areas: "void title title"
                          "left images right";
+    align-items: center;
     & h1 {
         grid-area: title;
     }
     & .left_arrow {
         grid-area: left;
+        justify-self: self-start;
     }
     & .right_arrow {
         grid-area: right;
+        justify-self: self-end;
     }
     & .images {
         height: 20em;

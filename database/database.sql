@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Type_;
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Order_;
 
 /*******************************************************************************
    Create Tables
@@ -125,6 +126,26 @@ CREATE TABLE Adm
         ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
+CREATE TABLE Order_
+(
+    OrderID INTEGER,
+    UserID INTEGER NOT NULL,
+    ShippingName NVARCHAR(60) NOT NULL,
+    ShippingLastName NVARCHAR(60) NOT NULL,
+    ShippingTaxID NVARCHAR(60) NOT NULL,
+    ShippingCountry NVARCHAR(60) NOT NULL,
+    ShippingAddress NVARCHAR(255) NOT NULL,
+    ShippingCity NVARCHAR(60) NOT NULL,
+    ShippingState NVARCHAR(60) NOT NULL,
+    ShippingPostalCode NVARCHAR(20) NOT NULL,
+    ShippingPhone NVARCHAR(20) NOT NULL,
+    PaymentOption NVARCHAR(60) NOT NULL,
+    TotalAmount REAL NOT NULL,
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT PK_Order PRIMARY KEY (OrderID),
+    FOREIGN KEY (UserID) REFERENCES User (UserID)
+        ON DELETE CASCADE ON UPDATE NO ACTION
+);
 /*******************************************************************************
    Create Foreign Keys
 ********************************************************************************/
@@ -154,6 +175,8 @@ CREATE INDEX IFK_CartUserID ON Cart (UserID);
 CREATE INDEX IFK_CartItemID ON Cart (ItemID);
 
 CREATE INDEX IFK_AdmUserID ON Adm (UserID);
+
+CREATE INDEX IFK_OrderUserID ON Order_ (UserID);
 
 /*******************************************************************************
    Populate Tables
