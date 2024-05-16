@@ -9,13 +9,17 @@ require_once(__DIR__ . '/../database/item.class.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    var_dump($session->getId());
+    var_dump($_POST['CATEGORIES']);
+    var_dump($_POST['TYPE']);
+
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             
             //Insert item into database
             $db = getDatabaseConnection();
-            $stmt = $db->prepare('INSERT INTO Item(UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES
-             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :Price, :IsSold)');
+            $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageUrl, Price, IsSold) VALUES
+             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :ImageUrl, :Price, :IsSold)');
 
             $UserID = $session->getId();
             $CategoryID = $_POST['CATEGORIES'];
@@ -25,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Detail = $_POST['description'];
             $Dimension = $_POST['SIZE'];
             $Color = $_POST['color'];
+            $ImageUrl = "../assets/uploads_item/-1.jpg";
             $Price = $_POST['price'];
             $IsSold = 0;
 
@@ -36,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':Dimension', $Dimension);
             $stmt->bindParam(':Detail', $Detail);
             $stmt->bindParam(':Color', $Color);
+            $stmt->bindParam(':ImageUrl', $ImageUrl);
             $stmt->bindParam(':Price', $Price);
             $stmt->bindParam(':IsSold', $IsSold);
 
@@ -55,8 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
                 $id = $db->lastInsertId();
                 $imagePath = "../assets/uploads_item/$id.jpg";
+                $ImageUrl = "../assets/uploads_item/$id.jpg";
     
                 imagejpeg($image, $imagePath);
+
+                $stmt = $db->prepare('UPDATE Item SET ImageUrl = :ImageUrl WHERE ItemID = :id');
+                $stmt->bindParam(':ImageUrl', $ImageUrl);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
 
                 $session->addMessage('success', 'Sell successful!');
             } else {

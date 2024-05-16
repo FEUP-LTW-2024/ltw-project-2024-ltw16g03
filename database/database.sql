@@ -51,6 +51,7 @@ CREATE TABLE Item
     Dimension NVARCHAR(60),
     Detail NVARCHAR(60) NOT NULL,
     Color NVARCHAR(60) NOT NULL,
+    ImageUrl NVARCHAR(60) NOT NULL,
     Price REAL NOT NULL,
     IsSold INTEGER NOT NULL CHECK (IsSold IN (0, 1)),
     FOREIGN KEY (UserID) REFERENCES User (UserID)

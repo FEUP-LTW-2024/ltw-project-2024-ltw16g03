@@ -36,7 +36,7 @@ async function seeMore(path) {
         const article = document.createElement('article');
         // Append Image to article
         const img = document.createElement('img');
-        img.src = "../assets/uploads_item/" + item.ItemID + '.jpg';
+        img.src = item.ImageUrl;
         img.width = 200;
         img.height = 200;
         article.appendChild(img);
