@@ -21,7 +21,7 @@
         <section class="my-account">
             <h1>MY ACCOUNT</h1>
             <section class="secondary_info">
-                <img class="profile_picture" src="../assets/uploads_profile/<?=$session->getId()?>.jpg" alt="A image representative of the profile"/>
+                <img class="profile_picture" src="<?=$user->ImageUrl?>" alt="A image representative of the profile"/>
                 <a href="edit_profile.php" class="option_link">Edit Profile</a>
                 <a href="my_selling.php" class="option_link">My Sellings</a>
                 <a id="account_delete" class="option_link">Delete Account</a>

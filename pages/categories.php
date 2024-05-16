@@ -38,26 +38,26 @@
                     <h1>FILTERS</h1>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="checkbox" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="4" onchange="toggleSizes(this)">House</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
 
                     <h2>TYPE</h2>
-                    <label><input type="checkbox" name="TYPE" value="1" <?php echo ($_GET['type'] === 'Clothing') ? 'checked' : ''; ?>>Clothing</label>
-                    <label><input type="checkbox" name="TYPE" value="2" <?php echo ($_GET['type'] === 'Shoes') ? 'checked' : ''; ?>>Shoes</label>
-                    <label><input type="checkbox" name="TYPE" value="3" <?php echo ($_GET['type'] === 'Bags') ? 'checked' : ''; ?>>Bags</label>
-                    <label><input type="checkbox" name="TYPE" value="4" <?php echo ($_GET['type'] === 'Accessories') ? 'checked' : ''; ?>>Accessories</label>
-                    <label><input type="checkbox" name="TYPE" value="5" <?php echo ($_GET['type'] === 'Beauty') ? 'checked' : ''; ?>>Beauty</label>
-                    <label><input type="checkbox" name="TYPE" value="6" <?php echo ($_GET['type'] === 'Grooming') ? 'checked' : ''; ?>>Grooming</label>
-                    <label><input type="checkbox" name="TYPE" value="7" <?php echo ($_GET['type'] === 'Toys / Games') ? 'checked' : ''; ?>>Toys / Games</label>
-                    <label><input type="checkbox" name="TYPE" value="8" <?php echo ($_GET['type'] === 'Baby Care') ? 'checked' : ''; ?>>Baby Care</label>
-                    <label><input type="checkbox" name="TYPE" value="9" <?php echo ($_GET['type'] === 'Buggies') ? 'checked' : ''; ?>>Buggies</label>
-                    <label><input type="checkbox" name="TYPE" value="10" <?php echo ($_GET['type'] === 'School Supplies') ? 'checked' : ''; ?>>School Supplies</label>
-                    <label><input type="checkbox" name="TYPE" value="11" <?php echo ($_GET['type'] === 'Textiles') ? 'checked' : ''; ?>>Textiles</label>
-                    <label><input type="checkbox" name="TYPE" value="12" <?php echo ($_GET['type'] === 'Home accessories') ? 'checked' : ''; ?>>Home accessories</label>
-                    <label><input type="checkbox" name="TYPE" value="13" <?php echo ($_GET['type'] === 'Tableware') ? 'checked' : ''; ?>>Tableware</label>
-                    <label><input type="checkbox" name="TYPE" value="14" <?php echo ($_GET['type'] === 'Celebrations') ? 'checked' : ''; ?>>Celebrations</label>
+                    <label><input type="checkbox" name="TYPE" value="1" <?php echo ($_GET['type'] === 'Jeans') ? 'checked' : ''; ?>>Jeans</label>
+                    <label><input type="checkbox" name="TYPE" value="2" <?php echo ($_GET['type'] === 'Trousers') ? 'checked' : ''; ?>>Trousers</label>
+                    <label><input type="checkbox" name="TYPE" value="3" <?php echo ($_GET['type'] === 'Tops') ? 'checked' : ''; ?>>Tops</label>
+                    <label><input type="checkbox" name="TYPE" value="4" <?php echo ($_GET['type'] === 'T-shirts') ? 'checked' : ''; ?>>T-shirts</label>
+                    <label><input type="checkbox" name="TYPE" value="5" <?php echo ($_GET['type'] === 'Dresses') ? 'checked' : ''; ?>>Dresses</label>
+                    <label><input type="checkbox" name="TYPE" value="6" <?php echo ($_GET['type'] === 'Skirts') ? 'checked' : ''; ?>>Skirts</label>
+                    <label><input type="checkbox" name="TYPE" value="7" <?php echo ($_GET['type'] === 'Jackets') ? 'checked' : ''; ?>>Jackets</label>
+                    <label><input type="checkbox" name="TYPE" value="8" <?php echo ($_GET['type'] === 'Sweatshirts') ? 'checked' : ''; ?>>Sweatshirts</label>
+                    <label><input type="checkbox" name="TYPE" value="9" <?php echo ($_GET['type'] === 'Shirts') ? 'checked' : ''; ?>>Shirts</label>
+                    <label><input type="checkbox" name="TYPE" value="10" <?php echo ($_GET['type'] === 'Shorts') ? 'checked' : ''; ?>>Shorts</label>
+                    <label><input type="checkbox" name="TYPE" value="11" <?php echo ($_GET['type'] === 'Swimwear') ? 'checked' : ''; ?>>Swimwear</label>
+                    <label><input type="checkbox" name="TYPE" value="12" <?php echo ($_GET['type'] === 'Activewear') ? 'checked' : ''; ?>>Activewear</label>
+                    <label><input type="checkbox" name="TYPE" value="13" <?php echo ($_GET['type'] === 'Shoes') ? 'checked' : ''; ?>>Shoes</label>
+                    <label><input type="checkbox" name="TYPE" value="14" <?php echo ($_GET['type'] === 'Accessories') ? 'checked' : ''; ?>>Accessories</label>
 
                     <div id="sizeOptions" class="size-options"></div>
 
@@ -102,7 +102,7 @@
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
                         <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
-                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="../assets/uploads_item/<?=$item->ItemID?>.jpg" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item->Price?> €</p>
                                 <p><?=$item->Brand?></p>

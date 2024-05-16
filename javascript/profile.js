@@ -84,7 +84,7 @@ function displayItems(items) {
         link.classList.add('item_image');
         const image = document.createElement('img');
         image.classList.add('item_img');
-        image.src = "../assets/uploads_item/" + item.ItemID + '.jpg';
+        image.src = item.ImageUrl;
         image.alt = "A image representative of the item being sold"
         image.height = 400;
         link.appendChild(image);

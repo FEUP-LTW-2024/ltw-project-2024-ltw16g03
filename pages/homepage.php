@@ -28,9 +28,9 @@
         <img src="../assets/kids.png" alt="kids-geral">
         <span class="category-text">KIDS</span>
     </a>
-    <a href="categories.php?category=House" class="category-link">
-        <img src="../assets/home.png" alt="home-geral">
-        <span class="category-text">HOUSE</span>
+    <a href="categories.php?category=Baby" class="category-link">
+        <img src="../assets/baby.png" alt="baby-geral">
+        <span class="category-text">BABY</span>
     </a>
     </section>
     </main>

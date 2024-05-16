@@ -232,8 +232,14 @@ footer {
     border-bottom: 2px solid #000000;
 }
 
+.categories li:hover {
+    border: 1px solid black;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
+}
+
 .categories li {
-    padding: 5px 25px 5px 45px;
+    padding: 5px 25px 5px;
     & a {
         font-size: 16px;
     }
@@ -455,6 +461,11 @@ footer {
     & section.price_brand {
         display: contents;
     }
+    & label:hover:not(#minPriceLabel):not(#maxPriceLabel) {
+        border: 1px solid black;
+        box-shadow: 1px 1px 2px black;
+        cursor: pointer;
+    }
 }
 
 .description {
@@ -487,12 +498,9 @@ footer {
     display: grid;
     grid-template-areas: "description filters"
                          "button button";
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 4fr auto 1fr;
     place-items: center;
     align-items: start;
-    & aside {
-        grid-area: filters;
-    }
     & button {
         grid-area: button;
     }
@@ -598,6 +606,12 @@ input[name="color"]:checked + label {
     justify-content: space-around;
     align-items: self-start;
     gap: 1em;
+}
+
+.display_item:hover {
+    border: 2px solid black;
+    box-shadow: 1px 1px 5px black;
+    cursor: pointer;
 }
 
 .display_item {
@@ -1286,10 +1300,6 @@ input[name="color"]:checked + label {
             grid-area: section1;
             width: 20em;
             padding: 1em;
-            .item_img {
-                width: 15em;
-                height: 7em;
-            }
         }
         & button {
             grid-area: button;

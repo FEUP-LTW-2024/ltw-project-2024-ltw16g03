@@ -10,6 +10,7 @@
 
   $cartItems = $session->getItemsInCart();
   if (empty($cartItems)) die(header('Location: ../pages/shopping_cart_empty.php'));
+  if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

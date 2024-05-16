@@ -18,7 +18,7 @@
 ?>
   <main>
     <form class="edit_profile_inputs" action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data">
-      <img id="previewImage" class="profile_picture" src="../assets/uploads_profile/<?=$session->getId()?>.jpg" alt="A image representative of the profile"/>
+      <img id="previewImage" class="profile_picture" src="<?=$user->ImageUrl?>" alt="A image representative of the profile"/>
           <section class="input_fields">
               <input type="file" id="fileInput" name="image">
               <label for="fileInput" class="upload_label"></i> Upload Image</label>
