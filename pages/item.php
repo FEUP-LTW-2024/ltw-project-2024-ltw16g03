@@ -62,7 +62,7 @@
                             <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
                         </section>
                         <button class="make-offer">MAKE AN OFFER</button>
-                        <button class="ask-seller">ASK SELLER</button>
+                        <a href="../pages/messages.php?id=<?=$user->UserID?>"><button class="ask-seller">ASK SELLER</button></a>
                     </div>
                 </div>
             </article>

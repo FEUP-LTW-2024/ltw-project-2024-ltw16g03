@@ -72,6 +72,7 @@
 
       // Fetch the results
       $results = $stmt->fetchAll();
+      $messages = array();
 
       foreach ($results as $result) {
         $message = new Message(

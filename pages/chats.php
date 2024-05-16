@@ -39,7 +39,7 @@
                                 } ?>
                             </p>
                             <p class="message"><?=$chat->Content?></p>
-                            <p class="time"><?=$chat->Timestamp->format('Y-m-d H:i:s');?></p>
+                            <p class="time"><?=$chat->Timestamp->add(new DateInterval('PT1H'))->format('Y-m-d H:i:s');?></p>
                         </div>
                     </section>
                 </article>
