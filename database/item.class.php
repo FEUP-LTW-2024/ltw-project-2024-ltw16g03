@@ -388,5 +388,43 @@
       }
       return $items;
     }    
+
+    static function createTransaction(PDO $db, int $sellerId, int $buyerId, int $itemId) {
+      $stmt = $db->prepare('
+          INSERT INTO Transact (SellerID, BuyerID, ItemID, TransactionDate)
+          VALUES (?, ?, ?, CURRENT_TIMESTAMP)
+      ');
+      $stmt->execute([$sellerId, $buyerId, $itemId]);
+    }
+
+    static function getUserPreviousOrders(PDO $db, int $id) : array {
+      $stmt = $db->prepare('
+        SELECT i.*
+        FROM Item i
+        INNER JOIN Transact t ON i.ItemID = t.ItemID
+        WHERE t.BuyerID = ?
+      ');
+      $stmt->execute(array($id));
+      $items = array();
+  
+      while ($item = $stmt->fetch()) {
+        $items[] = new Item(
+          $item['ItemID'],
+          $item['UserID'],
+          $item['CategoryID'],
+          $item['TypeID'],
+          $item['ItemName'],
+          $item['Brand'],
+          $item['Dimension'],
+          $item['Detail'],
+          $item['Color'],
+          $item['Price'],
+          (bool) $item['IsSold']
+        );
+      }
+  
+      return $items;
+    }
+
   }
 ?>
