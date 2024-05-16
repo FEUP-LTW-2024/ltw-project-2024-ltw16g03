@@ -11,10 +11,13 @@ if (deleteButton) {
         const footer = document.querySelector('footer');
         const mainNodes = document.querySelectorAll('main > *');
         header.style.filter = "blur(8px)";
+        header.style.pointerEvents = "none";
         footer.style.filter = "blur(8px)";
         for (node of mainNodes) {
-            console.log(node);
-            if (!node.classList.contains("pop_up")) node.style.filter = "blur(8px)";
+            if (!node.classList.contains("pop_up")) {
+                node.style.filter = "blur(8px)";
+                node.style.pointerEvents = "none";
+            }
         }
     });
 }
@@ -32,10 +35,13 @@ if (deletePopUp) {
         const footer = document.querySelector('footer');
         const mainNodes = document.querySelectorAll('main > *');
         header.style.filter = "blur(0px)";
+        header.style.pointerEvents = "auto";
         footer.style.filter = "blur(0px)";
         for (node of mainNodes) {
-            console.log(node);
-            if (!node.classList.contains("pop_up")) node.style.filter = "blur(0px)";
+            if (!node.classList.contains("pop_up")) {
+                node.style.filter = "blur(0px)";
+                node.style.pointerEvents = "auto";
+            }
         }
     });
 }

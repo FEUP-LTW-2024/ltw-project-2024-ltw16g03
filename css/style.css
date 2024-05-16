@@ -70,7 +70,7 @@ button {
     cursor: pointer;
 }
 
-button.add-to-cart {
+button.add-to-cart, .offer button {
     background-color: var(--tertiary-color);
     border: none;
     box-shadow: none;
@@ -1305,14 +1305,14 @@ input[name="color"]:checked + label {
     }
 }
 
-/* Pop Up */
+/* General Pop Up */
 .pop_up {
     /* Center in the middle of the screen */
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--tertiary-color);
+    background-color: var(--secondary-color);
     padding: 1em;
     border: 2px solid black;
     display: none;
@@ -1322,8 +1322,27 @@ input[name="color"]:checked + label {
     & img {
         align-self: end;
     }
-    & p, button {
+    & p, button, h1 {
         margin: 0;
+    }
+    & .input_info {
+        background-color: var(--tertiary-color);
+    }
+}
+
+/* Make Offer Pop Up */
+section.offer {
+    & > p{
+        color: grey;
+        text-decoration: line-through;
+    }
+    & .proposal {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        & input {
+            width: 30%;
+        }  
     }
 }
 

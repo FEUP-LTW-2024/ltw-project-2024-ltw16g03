@@ -26,7 +26,7 @@
             <article class="item">
                 <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template" height = "500" width = "500"/>
                 <section class="info">
-                    <p class="price big"><?=$item->Price?> $</p>
+                    <p class="price big"><?=$item->Price?> €</p>
                     <p class="name big"><?=$item->ItemName?></p>
                     <section class="tags2">
                         <div class="color-square3 <?=$item->Color?>"></div>
@@ -66,6 +66,16 @@
                     </div>
                 </div>
             </article>
+            <section class="offer pop_up">
+                <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
+                <h1>MAKE AN OFFER</h1>
+                <p><?=$item->Price?> €</p>
+                <section class="proposal">
+                    <input class="input_underlined" type="text" name="offer" placeholder="<?=$item->Price?>">
+                    <p> €</p>
+                </section>
+                <button>SUBMIT</button>
+            </section>
         </main>
         <footer>
             Retro Club &copy; 2024

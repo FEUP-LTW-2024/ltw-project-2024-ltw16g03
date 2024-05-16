@@ -38,7 +38,7 @@
                         <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
                         <p>Adding the item to the cart will remove it from the wishlist. Do you want to proceed?</p>
                         <button>CONTINUE</button>
-                    </form>
+                    </section>
                 </main>
 
     <?=drawFooter();?>

@@ -69,7 +69,6 @@ function addToCartEvent(e) {
 }
 
 async function addToCartWishlistPageEvent(e) {
-    console.log(this)
     // Call API to add item to cart (properly encode json string)
     const response = fetch('../api/add_to_cart.php?item=' + encodeURIComponent(this.getAttribute('data-item')));
 
@@ -112,6 +111,16 @@ function showPopUp() {
     popUp.style.display = 'flex';
     const addToCart = this;
 
+    // Deactivate background buttons
+    const header = document.querySelector('header');
+    const mainNodes = document.querySelectorAll('main > *');
+    header.style.pointerEvents = "none";
+    for (node of mainNodes) {
+        if (!node.classList.contains("pop_up")) {
+            node.style.pointerEvents = "none";
+        }
+    }
+
     // Create new button add correct event listeners and replace it
     const continueButton = popUp.querySelector('button');
     // Clone the element
@@ -119,6 +128,15 @@ function showPopUp() {
     
     // Add Correct event listener
     clone.addEventListener("click", function(e) {
+        // Activate background buttons
+        const header = document.querySelector('header');
+        const mainNodes = document.querySelectorAll('main > *');
+        header.style.pointerEvents = "auto";
+        for (node of mainNodes) {
+            if (!node.classList.contains("pop_up")) {
+                node.style.pointerEvents = "auto";
+            }
+        }
         addToCartWishlistPageEvent.call(addToCart);
     });
 
@@ -131,5 +149,14 @@ if (popUp) {
     closeButton.addEventListener("click", function(e) {
         // Hide pop up
         popUp.style.display = 'none';
+        // Activate background buttons
+        const header = document.querySelector('header');
+        const mainNodes = document.querySelectorAll('main > *');
+        header.style.pointerEvents = "auto";
+        for (node of mainNodes) {
+            if (!node.classList.contains("pop_up")) {
+                node.style.pointerEvents = "auto";
+            }
+        }
     });
 }

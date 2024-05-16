@@ -20,6 +20,7 @@
         <script src="../javascript/seeMore.js" defer></script>
         <script src="../javascript/profile.js" defer></script>
         <script src="../javascript/messages.js" defer></script>
+        <script src="../javascript/make_offer.js" defer></script>
     </head>
     <body>
         <header>
