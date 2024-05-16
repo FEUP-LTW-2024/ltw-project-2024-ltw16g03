@@ -6,13 +6,15 @@
     public string $RealName;
     public string $Username;
     public string $Email;
+    public string $ImageUrl;
     public int $IsAdmin;
 
-    public function __construct(int $UserID, string $RealName, string $Username, string $Email, int $IsAdmin)
+    public function __construct(int $UserID, string $RealName, string $Username, string $ImageUrl, string $Email, int $IsAdmin)
     {
       $this->UserID = $UserID;
       $this->RealName = $RealName;
       $this->Username = $Username;
+      $this->ImageUrl = $ImageUrl;
       $this->Email = $Email;
       $this->IsAdmin = $IsAdmin;
     }
@@ -32,6 +34,7 @@
           $user['UserID'],
           $user['RealName'],
           $user['Username'],
+          $user['ImageUrl'],
           $user['Email'],
           $user['IsAdmin']
         );
@@ -52,6 +55,7 @@
         $user['UserID'],
         $user['RealName'],
         $user['Username'],
+        $user['ImageUrl'],
         $user['Email'],
         $user['IsAdmin']
       );

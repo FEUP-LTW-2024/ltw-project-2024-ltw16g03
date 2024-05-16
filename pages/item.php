@@ -24,7 +24,7 @@
 
         <main id="item_page">
             <article class="item">
-                <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template" height = "500" width = "500"/>
+                <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template" height = "500" width = "500"/>
                 <section class="info">
                     <p class="price big"><?=$item->Price?> $</p>
                     <p class="name big"><?=$item->ItemName?></p>
@@ -51,7 +51,7 @@
             </article>
             <article class="seller-details">
                 <div class="seller-info">
-                    <img class="seller-picture" src="<?=$user->ImageURL?>" alt="profile picture">
+                    <img class="seller-picture" src="<?=$user->ImageUrl?>" alt="profile picture">
                     <div class="seller-info2">
                         <p class="seller-username"><?=$user->Username?></p>
                         <section class="seller-rating">
