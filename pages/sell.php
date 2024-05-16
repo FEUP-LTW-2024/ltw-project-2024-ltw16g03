@@ -33,25 +33,25 @@
                     <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
                     <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
                     <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">House</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
 
                     <div id="sizeOptions" class="size-options"></div>
 
                     <h2>TYPE</h2>
-                    <label><input type="radio" name="TYPE" value="1">Clothing</label>
-                    <label><input type="radio" name="TYPE" value="2">Shoes</label>
-                    <label><input type="radio" name="TYPE" value="3">Bags</label>
-                    <label><input type="radio" name="TYPE" value="4">Accessories</label>
-                    <label><input type="radio" name="TYPE" value="5">Beauty</label>
-                    <label><input type="radio" name="TYPE" value="6">Grooming</label>
-                    <label><input type="radio" name="TYPE" value="7">Toys / Games</label>
-                    <label><input type="radio" name="TYPE" value="8">Baby Care</label>
-                    <label><input type="radio" name="TYPE" value="9">Buggies</label>
-                    <label><input type="radio" name="TYPE" value="10">School Supplies</label>
-                    <label><input type="radio" name="TYPE" value="11">Textiles</label>
-                    <label><input type="radio" name="TYPE" value="12">Home accesories</label>
-                    <label><input type="radio" name="TYPE" value="13">Tableware</label>
-                    <label><input type="radio" name="TYPE" value="14">Celebrations</label>
+                    <label><input type="radio" name="TYPE" value="1">Jeans</label>
+                    <label><input type="radio" name="TYPE" value="2">Trousers</label>
+                    <label><input type="radio" name="TYPE" value="3">Tops</label>
+                    <label><input type="radio" name="TYPE" value="4">T-shirts</label>
+                    <label><input type="radio" name="TYPE" value="5">Dresses</label>
+                    <label><input type="radio" name="TYPE" value="6">Skirts</label>
+                    <label><input type="radio" name="TYPE" value="7">Jackets</label>
+                    <label><input type="radio" name="TYPE" value="8">Sweatshirts</label>
+                    <label><input type="radio" name="TYPE" value="9">Shirts</label>
+                    <label><input type="radio" name="TYPE" value="10">Shorts</label>
+                    <label><input type="radio" name="TYPE" value="11">Swimwear</label>
+                    <label><input type="radio" name="TYPE" value="12">Activewear</label>
+                    <label><input type="radio" name="TYPE" value="13">Shoes</label>
+                    <label><input type="radio" name="TYPE" value="14">Accessories</label>
                     
                     <h2>COLOUR</h2>
                     <section class="colour_sell">

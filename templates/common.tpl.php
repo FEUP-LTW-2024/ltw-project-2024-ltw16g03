@@ -30,20 +30,20 @@
             <section class="search-bar">
                 <button id="filter-button" class="plain-button"><img src="../assets/filter.png" alt="filter"></button>
                 <div class="dropdown" id="filter-dropdown">
-                    <a href="categories.php?type=Clothing">Clothing</a>
+                    <a href="categories.php?type=Jeans">Jeans</a>
+                    <a href="categories.php?type=Trousers">Trousers</a>
+                    <a href="categories.php?type=Tops">Tops</a>
+                    <a href="categories.php?type=T-shirts">T-shirts</a>
+                    <a href="categories.php?type=Dresses">Dresses</a>
+                    <a href="categories.php?type=Skirts">Skirts</a>
+                    <a href="categories.php?type=Jackets">Jackets</a>
+                    <a href="categories.php?type=Sweatshirts">Sweatshirts</a>
+                    <a href="categories.php?type=Shirts">Shirts</a>
+                    <a href="categories.php?type=Shorts">Shorts</a>
+                    <a href="categories.php?type=Swimwear">Swimwear</a>
+                    <a href="categories.php?type=Activewear">Activewear</a>
                     <a href="categories.php?type=Shoes">Shoes</a>
-                    <a href="categories.php?type=Bags">Bags</a>
                     <a href="categories.php?type=Accessories">Accessories</a>
-                    <a href="categories.php?type=Beauty">Beauty</a>
-                    <a href="categories.php?type=Grooming">Grooming</a>
-                    <a href="categories.php?type=Toys%20/%20Games">Toys / Games</a>
-                    <a href="categories.php?type=Baby%20Care">Baby Care</a>
-                    <a href="categories.php?type=Buggies">Buggies</a>
-                    <a href="categories.php?type=School%20Supplies">School Supplies</a>
-                    <a href="categories.php?type=Textiles">Textiles</a>
-                    <a href="categories.php?type=Home%20accessories">Home Accessories</a>
-                    <a href="categories.php?type=Tableware">Tableware</a>
-                    <a href="categories.php?type=Celebrations">Celebrations</a>
                 </div>
                 <form action="../pages/categories.php" method="GET" id="search-form">
                     <input name="search" type="text" placeholder="Search here..."/>
@@ -76,7 +76,7 @@
                     <li><a href="categories.php?category=Women">Women</a></li>
                     <li><a href="categories.php?category=Men">Men</a></li>
                     <li><a href="categories.php?category=Kids">Kids</a></li>
-                    <li><a href="categories.php?category=House">House</a></li>
+                    <li><a href="categories.php?category=Baby">Baby</a></li>
                 </ul>
             </nav>
         </header>

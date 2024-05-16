@@ -196,22 +196,22 @@ CREATE INDEX IFK_OrderUserID ON Order_ (UserID);
 INSERT INTO Category (CategoryID, CategoryName) VALUES (1, 'Women');
 INSERT INTO Category (CategoryID, CategoryName) VALUES (2, 'Men');
 INSERT INTO Category (CategoryID, CategoryName) VALUES (3, 'Kids');
-INSERT INTO Category (CategoryID, CategoryName) VALUES (4, 'Home');
+INSERT INTO Category (CategoryID, CategoryName) VALUES (4, 'Baby');
 
-INSERT INTO Type_ (TypeID, TypeName) VALUES (1, 'Clothing');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (2, 'Shoes');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (3, 'Bags');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (4, 'Accessories');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (5, 'Beauty');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (6, 'Grooming');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (7, 'Toys / Games');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (8, 'Baby care');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (9, 'Buggies');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (10, 'School supplies');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (11, 'Textiles');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Home accessories');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Tableware');
-INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Celebrations');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (1, 'Jeans');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (2, 'Trousers');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (3, 'Tops');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (4, 'T-shirts');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (5, 'Dresses');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (6, 'Skirts');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (7, 'Jackets');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (8, 'Sweatshirts');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (9, 'Shirts');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (10, 'Shorts');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (11, 'Swimwear');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Activewear');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Shoes');
+INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Accessories');
 
 INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
                 ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0');

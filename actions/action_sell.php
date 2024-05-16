@@ -11,15 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-            
-            //house categorie doesn't have size
-            if ($_POST['CATEGORIES'] === "4") {
-                $Dimension = "";
-                $continue = true;
-            } else {
-                $continue = isset($_POST['SIZE']);
-                $Dimension = $_POST['SIZE'];
-            }
 
             if ($continue) {
             

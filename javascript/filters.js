@@ -37,7 +37,7 @@ if (mainCategories) { // If on Categories Page andd following event listeners
     
         const urlParams = new URLSearchParams(window.location.search);
         const categoryParam = urlParams.get('category');
-        const categoryMap = {'Women': '1', 'Men': '2', 'Kids': '3', 'House': '4'};
+        const categoryMap = {'Women': '1', 'Men': '2', 'Kids': '3', 'Baby': '4'};
         if (categoryParam && categoryMap.hasOwnProperty(categoryParam)) {
             const categoryValue = categoryMap[categoryParam];
             const categoryCheckbox = document.querySelector(`input[name="CATEGORIES"][value="${categoryValue}"]`);
