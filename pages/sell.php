@@ -35,7 +35,7 @@
                     <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
                     <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
 
-                    <div id="sizeOptions" class="size-options"></div>
+                    <div id="sizeOptionsSell" class="size-options"></div>
 
                     <h2>TYPE</h2>
                     <label><input type="radio" name="TYPE" value="1">Jeans</label>
@@ -81,10 +81,10 @@
                         <label class="color-swatch rainbow" for="rainbow"></label>
                     </section>
                     <section class="price_brand">
-                        <label>PRICE
+                        <label id="minPriceLabel">PRICE
                             <input class="input_underlined" type="text" name="price">
                         </label>
-                        <label>BRAND
+                        <label id="maxPriceLabel">BRAND
                             <input class="input_underlined" type="text" name="brand">
                         </label>
                     </section>

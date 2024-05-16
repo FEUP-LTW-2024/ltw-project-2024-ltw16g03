@@ -9,7 +9,8 @@ require_once(__DIR__ . '/../database/user.class.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['Password'], $_POST['confirm_password'])) {
+    if (isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['Password'], $_POST['confirm_password'], $_FILES['image'])
+    && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         $db = getDatabaseConnection();
 
         if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['confirm_password'])) {
@@ -58,25 +59,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':Email', $Email);
             $stmt->bindParam(':IsAdmin', $IsAdmin);
 
-
-            if ($stmt->execute()) {
-                if(isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                    $tempFileName = $_FILES['image']['tmp_name'];
+            if ($stmt->execute()) {                
+                $tempFileName = $_FILES['image']['tmp_name'];
                     
-                    if (!is_dir('../assets')) mkdir('../assets');
-                    if (!is_dir('../assets/uploads_profile')) mkdir('../assets/uploads_profile');
-                    
-                    $image = @imagecreatefromjpeg($tempFileName);
-                    if (!$image) $image = @imagecreatefrompng($tempFileName);
-                    if (!$image) $image = @imagecreatefromgif($tempFileName);
-                    
-                    if (!$image) die(header('Location: ../pages/register.php'));
-
-                    $id = $db->lastInsertId();
-                    $imagePath = "../assets/uploads_profile/$id.jpg";
-
-                    imagejpeg($image, $imagePath);
-                }
+                if (!is_dir('../assets')) mkdir('../assets');
+                if (!is_dir('../assets/uploads_profile')) mkdir('../assets/uploads_profile');
+                
+                $image = @imagecreatefromjpeg($tempFileName);
+                if (!$image) $image = @imagecreatefrompng($tempFileName);
+                if (!$image) $image = @imagecreatefromgif($tempFileName);
+                
+                if (!$image) die(header('Location: ../pages/register.php'));
+    
+                $id = $db->lastInsertId();
+                $imagePath = "../assets/uploads_profile/$id.jpg";
+    
+                imagejpeg($image, $imagePath);
                 $session->addMessage('success', 'Registration successful!');
                 header('Location: ../pages/login.php');
                 exit();

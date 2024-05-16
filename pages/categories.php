@@ -38,10 +38,10 @@
                     <h1>FILTERS</h1>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="checkbox" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
-                    <label><input type="checkbox" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
 
                     <h2>TYPE</h2>
                     <label><input type="checkbox" name="TYPE" value="1" <?php echo ($_GET['type'] === 'Jeans') ? 'checked' : ''; ?>>Jeans</label>

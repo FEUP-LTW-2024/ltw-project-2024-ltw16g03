@@ -11,8 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-
-            if ($continue) {
             
             //Insert item into database
             $db = getDatabaseConnection();
@@ -70,5 +68,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     header('Location: ../pages/sell.php');
     exit();
-}
 ?>
