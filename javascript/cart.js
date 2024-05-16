@@ -82,13 +82,13 @@ async function addToCartWishlistPageEvent(e) {
 }
 
 // Add "Add to Cart" events to buttons on Categories pages
-const addToCartButtons = document.querySelectorAll('#categories_page .add-to-cart');
+const addToCartButtons = document.querySelectorAll('#categories_page .add-to-cart, #item_page .add-to-cart');
 for (const button of addToCartButtons) {
     button.addEventListener("click", addToCartEvent);
 }
 
 // Add "Remove from Cart" event to buttons on Categories pages
-const removeButtons = document.querySelectorAll('#categories_page .remove_from_cart');
+const removeButtons = document.querySelectorAll('#categories_page .remove_from_cart, #item_page .remove_from_cart');
 for (const button of removeButtons) {
     button.addEventListener("click", removeFromCartEvent);
 }

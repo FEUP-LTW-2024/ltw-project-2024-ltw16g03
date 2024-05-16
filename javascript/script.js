@@ -5,7 +5,9 @@ const element = document.body;
 element.classList.toggle('dark-mode', window.matchMedia("(prefers-color-scheme: dark)").matches);
 
 /*Preview Uploaded images*/
-document.getElementById('fileInput').addEventListener('change', function() {
+const fileInput = document.getElementById('fileInput');
+if (fileInput) {
+  fileInput.addEventListener('change', function() {
     var file = this.files[0];
     var reader = new FileReader();
   
@@ -17,3 +19,5 @@ document.getElementById('fileInput').addEventListener('change', function() {
   
     reader.readAsDataURL(file);
   });
+
+}
