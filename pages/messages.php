@@ -12,19 +12,12 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
   $messages = Message::getMessages($db, $session->getId(), $_GET['id']);
-  $mainUser = User::getUser($db, $session->getId());;
-  $otherUser = "";
+  $mainUser = User::getUser($db, $session->getId());
+  $otherUser = User::getUser($db, $_GET['id']);
 
   drawHeader($session);
 ?>
         <main id="main_messages">
-            <?php 
-                if ($messages[0]->SenderID == $session->getId()) {
-                    $otherUser = User::getUser($db, $messages[0]->ReceiverID);
-                } else {
-                    $otherUser = User::getUser($db, $messages[0]->SenderID);
-                }
-            ?>
             <?php foreach($messages as $message) {
                 if ($message->SenderID == $session->getId()) { ?>
                 <article class="message user">

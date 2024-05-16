@@ -31,7 +31,8 @@
         WHERE SenderID = :user_id OR ReceiverID = :user_id
         GROUP BY CorrespondentID
       ) AS latest_msg
-      ON (m.MessageID = latest_msg.MessageID)');
+      ON (m.MessageID = latest_msg.MessageID)
+      ORDER BY m.TimeStamp DESC;');
         
       $stmt->bindParam(':user_id', $id);
 
@@ -71,6 +72,7 @@
 
       // Fetch the results
       $results = $stmt->fetchAll();
+      $messages = array();
 
       foreach ($results as $result) {
         $message = new Message(
