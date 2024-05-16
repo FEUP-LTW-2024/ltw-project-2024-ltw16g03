@@ -16,9 +16,9 @@
                     <?php } ?>
             <form class="sell_form" enctype="multipart/form-data" action="../actions/action_sell.php" method="post">
                 <section class="description">
-                    <img id="previewImage" name="image" class = "item_img" src="../assets/uploads_item/default.jpeg" alt="Upload a Image"/>
+                    <img id="previewImage" name="image" class="item_img" src="../assets/uploads_item/default.jpeg" alt="Upload a Image"/>
 
-                    <input type="file" id="fileInput">
+                    <input type="file" name="image" id="fileInput">
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
 
                     <h2>Description</h2>

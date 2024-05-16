@@ -10,7 +10,7 @@ require_once(__DIR__ . '/../database/item.class.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
-            $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             
             //Insert item into database
             $db = getDatabaseConnection();
@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $ItemName = $_POST['name'];
             $Brand = $_POST['brand'];
             $Detail = $_POST['description'];
+            $Dimension = $_POST['SIZE'];
             $Color = $_POST['color'];
             $Price = $_POST['price'];
             $IsSold = 0;
@@ -61,10 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $session->addMessage('error', 'Failed to sell item!');
             }
-        }
-    } else {
-        $session->addMessage('error', 'All fields and image are required!');
-        die(header('Location: ../pages/sell.php'));
+        } else {
+            $session->addMessage('error', 'All fields and image are required!');
+            die(header('Location: ../pages/sell.php'));
+        } 
     }
     header('Location: ../pages/sell.php');
     exit();
