@@ -14,9 +14,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             //Insert item into database
             $db = getDatabaseConnection();
-            $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Condition, ImageUrl, Price, IsSold) VALUES
-             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :Condition, :ImageUrl, :Price, :IsSold)');
+            $stmt = $db->prepare('UPDATE Item SET 
+            UserID = :UserID, 
+            CategoryID = :CategoryID, 
+            TypeID = :TypeID, 
+            ItemName = :ItemName, 
+            Brand = :Brand, 
+            Dimension = :Dimension, 
+            Detail = :Detail, 
+            Color = :Color, 
+            Condition = :Condition, 
+            ImageUrl = :ImageUrl, 
+            Price = :Price, 
+            IsSold = :IsSold
+            WHERE ItemID = :ItemID');
 
+            $ItemID = $_GET['ItemID'];
             $UserID = $session->getId();
             $CategoryID = $_POST['CATEGORIES'];
             $TypeID = $_POST['TYPE'];
@@ -30,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Price = $_POST['price'];
             $IsSold = 0;
 
+            $stmt->bindParam(':ItemID', $ItemID);
             $stmt->bindParam(':UserID', $UserID);
             $stmt->bindParam(':CategoryID', $CategoryID);
             $stmt->bindParam(':TypeID', $TypeID);
@@ -57,9 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if (!$image) die(header('Location: ../pages/sell.php'));
     
-                $id = $db->lastInsertId();
-                $imagePath = "../assets/uploads_item/$id.jpg";
-                $ImageUrl = "../assets/uploads_item/$id.jpg";
+                $imagePath = "../assets/uploads_item/$ItemID.jpg";
+                $ImageUrl = "../assets/uploads_item/$ItemID.jpg";
     
                 imagejpeg($image, $imagePath);
 
@@ -68,15 +81,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bindParam(':id', $id);
                 $stmt->execute();
 
-                $session->addMessage('success', 'Sell successful!');
+                $session->addMessage('success', 'Edit item successful!');
             } else {
-                $session->addMessage('error', 'Failed to sell item!');
+                $session->addMessage('error', 'Failed to Edit item!');
             }
         } else {
             $session->addMessage('error', 'All fields and image are required!');
-            die(header('Location: ../pages/sell.php'));
+            die(header('Location: ../pages/edit_item.php'));
         } 
     }
-    header('Location: ../pages/sell.php');
+    header('Location: ../pages/my_selling.php');
     exit();
 ?>
