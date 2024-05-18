@@ -52,6 +52,14 @@
                     <label><input type="radio" name="TYPE" value="12">Activewear</label>
                     <label><input type="radio" name="TYPE" value="13">Shoes</label>
                     <label><input type="radio" name="TYPE" value="14">Accessories</label>
+
+                    <h2>Condition</h2>
+                    <label><input type="radio" name="CONDITION" value="1">Brand New with Tags</label>
+                    <label><input type="radio" name="CONDITION" value="2">Like New</label>
+                    <label><input type="radio" name="CONDITION" value="3">Very Good</label>
+                    <label><input type="radio" name="CONDITION" value="4">Good</label>
+                    <label><input type="radio" name="CONDITION" value="5">Fair</label>
+                    <label><input type="radio" name="CONDITION" value="6">Poor</label>
                     
                     <h2>COLOUR</h2>
                     <section class="colour_sell">

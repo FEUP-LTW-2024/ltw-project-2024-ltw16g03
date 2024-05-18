@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS Messages;
 DROP TABLE IF EXISTS Transact;
 DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Type_;
+DROP TABLE IF EXISTS Condition;
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Order_;
@@ -40,6 +41,13 @@ CREATE TABLE Type_
     CONSTRAINT PK_Type PRIMARY KEY (TypeID)
 );
 
+CREATE TABLE Condition
+(
+    ConditionID INTEGER NOT NULL,
+    ConditionName NVARCHAR(60) NOT NULL,
+    CONSTRAINT PK_Condition PRIMARY KEY (ConditionID)
+);
+
 CREATE TABLE Item
 (
     ItemID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -52,6 +60,7 @@ CREATE TABLE Item
     Detail NVARCHAR(60) NOT NULL,
     Color NVARCHAR(60) NOT NULL,
     ImageUrl NVARCHAR(60) NOT NULL,
+    Condition NVARCHAR(60) NOT NULL,
     Price REAL NOT NULL,
     IsSold INTEGER NOT NULL CHECK (IsSold IN (0, 1)),
     FOREIGN KEY (UserID) REFERENCES User (UserID)
@@ -169,6 +178,8 @@ CREATE INDEX IFK_ItemCategoryID ON Category (CategoryID);
 
 CREATE INDEX IFK_ItemTypeID ON Type_ (TypeID);
 
+CREATE INDEX IFK_ItemConditionID ON Condition (ConditionID);
+
 CREATE INDEX IFK_TransactSellerID ON Transact (SellerID);
 
 CREATE INDEX IFK_TransactBuyerID ON Transact (BuyerID);
@@ -214,6 +225,13 @@ INSERT INTO Type_ (TypeID, TypeName) VALUES (11, 'Swimwear');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Activewear');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Shoes');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Accessories');
+
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (1, 'Brand New with Tags');
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (2, 'Like New');
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (3, 'Very Good');
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (4, 'Good');
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (5, 'Fair');
+INSERT INTO Condition (ConditionID, ConditionName) VALUES (6, 'Poor');
 
 /*
 INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES

@@ -12,11 +12,12 @@
     public string $Detail;
     public string $Color;
     public string $ImageUrl;
+    public string $Condition;
     public float $Price;
     public bool $IsSold;
 
     public function __construct(int $ItemID, int $OwnerID, int $CategoryID, int $TypeID, string $ItemName, string $Brand,
-                               ?string $Dimension, string $Detail, string $Color, string $ImageUrl, float $Price, bool $IsSold)
+                               ?string $Dimension, string $Detail, string $Color, string $Condition, string $ImageUrl, float $Price, bool $IsSold)
     {
         $this->ItemID = $ItemID;
         $this->OwnerID = $OwnerID;
@@ -28,6 +29,7 @@
         $this->Detail = $Detail;
         $this->Color = $Color;
         $this->ImageUrl = $ImageUrl;
+        $this->Condition = $Condition;
         $this->Price = $Price;
         $this->IsSold = $IsSold;
     }
@@ -53,6 +55,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -83,6 +86,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -113,6 +117,7 @@
         $item['Dimension'],
         $item['Detail'],
         $item['Color'],
+        $item['Condition'],
         $item['ImageUrl'],
         $item['Price'],
         (bool) $item['IsSold']
@@ -139,6 +144,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -170,6 +176,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -201,6 +208,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -232,6 +240,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -263,6 +272,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -303,6 +313,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -334,6 +345,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']
@@ -363,6 +375,7 @@
           $result['Dimension'],
           $result['Detail'], 
           $result['Color'],
+          $result['Condition'],
           $result['ImageUrl'],
           $result['Price'],
           (bool)$result['IsSold']
@@ -393,6 +406,7 @@
           $result['Dimension'],
           $result['Detail'], 
           $result['Color'],
+          $result['Condition'],
           $result['ImageUrl'],
           $result['Price'],
           (bool)$result['IsSold']
@@ -431,6 +445,7 @@
           $item['Dimension'],
           $item['Detail'],
           $item['Color'],
+          $item['Condition'],
           $item['ImageUrl'],
           $item['Price'],
           (bool) $item['IsSold']

@@ -12,7 +12,7 @@ if (fileInput) {
     var reader = new FileReader();
   
     reader.onload = function(e) {
-      var previewImage = document.getElementById('previewImage');
+      var previewImage = document.getElementById('previewImage');z
       previewImage.src = e.target.result;
       previewImage.style.display = 'block';
     };

@@ -13,13 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var_dump($_POST['CATEGORIES']);
     var_dump($_POST['TYPE']);
 
-    if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'],
+    if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'], $_POST['CONDITION'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             
             //Insert item into database
             $db = getDatabaseConnection();
-            $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageUrl, Price, IsSold) VALUES
-             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :ImageUrl, :Price, :IsSold)');
+            $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Condition, ImageUrl, Price, IsSold) VALUES
+             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :Condition, :ImageUrl, :Price, :IsSold)');
 
             $UserID = $session->getId();
             $CategoryID = $_POST['CATEGORIES'];
@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Detail = $_POST['description'];
             $Dimension = $_POST['SIZE'];
             $Color = $_POST['color'];
+            $Condition = $_POST['CONDITION'];
             $ImageUrl = "../assets/uploads_item/-1.jpg";
             $Price = $_POST['price'];
             $IsSold = 0;
@@ -41,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':Dimension', $Dimension);
             $stmt->bindParam(':Detail', $Detail);
             $stmt->bindParam(':Color', $Color);
+            $stmt->bindParam(':Condition', $Condition);
             $stmt->bindParam(':ImageUrl', $ImageUrl);
             $stmt->bindParam(':Price', $Price);
             $stmt->bindParam(':IsSold', $IsSold);
