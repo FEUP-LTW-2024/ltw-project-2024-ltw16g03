@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Adm;
 DROP TABLE IF EXISTS Cart;
 DROP TABLE IF EXISTS Wishlist;
 DROP TABLE IF EXISTS Messages;
+DROP TABLE IF EXISTS Proposal;
 DROP TABLE IF EXISTS Transact;
 DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Type_;
@@ -79,6 +80,20 @@ CREATE TABLE Transact
         ON DELETE CASCADE ON UPDATE NO ACTION
 );
 
+CREATE TABLE Proposal 
+(
+    ProposalID INTEGER,
+    ItemID INTEGER NOT NULL,
+    BuyerID INTEGER NOT NULL,
+    Price REAL NOT NULL,
+    CurrentState INTEGER NOT NULL CHECK (CurrentState IN (0, 1, 2)),
+    CONSTRAINT PK_Proposal PRIMARY KEY (ProposalID),
+    FOREIGN KEY (ItemID) REFERENCES Item (ItemID)
+        ON DELETE CASCADE ON UPDATE NO ACTION,
+);
+
+ state (0 -> Pending Answer, 1 -> Proposal Accepted, 2 -> Rejected Proposal)
+
 CREATE TABLE Messages 
 (
     MessageID INTEGER,
@@ -86,6 +101,7 @@ CREATE TABLE Messages
     ReceiverID INTEGER NOT NULL,
     Content TEXT,
     Timestamp TIMESTAMP,
+    ProposalID INTEGER,
     CONSTRAINT PK_Message PRIMARY KEY (MessageId),
     FOREIGN KEY (SenderId) REFERENCES User (UserID)
         ON DELETE CASCADE ON UPDATE NO ACTION,

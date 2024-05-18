@@ -7,18 +7,20 @@
     public int $ReceiverID;
     public string $Content;
     public DateTime $Timestamp;
+    public int $ProposalID;
 
-    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp) {
+    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp, int $ProposalID) {
       $this->MessageID = $MessageID;
       $this->SenderID = $SenderID;
       $this->ReceiverID = $ReceiverID;
       $this->Content = $Content;
       $this->Timestamp = $Timestamp;
+      $this->ProposalID = $ProposalID;
     }
     
-    static function getChats(PDO $db, int $id) {
+    static function getChats(PDO $db, int $id) : array {
       $stmt = $db->prepare('
-      SELECT m.MessageID, m.SenderID, m.ReceiverID, m.Content, m.TimeStamp
+      SELECT m.MessageID, m.SenderID, m.ReceiverID, m.Content, m.TimeStamp, m.ProposalID
       FROM Messages m
       JOIN (
         SELECT 
@@ -39,14 +41,17 @@
       $stmt->execute();
 
       $results = $stmt->fetchAll();
-        
+      
+      $messages = array();
+
       foreach ($results as $result) {
         $message = new Message(
           $result['MessageID'],
           $result['SenderID'], 
           $result['ReceiverID'],
           $result['Content'],
-          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp'])
+          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp']),
+          $result['ProposalID']
         );
         $messages[] = $message;
       }
@@ -80,7 +85,8 @@
           $result['SenderID'], 
           $result['ReceiverID'],
           $result['Content'],
-          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp'])
+          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp']),
+          $result['ProposalID']
         );
         $messages[] = $message;
       }
