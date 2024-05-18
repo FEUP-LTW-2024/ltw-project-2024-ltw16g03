@@ -393,6 +393,7 @@ footer {
     grid-template-areas: "void title title"
                          "left images right";
     align-items: center;
+    justify-content: start;
     & h1 {
         grid-area: title;
     }
@@ -405,13 +406,19 @@ footer {
         justify-self: self-end;
     }
     & .images {
-        height: 20em;
+        width: 80%;
         grid-area: images;
         display: flex;
-        justify-content: space-between;
+        gap: 1em;
         & img {
-            height: 20em;
+            width: 25em;
+            box-sizing: border-box;
             display: block;
+        }
+        & img:hover {
+            border: 1px solid black;
+            box-shadow: 1px 1px 2px black;
+            cursor: pointer;
         }
     }
 }
