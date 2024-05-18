@@ -1,9 +1,17 @@
 <?php        
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../utils/session.php');
+    require_once(__DIR__ . '/../database/connection.db.php');
+    require_once(__DIR__ . '/../database/type.class.php'); 
+    require_once(__DIR__ . '/../database/condition.class.php'); 
+
     $session = new Session();
 
     if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
+
+    $db = getDatabaseConnection();
+    $types = Type_::getAllTypes($db);
+    $conditions = Condition::getAllConditions($db);  
 ?>
     <?=drawHeader($session);?>
 
@@ -38,28 +46,20 @@
                     <div id="sizeOptionsSell" class="size-options"></div>
 
                     <h2>TYPE</h2>
-                    <label><input type="radio" name="TYPE" value="1">Jeans</label>
-                    <label><input type="radio" name="TYPE" value="2">Trousers</label>
-                    <label><input type="radio" name="TYPE" value="3">Tops</label>
-                    <label><input type="radio" name="TYPE" value="4">T-shirts</label>
-                    <label><input type="radio" name="TYPE" value="5">Dresses</label>
-                    <label><input type="radio" name="TYPE" value="6">Skirts</label>
-                    <label><input type="radio" name="TYPE" value="7">Jackets</label>
-                    <label><input type="radio" name="TYPE" value="8">Sweatshirts</label>
-                    <label><input type="radio" name="TYPE" value="9">Shirts</label>
-                    <label><input type="radio" name="TYPE" value="10">Shorts</label>
-                    <label><input type="radio" name="TYPE" value="11">Swimwear</label>
-                    <label><input type="radio" name="TYPE" value="12">Activewear</label>
-                    <label><input type="radio" name="TYPE" value="13">Shoes</label>
-                    <label><input type="radio" name="TYPE" value="14">Accessories</label>
+                    <?php foreach ($types as $type): ?>
+                        <label>
+                            <input type="radio" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php echo (isset($_GET['type']) && $_GET['type'] === $type['TypeName']) ? 'checked' : ''; ?>>
+                            <?php echo $type['TypeName']; ?>
+                        </label>
+                    <?php endforeach; ?>
 
-                    <h2>Condition</h2>
-                    <label><input type="radio" name="CONDITION" value="1">Brand New with Tags</label>
-                    <label><input type="radio" name="CONDITION" value="2">Like New</label>
-                    <label><input type="radio" name="CONDITION" value="3">Very Good</label>
-                    <label><input type="radio" name="CONDITION" value="4">Good</label>
-                    <label><input type="radio" name="CONDITION" value="5">Fair</label>
-                    <label><input type="radio" name="CONDITION" value="6">Poor</label>
+                    <h2>CONDITION</h2>
+                    <?php foreach ($conditions as $condition): ?>
+                        <label>
+                            <input type="radio" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php echo (isset($_GET['condition']) && $_GET['condition'] === $condition['ConditionName']) ? 'checked' : ''; ?>>
+                            <?php echo $condition['ConditionName']; ?>
+                        </label>
+                    <?php endforeach; ?>
                     
                     <h2>COLOUR</h2>
                     <section class="colour_sell">
