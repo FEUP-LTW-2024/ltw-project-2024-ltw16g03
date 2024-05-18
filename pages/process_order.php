@@ -105,7 +105,7 @@
             foreach ($cartItems as $item) { 
                 $total += $item->Price;?>
                 <article class="item-background">
-                    <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template"/>
+                    <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template"/>
                     <p class="price2"><?=$item->Price?> €</p>
                     <div class="info2">
                         <p class="name2"><?=$item->Detail?></p>

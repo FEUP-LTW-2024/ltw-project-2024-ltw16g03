@@ -59,10 +59,9 @@
                 <?php 
                     $total = 0;
                     foreach ($cartItems as $item) { 
-                        Item::update_sold_cart($db, $item->ItemID);
                         $total += $item->Price;?>
                         <article class="item-background">
-                            <img class="big-image-item" src="<?=$item->ImageURL?>" alt="template"/>
+                            <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template"/>
                             <p class="price2"><?=$item->Price?> €</p>
                             <div class="info2">
                                 <p class="name2"><?=$item->Detail?></p>
@@ -71,7 +70,8 @@
                                     <span class="size-square2" style="background-color: grey;"><?=$item->Dimension?></span>
                                 </section>
                             </div>
-                        </article>  
+                        </article>
+                        <?php Item::update_sold_cart($db, $item->ItemID); ?>
                 <?php } ?>
             </section>
             <section class="total">
