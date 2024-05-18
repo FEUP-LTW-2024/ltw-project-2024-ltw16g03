@@ -46,7 +46,7 @@
                 <input type="text" name="card-holder" placeholder="Card holder">
                 <input type="text" name="card-number" placeholder="Card number">
                 <input type="text" name="cvv2" placeholder="CVV2 security code">
-                <input type="text" name="expiry-date" placeholder="Expiry date">
+                <input type="date" name="expiry-date" placeholder="Expiry date">
             </div>
             <div class="paypal-details">
                 <p>You will complete your payment via PayPal.</p>
@@ -82,6 +82,12 @@
                 <button type="submit">AUTHORISE PAYMENT</button>
             </form>
         </article>
+        <?php foreach ($session->getMessages() as $messsage) { ?>
+        <article class="<?=$messsage['type']?>">
+        <?=$messsage['text']?>
+        </article>
+        <?php } ?>
+        <br>
     </section>
     </form>
 </main>

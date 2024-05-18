@@ -17,6 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $session->addMessage('error', 'All fields are required!');
             die(header('Location: ../pages/register.php'));
         }
+
+        else if (strlen($_POST['RealName']) > 60 || strlen($_POST['Email']) > 60 || strlen($_POST['Username']) > 60 
+        || strlen($_POST['Password']) > 60 || strlen($_POST['confirm_password']) > 60) {
+            $session->addMessage('error', 'Some inputs are too large');
+            die(header('Location: ../pages/register.php'));
+        }
         
         else if (User::isUsernameTaken($db, $_POST['Username'])) {
             $session->addMessage('error', 'Username already taken');

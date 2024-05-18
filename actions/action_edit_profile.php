@@ -12,9 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['current_password'], $_POST['new_password'], $_POST['password'])) {   
         $db = getDatabaseConnection();
 
-        if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || 
-            empty($_POST['current_password'])) {
+        if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || empty($_POST['current_password'])) {
             $session->addMessage('error', 'Current password is required!');
+            die(header('Location: ../pages/edit_profile.php'));
+        }
+
+        else if (strlen($_POST['RealName']) > 60 || strlen($_POST['Email']) > 60 || strlen($_POST['Username']) > 60 || strlen($_POST['current_password']) > 60
+        || $_POST['new_password'] > 60 || $_POST['password'] > 60) {
+            $session->addMessage('error', 'Some inputs are too large');
             die(header('Location: ../pages/edit_profile.php'));
         }
 

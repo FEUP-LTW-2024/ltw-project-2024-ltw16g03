@@ -11,6 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'], $_POST['CONDITION'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+
+            if (strlen($_POST['name']) > 60 || strlen($_POST['brand']) > 60 || strlen($_POST['price']) > 60 || strlen($_POST['description']) > 500) {
+                $session->addMessage('error', 'Some inputs are too large');
+                die(header('Location: ../pages/edit_item.php'));
+            }
             
             //Insert item into database
             $db = getDatabaseConnection();
