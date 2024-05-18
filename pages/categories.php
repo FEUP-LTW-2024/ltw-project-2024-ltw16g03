@@ -6,6 +6,8 @@
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php'); 
   require_once(__DIR__ . '/../database/type.class.php'); 
+  require_once(__DIR__ . '/../database/condition.class.php'); 
+  
   
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
@@ -28,6 +30,7 @@
     }
   }
   $types = Type_::getAllTypes($db);
+  $conditions = Condition::getAllConditions($db); 
 ?>
 
 <?=drawHeader($session);?>
@@ -53,6 +56,14 @@
                     <?php endforeach; ?>
 
                     <div id="sizeOptions" class="size-options"></div>
+
+                    <h2>CONDITION</h2>
+                    <?php foreach ($conditions as $condition): ?>
+                        <label>
+                            <input type="checkbox" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php echo ($_GET['condition'] === $condition['ConditionName']) ? 'checked' : ''; ?>>
+                            <?php echo $condition['ConditionName']; ?>
+                        </label>
+                    <?php endforeach; ?>
 
                     <h2>COLOUR</h2>
                     <input type="checkbox" id="red" name="color" value="red" hidden>
@@ -94,7 +105,7 @@
                     <p>No items found for the search term "<?= htmlspecialchars($search) ?>".</p>
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
-                        <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
+                        <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>" condition-type="<?=$item->ConditionID?>">
                             <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item->Price?> €</p>

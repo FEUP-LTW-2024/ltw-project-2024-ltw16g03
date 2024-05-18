@@ -21,6 +21,14 @@
         <script src="../javascript/profile.js" defer></script>
         <script src="../javascript/messages.js" defer></script>
         <script src="../javascript/make_offer.js" defer></script>
+
+        <?php 
+        require_once(__DIR__ . '/../database/connection.db.php');
+        require_once(__DIR__ . '/../database/type.class.php'); 
+        $db = getDatabaseConnection();
+        $types = Type_::getAllTypes($db); 
+        ?>
+
     </head>
     <body>
         <header>
@@ -31,20 +39,11 @@
             <section class="search-bar">
                 <button id="filter-button" class="plain-button"><img src="../assets/filter.png" alt="filter"></button>
                 <div class="dropdown" id="filter-dropdown">
-                    <a href="categories.php?type=Jeans">Jeans</a>
-                    <a href="categories.php?type=Trousers">Trousers</a>
-                    <a href="categories.php?type=Tops">Tops</a>
-                    <a href="categories.php?type=T-shirts">T-shirts</a>
-                    <a href="categories.php?type=Dresses">Dresses</a>
-                    <a href="categories.php?type=Skirts">Skirts</a>
-                    <a href="categories.php?type=Jackets">Jackets</a>
-                    <a href="categories.php?type=Sweatshirts">Sweatshirts</a>
-                    <a href="categories.php?type=Shirts">Shirts</a>
-                    <a href="categories.php?type=Shorts">Shorts</a>
-                    <a href="categories.php?type=Swimwear">Swimwear</a>
-                    <a href="categories.php?type=Activewear">Activewear</a>
-                    <a href="categories.php?type=Shoes">Shoes</a>
-                    <a href="categories.php?type=Accessories">Accessories</a>
+                    <?php foreach ($types as $type): ?>
+                        <a href="categories.php?type=<?php echo urlencode($type['TypeName']); ?>">
+                            <?php echo $type['TypeName']; ?>
+                        </a>
+                    <?php endforeach; ?>
                 </div>
                 <form action="../pages/categories.php" method="GET" id="search-form">
                     <input name="search" type="text" placeholder="Search here..."/>

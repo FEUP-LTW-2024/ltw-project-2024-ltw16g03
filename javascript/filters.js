@@ -78,7 +78,7 @@ function toggleSizes(checkbox) {
                 case "Women":
                 case "Men":
                     sizeOptionsSell.innerHTML = `
-                    <h2>CLOTHE SIZE</h2>
+                    <h2>CLOTHES SIZE</h2>
                     <label><input type="radio" name="SIZE" value="XXL">XXL</label>
                     <label><input type="radio" name="SIZE" value="XL">XL</label>
                     <label><input type="radio" name="SIZE" value="L">L</label>
@@ -163,7 +163,7 @@ function toggleSizes(checkbox) {
                 case "Women":
                 case "Men":
                     sizeOptions.innerHTML = `
-                    <h2>CLOTHE SIZE</h2>
+                    <h2>CLOTHES SIZE</h2>
                     <label><input type="checkbox" name="SIZE" value="XXL">XXL</label>
                     <label><input type="checkbox" name="SIZE" value="XL">XL</label>
                     <label><input type="checkbox" name="SIZE" value="L">L</label>
@@ -256,6 +256,7 @@ function filterItems() {
     const sizes = Array.from(document.querySelectorAll('input[name="SIZE"]:checked')).map(checkbox => checkbox.value);
     const colors = Array.from(document.querySelectorAll('input[name="color"]:checked')).map(checkbox => checkbox.value);
     const types = Array.from(document.querySelectorAll('input[name="TYPE"]:checked')).map(checkbox => checkbox.value); 
+    const conditions = Array.from(document.querySelectorAll('input[name="CONDITON"]:checked')).map(checkbox => checkbox.value); 
     const minPrice = document.getElementById('minPrice').value.trim() || 0;
     const maxPrice = document.getElementById('maxPrice').value.trim() || 99999;
     const items = document.querySelectorAll('.display_item');
@@ -265,6 +266,7 @@ function filterItems() {
         const size = item.dataset.size;
         const color = item.dataset.color;
         const type = item.dataset.type;
+        const condition = item.dataset.condition;
         const price = parseFloat(item.querySelector('.item_info p:first-child').textContent.trim());
 
         if (
@@ -272,6 +274,7 @@ function filterItems() {
             (sizes.length === 0 || sizes.includes(size)) &&
             (colors.length === 0 || colors.includes(color)) &&
             (types.length === 0 || types.includes(type))  &&
+            (conditions.length === 0 || conditions.includes(condition))  &&
             (price >= minPrice && price <= maxPrice)) {
             item.style.display = '';
         } else {
