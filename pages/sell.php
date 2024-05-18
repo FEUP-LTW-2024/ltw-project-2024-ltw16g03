@@ -48,7 +48,7 @@
                     <h2>TYPE</h2>
                     <?php foreach ($types as $type): ?>
                         <label>
-                            <input type="radio" name="type" value="<?php echo $type['TypeID']; ?>" <?php echo (isset($_GET['type']) && $_GET['type'] === $type['TypeName']) ? 'checked' : ''; ?>>
+                            <input type="radio" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php echo (isset($_GET['type']) && $_GET['type'] === $type['TypeName']) ? 'checked' : ''; ?>>
                             <?php echo $type['TypeName']; ?>
                         </label>
                     <?php endforeach; ?>
