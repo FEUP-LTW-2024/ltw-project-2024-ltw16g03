@@ -8,6 +8,7 @@
   require_once(__DIR__ . '/../templates/common.tpl.php');
   $db = getDatabaseConnection();
 
+  $cartItems = $session->getItemsInCart();
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -59,6 +59,7 @@
                 <?php 
                     $total = 0;
                     foreach ($cartItems as $item) { 
+                        Item::update_sold_cart($db, $item->ItemID);
                         $total += $item->Price;?>
                         <article class="item-background">
                             <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template"/>
@@ -71,7 +72,6 @@
                                 </section>
                             </div>
                         </article>
-                        <?php Item::update_sold_cart($db, $item->ItemID); ?>
                 <?php } ?>
             </section>
             <section class="total">
