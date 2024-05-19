@@ -1,5 +1,6 @@
 PRAGMA FOREIGN_KEYS = ON;
 
+DROP TABLE IF EXISTS Order_;
 DROP TABLE IF EXISTS Adm;
 DROP TABLE IF EXISTS Cart;
 DROP TABLE IF EXISTS Wishlist;
@@ -7,11 +8,11 @@ DROP TABLE IF EXISTS Messages;
 DROP TABLE IF EXISTS Proposal;
 DROP TABLE IF EXISTS Transact;
 DROP TABLE IF EXISTS Item;
-DROP TABLE IF EXISTS Type_;
 DROP TABLE IF EXISTS Condition;
+DROP TABLE IF EXISTS Size;
+DROP TABLE IF EXISTS Type_;
 DROP TABLE IF EXISTS Category;
 DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Order_;
 
 /*******************************************************************************
    Create Tables

@@ -68,10 +68,15 @@ function acceptProposal() {
     proposal.querySelector("h1").textContent = "ACCEPTED";
     
     // Remove Buttons
-    const buttons = document.querySelectorAll('button');
+    const buttons = proposal.querySelectorAll('button');
     for (const button of buttons) {
+        console.log(button);
         button.parentNode.removeChild(button);
     }
+
+    // Remove article and place it at the bottom
+    const inputField = document.querySelector("#main_messages .input_info");
+    document.querySelector("main").insertBefore(proposal.parentElement, inputField.parentElement);
 }
 
 function rejectProposal() {
@@ -83,10 +88,14 @@ function rejectProposal() {
     proposal.querySelector("h1").textContent = "REJECTED";
     
     // Remove Buttons
-    const buttons = document.querySelectorAll('button');
+    const buttons = proposal.querySelectorAll('button');
     for (const button of buttons) {
         button.parentNode.removeChild(button);
     }
+
+    // Remove article and place it at the bottom
+    const inputField = document.querySelector("#main_messages .input_info");
+    document.querySelector("main").insertBefore(proposal, inputField.parentElement);
 }
 
 const makeOfferPopUp = document.querySelector('#item_page .pop_up');
