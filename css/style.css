@@ -386,6 +386,7 @@ footer {
     display: grid;
     grid-template-areas: "void title title"
                          "left images right";
+    grid-template-columns: 1fr auto 1fr auto 1fr;
     align-items: center;
     justify-content: start;
     & h1 {
@@ -405,9 +406,10 @@ footer {
         display: flex;
         gap: 1em;
         & img {
-            width: 25em;
+            width: 20em;
             box-sizing: border-box;
             display: block;
+            height: 15em;
         }
         & img:hover {
             border: 1px solid black;
@@ -479,7 +481,7 @@ footer {
         background-color: gray;
         align-self: center;
         width: 20em;
-        height: 10em;
+        height: 15em;
         flex-grow: 1;
     }
     & textarea {
@@ -730,8 +732,8 @@ input[name="color"]:checked + label {
 }
 
 .selling_items article img {
-    width: 200px;
-    height: 200px;
+    width: 20em;
+    height: 15em;
     margin-right: 20px;
 }
 .selling_items article .info {
@@ -756,7 +758,7 @@ input[name="color"]:checked + label {
     font-weight: 700;
 }
 
-.color-square, .size-square {
+.color-square {
     width: 45px; 
     height: 45px; 
     border: 1px solid #000;
@@ -764,12 +766,16 @@ input[name="color"]:checked + label {
     text-align: center;
 }
 
-.color-square {
-    margin-left: 3em;
+.size-square {
+    height: 45px; 
+    margin-left: 1em;
+    font-size: 0.8em;
+    align-content: center;
+    padding: 0 1em 0 1em;
 }
 
-.size-square {
-    font-size: 30px;
+.color-square {
+    margin-left: 3em;
 }
 
 .edit-button {
@@ -805,7 +811,8 @@ input[name="color"]:checked + label {
 
 .big-image-item {
     border: 2px solid #000;
-    width: auto;
+    width: 20em;
+    height: 15em;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -843,7 +850,7 @@ input[name="color"]:checked + label {
     align-items: center;
 }
 
-.color-square3, .size-square3 {
+.color-square3 {
     width: 35px; 
     height: 35px; 
     border: 1px solid #000;
@@ -853,8 +860,10 @@ input[name="color"]:checked + label {
 .size-square3 {
     background-color: grey;
     margin-left: 1em;
-    font-size: 25px;
+    font-size: 0.8em;
+    align-content: center;
     text-align: center;
+    padding: 0 1em 0 1em;
 }
 
 .seller-details {
@@ -1213,8 +1222,8 @@ input[name="color"]:checked + label {
         align-items: center;
         & img {
             object-fit: cover;
-            width: 15em;
-            height: 20em;
+            width: 20em;
+            height: 15em;
         }
         & .prices {
             display: flex;
@@ -1465,7 +1474,7 @@ section.offer {
     form > * {
         margin-top: 2em;
     }
-    form & button {
+    form > button {
         margin: auto;
         margin-top: 2em;
     }

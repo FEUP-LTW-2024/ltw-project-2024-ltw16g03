@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             //Insert item into database
             $item = new Item(1, $session->getId(), (int) $_POST['CATEGORIES'], (int) $_POST['TYPE'],
-                            $_POST['name'], $_POST['brand'], $_POST['description'], $_POST['SIZE'],
+                            $_POST['name'], $_POST['brand'], $_POST['SIZE'], $_POST['description'],
                             $_POST['color'], $_POST['CONDITION'], "../assets/uploads_item/-1.jpg", (int) $_POST['price'], false);
 
             if (Item::sellItem($db, $item)) {

@@ -33,11 +33,11 @@
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
 
                     <h2>Description</h2>
-                    <textarea name="description" rows="4" cols="40"><?php echo isset($form_data['description']) ? $form_data['description'] : ''; ?></textarea>
+                    <textarea name="description" rows="4" cols="40"><?php echo isset($form_data['description']) ? htmlspecialchars($form_data['description']) : ''; ?></textarea>
                 </section>
                 <aside class="filters_container">
                     <label>NAME
-                        <input class="input_underlined" type="text" name="name" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
+                        <input class="input_underlined" type="text" name="name" value="<?php echo isset($form_data['brand']) ? htmlspecialchars($form_data['brand']) : ''; ?>">
                     </label>
 
                     <h2>CATEGORIES</h2>
@@ -52,7 +52,7 @@
                     <?php foreach ($types as $type): ?>
                         <label>
                             <input type="radio" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php if ($form_data['CATEGORIES'] == $type['TypeID']) echo 'checked'; ?>>
-                            <?php echo $type['TypeName']; ?>
+                            <?php echo htmlspecialchars($type['TypeName']); ?>
                         </label>
                     <?php endforeach; ?>
 
@@ -60,43 +60,29 @@
                     <?php foreach ($conditions as $condition): ?>
                         <label>
                             <input type="radio" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php if ($form_data['CONDITION'] == $condition['ConditionID']) echo 'checked'?>>
-                            <?php echo $condition['ConditionName']; ?>
+                            <?php echo htmlspecialchars($condition['ConditionName']); ?>
                         </label>
                     <?php endforeach; ?>
                     
                     <h2>COLOUR</h2>
                     <section class="colour_sell">
-                        <input type="radio" id="red" name="color" value="red" hidden>
-                        <label class="color-swatch red" for="red"></label>
-                        <input type="radio" id="yellow" name="color" value="yellow" hidden>
-                        <label class="color-swatch yellow" for="yellow"></label>
-                        <input type="radio" id="blue" name="color" value="blue" hidden>
-                        <label class="color-swatch blue" for="blue"></label>
-                        <input type="radio" id="green" name="color" value="green" hidden>
-                        <label class="color-swatch green" for="green"></label>
-                        <input type="radio" id="orange" name="color" value="orange" hidden>
-                        <label class="color-swatch orange" for="orange"></label>
-                        <input type="radio" id="purple" name="color" value="purple" hidden>
-                        <label class="color-swatch purple" for="purple"></label>
-                        <input type="radio" id="pink" name="color" value="pink" hidden>
-                        <label class="color-swatch pink" for="pink"></label>
-                        <input type="radio" id="brown" name="color" value="brown" hidden>
-                        <label class="color-swatch brown" for="brown"></label>
-                        <input type="radio" id="gray" name="color" value="gray" hidden>
-                        <label class="color-swatch gray" for="gray"></label>
-                        <input type="radio" id="black" name="color" value="black" hidden>
-                        <label class="color-swatch black" for="black"></label>
-                        <input type="radio" id="white" name="color" value="white" hidden>
-                        <label class="color-swatch white" for="white"></label>
-                        <input type="checkbox" id="rainbow" name="color" value="rainbow" hidden>
-                        <label class="color-swatch rainbow" for="rainbow"></label>
+                    <?php
+                    $colors = [
+                        "red", "yellow", "blue", "green", "orange", 
+                        "purple", "pink", "brown", "gray", "black", 
+                        "white", "rainbow"
+                    ];
+                    foreach ($colors as $color) {?>
+                        <input type="checkbox" id="<?=$color?>" name="color" value="<?=$color?>" hidden>
+                        <label class="color-swatch <?=$color?>" for="<?=$color?>"></label>
+                    <?php } ?>
                     </section>
                     <section class="price_brand">
                         <label id="minPriceLabel">PRICE
-                            <input class="input_underlined" type="text" name="price" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
+                            <input class="input_underlined" type="text" name="price" value="<?php echo isset($form_data['brand']) ? htmlspecialchars($form_data['brand']) : ''; ?>">
                         </label>
                         <label id="maxPriceLabel">BRAND
-                            <input class="input_underlined" type="text" name="brand" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
+                            <input class="input_underlined" type="text" name="brand" value="<?php echo isset($form_data['brand']) ? htmlspecialchars($form_data['brand']) : ''; ?>">
                         </label>
                     </section>
                 </aside>
