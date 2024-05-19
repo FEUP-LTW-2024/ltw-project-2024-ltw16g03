@@ -292,6 +292,14 @@
       $stmt->execute(array($itemId));
     }
 
+    static function deleteItem($db, int $itemId): void {
+      $stmt = $db->prepare('
+          DELETE FROM Item
+          WHERE ItemID = ?
+      ');
+  
+      $stmt->execute(array($itemId));
+    }
 
     static function getNonUserSellingItems(PDO $db, int $id) : array {
       $stmt = $db->prepare('

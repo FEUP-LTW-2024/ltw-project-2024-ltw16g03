@@ -39,6 +39,10 @@
                     <section class="buttons">
                         <?php if ($currentUser && $currentUser->UserID === $item->OwnerID) { ?>
                             <a href="edit_item.php?id=<?=urlencode($item->ItemID)?>"><button class="edit-item">EDIT</button></a>
+                            <form method="POST" action="../actions/action_delete_item.php">
+                                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
+                                <button type="submit" class="delete-item red">DELETE</button></a>
+                            </form>
                         <?php } else { ?>
                             <?php if (!$session->isInCart($item->ItemID)) {?>
                             <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
