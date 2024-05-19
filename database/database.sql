@@ -207,7 +207,7 @@ CREATE INDEX IFK_MessageSenderID ON Messages (SenderID);
 CREATE INDEX IFK_MessageReceiverID ON Messages (ReceiverID);
 
 CREATE INDEX IFK_WishlistUserID ON Wishlist (UserID);
-=
+
 CREATE INDEX IFK_WishlistItemID ON Wishlist (ItemID);
 
 CREATE INDEX IFK_CartUserID ON Cart (UserID);
