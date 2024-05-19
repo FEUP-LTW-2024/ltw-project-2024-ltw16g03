@@ -1188,6 +1188,9 @@ input[name="color"]:checked + label {
         & .username {
             color: #68C7C1;
         }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
     & button {
         background-color: var(--secondary-color);
@@ -1203,8 +1206,26 @@ input[name="color"]:checked + label {
         }
         padding: 1em;
     }
+    & .offer_display {
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & img {
+            object-fit: cover;
+            width: 15em;
+            height: 20em;
+        }
+        & .prices {
+            display: flex;
+            gap: 3em;
+        }
+        & button {
+            margin: 0.2em;
+            width: 7em;
+        }
+    }
 }
-
 
 /* Smaller Screens */
 
@@ -1337,18 +1358,16 @@ input[name="color"]:checked + label {
 }
 
 /* Make Offer Pop Up */
-section.offer {
-    & > p{
-        color: grey;
+.crossed_out {
+    color: grey;
         text-decoration: line-through;
-    }
+}
+
+section.offer {
     & .proposal {
         display: flex;
         justify-content: center;
         gap: 0.5em;
-        & input {
-            width: 30%;
-        }  
     }
 }
 
