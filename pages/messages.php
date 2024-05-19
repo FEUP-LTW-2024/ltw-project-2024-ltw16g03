@@ -45,8 +45,8 @@
                                 <h1 class="offer_title"><?=$message->Content?></h1>
                                 <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
                                 <section class="prices">
-                                    <p class="crossed_out"><?=$item->Price?></p>
-                                    <p><?=$proposal->Price?></p>
+                                    <p class="crossed_out"><?=$item->Price?> €</p>
+                                    <p><?=$proposal->Price?> €</p>
                                 </section>
                             <?php if ($proposal->BuyerID != $session->getId()) { ?>
                                 <button>ACCEPT</button>
