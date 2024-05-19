@@ -9,7 +9,7 @@
     <section class="images">
         <?php for ($i = 0; $i < min(3, count($items)); $i++) {
         $item = $items[$i] ?>
-        <a href="../pages/item.php?id=<?=urlencode($item->ItemID)?>" class="item_image">
+        <a href="../pages/item.php?id=<?=urlencode((string)$item->ItemID)?>" class="item_image">
             <img class = "item_img" src="../assets/uploads_item/<?=$item->ItemID?>.jpg" alt="A image representative of the item being sold" height = "400"/>
         </a>
         <?php } ?>
