@@ -13,14 +13,6 @@ class Size {
         $this->CategoryID = $CategoryID;
     }
 
-    public static function getAllTypes(PDO $db) : array {
-        $types = array();
-        $stmt = $db->prepare('SELECT TypeID, TypeName FROM Type_');
-        $stmt->execute();
-        $types = $stmt->fetchAll();
-        return $types;
-    }
-
     public static function getSizesByCategory(PDO $db, int $categoryID) : array {
         $sizes = array();
         $stmt = $db->prepare('

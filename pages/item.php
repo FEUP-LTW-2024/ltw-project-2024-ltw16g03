@@ -11,6 +11,7 @@
   $db = getDatabaseConnection();
   $item = Item::getItem($db, $_GET['id']);
   $user = User::getUser($db, $item->OwnerID);
+  $currentUser = $session->isLoggedIn() ? User::getUser($db, $session->getId()) : null;
 
   if (!$session->isLoggedIn()) {
     $wishlist = array();
@@ -36,19 +37,24 @@
                         <p><?=$item->Detail?></p>
                     </div>
                     <section class="buttons">
-                        <?php if (!$session->isInCart($item->ItemID)) {?>
-                        <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                        <?php if ($currentUser && $currentUser->UserID === $item->OwnerID) { ?>
+                            <a href="edit_item.php?id=<?=$item->ItemID?>"><button class="edit-item">EDIT</button></a>
                         <?php } else { ?>
-                        <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
-                        <?php } ?>
-                        <?php if (in_array($item->ItemID, $wishlist)) {?>
-                        <img class="remove-from-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "40" width = "40"/>
-                        <?php } else { ?>
-                        <img class="add-to-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
-                        <?php } ?>    
+                            <?php if (!$session->isInCart($item->ItemID)) {?>
+                            <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                            <?php } else { ?>
+                            <button class="remove_from_cart gray" data-item='<?=json_encode($item)?>'>REMOVE</button>
+                            <?php } ?>
+                            <?php if (in_array($item->ItemID, $wishlist)) {?>
+                            <img class="remove-from-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlisted.svg" alt="wishlisted" height = "40" width = "40"/>
+                            <?php } else { ?>
+                            <img class="add-to-wishlist2" data-itemId="<?=$item->ItemID?>" src="../assets/wishlist.svg" alt="wishlist" height = "40" width = "40"/>
+                            <?php } ?>    
+                        <?php } ?>  
                     </section>
                 </section>
             </article>
+            <?php if (!($currentUser && $currentUser->UserID === $item->OwnerID)) { ?>
             <article class="seller-details">
                 <div class="seller-info">
                     <img class="seller-picture" src="<?=$user->ImageUrl?>" alt="profile picture">
@@ -76,6 +82,7 @@
                 </section>
                 <button>SUBMIT</button>
             </section>
+            <?php } ?>
         </main>
         <footer>
             Retro Club &copy; 2024

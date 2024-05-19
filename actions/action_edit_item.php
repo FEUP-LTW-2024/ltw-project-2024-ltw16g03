@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $session->addMessage('error', 'All fields and image are required!');
-            die(header('Location: ../pages/edit_item.php'));
+            die(header('Location: ../pages/edit_item.php?id=' + $ItemID));
         } 
     }
     header('Location: ../pages/my_selling.php');

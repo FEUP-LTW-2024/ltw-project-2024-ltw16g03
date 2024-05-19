@@ -70,6 +70,7 @@ function fetchSizes(categoryId) {
                 }
                 input.name = 'SIZE';
                 input.value = size.SizeName;
+
                 label.appendChild(input);
                 label.appendChild(document.createTextNode(size.SizeName));
                 sizeOptionsSell.appendChild(label);
@@ -78,7 +79,6 @@ function fetchSizes(categoryId) {
             sizeCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('input', filterItems);
             });
-            filterItems();
         })
 }
 
