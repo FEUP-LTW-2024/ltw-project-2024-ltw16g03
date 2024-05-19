@@ -1428,3 +1428,60 @@ section.offer {
     }
 
 }
+
+/* Admin */
+
+.admin {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    & h1 {
+        margin: 1em;
+        font-size: 2em;
+        font-weight: 600;
+        text-align: left;
+    }
+    margin-bottom: 2em;
+}
+
+.User_admin {
+    width: 30em;
+    text-align: center;
+    & h3{
+        text-align: left;
+        margin: 1em 1em 0em 2em;
+        font-weight: 500;
+    }
+}
+
+.Add_New_admin {
+    width: 30em;
+    display: grid;
+    & p {
+        font-size: 0.8em;
+    }
+    .size {
+        display: grid;
+        .input_underlined {
+            max-width: 13em;
+            margin-top: 1em;
+        }
+    }
+    > *{
+        margin-top: 2em;
+    }
+    > button {
+        margin: auto;
+        margin-top: 2em;
+    }
+}
+
+.users_promote {
+    border: 2px solid black;
+    margin: 2em 0 1em 0;
+    > button {
+        margin: auto;
+        margin: 1em 0 1em 0;
+    }
+}
+
