@@ -41,13 +41,13 @@
                     </label>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)" <?php if ($form_data['CATEGORIES'] == '1') echo 'checked'; ?>>Women</label>
-                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)" <?php if ($form_data['CATEGORIES'] == '2') echo 'checked'; ?>>Men</label>
-                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)" <?php if ($form_data['CATEGORIES'] == '3') echo 'checked'; ?>>Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)" <?php if ($form_data['CATEGORIES'] == '4') echo 'checked'; ?>>Baby</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '1') echo 'checked'; ?>>Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '2') echo 'checked'; ?>>Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '3') echo 'checked'; ?>>Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '4') echo 'checked'; ?>>Baby</label>
 
                     <div id="sizeOptionsSell" class="size-options"></div>
-
+                    
                     <h2>TYPE</h2>
                     <?php foreach ($types as $type): ?>
                         <label>

@@ -42,6 +42,17 @@ CREATE TABLE Type_
     CONSTRAINT PK_Type PRIMARY KEY (TypeID)
 );
 
+CREATE TABLE Size
+(
+    SizeID INTEGER NOT NULL,
+    SizeName NVARCHAR(60) NOT NULL,
+    CategoryID INTEGER NOT NULL,
+    CONSTRAINT PK_Size PRIMARY KEY (SizeID),
+    CONSTRAINT FK_Size_Category FOREIGN KEY (CategoryID)
+        REFERENCES Category (CategoryID)
+);
+
+
 CREATE TABLE Condition
 (
     ConditionID INTEGER NOT NULL,
@@ -208,6 +219,7 @@ CREATE INDEX IFK_MessageReceiverID ON Messages (ReceiverID);
 
 CREATE INDEX IFK_WishlistUserID ON Wishlist (UserID);
 
+
 CREATE INDEX IFK_WishlistItemID ON Wishlist (ItemID);
 
 CREATE INDEX IFK_CartUserID ON Cart (UserID);
@@ -248,6 +260,90 @@ INSERT INTO Condition (ConditionID, ConditionName) VALUES (3, 'Very Good');
 INSERT INTO Condition (ConditionID, ConditionName) VALUES (4, 'Good');
 INSERT INTO Condition (ConditionID, ConditionName) VALUES (5, 'Fair');
 INSERT INTO Condition (ConditionID, ConditionName) VALUES (6, 'Poor');
+
+
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (1, 'XXL', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (2, 'XL', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (3, 'L', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (4, 'M', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (5, 'S', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (6, 'XS', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (7, 'XXS', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (8, '37', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (9, '38', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (10, '39', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (11, '40', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (12, '41', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (13, '42', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (14, '43', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (15, '44', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (16, '45', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (17, '46', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (18, '47', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (19, '48', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (20, '49', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (21, '50', 1);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (22, 'XXL', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (23, 'XL', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (24, 'L', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (25, 'M', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (26, 'S', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (27, 'XS', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (28, 'XXS', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (29, '37', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (30, '38', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (31, '39', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (32, '40', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (33, '41', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (34, '42', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (35, '43', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (36, '44', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (37, '45', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (38, '46', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (39, '47', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (40, '48', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (41, '49', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (42, '50', 2);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (43, '2-3 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (44, '3-4 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (45, '4-5 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (46, '5-6 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (47, '6-7 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (48, '7-8 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (49, '9-10 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (50, '10-11 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (51, '11-12 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (52, '12-13 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (53, '13-14 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (54, '14-15 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (55, '15-16 years', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (56, '23', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (57, '24', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (58, '25', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (59, '26', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (60, '27', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (61, '28', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (62, '30', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (63, '31', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (64, '32', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (65, '33', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (66, '34', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (67, '35', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (68, '36', 3);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (69, '0-3 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (70, '3-6 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (71, '6-9 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (72, '9-12 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (73, '12-18 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (74, '18-24 months', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (75, '15', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (76, '16', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (77, '17', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (78, '18', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (79, '19', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (80, '20', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (81, '21', 4);
+INSERT INTO Size (SizeID, SizeName, CategoryID) VALUES (82, '22', 4);
 
 
 INSERT INTO User (RealName, Username, Password, Email, ImageUrl, IsAdmin) VALUES
