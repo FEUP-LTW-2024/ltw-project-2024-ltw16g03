@@ -9,6 +9,9 @@
 
     if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
+    $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
+    unset($_SESSION['form_data']);
+
     $db = getDatabaseConnection();
     $types = Type_::getAllTypes($db);
     $conditions = Condition::getAllConditions($db);  
@@ -30,25 +33,25 @@
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
 
                     <h2>Description</h2>
-                    <textarea name="description" rows="4" cols="40"></textarea>
+                    <textarea name="description" rows="4" cols="40"><?php echo isset($form_data['description']) ? $form_data['description'] : ''; ?></textarea>
                 </section>
                 <aside class="filters_container">
                     <label>NAME
-                        <input class="input_underlined" type="text" name="name">
+                        <input class="input_underlined" type="text" name="name" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
                     </label>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="radio" name="CATEGORIES" value="1" onchange="filterItems()">Women</label>
-                    <label><input type="radio" name="CATEGORIES" value="2" onchange="filterItems()">Men</label>
-                    <label><input type="radio" name="CATEGORIES" value="3" onchange="filterItems()">Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="4" onchange="filterItems()">Baby</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '1') echo 'checked'; ?>>Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '2') echo 'checked'; ?>>Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '3') echo 'checked'; ?>>Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="filterItems()" <?php if ($form_data['CATEGORIES'] == '4') echo 'checked'; ?>>Baby</label>
 
                     <div id="sizeOptionsSell" class="size-options"></div>
                     
                     <h2>TYPE</h2>
                     <?php foreach ($types as $type): ?>
                         <label>
-                            <input type="radio" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php echo (isset($_GET['type']) && $_GET['type'] === $type['TypeName']) ? 'checked' : ''; ?>>
+                            <input type="radio" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php if ($form_data['CATEGORIES'] == $type['TypeID']) echo 'checked'; ?>>
                             <?php echo $type['TypeName']; ?>
                         </label>
                     <?php endforeach; ?>
@@ -56,7 +59,7 @@
                     <h2>CONDITION</h2>
                     <?php foreach ($conditions as $condition): ?>
                         <label>
-                            <input type="radio" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php echo (isset($_GET['condition']) && $_GET['condition'] === $condition['ConditionName']) ? 'checked' : ''; ?>>
+                            <input type="radio" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php if ($form_data['CONDITION'] == $condition['ConditionID']) echo 'checked'?>>
                             <?php echo $condition['ConditionName']; ?>
                         </label>
                     <?php endforeach; ?>
@@ -90,10 +93,10 @@
                     </section>
                     <section class="price_brand">
                         <label id="minPriceLabel">PRICE
-                            <input class="input_underlined" type="text" name="price">
+                            <input class="input_underlined" type="text" name="price" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
                         </label>
                         <label id="maxPriceLabel">BRAND
-                            <input class="input_underlined" type="text" name="brand">
+                            <input class="input_underlined" type="text" name="brand" value="<?php echo isset($form_data['brand']) ? $form_data['brand'] : ''; ?>">
                         </label>
                     </section>
                 </aside>

@@ -7,18 +7,20 @@
     public int $ReceiverID;
     public string $Content;
     public DateTime $Timestamp;
+    public ?int $ProposalID;
 
-    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp) {
+    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp, ?int $ProposalID) {
       $this->MessageID = $MessageID;
       $this->SenderID = $SenderID;
       $this->ReceiverID = $ReceiverID;
       $this->Content = $Content;
       $this->Timestamp = $Timestamp;
+      $this->ProposalID = $ProposalID;
     }
     
-    static function getChats(PDO $db, int $id) {
+    static function getChats(PDO $db, int $id) : array {
       $stmt = $db->prepare('
-      SELECT m.MessageID, m.SenderID, m.ReceiverID, m.Content, m.TimeStamp
+      SELECT m.MessageID, m.SenderID, m.ReceiverID, m.Content, m.TimeStamp, m.ProposalID
       FROM Messages m
       JOIN (
         SELECT 
@@ -39,14 +41,17 @@
       $stmt->execute();
 
       $results = $stmt->fetchAll();
-        
+      
+      $messages = array();
+
       foreach ($results as $result) {
         $message = new Message(
           $result['MessageID'],
           $result['SenderID'], 
           $result['ReceiverID'],
           $result['Content'],
-          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp'])
+          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp']),
+          $result['ProposalID']
         );
         $messages[] = $message;
       }
@@ -80,7 +85,8 @@
           $result['SenderID'], 
           $result['ReceiverID'],
           $result['Content'],
-          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp'])
+          DateTime::createFromFormat('Y-m-d H:i:s', $result['Timestamp']),
+          $result['ProposalID']
         );
         $messages[] = $message;
       }
@@ -96,6 +102,26 @@
 
       // Execute the query
       $stmt->execute(array($senderID, $receiverID, $content));
+    }
+    
+    static function sendNewProposalMessage(PDO $db, int $senderID, int $receiverID, int $proposalID) {
+      // Prepare the SQL query
+      $stmt = $db->prepare('
+      INSERT INTO Messages (SenderID, ReceiverID, Content, Timestamp, ProposalID) 
+      VALUES (?, ?, \'NEW PROPOSAL\', CURRENT_TIMESTAMP, ?)');
+
+      // Execute the query
+      $stmt->execute(array($senderID, $receiverID, $proposalID));
+    }
+
+    static function updateProposalMessage(PDO $db, int $proposalID) {
+      $stmt = $db->prepare('
+      UPDATE Messages
+      SET Timestamp = CURRENT_TIMESTAMP, Content = \'UPDATED PROPOSAL\'
+      WHERE ProposalID = ?
+    ');
+      // Execute the query
+      $stmt->execute(array($proposalID));
     }
   }
 ?>
