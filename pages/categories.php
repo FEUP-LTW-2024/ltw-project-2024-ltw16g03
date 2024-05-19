@@ -94,7 +94,7 @@
                     <p>No items found for the search term "<?= htmlspecialchars($search) ?>".</p>
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
-                        <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>" condition-type="<?=$item->ConditionID?>">
+                        <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>" data-condition="<?=$item->Condition?>">
                             <a href="../pages/item.php?id=<?=urlencode((string)$item->ItemID)?>"><img class="item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
                             <section class="item_info">
                                 <p><?=htmlspecialchars($item->Price)?> €</p>
