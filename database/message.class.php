@@ -7,9 +7,9 @@
     public int $ReceiverID;
     public string $Content;
     public DateTime $Timestamp;
-    public int $ProposalID;
+    public ?int $ProposalID;
 
-    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp, int $ProposalID) {
+    public function __construct(int $MessageID, int $SenderID, int $ReceiverID, string $Content, DateTime $Timestamp, ?int $ProposalID) {
       $this->MessageID = $MessageID;
       $this->SenderID = $SenderID;
       $this->ReceiverID = $ReceiverID;
@@ -102,6 +102,26 @@
 
       // Execute the query
       $stmt->execute(array($senderID, $receiverID, $content));
+    }
+    
+    static function sendNewProposalMessage(PDO $db, int $senderID, int $receiverID, int $proposalID) {
+      // Prepare the SQL query
+      $stmt = $db->prepare('
+      INSERT INTO Messages (SenderID, ReceiverID, Content, Timestamp, ProposalID) 
+      VALUES (?, ?, \'NEW PROPOSAL\', CURRENT_TIMESTAMP, ?)');
+
+      // Execute the query
+      $stmt->execute(array($senderID, $receiverID, $proposalID));
+    }
+
+    static function updateProposalMessage(PDO $db, int $proposalID) {
+      $stmt = $db->prepare('
+      UPDATE Messages
+      SET Timestamp = CURRENT_TIMESTAMP, Content = \'UPDATED PROPOSAL\'
+      WHERE ProposalID = ?
+    ');
+      // Execute the query
+      $stmt->execute(array($proposalID));
     }
   }
 ?>

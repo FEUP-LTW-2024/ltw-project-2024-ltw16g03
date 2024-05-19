@@ -102,7 +102,7 @@
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
                         <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>">
-                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class = "item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class="item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item->Price?> €</p>
                                 <p><?=$item->Brand?></p>

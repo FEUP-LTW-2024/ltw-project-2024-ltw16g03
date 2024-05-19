@@ -16,30 +16,69 @@
       $this->CurrentState = $CurrentState;
     }
     
-    static function getProposal(PDO $db, int $id) : array {
+    static function getProposalByID(PDO $db, int $id) : Proposal {
       $stmt = $db->prepare('
         SELECT *
-        FROM PROPOSAL
+        FROM Proposal
         WHERE ProposalID = ?
       ');
 
       $stmt->execute(array($id));
 
-      $results = $stmt->fetchAll();
-      $proposals = array();
+      $result = $stmt->fetch();
     
-      foreach ($results as $result) {
-        $proposal = new Proposal(
-          $result['ProposalID'],
-          $result['ItemID'], 
-          $result['ReceiverID'],
-          $result['Content'],
-          $result['ProposalID']
-        );
-        $proposals[] = $proposal;
-      }
+      $proposal = new Proposal(
+        $result['ProposalID'],
+        $result['ItemID'], 
+        $result['BuyerID'],
+        $result['Price'],
+        $result['CurrentState']
+      );
 
-      return $proposals;
+      return $proposal;
+    }
+
+    static function getPendingProposal(PDO $db, int $ItemID, int $BuyerID) : ?Proposal {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Proposal
+        WHERE ItemID = ? AND BuyerID = ? AND CurrentState = 0
+      ');
+
+      $stmt->execute(array($ItemID, $BuyerID));
+
+      $result = $stmt->fetch();
+
+      if ($result === false) return null;
+    
+      $proposal = new Proposal(
+        $result['ProposalID'],
+        $result['ItemID'], 
+        $result['BuyerID'],
+        $result['Price'],
+        $result['CurrentState']
+      );
+
+      return $proposal;
+    }
+
+    static function createProposal(PDO $db, int $ItemID, int $BuyerID, float $Price) {
+      $stmt = $db->prepare('
+        INSERT INTO PROPOSAL (ItemID, BuyerID, Price, CurrentState) 
+        VALUES (?, ?, ?, 0)
+      ');
+
+      $stmt->execute(array($ItemID, $BuyerID, $Price));
+    }
+
+    static function updateProposal(PDO $db, int $ProposalID, float $Price) {
+      $stmt = $db->prepare('
+        UPDATE Proposal
+        SET Price = ?
+        WHERE ProposalID = ?
+      ');
+
+      $stmt->execute(array($Price, $ProposalID));
     }
   }
 ?>

@@ -90,9 +90,9 @@ CREATE TABLE Proposal
     CONSTRAINT PK_Proposal PRIMARY KEY (ProposalID),
     FOREIGN KEY (ItemID) REFERENCES Item (ItemID)
         ON DELETE CASCADE ON UPDATE NO ACTION,
+    FOREIGN KEY (BuyerId) REFERENCES User (UserID)
+        ON DELETE CASCADE ON UPDATE NO ACTION
 );
-
- state (0 -> Pending Answer, 1 -> Proposal Accepted, 2 -> Rejected Proposal)
 
 CREATE TABLE Messages 
 (
@@ -231,27 +231,25 @@ INSERT INTO Type_ (TypeID, TypeName) VALUES (12, 'Activewear');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (13, 'Shoes');
 INSERT INTO Type_ (TypeID, TypeName) VALUES (14, 'Accessories');
 
-/*
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
-                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', '0');
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
-                ('Teste1', '11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', '0');
-INSERT INTO User (RealName, Username, Password, Email, IsAdmin) VALUES
-                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', '0');
-                */
 
-/*
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (1, 1, 1, 'Zara Summer Dress', 'Zara', 'M', 'Beautiful summer dress in floral pattern.', 'brown', 30.00, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (2, 2, 2, 'Air Max Nike', 'Nike', '42', 'Classic Nike Air Max shoes in black and white.', 'red', 80.00, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 1, 3, 'Leather Tote', 'Coach', 'M', 'Elegant leather tote bag with spacious compartments.', 'blue', 150.00, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (1, 4, 11, 'Blanket', 'IKEA', 'M', 'IKEA VINTER 2023 throw blanket in festive design.', 'green', 19.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (2, 4, 12, 'Microfiber sheet', 'AmazonBasics', 'Queen', 'AmazonBasics microfiber sheet set for queen-Dimensiond bed.', 'orange', 24.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);
-INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 39.99, 0);*/
+INSERT INTO User (RealName, Username, Password, Email, ImageURL, IsAdmin) VALUES
+                ('Afonso Machado', 'vinagbot', '$2y$10$8ZZcI9whijiBY5Z.NfuBL.0R4n.OX9YtHmrgsGvpaHTZ6h4yR/5eK', 'up202207611@up.pt', 'https://picsum.photos/seed/picsum/200/300', '0');
+INSERT INTO User (RealName, Username, Password, Email, ImageURL, IsAdmin) VALUES
+                ('Teste1', '11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', 'https://picsum.photos/seed/picsum/200/300', '0');
+INSERT INTO User (RealName, Username, Password, Email, ImageURL, IsAdmin) VALUES
+                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', 'https://picsum.photos/seed/picsum/200/300', '0');
+
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (1, 1, 1, 'Zara Summer Dress', 'Zara', 'M', 'Beautiful summer dress in floral pattern.', 'brown', 'https://picsum.photos/200/300', 30.00, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (2, 2, 2, 'Air Max Nike', 'Nike', '42', 'Classic Nike Air Max shoes in black and white.', 'red', 'https://picsum.photos/200/300', 80.00, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 1, 3, 'Leather Tote', 'Coach', 'M', 'Elegant leather tote bag with spacious compartments.', 'blue', 'https://picsum.photos/200/300', 150.00, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (1, 4, 11, 'Blanket', 'IKEA', 'M', 'IKEA VINTER 2023 throw blanket in festive design.', 'green', 'https://picsum.photos/200/300', 19.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (2, 4, 12, 'Microfiber sheet', 'AmazonBasics', 'Queen', 'AmazonBasics microfiber sheet set for queen-Dimensiond bed.', 'orange', 'https://picsum.photos/200/300', 24.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
+INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Price, IsSold) VALUES (3, 4, 13, 'Dinnerware set 16-piece', 'Corelle', '16-Piece', 'Corelle Winter Frost White dinnerware set, 16-piece.', 'purple', 'https://picsum.photos/200/300', 39.99, 0);
 /*INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Price, ImageURL, IsSold) VALUES (4, 4, 2, 4, 'Sunglasses Ray-Ban', 'Ray-Ban', 'Aviator Sunglasses', 'M', 'New with Tags', 'Classic aviator sunglasses with polarized lenses.', 120.00, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEypjRH4jLX4e2szxP-vRHHFUx4N-43PKsgcQUQLGkg&s', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Price, ImageURL, IsSold) VALUES (5, 5, 1, 5, 'Foundation', 'LOréal', 'True Match Foundation', 'M', 'New', 'LOréal True Match foundation in shade N3.', 12.99, 'https://static.beautytocare.com/cdn-cgi/image/width=1600,height=1600,f=auto/media/catalog/product//l/-/l-oreal-paris-true-match-foundation-3-d-3-w-golden-beige-30ml.jpg', 0);
 INSERT INTO Item (ItemID, UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Price, ImageURL, IsSold) VALUES (6, 6, 3, 6, 'New gillette fusion', 'Gillette', 'Fusion5 ProGlide Razor', 'M', 'New in Box', 'Gillette Fusion5 ProGlide razor with FlexBall technology.', 19.99, 'https://cdn11.bigcommerce.com/s-79bvd/images/stencil/2048x2048/products/12439/23764/s-l1600__62569.1500877243.jpg?c=2', 0);
@@ -272,7 +270,7 @@ INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate,
 INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (11, 5, 4, 2, '2024-04-15', 1);
 INSERT INTO Transact (TransactionID, SellerID, BuyerID, ItemID, TransactionDate, IsComplete) VALUES (12, 5, 4, 3, '2024-04-20', 0);*/
 
-/*
+
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (1, 1, 2, 'Hi, I see you are interested in my item. Let me know if you have any questions!', '2024-03-04 14:30:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (2, 2, 1, 'Hi, yes, Im interested. Can you tell me more about th of the item?', '2024-03-05 09:15:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (3, 1, 2, 'Sure, its in grea. Hardly worn. Would you like to see more pictures?', '2024-03-06 11:45:00');
@@ -280,7 +278,7 @@ INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUE
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (5, 1, 2, 'Thanks for the purchase! I ll ship the item tomorrow.', '2024-03-11 10:00:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (6, 2, 1, 'Great, looking forward to it!', '2024-03-12 09:30:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (11, 1, 3, 'Hi, I see you re interested in my item. Let me know if you have any questions!', '2024-03-26 12:20:00');
-INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (12, 3, 2, 'Hello! Yes, Im interested. Can you provide more details about the item?', '2024-03-27 10:15:00');*/
+/*INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (12, 3, 2, 'Hello! Yes, Im interested. Can you provide more details about the item?', '2024-03-27 10:15:00');*/
 /*INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (7, 4, 5, 'Hi, I noticed you re interested in my item. Are you still considering it?', '2024-03-14 16:45:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (8, 5, 4, 'Yes, Im still interested. Could you provide more details about it?', '2024-03-15 08:00:00');
 INSERT INTO Messages (MessageID, SenderID, ReceiverID, Content, Timestamp) VALUES (9, 4, 5, 'Congratulations on your purchase! I ll have it shipped to you shortly.', '2024-03-21 11:10:00');
