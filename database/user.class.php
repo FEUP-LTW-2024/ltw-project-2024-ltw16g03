@@ -97,6 +97,12 @@
       $stmt->execute(array($id));
     }
 
+    static function promoteAdmin(PDO $db, int $id) : void {
+      $stmt = $db->prepare(
+        'UPDATE User SET IsAdmin = 1 where UserID = ?');
+      $stmt->execute(array($id));
+    }
+
     static function getCart(PDO $db, int $id) : array{
       $stmt = $db->prepare('
         SELECT ItemID
@@ -180,6 +186,43 @@
       }
   
       return $items;
+    }
+
+    static function searchUsers(PDO $db, string $search, int $count) : array {
+      $stmt = $db->prepare('SELECT * FROM User WHERE Username LIKE ? LIMIT ?');
+      $stmt->execute(array($search . '%', $count));
+  
+      $users = array();
+      while ($user = $stmt->fetch()) {
+        $users[] = new User(
+          $user['UserID'],
+          $user['RealName'],
+          $user['Username'],
+          $user['Email'],
+          $user['ImageUrl'],
+          $user['IsAdmin']
+        );
+      }
+  
+      return $users;
+    }
+
+    static function getUsers(PDO $db) : array {
+      $stmt = $db->prepare('SELECT * FROM User LIMIT 3');
+      $stmt->execute(array());
+  
+      $users = array();
+      while ($user = $stmt->fetch()) {
+        $users[] = new User(
+          $user['UserID'],
+          $user['RealName'],
+          $user['Username'],
+          $user['Email'],
+          $user['ImageUrl'],
+          $user['IsAdmin']
+        );
+      }
+      return $users;
     }
   }
 ?>

@@ -1447,11 +1447,6 @@ section.offer {
 .User_admin {
     width: 30em;
     text-align: center;
-    & h3{
-        text-align: left;
-        margin: 1em 1em 0em 2em;
-        font-weight: 500;
-    }
 }
 
 .Add_New_admin {
@@ -1467,21 +1462,31 @@ section.offer {
             margin-top: 1em;
         }
     }
-    > *{
+    form > * {
         margin-top: 2em;
     }
-    > button {
+    form & button {
         margin: auto;
         margin-top: 2em;
     }
 }
 
-.users_promote {
+.show_users {
     border: 2px solid black;
     margin: 2em 0 1em 0;
-    > button {
-        margin: auto;
-        margin: 1em 0 1em 0;
+    display: grid;
+    grid-template-columns: 0.5fr auto;
+    grid-template-areas:
+    "username username"
+    "button1 button2";
+    & h3 {
+        grid-area: username;
+        justify-self: left;
+        margin-left: 2em;
+    }
+    & button {
+        height: 2em;
+        margin: 0em 1em 1em 1em;
     }
 }
 

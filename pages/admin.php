@@ -3,7 +3,13 @@
 
   require_once(__DIR__ . '/../templates/common.tpl.php');
   require_once(__DIR__ . '/../utils/session.php');
-  $session = new Session();?>
+  $session = new Session();
+
+  require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/user.class.php');
+  $db = getDatabaseConnection();
+  $users = User::getUsers($db);
+?>
 
     <?=drawHeader($session);?>
 
@@ -13,24 +19,21 @@
             <section class="User_admin">
                 <h1 class="sub_title3">USERS</h1>
                 <section class="search-bar">
-                    <form action="../pages/admin.php" method="GET" id="search-form">
-                        <input name="search" type="text" placeholder="Search here..."/>
-                        <button class="plain-button" type="submit" id="search-button"><img src="../assets/search.png" alt="search"></button>
-                    </form>
+                        <input id="searchUser" name="search" type="text" placeholder="Search here..."/>
                 </section> 
-                <article class="users_promote">
-                    <h3>user name</h3>
-                    <button class="yellow">
-                        Promote to admin
-                    </button>
-                    <button class="red">
-                        Ban user
-                    </button>
-                </article>
-                <a href="#" class="option_link">See more</a>
+                <section id="users_promote">
+                    <?php  foreach ($users as $user) { ?>
+                        <article class="show_users">
+                            <h3><?= $user->Username ?></h3>
+                            <button class="yellow button1promote" data-userid="<?=$user->UserID?>">Promote</button>
+                            <button class="red button2ban" data-userid="<?=$user->UserID?>">Ban</button>
+                        </article>
+                    <?php } ?>
+                </section>
             </section>
             <section class="Add_New_admin">
                 <h1>ADD NEW...</h1>
+                <form action="../actions/action_add_new.php" method="post">
                 <label>Type
                     <input class="input_underlined" type="text" name="Type">
                 </label>
@@ -43,11 +46,17 @@
                     <input class="input_underlined" type="text" name="Size" placeholder="Size here">
                 </label>
                 <label>Condition
-                    <input class="input_underlined" type="text" name="Type">
+                    <input class="input_underlined" type="text" name="Condition">
                 </label>
-                <button>
+                <?php foreach ($session->getMessages() as $message) { ?>
+                <article class="<?=$message['type']?>">
+                <?=$message['text']?>
+                </article>
+                <?php } ?>
+                <button type="submit">
                     Save
                 </button>
+                </form>
             </section>
         </div>
     </main>
