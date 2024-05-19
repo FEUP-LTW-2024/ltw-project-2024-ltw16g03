@@ -43,7 +43,7 @@
                     <?php } ?>
                             <article class="offer_display">
                                 <h1 class="offer_title"><?=htmlspecialchars($message->Content)?></h1>
-                                <a href="../pages/item.php?id=<?=urlencode($item->ItemID)?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
+                                <a href="../pages/item.php?id=<?=urlencode((string) $item->ItemID)?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
                                 <section class="prices">
                                     <h1 class="crossed_out"><?=htmlspecialchars($item->Price)?> €</h1>
                                     <h1><?=htmlspecialchars($proposal->Price)?> €</h1>

@@ -13,7 +13,7 @@
             <section class="tags">
                 <span class="color-square <?=$item->Color?>"></span>
                 <span class="size-square gray"><?=$item->Dimension?></span>
-                <a href="../pages/edit_item.php?ItemID=<?php echo urlencode($item->ItemID)?>"> <div class="edit-button"><button class="edit-button">EDIT</button></div> </a>
+                <a href="../pages/edit_item.php?ItemID=<?php echo urlencode((string)$item->ItemID)?>"> <div class="edit-button"><button class="edit-button">EDIT</button></div> </a>
             </section>
         </section>
     </article>    
