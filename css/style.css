@@ -900,10 +900,6 @@ input[name="color"]:checked + label {
     font-size: 30px;
 }
 
-.seller-rating {
-    margin-bottom: 20px;
-}
-
 .make-offer {
     background-color: black;
     border: #D2A24C;
@@ -1339,6 +1335,16 @@ input[name="color"]:checked + label {
         }
 
     }
+
+    /* Item */
+    .seller-info .make-offer, .seller-info .seller-username {
+        margin-left: 30px;
+    }
+
+    .seller-info {
+        margin-left: -2em;
+    }
+
 }
 
 /* General Pop Up */

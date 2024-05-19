@@ -19,7 +19,7 @@
             <section class="User_admin">
                 <h1 class="sub_title3">USERS</h1>
                 <section class="search-bar">
-                        <input id="searchUser" name="search" type="text" placeholder="Search here..."/>
+                    <input id="searchUser" name="search" type="text" placeholder="Search here..."/>
                 </section> 
                 <section id="users_promote">
                     <?php  foreach ($users as $user) { ?>
@@ -34,6 +34,7 @@
             <section class="Add_New_admin">
                 <h1>ADD NEW...</h1>
                 <form action="../actions/action_add_new.php" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <label>Type
                     <input class="input_underlined" type="text" name="Type">
                 </label>

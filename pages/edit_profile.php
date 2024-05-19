@@ -18,6 +18,7 @@
 ?>
   <main>
     <form class="edit_profile_inputs" action="../actions/action_edit_profile.php" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
       <img id="previewImage" class="profile_picture" src="<?=$user->ImageUrl?>" alt="A image representative of the profile"/>
           <section class="input_fields">
               <input type="file" id="fileInput" name="image">

@@ -60,13 +60,6 @@
                     <img class="seller-picture" src="<?=$user->ImageUrl?>" alt="profile picture">
                     <div class="seller-info2">
                         <p class="seller-username"><?=$user->Username?></p>
-                        <section class="seller-rating">
-                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
-                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
-                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
-                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
-                            <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
-                        </section>
                         <button class="make-offer">MAKE AN OFFER</button>
                         <a href="../pages/messages.php?id=<?=$user->UserID?>"><button class="ask-seller">ASK SELLER</button></a>
                     </div>
