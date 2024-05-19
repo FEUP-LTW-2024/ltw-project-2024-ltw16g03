@@ -10,6 +10,8 @@ $db = getDatabaseConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $ItemID = (int) $_GET['ItemID'];
+
     if (isset($_POST['description'], $_POST['name'], $_POST['CATEGORIES'], $_POST['CONDITION'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE'])) {
 
@@ -49,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $session->addMessage('error', 'All fields and image are required!');
-            die(header('Location: ../pages/edit_item.php'));
+            die(header('Location: ../pages/edit_item.php?ItemID=' . $ItemID));
         } 
     }
     header('Location: ../pages/my_selling.php');

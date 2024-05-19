@@ -420,4 +420,3 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (6, 3, 11, 1);*/
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
-
