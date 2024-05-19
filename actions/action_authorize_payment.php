@@ -15,7 +15,12 @@
     $session->clearCart();
     header('Location: ../pages/checkout.php');
     exit;
-}
+  }
+
+    if (isset($_SESSION['temp_cart_items'])) {
+        unset($_SESSION['temp_cart_items']);
+        $session->clearCart();
+    } 
 
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 

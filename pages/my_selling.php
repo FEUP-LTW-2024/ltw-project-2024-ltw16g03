@@ -33,7 +33,7 @@
                 <?php if (empty($soldItems)) { ?>
                     <?=drawEmpty("YOUR HAVEN'T SOLD ANYTHING YET", "", false, false, false)?>
                 <?php } else { ?>
-                    <?php output_item_display($soldItems); ?>
+                    <?php output_item_display2($soldItems); ?>
                     <?php if (count($soldItems) > 5) { ?> <a id="sold_see_more" class="option_link" data-number="5">Show More</a> <?php } ?>
                 <?php } ?> 
             </section>

@@ -11,7 +11,7 @@
   $cartItems = $session->getItemsInCart();
   if (empty($cartItems)) die(header('Location: ../pages/shopping_cart_empty.php'));
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
-  
+  $_SESSION['temp_cart_items'] = $cartItems;
 ?>
 
 <?=drawClassicHeader("PROCESS ORDER");?>
