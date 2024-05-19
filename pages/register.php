@@ -2,6 +2,9 @@
     require_once(__DIR__ . '/../templates/common.tpl.php');
     require_once(__DIR__ . '/../utils/session.php');
     $session = new Session();
+
+    $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
+    unset($_SESSION['form_data']);
 ?>
 
 <?=drawHeader($session);?>
@@ -12,15 +15,15 @@
                 <section class="input_fields">
                     <input type="file" id="fileInput" name="image" id="previewImage">
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
-                    <input class="input_info" type="text" name="RealName" placeholder="name">
-                    <input class="input_info" type="email" name="Email" placeholder="email">
-                    <input class="input_info" type="text" name="Username" placeholder="username">
+                    <input class="input_info" type="text" name="RealName" placeholder="name" value="<?php echo isset($form_data['RealName']) ? $form_data['RealName'] : ''; ?>">
+                    <input class="input_info" type="email" name="Email" placeholder="email" value="<?php echo isset($form_data['Email']) ? $form_data['Email'] : ''; ?>">
+                    <input class="input_info" type="text" name="Username" placeholder="username" value="<?php echo isset($form_data['Username']) ? $form_data['Username'] : ''; ?>">
                     <input class="input_info" type="password" name="Password" placeholder="password">
                     <input class="input_info" type="password" name="confirm_password" placeholder="confirm password">
                 </section>
-                <?php foreach ($session->getMessages() as $messsage) { ?>
-                <article class="<?=$messsage['type']?>">
-                <?=$messsage['text']?>
+                <?php foreach ($session->getMessages() as $message) { ?>
+                <article class="<?=$message['type']?>">
+                <?=$message['text']?>
                 </article>
                 <?php } ?>
                 <button type="submit">Sign Up</button>
