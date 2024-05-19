@@ -2,11 +2,6 @@
   require_once(__DIR__ . '/../utils/session.php');
   $session = new Session();
 
-  if ($_SESSION['csrf'] !== $_POST['csrf']) {
-    header('Location: ../pages/homepage.php');
-    exit();
-  }
-
   require_once(__DIR__ . '/../database/connection.db.php');
   require_once(__DIR__ . '/../database/item.class.php'); 
 
@@ -14,6 +9,18 @@
   $db = getDatabaseConnection();
 
   $cartItems = $session->getItemsInCart();
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['temp_cart_items'] = $session->getItemsInCart();
+    $session->clearCart();
+    header('Location: ../pages/checkout.php');
+    exit;
+  }
+
+    if (isset($_SESSION['temp_cart_items'])) {
+        unset($_SESSION['temp_cart_items']);
+        $session->clearCart();
+    } 
 
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 

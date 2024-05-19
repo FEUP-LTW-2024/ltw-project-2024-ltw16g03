@@ -97,6 +97,12 @@
       $stmt->execute(array($id));
     }
 
+    static function promoteAdmin(PDO $db, int $id) : void {
+      $stmt = $db->prepare(
+        'UPDATE User SET IsAdmin = 1 where UserID = ?');
+      $stmt->execute(array($id));
+    }
+
     static function getCart(PDO $db, int $id) : array{
       $stmt = $db->prepare('
         SELECT ItemID
@@ -180,6 +186,84 @@
       }
   
       return $items;
+    }
+
+    static function searchUsers(PDO $db, string $search, int $count) : array {
+      $stmt = $db->prepare('SELECT * FROM User WHERE Username LIKE ? LIMIT ?');
+      $stmt->execute(array($search . '%', $count));
+  
+      $users = array();
+      while ($user = $stmt->fetch()) {
+        $users[] = new User(
+          $user['UserID'],
+          $user['RealName'],
+          $user['Username'],
+          $user['Email'],
+          $user['ImageUrl'],
+          $user['IsAdmin']
+        );
+      }
+  
+      return $users;
+    }
+
+    static function getUsers(PDO $db) : array {
+      $stmt = $db->prepare('SELECT * FROM User LIMIT 3');
+      $stmt->execute(array());
+  
+      $users = array();
+      while ($user = $stmt->fetch()) {
+        $users[] = new User(
+          $user['UserID'],
+          $user['RealName'],
+          $user['Username'],
+          $user['Email'],
+          $user['ImageUrl'],
+          $user['IsAdmin']
+        );
+      }
+      return $users;
+    }
+
+    static function createAccount(PDO $db, User $user, string $password) : bool {
+      $stmt = $db->prepare('INSERT INTO User (RealName, Username, Password, ImageUrl, Email, IsAdmin) VALUES
+             (:RealName, :Username, :Password, :ImageUrl, :Email, :IsAdmin)');
+
+      $stmt->bindParam(':RealName', $user->RealName);
+      $stmt->bindParam(':Username', $user->Username);
+      $stmt->bindParam(':Password', $password);
+      $stmt->bindParam(':ImageUrl', $user->ImageUrl);
+      $stmt->bindParam(':Email', $user->Email);
+      $stmt->bindParam(':IsAdmin', $user->IsAdmin);
+
+      return $stmt->execute();
+    }
+
+    static function editAccount(PDO $db, User $user, string $password) : bool {
+      $stmt = $db->prepare('UPDATE User 
+      SET RealName = :RealName, 
+          Username = :Username, 
+          Password = :Password, 
+          Email = :Email, 
+          IsAdmin = :IsAdmin 
+      WHERE UserID = :UserID');
+
+      $stmt->bindParam(':UserID', $user->UserID);
+      $stmt->bindParam(':RealName', $user->RealName);
+      $stmt->bindParam(':Username', $user->Username);
+      $stmt->bindParam(':Password', $password);
+      $stmt->bindParam(':ImageUrl', $user->ImageUrl);
+      $stmt->bindParam(':Email', $user->Email);
+      $stmt->bindParam(':IsAdmin', $user->IsAdmin);
+
+      return $stmt->execute();
+    }
+
+    static function updateProfileImage(PDO $db, int $userid, string $ImageUrl) : bool {
+      $stmt = $db->prepare('UPDATE User SET ImageUrl = :ImageUrl WHERE UserID = :id');
+      $stmt->bindParam(':ImageUrl', $ImageUrl);
+      $stmt->bindParam(':id', $userid);
+      return $stmt->execute();
     }
   }
 ?>

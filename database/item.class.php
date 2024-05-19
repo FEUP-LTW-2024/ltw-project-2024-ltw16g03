@@ -455,5 +455,68 @@
       return $items;
     }
 
+    static function updateItem(PDO $db, Item $item) : bool {
+      $stmt = $db->prepare('UPDATE Item SET 
+            UserID = :UserID, 
+            CategoryID = :CategoryID, 
+            TypeID = :TypeID, 
+            ItemName = :ItemName, 
+            Brand = :Brand, 
+            Dimension = :Dimension, 
+            Detail = :Detail, 
+            Color = :Color, 
+            Condition = :Condition, 
+            ImageUrl = :ImageUrl, 
+            Price = :Price, 
+            IsSold = :IsSold
+            WHERE ItemID = :ItemID');
+
+      $sold = (int) $item->IsSold;
+
+      $stmt->bindParam(':ItemID', $item->ItemID);
+      $stmt->bindParam(':UserID', $item->OwnerID);
+      $stmt->bindParam(':CategoryID', $item->CategoryID);
+      $stmt->bindParam(':TypeID', $item->TypeID);
+      $stmt->bindParam(':ItemName', $item->ItemName);
+      $stmt->bindParam(':Brand', $item->Brand);
+      $stmt->bindParam(':Dimension', $item->Dimension);
+      $stmt->bindParam(':Detail', $item->Detail);
+      $stmt->bindParam(':Color', $item->Color);
+      $stmt->bindParam(':ImageUrl', $item->ImageUrl);
+      $stmt->bindParam(':Condition', $item->Condition);
+      $stmt->bindParam(':Price', $item->Price);
+      $stmt->bindParam(':IsSold', $sold);
+
+      return $stmt->execute();
   }
+
+  static function updateImage(PDO $db, string $ImageUrl, int $itemID) : bool {
+    $stmt = $db->prepare('UPDATE Item SET ImageUrl = :ImageUrl WHERE ItemID = :id');
+    $stmt->bindParam(':ImageUrl', $ImageUrl);
+    $stmt->bindParam(':id', $itemID);
+    return $stmt->execute();
+  }
+
+  static function sellItem(PDO $db, Item $item) : bool {
+    $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Condition, ImageUrl, Price, IsSold) VALUES
+    (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :Condition, :ImageUrl, :Price, :IsSold)');
+
+    $sold = (int) $item->IsSold;
+
+    $stmt->bindParam(':UserID', $item->OwnerID);
+    $stmt->bindParam(':CategoryID', $item->CategoryID);
+    $stmt->bindParam(':TypeID', $item->TypeID);
+    $stmt->bindParam(':ItemName', $item->ItemName);
+    $stmt->bindParam(':Brand', $item->Brand);
+    $stmt->bindParam(':Dimension', $item->Dimension);
+    $stmt->bindParam(':Detail', $item->Detail);
+    $stmt->bindParam(':Color', $item->Color);
+    $stmt->bindParam(':ImageUrl', $item->ImageUrl);
+    $stmt->bindParam(':Condition', $item->Condition);
+    $stmt->bindParam(':Price', $item->Price);
+    $stmt->bindParam(':IsSold', $sold);
+
+    return $stmt->execute();
+  }
+}
 ?>

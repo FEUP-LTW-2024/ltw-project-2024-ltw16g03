@@ -352,7 +352,7 @@ INSERT INTO User (RealName, Username, Password, Email, ImageUrl, IsAdmin) VALUES
 INSERT INTO User (RealName, Username, Password, Email, ImageUrl, IsAdmin) VALUES
                 ('Teste1', '11', '$2y$10$emMkou1DFCyjun4hTrcmmuAvmPrP7BwLiUV3MN.JdBqRAAbl7YKAe', '11@gmail.com', 'https://picsum.photos/seed/picsum/200/300','0');
 INSERT INTO User (RealName, Username, Password, Email, ImageUrl, IsAdmin) VALUES
-                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', 'https://picsum.photos/seed/picsum/200/300', '0');
+                ('Teste2', '12', '$2y$10$4sY6lqqqq1niz72c8x5RLObiJpKorx9E2w775y0SXeZq70jaPofeO', '12@gmail.com', 'https://picsum.photos/seed/picsum/200/300', '1');
 
 INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Condition, Price, IsSold) VALUES (1, 1, 1, 'Zara Summer Dress', 'Zara', 'M', 'Beautiful summer dress in floral pattern.', 'brown', 'https://picsum.photos/200/300', 'Like New', 30.00, 0);
 INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, ImageURL, Condition, Price, IsSold) VALUES (2, 2, 2, 'Air Max Nike', 'Nike', '42', 'Classic Nike Air Max shoes in black and white.', 'red', 'https://picsum.photos/200/300', 'Like New', 80.00, 0);
@@ -420,4 +420,3 @@ INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (6, 3, 11, 1);*/
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (8, 4, 11, 2);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (9, 5, 8, 1);
 INSERT INTO Cart (CartID, UserID, ItemID, Quantity) VALUES (10, 5, 12, 1); */
-

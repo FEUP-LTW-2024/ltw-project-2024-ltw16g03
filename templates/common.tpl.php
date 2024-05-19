@@ -21,6 +21,7 @@
         <script src="../javascript/profile.js" defer></script>
         <script src="../javascript/messages.js" defer></script>
         <script src="../javascript/make_offer.js" defer></script>
+        <script src="../javascript/admin.js" defer></script>
 
         <?php 
         require_once(__DIR__ . '/../database/connection.db.php');

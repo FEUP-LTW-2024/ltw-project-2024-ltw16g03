@@ -11,6 +11,7 @@
   $cartItems = $session->getItemsInCart();
   if (empty($cartItems)) die(header('Location: ../pages/shopping_cart_empty.php'));
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
+  $_SESSION['temp_cart_items'] = $cartItems;
 ?>
 
 <?=drawClassicHeader("PROCESS ORDER");?>
@@ -79,7 +80,7 @@
                 <p><?=count($cartItems)?> items</p>
                 <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
             </div>
-            <form class="final-button" action="../actions/action_authorise_payment.php" method="post">
+            <form class="final-button" action="../actions/action_authorize_payment">
                 <button type="submit">AUTHORISE PAYMENT</button>
             </form>
         </article>
