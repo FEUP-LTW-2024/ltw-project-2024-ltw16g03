@@ -3,11 +3,11 @@
   $session = new Session();
 
   require_once(__DIR__ . '/../database/connection.db.php');
+  require_once(__DIR__ . '/../database/sizes.class.php');
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php'); 
   require_once(__DIR__ . '/../database/type.class.php'); 
-  require_once(__DIR__ . '/../database/condition.class.php'); 
-  
+  require_once(__DIR__ . '/../database/condition.class.php');
   
   require_once(__DIR__ . '/../templates/common.tpl.php');
 
@@ -29,6 +29,7 @@
         $items = Item::searchNonUserItemsByName($db, $search, $session->getId());    
     }
   }
+
   $types = Type_::getAllTypes($db);
   $conditions = Condition::getAllConditions($db); 
 ?>
@@ -42,10 +43,12 @@
                     <h1>FILTERS</h1>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
-                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
-                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="filterItems()">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="filterItems()">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="filterItems()">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="filterItems()">Baby</label>
+
+                    <div id="sizeOptionsSell" class="size-options"></div>
 
                     <h2>TYPE</h2>
                     <?php foreach ($types as $type): ?>
@@ -55,7 +58,6 @@
                         </label>
                     <?php endforeach; ?>
 
-                    <div id="sizeOptions" class="size-options"></div>
 
                     <h2>CONDITION</h2>
                     <?php foreach ($conditions as $condition): ?>

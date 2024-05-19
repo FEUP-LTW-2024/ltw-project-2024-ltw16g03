@@ -3,6 +3,9 @@
     require_once(__DIR__ . '/../utils/session.php');
     $session = new Session();
 
+    $form_data = isset($_SESSION['form_data']) ? $_SESSION['form_data'] : [];
+    unset($_SESSION['form_data']);
+
     if ($session->isLoggedIn()) die(header('Location: ../pages/profile.php'));
 ?>
     <?=drawHeader($session);?>
@@ -11,7 +14,7 @@
         <form class="login_inputs" action="../actions/action_login.php" method="post">   
             <img src="../assets/disco ball.png" alt="disco ball"/>
             <section class="input_fields">
-                <input class="input_info" type="text" name="username" placeholder="username">
+                <input class="input_info" type="text" name="username" placeholder="username" value="<?php echo isset($form_data['username']) ? $form_data['username'] : ''; ?>">
                 <input class="input_info" type="password" name="password" placeholder="password">
             </section>
             <section id="messages">

@@ -25,6 +25,7 @@
                 <a href="edit_profile.php" class="option_link">Edit Profile</a>
                 <a href="my_selling.php" class="option_link">My Sellings</a>
                 <a id="account_delete" class="option_link">Delete Account</a>
+                <a href="admin.php" class="option_link">Admin</a>
             </section>
             <ul>
                 <li class="display_info"><?=$user->RealName?></li>

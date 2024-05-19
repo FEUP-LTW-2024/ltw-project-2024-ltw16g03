@@ -55,7 +55,6 @@
       unset($_SESSION['cart']);
     }
 
-
     public function addMessage(string $type, string $text) {
       $_SESSION['messages'][] = array('type' => $type, 'text' => $text);
     }

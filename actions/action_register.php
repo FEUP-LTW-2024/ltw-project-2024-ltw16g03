@@ -3,53 +3,57 @@ declare(strict_types = 1);
 
 require_once(__DIR__ . '/../utils/session.php');
 $session = new Session();
+$_SESSION['form_data'] = $_POST;
 
 require_once(__DIR__ . '/../database/connection.db.php');
+$db = getDatabaseConnection();
+
 require_once(__DIR__ . '/../database/user.class.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['Password'], $_POST['confirm_password'], $_FILES['image'])
-    && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $db = getDatabaseConnection();
-
-        if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['confirm_password'])) {
+        if (!(isset($_POST['RealName'], $_POST['Email'], $_POST['Username'], $_POST['Password'], $_POST['confirm_password'], $_FILES['image'])
+        && $_FILES['image']['error'] === UPLOAD_ERR_OK)) {
             $session->addMessage('error', 'All fields are required!');
-            die(header('Location: ../pages/register.php'));
+        }
+
+        else if (empty($_POST['RealName']) || empty($_POST['Email']) || empty($_POST['Username']) || empty($_POST['Password']) || empty($_POST['confirm_password'])) {
+            $session->addMessage('error', 'All fields are required!');
         }
 
         else if (strlen($_POST['RealName']) > 60 || strlen($_POST['Email']) > 60 || strlen($_POST['Username']) > 60 
         || strlen($_POST['Password']) > 60 || strlen($_POST['confirm_password']) > 60) {
             $session->addMessage('error', 'Some inputs are too large');
-            die(header('Location: ../pages/register.php'));
         }
         
         else if (User::isUsernameTaken($db, $_POST['Username'])) {
             $session->addMessage('error', 'Username already taken');
-            die(header('Location: ../pages/register.php'));
         }
 
         else if (User::isEmailTaken($db, $_POST['Email'])) {
             $session->addMessage('error', 'Email already taken');
-            die(header('Location: ../pages/register.php'));
         }
 
         else if (strlen($_POST['RealName']) < 4) {
             $session->addMessage('error', 'Name too short');
-            die(header('Location: ../pages/register.php'));
         }
 
         else if (strlen($_POST['Password']) < 4) {
             $session->addMessage('error', 'Password too short');
-            die(header('Location: ../pages/register.php'));
         }
 
         else if (!preg_match('/[!@#$%^&*()\-_=+{};:,<.>]/', $_POST['Password']) && !preg_match('/[0-9]/', $_POST['Password'])) {
             $session->addMessage('error', 'Use a special character or a number');
-            die(header('Location: ../pages/register.php'));
         }
 
-        else if ($_POST['Password'] === $_POST['confirm_password']) {
+        else if (!($_POST['Password'] === $_POST['confirm_password'])) {
+            $session->addMessage('error', 'Password and confirm password do not match!');
+        }
+        
+
+        if (empty($_SESSION['messages'])) {
+
+            $db = getDatabaseConnection();
             $stmt = $db->prepare('INSERT INTO User (RealName, Username, Password, ImageUrl, Email, IsAdmin) VALUES
              (:RealName, :Username, :Password, :ImageUrl, :Email, :IsAdmin)');
 
@@ -95,14 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 $session->addMessage('error', 'Failed to register user!');
+                die(header('Location: ../pages/register.php'));
             }
-        } else {
-            $session->addMessage('error', 'Password and confirm password do not match!');
-        }
-    } else {
-        $session->addMessage('error', 'All fields are required!');
+    }  else {
+        $session->addMessage('error', 'Failed to register user!');
+        die(header('Location: ../pages/register.php'));
     }
-
     header('Location: ../pages/register.php');
     exit();
 }
