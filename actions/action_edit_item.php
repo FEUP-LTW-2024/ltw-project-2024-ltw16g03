@@ -9,6 +9,8 @@ require_once(__DIR__ . '/../database/item.class.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $ItemID = (int) $_GET['ItemID'];
+
     if (isset($_FILES['image'], $_POST['description'], $_POST['name'], $_POST['CATEGORIES'], $_POST['CONDITION'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
 
@@ -34,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             IsSold = :IsSold
             WHERE ItemID = :ItemID');
 
-            $ItemID = $_GET['ItemID'];
             $UserID = $session->getId();
             $CategoryID = $_POST['CATEGORIES'];
             $TypeID = $_POST['TYPE'];
@@ -92,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             $session->addMessage('error', 'All fields and image are required!');
-            die(header('Location: ../pages/edit_item.php?id=' + $ItemID));
+            die(header('Location: ../pages/edit_item.php?ItemID=' . $ItemID));
         } 
     }
     header('Location: ../pages/my_selling.php');

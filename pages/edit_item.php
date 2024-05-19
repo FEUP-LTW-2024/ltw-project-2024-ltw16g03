@@ -15,8 +15,7 @@
     $db = getDatabaseConnection();
     $types = Type_::getAllTypes($db);
     $conditions = Condition::getAllConditions($db); 
-    var_dump($_GET['id']);
-    $item = Item::getItem($db, (int)$_GET['id']);
+    $item = Item::getItem($db, (int) $_GET['ItemID']);
 ?>
     <?=drawHeader($session);?>
 
