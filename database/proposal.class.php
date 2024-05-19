@@ -62,6 +62,30 @@
       return $proposal;
     }
 
+    static function getAcceptedProposal(PDO $db, int $ItemID, int $BuyerID) : ?Proposal {
+      $stmt = $db->prepare('
+        SELECT *
+        FROM Proposal
+        WHERE ItemID = ? AND BuyerID = ? AND CurrentState = 1
+      ');
+
+      $stmt->execute(array($ItemID, $BuyerID));
+
+      $result = $stmt->fetch();
+
+      if ($result === false) return null;
+    
+      $proposal = new Proposal(
+        $result['ProposalID'],
+        $result['ItemID'], 
+        $result['BuyerID'],
+        $result['Price'],
+        $result['CurrentState']
+      );
+
+      return $proposal;
+    }
+
     static function createProposal(PDO $db, int $ItemID, int $BuyerID, float $Price) {
       $stmt = $db->prepare('
         INSERT INTO PROPOSAL (ItemID, BuyerID, Price, CurrentState) 
@@ -79,6 +103,26 @@
       ');
 
       $stmt->execute(array($Price, $ProposalID));
+    }
+
+    static function accept(PDO $db, int $ProposalID) {
+      $stmt = $db->prepare('
+        UPDATE Proposal
+        SET CurrentState = 1
+        WHERE ProposalID = ?
+      ');
+
+      $stmt->execute(array($ProposalID));
+    }
+
+    static function reject(PDO $db, int $ProposalID) {
+      $stmt = $db->prepare('
+        UPDATE Proposal
+        SET CurrentState = 2
+        WHERE ProposalID = ?
+      ');
+
+      $stmt->execute(array($ProposalID));
     }
   }
 ?>

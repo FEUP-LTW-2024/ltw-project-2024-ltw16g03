@@ -43,7 +43,6 @@
     }
 
     public function addItemToCart(Item $item) : bool {
-      if (Session::isInCart($item->ItemID)) return false;
       $_SESSION['cart'][$item->ItemID] = $item;
       return true;
     }

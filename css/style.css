@@ -1233,7 +1233,7 @@ input[name="color"]:checked + label {
         }
         & button {
             margin: 0.2em;
-            width: 7em;
+            width: 9em;
         }
     }
 }

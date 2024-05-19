@@ -1,3 +1,94 @@
+// Add to cart from proposal buttons
+const addToCartProposal = document.querySelectorAll(".add_proposal");
+const removeFromCartProposal = document.querySelectorAll(".remove_proposal");
+
+// Add "Add to cart" event to buttons on message pages
+for (const button of addToCartProposal) {
+    button.addEventListener("click", addProposal);
+}
+
+// Add "Remove from cart" event to buttons on message pages
+for (const button of removeFromCartProposal) {
+    button.addEventListener("click", removeProposal);
+}
+
+function addProposal() {
+    // Call API to add item to cart (properly encode json string)
+    const response = fetch('../api/add_to_cart.php?item=' + encodeURIComponent(this.getAttribute('data-item')));
+    
+    // Change button to Remove from Cart
+    this.classList.remove('add_proposal');
+    this.classList.add('remove_proposal');
+    this.textContent = 'REMOVE FROM CART';
+
+    // Change event handler to removeFromCartEvent
+    this.removeEventListener('click', addProposal);
+    this.addEventListener('click', removeProposal);
+
+    // If item is in wishlist remove it 
+    // TODO
+}
+
+function removeProposal() {
+    // Parse the JSON string to a JavaScript object
+    const itemObject = JSON.parse(this.getAttribute('data-item'));
+    // Call API to add item to cart (properly encode json string)
+    const response = fetch('../api/remove_from_cart.php?item=' + itemObject.ItemID);
+
+    // Change button to Remove from Cart
+    this.classList.remove('remove_proposal');
+    this.classList.add('add_proposal');
+    this.textContent = 'ADD TO CART';
+
+    // Change event handler to removeFromCartEvent
+    this.removeEventListener('click', removeProposal);
+    this.addEventListener('click', addProposal);
+}
+
+// Accept and Reject Buttons
+const acceptButtons = document.querySelectorAll(".accept_proposal");
+const rejectButtons = document.querySelectorAll(".reject_proposal")
+
+// Add "Accept" event to buttons on message pages
+for (const button of acceptButtons) {
+    button.addEventListener("click", acceptProposal);
+}
+
+// Add "Reject" event to buttons on message pages
+for (const button of rejectButtons) {
+    button.addEventListener("click", rejectProposal);
+}
+
+function acceptProposal() {
+    const proposalID = this.getAttribute('data-proposal');
+    const response = fetch('../api/accept_proposal.php?proposal=' + proposalID);
+
+    // Modify text
+    const proposal = this.closest("article");
+    proposal.querySelector("h1").textContent = "ACCEPTED";
+    
+    // Remove Buttons
+    const buttons = document.querySelectorAll('button');
+    for (const button of buttons) {
+        button.parentNode.removeChild(button);
+    }
+}
+
+function rejectProposal() {
+    const proposalID = this.getAttribute('data-proposal');
+    const response = fetch('../api/reject_proposal.php?proposal=' + proposalID);
+
+    // Modify text
+    const proposal = this.closest("article");
+    proposal.querySelector("h1").textContent = "REJECTED";
+    
+    // Remove Buttons
+    const buttons = document.querySelectorAll('button');
+    for (const button of buttons) {
+        button.parentNode.removeChild(button);
+    }
+}
+
 const makeOfferPopUp = document.querySelector('#item_page .pop_up');
 
 // Add "Make Offer" event to submit button
