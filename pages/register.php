@@ -16,9 +16,9 @@
                 <section class="input_fields">
                     <input type="file" id="fileInput" name="image" id="previewImage">
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
-                    <input class="input_info" type="text" name="RealName" placeholder="name" value="<?php echo isset($form_data['RealName']) ? $form_data['RealName'] : ''; ?>">
-                    <input class="input_info" type="email" name="Email" placeholder="email" value="<?php echo isset($form_data['Email']) ? $form_data['Email'] : ''; ?>">
-                    <input class="input_info" type="text" name="Username" placeholder="username" value="<?php echo isset($form_data['Username']) ? $form_data['Username'] : ''; ?>">
+                    <input class="input_info" type="text" name="RealName" placeholder="name" value="<?php echo isset($form_data['RealName']) ? htmlspecialchars($form_data['RealName']) : ''; ?>">
+                    <input class="input_info" type="email" name="Email" placeholder="email" value="<?php echo isset($form_data['Email']) ? htmlspecialchars($form_data['Email']) : ''; ?>">
+                    <input class="input_info" type="text" name="Username" placeholder="username" value="<?php echo isset($form_data['Username']) ? htmlspecialchars($form_data['Username']) : ''; ?>">
                     <input class="input_info" type="password" name="Password" placeholder="password">
                     <input class="input_info" type="password" name="confirm_password" placeholder="confirm password">
                 </section>

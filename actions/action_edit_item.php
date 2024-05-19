@@ -20,15 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['description'], $_POST['name'], $_POST['CATEGORIES'], $_POST['CONDITION'],
             $_POST['TYPE'], $_POST['color'], $_POST['price'], $_POST['brand'], $_POST['SIZE'])) {
 
-            if (strlen($_POST['name']) > 60 || strlen($_POST['brand']) > 60 || strlen($_POST['price']) > 60 || strlen($_POST['description']) > 500) {
+            if (strlen($_POST['name']) > 16 || strlen($_POST['brand']) > 60 || strlen($_POST['price']) > 60 || strlen($_POST['description']) > 500) {
                 $session->addMessage('error', 'Some inputs are too large');
                 die(header('Location: ../pages/edit_item.php'));
             }
             
             //Insert item into database
             $ItemID = (int) $_GET['ItemID'];
+
             $item = new Item($ItemID, $session->getId(), (int) $_POST['CATEGORIES'], (int) $_POST['TYPE'],
-                            $_POST['name'], $_POST['brand'], $_POST['description'], $_POST['SIZE'],
+                            $_POST['name'], $_POST['brand'], $_POST['SIZE'], $_POST['description'],
                             $_POST['color'], $_POST['CONDITION'], "../assets/uploads_item/$ItemID.jpg", (int) $_POST['price'], false);
 
             //Image

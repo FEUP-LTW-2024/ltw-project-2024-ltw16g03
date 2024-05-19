@@ -68,30 +68,17 @@
                     <?php endforeach; ?>
 
                     <h2>COLOUR</h2>
-                    <input type="checkbox" id="red" name="color" value="red" hidden>
-                    <label class="color-swatch red" for="red"></label>
-                    <input type="checkbox" id="yellow" name="color" value="yellow" hidden>
-                    <label class="color-swatch yellow" for="yellow"></label>
-                    <input type="checkbox" id="blue" name="color" value="blue" hidden>
-                    <label class="color-swatch blue" for="blue"></label>
-                    <input type="checkbox" id="green" name="color" value="green" hidden>
-                    <label class="color-swatch green" for="green"></label>
-                    <input type="checkbox" id="orange" name="color" value="orange" hidden>
-                    <label class="color-swatch orange" for="orange"></label>
-                    <input type="checkbox" id="purple" name="color" value="purple" hidden>
-                    <label class="color-swatch purple" for="purple"></label>
-                    <input type="checkbox" id="pink" name="color" value="pink" hidden>
-                    <label class="color-swatch pink" for="pink"></label>
-                    <input type="checkbox" id="brown" name="color" value="brown" hidden>
-                    <label class="color-swatch brown" for="brown"></label>
-                    <input type="checkbox" id="gray" name="color" value="gray" hidden>
-                    <label class="color-swatch gray" for="gray"></label>
-                    <input type="checkbox" id="black" name="color" value="black" hidden>
-                    <label class="color-swatch black" for="black"></label>
-                    <input type="checkbox" id="white" name="color" value="white" hidden>
-                    <label class="color-swatch white" for="white"></label>
-                    <input type="checkbox" id="rainbow" name="color" value="rainbow" hidden>
-                    <label class="color-swatch rainbow" for="rainbow"></label>
+                    
+                    <?php
+                    $colors = [
+                        "red", "yellow", "blue", "green", "orange", 
+                        "purple", "pink", "brown", "gray", "black", 
+                        "white", "rainbow"
+                    ];
+                    foreach ($colors as $color) {?>
+                        <input type="checkbox" id="<?=$color?>" name="color" value="<?=$color?>" hidden>
+                        <label class="color-swatch <?=$color?>" for="<?=$color?>"></label>
+                    <?php } ?>
 
                     <h2>PRICE</h2>
                     <label for="minPrice" id="minPriceLabel">Min Price:</label>

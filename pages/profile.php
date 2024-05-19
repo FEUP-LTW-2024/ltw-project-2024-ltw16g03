@@ -28,9 +28,9 @@
                 <?php if ($user->IsAdmin): ?> <a href="admin.php" class="option_link" id="isadmin">Admin</a>  <?php endif; ?>
             </section>
             <ul>
-                <li class="display_info"><?=$user->RealName?></li>
-                <li class="display_info"><?=$user->Email?></li>
-                <li class="display_info"><?=$user->Username?></li>
+                <li class="display_info"><?=htmlspecialchars($user->RealName)?></li>
+                <li class="display_info"><?=htmlspecialchars($user->Email)?></li>
+                <li class="display_info"><?=htmlspecialchars($user->Username)?></li>
             </ul>
         </section>
 
