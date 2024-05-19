@@ -69,9 +69,9 @@
             <section class="offer pop_up">
                 <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
                 <h1>MAKE AN OFFER</h1>
-                <p><?=$item->Price?> €</p>
+                <p class="crossed_out"><?=$item->Price?> €</p>
                 <section class="proposal">
-                    <input class="input_underlined" type="text" name="offer" placeholder="<?=$item->Price?>">
+                    <input class="input_underlined" type="number" min="0" max="<?=$item->Price?>" name="offer" placeholder="<?=$item->Price?>">
                     <p> €</p>
                 </section>
                 <button>SUBMIT</button>
