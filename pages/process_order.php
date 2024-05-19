@@ -17,6 +17,7 @@
 
 <main>   
     <form method="POST" action="../actions/action_process_order.php">
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <section class="process-order">
         <article class="shipping-left">
             <h1 class="shipping-titles2">SHIPPING</h1>

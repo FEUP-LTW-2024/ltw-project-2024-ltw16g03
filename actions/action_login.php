@@ -5,6 +5,11 @@
   $session = new Session();
   $_SESSION['form_data'] = $_POST;
 
+  if ($_SESSION['csrf'] !== $_POST['csrf']) {
+    header('Location: ../pages/homepage.php');
+    exit();
+  }
+
   require_once(__DIR__ . '/../database/connection.db.php');
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php');

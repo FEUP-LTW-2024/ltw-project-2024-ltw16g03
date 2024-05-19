@@ -26,6 +26,7 @@
                     </article>
                     <?php } ?>
             <form class="sell_form" enctype="multipart/form-data" action="../actions/action_sell.php" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <section class="description">
                     <img id="previewImage" name="image" class="item_img" src="../assets/uploads_item/default.jpeg" alt="Upload a Image"/>
 

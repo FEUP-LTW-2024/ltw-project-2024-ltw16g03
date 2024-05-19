@@ -12,6 +12,7 @@
     
     <main>
         <form class="login_inputs" action="../actions/action_login.php" method="post">   
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <img src="../assets/disco ball.png" alt="disco ball"/>
             <section class="input_fields">
                 <input class="input_info" type="text" name="username" placeholder="username" value="<?php echo isset($form_data['username']) ? $form_data['username'] : ''; ?>">

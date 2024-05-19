@@ -45,6 +45,7 @@
         </section>
 
         <form action="../actions/action_logout.php" method="post" class="logout">
+            <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
             <button type="submit" formaction="../actions/action_logout.php">Logout</button>
         </form>
 

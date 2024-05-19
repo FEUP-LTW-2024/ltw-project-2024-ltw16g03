@@ -15,6 +15,7 @@
                     </article>
                     <?php } ?>
             <form class="sell_form" enctype="multipart/form-data" action="../actions/action_edit_item.php?ItemID=<?php echo $_GET['ItemID'] ?>" method="post">
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <section class="description">
                     <img id="previewImage" name="image" class="item_img" src="../assets/uploads_item/<?php echo $_GET['ItemID'] ?>.jpg" alt="Upload a Image"/>
 

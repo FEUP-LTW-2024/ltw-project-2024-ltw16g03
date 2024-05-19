@@ -14,6 +14,7 @@
                 <h1 class="sub_title3">USERS</h1>
                 <section class="search-bar">
                     <form action="../pages/admin.php" method="GET" id="search-form">
+                        <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                         <input name="search" type="text" placeholder="Search here..."/>
                         <button class="plain-button" type="submit" id="search-button"><img src="../assets/search.png" alt="search"></button>
                     </form>

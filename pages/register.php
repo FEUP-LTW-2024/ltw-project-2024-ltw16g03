@@ -11,6 +11,7 @@
 
         <main>
             <form class="register_inputs" action="../actions/action_register.php" method="post" enctype="multipart/form-data">  
+                <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                 <img id="previewImage" class="profile_picture" src="../assets/uploads_item/default.jpeg" alt="Upload a Image"/>
                 <section class="input_fields">
                     <input type="file" id="fileInput" name="image" id="previewImage">
