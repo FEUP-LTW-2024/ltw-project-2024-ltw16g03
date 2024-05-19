@@ -38,13 +38,13 @@
                     </label>
 
                     <h2>CATEGORIES</h2>
-                    <label><input type="radio" name="CATEGORIES" value="1" onchange="toggleSizes(this)">Women</label>
-                    <label><input type="radio" name="CATEGORIES" value="2" onchange="toggleSizes(this)">Men</label>
-                    <label><input type="radio" name="CATEGORIES" value="3" onchange="toggleSizes(this)">Kids</label>
-                    <label><input type="radio" name="CATEGORIES" value="4" onchange="toggleSizes(this)">Baby</label>
+                    <label><input type="radio" name="CATEGORIES" value="1" onchange="filterItems()">Women</label>
+                    <label><input type="radio" name="CATEGORIES" value="2" onchange="filterItems()">Men</label>
+                    <label><input type="radio" name="CATEGORIES" value="3" onchange="filterItems()">Kids</label>
+                    <label><input type="radio" name="CATEGORIES" value="4" onchange="filterItems()">Baby</label>
 
                     <div id="sizeOptionsSell" class="size-options"></div>
-
+                    
                     <h2>TYPE</h2>
                     <?php foreach ($types as $type): ?>
                         <label>
