@@ -54,7 +54,7 @@
                     <?php foreach ($types as $type): ?>
                         <label>
                             <input type="checkbox" name="TYPE" value="<?php echo $type['TypeID']; ?>" <?php echo ($_GET['type'] === $type['TypeName']) ? 'checked' : ''; ?>>
-                            <?php echo $type['TypeName']; ?>
+                            <?php echo htmlspecialchars($type['TypeName']); ?>
                         </label>
                     <?php endforeach; ?>
 
@@ -63,7 +63,7 @@
                     <?php foreach ($conditions as $condition): ?>
                         <label>
                             <input type="checkbox" name="CONDITION" value="<?php echo $condition['ConditionID']; ?>" <?php echo ($_GET['condition'] === $condition['ConditionName']) ? 'checked' : ''; ?>>
-                            <?php echo $condition['ConditionName']; ?>
+                            <?php echo htmlspecialchars($condition['ConditionName']); ?>
                         </label>
                     <?php endforeach; ?>
 
@@ -108,11 +108,11 @@
                 <?php } else { ?>
                     <?php foreach ($items as $item) { ?>
                         <article class="display_item" data-category="<?=$item->CategoryID?>" data-size="<?=$item->Dimension?>" data-color="<?=$item->Color?>" data-type="<?=$item->TypeID?>" condition-type="<?=$item->ConditionID?>">
-                            <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class="item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=urlencode($item->ItemID)?>"><img class="item_img" src="<?=$item->ImageUrl?>" alt=""/></a>
                             <section class="item_info">
-                                <p><?=$item->Price?> €</p>
-                                <p><?=$item->Brand?></p>
-                                <p><?=$item->Dimension?></p>
+                                <p><?=htmlspecialchars($item->Price)?> €</p>
+                                <p><?=htmlspecialchars($item->Brand)?></p>
+                                <p><?=htmlspecialchars($item->Dimension)?></p>
                             </section>
                             <section class="item_buttons">
                                 <?php if (in_array($item->ItemID, $wishlist)) {?>

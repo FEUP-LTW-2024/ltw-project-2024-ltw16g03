@@ -24,29 +24,29 @@
                 if ($message->ProposalID === null) {
                     if ($message->SenderID == $session->getId()) { ?>
                         <article class="message user">
-                            <p class="username"><?=$mainUser->Username?></p>
+                            <p class="username"><?=htmlspecialchars($mainUser->Username)?></p>
                     <?php } else { ?>
                         <article class="message other">
-                            <p class="username"><?=$otherUser->Username?></p>
+                            <p class="username"><?=htmlspecialchars($otherUser->Username)?></p>
                         <?php } ?>
-                            <p class="content"><?=$message->Content?></p>
+                            <p class="content"><?=htmlspecialchars($message->Content)?></p>
                         </article> 
                 <?php } else {
                     $proposal = Proposal::getProposalByID($db, $message->ProposalID);
                     $item = Item::getItem($db, $proposal->ItemID);
                     if ($message->SenderID == $session->getId()) { ?>
                         <article class="message user">
-                            <p class="username"><?=$mainUser->Username?></p>
+                            <p class="username"><?=htmlspecialchars($mainUser->Username)?></p>
                     <?php } else { ?>
                         <article class="message other">
-                            <p class="username"><?=$otherUser->Username?></p>
+                            <p class="username"><?=htmlspecialchars($otherUser->Username)?></p>
                     <?php } ?>
                             <article class="offer_display">
-                                <h1 class="offer_title"><?=$message->Content?></h1>
-                                <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
+                                <h1 class="offer_title"><?=htmlspecialchars($message->Content)?></h1>
+                                <a href="../pages/item.php?id=<?=urlencode($item->ItemID)?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
                                 <section class="prices">
-                                    <h1 class="crossed_out"><?=$item->Price?> €</h1>
-                                    <h1><?=$proposal->Price?> €</h1>
+                                    <h1 class="crossed_out"><?=htmlspecialchars($item->Price)?> €</h1>
+                                    <h1><?=htmlspecialchars($proposal->Price)?> €</h1>
                                 </section>
                             <?php if ($proposal->BuyerID != $session->getId() and $proposal->CurrentState === 0) { ?>
                                 <button class="accept_proposal" data-proposal="<?=$proposal->ProposalID?>">ACCEPT</button>

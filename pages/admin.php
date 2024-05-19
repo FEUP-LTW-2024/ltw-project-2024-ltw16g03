@@ -24,7 +24,7 @@
                 <section id="users_promote">
                     <?php  foreach ($users as $user) { ?>
                         <article class="show_users">
-                            <h3><?= $user->Username ?></h3>
+                            <h3><?=htmlspecialchars($user->Username)?></h3>
                             <button class="yellow button1promote" data-userid="<?=$user->UserID?>">Promote</button>
                             <button class="red button2ban" data-userid="<?=$user->UserID?>">Ban</button>
                         </article>
@@ -51,7 +51,7 @@
                 </label>
                 <?php foreach ($session->getMessages() as $message) { ?>
                 <article class="<?=$message['type']?>">
-                <?=$message['text']?>
+                <?=htmlspecialchars($message['text'])?>
                 </article>
                 <?php } ?>
                 <button type="submit">

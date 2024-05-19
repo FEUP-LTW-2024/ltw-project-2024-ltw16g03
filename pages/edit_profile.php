@@ -32,7 +32,7 @@
           </section>
           <?php foreach ($session->getMessages() as $messsage) { ?>
                 <article class="<?=$messsage['type']?>">
-                <?=$messsage['text']?>
+                <?=htmlspecialchars($messsage['text'])?>
                 </article>
                 <?php } ?>
               <button type="submit">SAVE</button>

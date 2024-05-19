@@ -22,8 +22,8 @@
         <main id="sell_information">
             <h1 class="sub_title">EDIT ITEM</h1>
             <?php foreach ($session->getMessages() as $messsage) { ?>
-                    <article class="<?=$messsage['type']?>">
-                    <?=$messsage['text']?>
+                    <article class="<?=htmlspecialchars($messsage['type'])?>">
+                    <?=htmlspecialchars($messsage['text'])?>
                     </article>
                     <?php } ?>
             <form class="sell_form" enctype="multipart/form-data" action="../actions/action_edit_item.php?ItemID=<?=$item->ItemID?>" method="post">
@@ -35,7 +35,7 @@
                     <label for="fileInput" class="upload_label"></i> Upload Image</label>
 
                     <h2>Description</h2>
-                    <textarea name="description" rows="4" cols="40"><?=$item->Detail?></textarea>
+                    <textarea name="description" rows="4" cols="40"><?=htmlspecialchars($item->Detail)?></textarea>
                 </section>
                 <aside class="filters_container">
                     <label>NAME
@@ -54,7 +54,7 @@
                     <?php foreach ($types as $type): ?>
                         <label>
                             <input type="radio" name="TYPE" value="<?=$type['TypeID']?>" <?php if ($item->TypeID == $type['TypeID']) echo 'checked'; ?>>
-                            <?= $type['TypeName']; ?>
+                            <?= htmlspecialchars($type['TypeName']); ?>
                         </label>
                     <?php endforeach; ?>
 
@@ -62,7 +62,7 @@
                     <?php foreach ($conditions as $condition): ?>
                         <label>
                             <input type="radio" name="CONDITION" value="<?=$condition['ConditionID']?>" <?php if ($item->Condition == $condition['ConditionID']) echo 'checked'; ?>>
-                            <?= $condition['ConditionName']; ?>
+                            <?= htmlspecialchars($condition['ConditionName']); ?>
                         </label>
                     <?php endforeach; ?>      
                     

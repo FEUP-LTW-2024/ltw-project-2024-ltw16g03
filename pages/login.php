@@ -21,7 +21,7 @@
             <section id="messages">
             <?php foreach ($session->getMessages() as $messsage) { ?>
                 <article class="<?=$messsage['type']?>">
-                <?=$messsage['text']?>
+                <?=htmlspecialchars($messsage['text'])?>
                 </article>
             <?php } ?>
             </section>

@@ -22,13 +22,13 @@
                     <h1 class="shipping-titles2">SHIPPING</h1>
                     <div class="shipping-container"> 
                     <?php if (isset($_SESSION['shipping'])) : ?>
-                        <p><?= $_SESSION['shipping']['Name'] . ' ' . $_SESSION['shipping']['LastName'] ?></p>
-                        <p><?= $_SESSION['shipping']['Tax'] ?></p>
-                        <p><?= $_SESSION['shipping']['Country'] ?></p>
-                        <p><?= $_SESSION['shipping']['Address'] ?></p>
-                        <p><?= $_SESSION['shipping']['CityState'] ?></p>
-                        <p><?= $_SESSION['shipping']['PostalCode'] ?></p>
-                        <p><?= $_SESSION['shipping']['Phone'] ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['Name'] . ' ' . $_SESSION['shipping']['LastName']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['Tax']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['Country']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['Address']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['CityState']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['PostalCode']) ?></p>
+                        <p><?= htmlspecialchars($_SESSION['shipping']['Phone']) ?></p>
                     <?php endif; ?>
                     </div>
                 </article>
@@ -41,9 +41,9 @@
                         </div>
                         <div class="payment-details">
                             <p>Card information:</p>
-                            <p><?= $paymentInfo['CardHolder'] ?></p>
-                            <p><?= $paymentInfo['CardNumber'] ?></p>
-                            <p><?= $paymentInfo['ExpiryDate'] ?></p>
+                            <p><?= htmlspecialchars($paymentInfo['CardHolder']) ?></p>
+                            <p><?= htmlspecialchars($paymentInfo['CardNumber']) ?></p>
+                            <p><?= htmlspecialchars($paymentInfo['ExpiryDate']) ?></p>
                         </div>
                     <?php else : ?>
                         <div class="payment-option">
@@ -68,12 +68,12 @@
                         $total += $item->Price;?>
                         <article class="item-background">
                             <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template"/>
-                            <p class="price2"><?=$item->Price?> €</p>
+                            <p class="price2"><?=htmlspecialchars($item->Price)?> €</p>
                             <div class="info2">
-                                <p class="name2"><?=$item->Detail?></p>
+                                <p class="name2"><?=htmlspecialchars($item->Detail)?></p>
                                 <section class="details">
-                                    <span class="color-square2 <?=$item->Color?>"></span>
-                                    <span class="size-square2" style="background-color: grey;"><?=$item->Dimension?></span>
+                                    <span class="color-square2 <?=htmlspecialchars($item->Color)?>"></span>
+                                    <span class="size-square2" style="background-color: grey;"><?=htmlspecialchars($item->Dimension)?></span>
                                 </section>
                             </div>
                         </article>
@@ -83,7 +83,7 @@
                 <article>
                     <div class="items-total">
                         <p><?=count($cartItems2)?> items</p>
-                        <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
+                        <p class="big-total"><span class="bold-text">TOTAL</span> <?=htmlspecialchars($total)?> €</p>
                     </div>
                 </article>
             </section>

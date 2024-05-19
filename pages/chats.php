@@ -24,7 +24,7 @@
             } else { 
                 $user = User::getUser($db, $chat->SenderID);
             } ?>
-            <a href="../pages/messages.php?id=<?=$user->UserID?>">
+            <a href="../pages/messages.php?id=<?=urlencode($user->UserID)?>">
                 <article class="messages-container">
                     <section class="one-message">
                         <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>
@@ -32,14 +32,14 @@
                             <p class="message-username">
                                 <?php if ($chat->SenderID === $session->getId()) {
                                     $user = User::getUser($db, $chat->ReceiverID);
-                                    echo $user->Username;
+                                    echo htmlspecialchars($user->Username);
                                 } else { 
                                     $user = User::getUser($db, $chat->SenderID);
-                                    echo $user->Username;
+                                    echo htmlspecialchars($user->Username);
                                 } ?>
                             </p>
-                            <p class="message"><?=$chat->Content?></p>
-                            <p class="time"><?=$chat->Timestamp->add(new DateInterval('PT1H'))->format('Y-m-d H:i:s');?></p>
+                            <p class="message"><?=htmlspecialchars($chat->Content)?></p>
+                            <p class="time"><?=htmlspecialchars($chat->Timestamp->add(new DateInterval('PT1H'))->format('Y-m-d H:i:s'));?></p>
                         </div>
                     </section>
                 </article>

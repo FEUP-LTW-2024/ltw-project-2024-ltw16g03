@@ -27,18 +27,18 @@
             <article class="item">
                 <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template" height = "500" width = "500"/>
                 <section class="info">
-                    <p class="price big"><?=$item->Price?> €</p>
-                    <p class="name big"><?=$item->ItemName?></p>
+                    <p class="price big"><?=htmlspecialchars($item->Price)?> €</p>
+                    <p class="name big"><?=htmlspecialchars($item->ItemName)?></p>
                     <section class="tags2">
-                        <div class="color-square3 <?=$item->Color?>"></div>
-                        <div class="size-square3"><?=$item->Dimension?></span>
+                        <div class="color-square3 <?=htmlspecialchars($item->Color)?>"></div>
+                        <div class="size-square3"><?=htmlspecialchars($item->Dimension)?></span>
                     </section>
                     <div>
-                        <p><?=$item->Detail?></p>
+                        <p><?=htmlspecialchars($item->Detail)?></p>
                     </div>
                     <section class="buttons">
                         <?php if ($currentUser && $currentUser->UserID === $item->OwnerID) { ?>
-                            <a href="edit_item.php?id=<?=$item->ItemID?>"><button class="edit-item">EDIT</button></a>
+                            <a href="edit_item.php?id=<?=urlencode($item->ItemID)?>"><button class="edit-item">EDIT</button></a>
                         <?php } else { ?>
                             <?php if (!$session->isInCart($item->ItemID)) {?>
                             <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
@@ -59,7 +59,7 @@
                 <div class="seller-info">
                     <img class="seller-picture" src="<?=$user->ImageUrl?>" alt="profile picture">
                     <div class="seller-info2">
-                        <p class="seller-username"><?=$user->Username?></p>
+                        <p class="seller-username"><?=htmlspecialchars($user->Username)?></p>
                         <section class="seller-rating">
                             <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
                             <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
@@ -68,14 +68,14 @@
                             <img src="../assets/wishlist.svg" alt="star" height = "30" width = "30"/>
                         </section>
                         <button class="make-offer">MAKE AN OFFER</button>
-                        <a href="../pages/messages.php?id=<?=$user->UserID?>"><button class="ask-seller">ASK SELLER</button></a>
+                        <a href="../pages/messages.php?id=<?=urlencode($user->UserID)?>"><button class="ask-seller">ASK SELLER</button></a>
                     </div>
                 </div>
             </article>
             <section class="offer pop_up">
                 <img class="cross" src="../assets/cross.svg" alt="cross" height = "40" width = "40"/>
                 <h1>MAKE AN OFFER</h1>
-                <p class="crossed_out"><?=$item->Price?> €</p>
+                <p class="crossed_out"><?=htmlspecialchars($item->Price)?> €</p>
                 <section class="proposal">
                     <input class="input_underlined" type="number" min="0" max="<?=$item->Price?>" name="offer" placeholder="<?=$item->Price?>">
                     <p> €</p>

@@ -63,12 +63,12 @@
                 $total += $item->Price;?>
                 <article class="item-background">
                     <img class="big-image-item" src="<?=$item->ImageUrl?>" alt="template"/>
-                    <p class="price2"><?=$item->Price?> €</p>
+                    <p class="price2"><?=htmlspecialchars($item->Price)?> €</p>
                     <div class="info2">
-                        <p class="name2"><?=$item->Detail?></p>
+                        <p class="name2"><?=htmlspecialchars($item->Detail)?></p>
                         <section class="details">
-                            <span class="color-square2 <?=$item->Color?>"></span>
-                            <span class="size-square2" style="background-color: grey;"><?=$item->Dimension?></span>
+                            <span class="color-square2 <?=htmlspecialchars($item->Color)?>"></span>
+                            <span class="size-square2" style="background-color: grey;"><?=htmlspecialchars($item->Dimension)?></span>
                         </section>
                     </div>
                 </article>  
@@ -78,7 +78,7 @@
         <article>
             <div class="items-total">
                 <p><?=count($cartItems)?> items</p>
-                <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
+                <p class="big-total"><span class="bold-text">TOTAL</span> <?=htmlspecialchars($total)?> €</p>
             </div>
             <form class="final-button" action="../actions/action_authorize_payment">
                 <button type="submit">AUTHORISE PAYMENT</button>
@@ -86,7 +86,7 @@
         </article>
         <?php foreach ($session->getMessages() as $messsage) { ?>
         <article class="<?=$messsage['type']?>">
-        <?=$messsage['text']?>
+        <?=htmlspecialchars($messsage['text'])?>
         </article>
         <?php } ?>
         <br>
