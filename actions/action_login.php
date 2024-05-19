@@ -8,6 +8,7 @@
   require_once(__DIR__ . '/../database/connection.db.php');
   require_once(__DIR__ . '/../database/user.class.php');
   require_once(__DIR__ . '/../database/item.class.php');
+  require_once(__DIR__ . '/../database/proposal.class.php');
 
   if ($_SESSION['login_attempts'] >= 5) {
     $session->addMessage('error', 'Too many attempts, please try again later!');
@@ -39,6 +40,11 @@
     foreach($databaseCart as $itemID) {
       // Get Item from database
       $item = Item::getItem($db, $itemID);
+      // Check if item has proposal
+      $proposal = Proposal::getAcceptedProposal($db, $itemID, $session->getId());
+      if ($proposal !== null) {
+        $item->Price = $proposal->Price;
+      } 
       $session->addItemToCart($item);
     }
     $session->addMessage('success', 'Login successful!');

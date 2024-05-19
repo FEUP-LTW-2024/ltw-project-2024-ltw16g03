@@ -45,12 +45,20 @@
                                 <h1 class="offer_title"><?=$message->Content?></h1>
                                 <a href="../pages/item.php?id=<?=$item->ItemID?>"><img class="offer_image" src="<?=$item->ImageUrl?>" alt=""></a>
                                 <section class="prices">
-                                    <p class="crossed_out"><?=$item->Price?> €</p>
-                                    <p><?=$proposal->Price?> €</p>
+                                    <h1 class="crossed_out"><?=$item->Price?> €</h1>
+                                    <h1><?=$proposal->Price?> €</h1>
                                 </section>
-                            <?php if ($proposal->BuyerID != $session->getId()) { ?>
-                                <button>ACCEPT</button>
-                                <button>REJECT</button>
+                            <?php if ($proposal->BuyerID != $session->getId() and $proposal->CurrentState === 0) { ?>
+                                <button class="accept_proposal" data-proposal="<?=$proposal->ProposalID?>">ACCEPT</button>
+                                <button class="reject_proposal" data-proposal="<?=$proposal->ProposalID?>">REJECT</button>
+                            <?php } ?>
+                            <?php if ($proposal->CurrentState === 1 and $proposal->BuyerID == $session->getId()) { 
+                                $item->Price = $proposal->Price; ?>
+                                <?php if (!$session->isInCart($item->ItemID)) {?>
+                                <button class="add_proposal" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
+                                <?php } else { ?>
+                                <button class="remove_proposal" data-item='<?=json_encode($item)?>'>REMOVE FROM CART</button>
+                                <?php } ?>
                             <?php } ?>
                             </article>
                         </article>

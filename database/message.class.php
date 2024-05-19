@@ -123,5 +123,25 @@
       // Execute the query
       $stmt->execute(array($proposalID));
     }
+
+    static function acceptProposalMessage(PDO $db, int $proposalID) {
+      $stmt = $db->prepare('
+      UPDATE Messages
+      SET Timestamp = CURRENT_TIMESTAMP, Content = \'ACCEPTED\'
+      WHERE ProposalID = ?
+    ');
+      // Execute the query
+      $stmt->execute(array($proposalID));
+    }
+
+    static function rejectProposalMessage(PDO $db, int $proposalID) {
+      $stmt = $db->prepare('
+      UPDATE Messages
+      SET Timestamp = CURRENT_TIMESTAMP, Content = \'REJECTED\'
+      WHERE ProposalID = ?
+    ');
+      // Execute the query
+      $stmt->execute(array($proposalID));
+    }
   }
 ?>
