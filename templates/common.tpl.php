@@ -41,7 +41,7 @@
                 <button id="filter-button" class="plain-button"><img src="../assets/filter.png" alt="filter"></button>
                 <div class="dropdown" id="filter-dropdown">
                     <?php foreach ($types as $type): ?>
-                        <a href="categories.php?type=<?php echo urlencode($type['TypeName']); ?>">
+                        <a href="categories.php?type=<?php echo urlencode((string)$type['TypeName']); ?>">
                             <?php echo $type['TypeName']; ?>
                         </a>
                     <?php endforeach; ?>

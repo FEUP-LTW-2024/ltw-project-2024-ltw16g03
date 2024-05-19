@@ -24,7 +24,7 @@
             } else { 
                 $user = User::getUser($db, $chat->SenderID);
             } ?>
-            <a href="../pages/messages.php?id=<?=urlencode($user->UserID)?>">
+            <a href="../pages/messages.php?id=<?=urlencode((string)$user->UserID)?>">
                 <article class="messages-container">
                     <section class="one-message">
                         <img class = "profile-img" src="https://picsum.photos/500" alt="photo"/>

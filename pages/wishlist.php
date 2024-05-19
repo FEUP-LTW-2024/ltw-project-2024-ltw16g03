@@ -21,7 +21,7 @@
                     <section class="main-items">
                         <?php foreach ($wishItems as $item) { ?>
                         <article class="display_item">
-                            <a href="../pages/item.php?id=<?=urlencode($item->ItemID)?>"><img class = "item_img" src="../assets/uploads_item/<?=$item->ItemID?>.jpg" alt=""/></a>
+                            <a href="../pages/item.php?id=<?=urlencode((string)$item->ItemID)?>"><img class = "item_img" src="../assets/uploads_item/<?=$item->ItemID?>.jpg" alt=""/></a>
                             <section class="item_info">
                                 <p><?=$item->Price?> €</p>
                                 <p><?=$item->Brand?></p>
