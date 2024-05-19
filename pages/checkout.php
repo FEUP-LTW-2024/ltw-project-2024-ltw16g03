@@ -11,6 +11,8 @@
   $cartItems = $session->getItemsInCart();
   $shippingInfo = isset($_SESSION['shipping']) ? $_SESSION['shipping'] : array();
   $paymentInfo = isset($_SESSION['payment']) ? $_SESSION['payment'] : array();
+  $cartItems2 = isset($_SESSION['temp_cart_items']) ? $_SESSION['temp_cart_items'] : array();
+
 ?>
 
 <?=drawClassicHeader("THANK YOU");?>
@@ -57,8 +59,11 @@
             <section class="item-checkout">
                 <h1 class="shipping-titles">ITEMS</h1>
                 <?php 
-                    $total = 0;
                     foreach ($cartItems as $item) { 
+                        Item::update_sold_cart($db, $item->ItemID);
+                    }
+                    $total = 0;
+                    foreach ($cartItems2 as $item) { 
                         Item::update_sold_cart($db, $item->ItemID);
                         $total += $item->Price;?>
                         <article class="item-background">
@@ -77,14 +82,14 @@
             <section class="total">
                 <article>
                     <div class="items-total">
-                        <p><?=count($cartItems)?> items</p>
+                        <p><?=count($cartItems2)?> items</p>
                         <p class="big-total"><span class="bold-text">TOTAL</span> <?=$total?> €</p>
                     </div>
                 </article>
             </section>
             </section>
             <div class="final-button">
-                <button>SHOP AGAIN</button>
+                <button onclick="window.location.href='categories.php'">SHOP AGAIN</button>
                 <button id="print_external">PRINT RECEIPT</button>
             </div>
         </main>

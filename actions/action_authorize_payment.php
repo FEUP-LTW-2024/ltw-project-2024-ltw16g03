@@ -10,6 +10,13 @@
 
   $cartItems = $session->getItemsInCart();
 
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['temp_cart_items'] = $session->getItemsInCart();
+    $session->clearCart();
+    header('Location: ../pages/checkout.php');
+    exit;
+}
+
   if (!$session->isLoggedIn()) die(header('Location: ../pages/login.php'));
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
