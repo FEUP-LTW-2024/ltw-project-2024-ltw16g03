@@ -22,7 +22,12 @@ We have used the following external libraries:
 
 ## Screenshots
 
-(2 or 3 screenshots of your website)
+![image](https://github.com/FEUP-LTW-2024/ltw-project-2024-ltw16g03/assets/116494634/12546183-c1bc-4154-871e-0959d3f0c9bf)
+
+![image](https://github.com/FEUP-LTW-2024/ltw-project-2024-ltw16g03/assets/116494634/1c4b42da-8517-4753-b4c5-2701c660d27e)
+
+![image](https://github.com/FEUP-LTW-2024/ltw-project-2024-ltw16g03/assets/116494634/91365661-d82f-4430-ac3b-26ddb5159c22)
+
 
 ## Implemented Features
 
