@@ -10,7 +10,6 @@
 
     git clone git@github.com:FEUP-LTW-2024/ltw-project-2024-ltw16g03.git
     git checkout final-delivery-v1
-    sqlite3 database/database.db < database/database.sql
     sudo apt-get install php-gd
     php -S localhost:9000
 
@@ -40,7 +39,7 @@ We have used the following external libraries:
 **Sellers**  should be able to:
 
 - [X] List new items, providing details such as category, brand, model, size, and condition, along with images.
-- [ ] Track and manage their listed items.
+- [X] Track and manage their listed items.
 - [X] Respond to inquiries from buyers regarding their items and add further information if needed.
 - [X] Print shipping forms for items that have been sold.
 
