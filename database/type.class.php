@@ -18,6 +18,12 @@
             $types = $stmt->fetchAll();
             return $types;
         }
+
+        static function addType(PDO $db, string $type) : bool {
+            $stmt = $db->prepare('INSERT INTO Type_ (TypeName) VALUES (:TypeName)');
+            $stmt->bindParam(':TypeName', $type);
+            return $stmt->execute();
+        }
     }
     
 ?>

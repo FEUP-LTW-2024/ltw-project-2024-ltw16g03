@@ -52,26 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
 
         if (empty($_SESSION['messages'])) {
-
-            $db = getDatabaseConnection();
-            $stmt = $db->prepare('INSERT INTO User (RealName, Username, Password, ImageUrl, Email, IsAdmin) VALUES
-             (:RealName, :Username, :Password, :ImageUrl, :Email, :IsAdmin)');
-
-            $RealName = $_POST['RealName'];
-            $Username = $_POST['Username'];
+            $user = new User(0, $_POST['RealName'], $_POST['Username'], $_POST['Email'], "../assets/uploads_profile/-1.jpg", 0);
             $Password = password_hash($_POST['Password'], PASSWORD_DEFAULT);
-            $ImageUrl = "../assets/uploads_profile/-1.jpg";
-            $Email = $_POST['Email'];
-            $IsAdmin = 0;
 
-            $stmt->bindParam(':RealName', $RealName);
-            $stmt->bindParam(':Username', $Username);
-            $stmt->bindParam(':Password', $Password);
-            $stmt->bindParam(':ImageUrl', $ImageUrl);
-            $stmt->bindParam(':Email', $Email);
-            $stmt->bindParam(':IsAdmin', $IsAdmin);
-
-            if ($stmt->execute()) {        
+            if (User::createAccount($db, $user, $Password)) {        
                 $tempFileName = $_FILES['image']['tmp_name'];
                     
                 if (!is_dir('../assets')) mkdir('../assets');
@@ -83,16 +67,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if (!$image) die(header('Location: ../pages/register.php'));
 
-                $id = $db->lastInsertId();        
+                $id = $db->lastInsertId();     
                 $imagePath = "../assets/uploads_profile/$id.jpg";
                 $ImageUrl = "../assets/uploads_profile/$id.jpg";
     
                 imagejpeg($image, $imagePath);
 
-                $stmt = $db->prepare('UPDATE User SET ImageUrl = :ImageUrl WHERE UserID = :id');
-                $stmt->bindParam(':ImageUrl', $ImageUrl);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
+                User::updateProfileImage($db, (int) $id, $ImageUrl);
                 
                 $session->addMessage('success', 'Registration successful!');
                 header('Location: ../pages/login.php');

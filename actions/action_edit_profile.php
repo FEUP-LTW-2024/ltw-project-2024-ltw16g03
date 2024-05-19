@@ -58,13 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 die(header('Location: ../pages/edit_profile.php'));
             }
 
-            $UserID = $user->UserID;
-            $RealName = $_POST['RealName'];
-            $Username = $_POST['Username'];
-            $Password = password_hash($_POST['current_password'], PASSWORD_DEFAULT);
-            $Email = $_POST['Email'];
-            $IsAdmin = 0;
-
             if (!empty($_POST['new_password']) && !empty($_POST['password']) && $_POST['new_password'] === $_POST['password']) {
                 
                 if (strlen($_POST['new_password']) < 4) {
@@ -83,22 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $session->addMessage('error', 'New password and confirm password do not match!');
             }
 
-            $stmt = $db->prepare('UPDATE User 
-                SET RealName = :RealName, 
-                    Username = :Username, 
-                    Password = :Password, 
-                    Email = :Email, 
-                    IsAdmin = :IsAdmin 
-                WHERE UserID = :UserID');
-    
-                $stmt->bindParam(':RealName', $RealName);
-                $stmt->bindParam(':Username', $Username);
-                $stmt->bindParam(':Password', $Password);
-                $stmt->bindParam(':Email', $Email);
-                $stmt->bindParam(':IsAdmin', $IsAdmin);
-                $stmt->bindParam(':UserID', $UserID);
+            $user = new User($user->UserID, $_POST['RealName'], $_POST['Username'], $_POST['Email'], 
+            "../assets/uploads_profile/$user->UserID.jpg", 0);
 
-                if ($stmt->execute()) {    
+
+                if (User::editAccount($db, $user, $password)) {    
                     $session->addMessage('success', 'Registration successful!');
                     die(header('Location: ../pages/login.php'));
                 } else {

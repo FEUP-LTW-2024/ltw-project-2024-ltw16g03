@@ -7,6 +7,7 @@ $_SESSION['form_data'] = $_POST;
 
 require_once(__DIR__ . '/../database/connection.db.php');
 require_once(__DIR__ . '/../database/item.class.php');
+$db = getDatabaseConnection();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -19,38 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             
             //Insert item into database
-            $db = getDatabaseConnection();
-            $stmt = $db->prepare('INSERT INTO Item (UserID, CategoryID, TypeID, ItemName, Brand, Dimension, Detail, Color, Condition, ImageUrl, Price, IsSold) VALUES
-             (:UserID, :CategoryID, :TypeID, :ItemName, :Brand, :Dimension, :Detail, :Color, :Condition, :ImageUrl, :Price, :IsSold)');
+            $item = new Item(1, $session->getId(), (int) $_POST['CATEGORIES'], (int) $_POST['TYPE'],
+                            $_POST['name'], $_POST['brand'], $_POST['description'], $_POST['SIZE'],
+                            $_POST['color'], $_POST['CONDITION'], "../assets/uploads_item/-1.jpg", (int) $_POST['price'], false);
 
-            $UserID = $session->getId();
-            $CategoryID = $_POST['CATEGORIES'];
-            $TypeID = $_POST['TYPE'];
-            $ItemName = $_POST['name'];
-            $Brand = $_POST['brand'];
-            $Detail = $_POST['description'];
-            $Dimension = $_POST['SIZE'];
-            $Color = $_POST['color'];
-            $Condition = $_POST['CONDITION'];
-            $ImageUrl = "../assets/uploads_item/-1.jpg";
-            $Price = $_POST['price'];
-            $IsSold = 0;
-
-            $stmt->bindParam(':UserID', $UserID);
-            $stmt->bindParam(':CategoryID', $CategoryID);
-            $stmt->bindParam(':TypeID', $TypeID);
-            $stmt->bindParam(':ItemName', $ItemName);
-            $stmt->bindParam(':Brand', $Brand);
-            $stmt->bindParam(':Dimension', $Dimension);
-            $stmt->bindParam(':Detail', $Detail);
-            $stmt->bindParam(':Color', $Color);
-            $stmt->bindParam(':Condition', $Condition);
-            $stmt->bindParam(':ImageUrl', $ImageUrl);
-            $stmt->bindParam(':Price', $Price);
-            $stmt->bindParam(':IsSold', $IsSold);
-
-
-            if ($stmt->execute()) {
+            if (Item::sellItem($db, $item)) {
                 //Image
                 $tempFileName = $_FILES['image']['tmp_name'];
                 
@@ -63,16 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 if (!$image) die(header('Location: ../pages/sell.php'));
     
-                $id = $db->lastInsertId();
+                $id = (int) $db->lastInsertId();
                 $imagePath = "../assets/uploads_item/$id.jpg";
                 $ImageUrl = "../assets/uploads_item/$id.jpg";
     
                 imagejpeg($image, $imagePath);
 
-                $stmt = $db->prepare('UPDATE Item SET ImageUrl = :ImageUrl WHERE ItemID = :id');
-                $stmt->bindParam(':ImageUrl', $ImageUrl);
-                $stmt->bindParam(':id', $id);
-                $stmt->execute();
+                Item::updateImage($db, $ImageUrl, $id);
 
                 $session->addMessage('success', 'Sell successful!');
             } else {

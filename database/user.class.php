@@ -224,5 +224,46 @@
       }
       return $users;
     }
+
+    static function createAccount(PDO $db, User $user, string $password) : bool {
+      $stmt = $db->prepare('INSERT INTO User (RealName, Username, Password, ImageUrl, Email, IsAdmin) VALUES
+             (:RealName, :Username, :Password, :ImageUrl, :Email, :IsAdmin)');
+
+      $stmt->bindParam(':RealName', $user->RealName);
+      $stmt->bindParam(':Username', $user->Username);
+      $stmt->bindParam(':Password', $password);
+      $stmt->bindParam(':ImageUrl', $user->ImageUrl);
+      $stmt->bindParam(':Email', $user->Email);
+      $stmt->bindParam(':IsAdmin', $user->IsAdmin);
+
+      return $stmt->execute();
+    }
+
+    static function editAccount(PDO $db, User $user, string $password) : bool {
+      $stmt = $db->prepare('UPDATE User 
+      SET RealName = :RealName, 
+          Username = :Username, 
+          Password = :Password, 
+          Email = :Email, 
+          IsAdmin = :IsAdmin 
+      WHERE UserID = :UserID');
+
+      $stmt->bindParam(':UserID', $user->UserID);
+      $stmt->bindParam(':RealName', $user->RealName);
+      $stmt->bindParam(':Username', $user->Username);
+      $stmt->bindParam(':Password', $password);
+      $stmt->bindParam(':ImageUrl', $user->ImageUrl);
+      $stmt->bindParam(':Email', $user->Email);
+      $stmt->bindParam(':IsAdmin', $user->IsAdmin);
+
+      return $stmt->execute();
+    }
+
+    static function updateProfileImage(PDO $db, int $userid, string $ImageUrl) : bool {
+      $stmt = $db->prepare('UPDATE User SET ImageUrl = :ImageUrl WHERE UserID = :id');
+      $stmt->bindParam(':ImageUrl', $ImageUrl);
+      $stmt->bindParam(':id', $userid);
+      return $stmt->execute();
+    }
   }
 ?>

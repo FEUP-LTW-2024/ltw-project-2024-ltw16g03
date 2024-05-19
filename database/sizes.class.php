@@ -33,5 +33,13 @@ class Size {
         $sizes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $sizes;
     }
+
+    static function addSize(PDO $db, string $SizeName, int $CategoryID) : bool {
+        $stmt = $db->prepare('INSERT INTO Size (SizeName, CategoryID) VALUES (:SizeName, :CategoryID)');
+        $stmt->bindParam(':SizeName', $SizeName);
+        $stmt->bindParam(':CategoryID', $CategoryID);
+        return $stmt->execute();
+    }
 }
 ?>
+        

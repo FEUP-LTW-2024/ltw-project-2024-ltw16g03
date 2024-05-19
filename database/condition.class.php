@@ -18,6 +18,12 @@
             $types = $stmt->fetchAll();
             return $types;
         }
+
+        static function addCondition(PDO $db, string $Condition) : bool {
+            $stmt = $db->prepare('INSERT INTO Condition (ConditionName) VALUES (:Condition)');
+            $stmt->bindParam(':Condition', $Condition);
+            return $stmt->execute();
+        }
     }
     
 ?>
