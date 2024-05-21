@@ -250,11 +250,12 @@
       return $items;
     }
 
-    static function getThreeSoldItem(PDO $db, int $currItem, int $id) {
+    static function getThreeOrders(PDO $db, int $currItem, int $id) {
       $stmt = $db->prepare('
-        SELECT *
-        FROM Item 
-        WHERE UserID = ? AND IsSold = 1
+        SELECT i.*
+        FROM Item i
+        INNER JOIN Transact t ON i.ItemID = t.ItemID
+        WHERE t.BuyerID = ?
         LIMIT 3 OFFSET ?
       ');
       $stmt->execute(array($id, $currItem));

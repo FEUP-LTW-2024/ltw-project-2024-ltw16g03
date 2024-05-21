@@ -9,7 +9,7 @@
 
   $db = getDatabaseConnection();
 
-  $items = Item::getThreeSoldItem($db, (int) $_GET['number'], $session->getId());
+  $items = Item::getThreeOrders($db, (int) $_GET['number'], $session->getId());
 
   echo json_encode($items);
 ?>
