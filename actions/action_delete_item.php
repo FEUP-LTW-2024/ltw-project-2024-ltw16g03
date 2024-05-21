@@ -15,7 +15,7 @@
   $db = getDatabaseConnection();
 
   // Remove item and any reference from database
-  Item::deleteItem($db, $session->getId());
+  Item::deleteItem($db, (int) $_GET['id']);
   // Go to home page
   header('Location: ../pages/profile.php');
 ?>

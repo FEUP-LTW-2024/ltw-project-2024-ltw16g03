@@ -39,7 +39,7 @@
                     <section class="buttons">
                         <?php if ($currentUser && $currentUser->UserID === $item->OwnerID) { ?>
                             <a href="edit_item.php?id=<?=urlencode($item->ItemID)?>"><button class="edit-item">EDIT</button></a>
-                            <form method="POST" action="../actions/action_delete_item.php">
+                            <form method="POST" action="../actions/action_delete_item.php?id=<?=$item->ItemID?>">
                                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                                 <button type="submit" class="delete-item red">DELETE</button></a>
                             </form>

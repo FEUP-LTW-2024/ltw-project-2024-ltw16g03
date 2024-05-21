@@ -20,16 +20,16 @@ async function searchUsers() {
         article.className = 'show_users';
 
         button1.textContent = 'Promote';
-        button1.className = 'button2promote';
-        button1.className = 'yellow';
-        button1.setAttribute('data-userid', user.UserId);
-        button2.addEventListener("click", deleteUser);
+        button1.classList.add('button1promote');
+        button1.classList.add('yellow');
+        button1.setAttribute('data-userid', user.UserID);
+        button1.addEventListener("click", promote2Admin);
 
-        button2.className = 'red';
+        button2.classList.add('red');
         button2.textContent = 'Ban';
-        button2.className = 'button2ban';
-        button2.setAttribute('data-userid', user.UserId);
-        button2.addEventListener("click", promote2Admin);
+        button2.classList.add('button2ban');
+        button2.setAttribute('data-userid', user.UserID);
+        button2.addEventListener("click", deleteUser);
 
         article.appendChild(username);
         article.appendChild(button1);
