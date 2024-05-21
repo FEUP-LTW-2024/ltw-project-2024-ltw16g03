@@ -24,9 +24,6 @@ function addProposal() {
     // Change event handler to removeFromCartEvent
     this.removeEventListener('click', addProposal);
     this.addEventListener('click', removeProposal);
-
-    // If item is in wishlist remove it 
-    // TODO
 }
 
 function removeProposal() {
@@ -47,7 +44,7 @@ function removeProposal() {
 
 // Accept and Reject Buttons
 const acceptButtons = document.querySelectorAll(".accept_proposal");
-const rejectButtons = document.querySelectorAll(".reject_proposal")
+const rejectButtons = document.querySelectorAll(".reject_proposal");
 
 // Add "Accept" event to buttons on message pages
 for (const button of acceptButtons) {
@@ -70,7 +67,6 @@ function acceptProposal() {
     // Remove Buttons
     const buttons = proposal.querySelectorAll('button');
     for (const button of buttons) {
-        console.log(button);
         button.parentNode.removeChild(button);
     }
 
@@ -95,7 +91,7 @@ function rejectProposal() {
 
     // Remove article and place it at the bottom
     const inputField = document.querySelector("#main_messages .input_info");
-    document.querySelector("main").insertBefore(proposal, inputField.parentElement);
+    document.querySelector("main").insertBefore(proposal.parentElement, inputField.parentElement);
 }
 
 const makeOfferPopUp = document.querySelector('#item_page .pop_up');
