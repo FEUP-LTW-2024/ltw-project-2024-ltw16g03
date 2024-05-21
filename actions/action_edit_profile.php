@@ -63,7 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 die(header('Location: ../pages/edit_profile.php'));
             }
 
-            if (!empty($_POST['new_password']) && !empty($_POST['password']) && $_POST['new_password'] === $_POST['password']) {
+            $password = password_hash($_POST['current_password'], PASSWORD_DEFAULT);
+
+            if (!empty($_POST['new_password']) && !empty($_POST['password'])) {
                 
                 if (strlen($_POST['new_password']) < 4) {
                     $session->addMessage('error', 'New password too short');
@@ -75,22 +77,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     die(header('Location: ../pages/edit_profile.php'));
                 }
 
-                $Password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+                $password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
 
-            } else {
-                $session->addMessage('error', 'New password and confirm password do not match!');
+                if ($_POST['new_password'] === $_POST['password'])
+                    $session->addMessage('error', 'New password and confirm password do not match!');
             }
 
             $user = new User($user->UserID, $_POST['RealName'], $_POST['Username'], $_POST['Email'], 
             "../assets/uploads_profile/$user->UserID.jpg", 0);
 
-
-                if (User::editAccount($db, $user, $password)) {    
-                    $session->addMessage('success', 'Registration successful!');
-                    die(header('Location: ../pages/login.php'));
-                } else {
-                    $session->addMessage('error', 'Failed to edit account!');
-                }
+            if (User::editAccount($db, $user, $password)) {    
+                $session->addMessage('success', 'Registration successful!');
+                die(header('Location: ../pages/login.php'));
+            } else {
+                $session->addMessage('error', 'Failed to edit account!');
+            }
         }
         else {
             $session->addMessage('error', 'Wrong password');

@@ -244,6 +244,7 @@
       SET RealName = :RealName, 
           Username = :Username, 
           Password = :Password, 
+          ImageUrl = :ImageUrl,
           Email = :Email, 
           IsAdmin = :IsAdmin 
       WHERE UserID = :UserID');
