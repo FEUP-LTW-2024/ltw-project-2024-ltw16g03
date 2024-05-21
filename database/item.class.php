@@ -333,10 +333,7 @@
 
     static function getUserWishlist(PDO $db, int $id) : array {
       $stmt = $db->prepare('
-      SELECT Item.ItemID, Item.UserID, Item.CategoryID, 
-             Item.TypeID, Item.ItemName, Item.Brand, 
-            Item.Dimension,
-             Item.Detail, Item.IsSold, Item.Color, Item.Price
+      SELECT *
       FROM Item INNER JOIN Wishlist ON Item.ItemID = Wishlist.ItemID WHERE Wishlist.UserID = ?;');
 
       $stmt->execute(array($id));
