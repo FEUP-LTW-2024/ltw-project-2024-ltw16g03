@@ -43,7 +43,7 @@
                                 <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
                                 <button type="submit" class="delete-item red">DELETE</button></a>
                             </form>
-                        <?php } else { ?>
+                        <?php } else if (!$item->IsSold) { ?>
                             <?php if (!$session->isInCart($item->ItemID)) {?>
                             <button class="add-to-cart" data-item='<?=json_encode($item)?>'>ADD TO CART</button>
                             <?php } else { ?>
@@ -64,7 +64,7 @@
                     <img class="seller-picture" src="<?=$user->ImageUrl?>" alt="profile picture">
                     <div class="seller-info2">
                         <p class="seller-username"><?=htmlspecialchars($user->Username)?></p>
-                        <button class="make-offer">MAKE AN OFFER</button>
+                        <?php if (!$item->IsSold) { ?> <button class="make-offer">MAKE AN OFFER</button> <?php } ?>
                         <a href="../pages/messages.php?id=<?=urlencode($user->UserID)?>"><button class="ask-seller">ASK SELLER</button></a>
                     </div>
                 </div>
